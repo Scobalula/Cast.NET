@@ -16,6 +16,9 @@
 # Mono auto generated files
 mono_crash.*
 
+# Test data
+[Tt]ests/
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/

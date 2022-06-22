@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "Cast.NET.Example": {
+      "commandName": "Project"
+    }
+  }
+}
