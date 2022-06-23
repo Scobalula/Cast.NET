@@ -8,10 +8,6 @@ Cast.NET provides you with the ability the read and write these files in an easy
 
 Cast.NET requires .NET 6.0 and has been tested on both Windows and Linux.
 
-# Documentation
-
-TODO
-
 # Quick Usage Examples
 
 A quick example of loading a model and printing its materials:
@@ -74,4 +70,4 @@ More in-depth examples are included in the source code, these include a basic Gl
 
 # License/Disclaimers
 
-Cast.NET is licensed under the [MIT license](LICENSE). Cast.NET is a third-party library and is not associated with DTZxPorter or anyone who has worked on Cast, any issues with Cast.NET should be directed to this repo. This library comes with no warranty, please refer to the [license](LICENSE) file for more information.
+Cast.NET is licensed under the MIT license. Cast.NET is a third-party library and is not associated with DTZxPorter or anyone who has worked on Cast, any issues with Cast.NET should be directed to this repo. This library comes with no warranty, please refer to the LICENSE file for more information.

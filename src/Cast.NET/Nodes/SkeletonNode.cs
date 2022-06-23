@@ -122,15 +122,15 @@ namespace Cast.NET.Nodes
             {
                 if (bone.ParentIndex == -1)
                 {
-                    bone.AddValue("lp", bone.LocalPosition);
-                    bone.AddValue("lr", CastHelpers.CreateVector4FromQuaternion(bone.LocalRotation));
+                    bone.AddValue("wp", bone.LocalPosition);
+                    bone.AddValue("wr", CastHelpers.CreateVector4FromQuaternion(bone.LocalRotation));
                 }
                 else
                 {
                     var parent = GetChild<BoneNode>(bone.ParentIndex);
 
-                    bone.AddValue("lr", CastHelpers.CreateVector4FromQuaternion(parent.WorldRotation * bone.LocalRotation));
-                    bone.AddValue("lp", Vector3.Transform(bone.WorldPosition, parent.WorldRotation) + parent.WorldPosition);
+                    bone.AddValue("wr", CastHelpers.CreateVector4FromQuaternion(parent.WorldRotation * bone.LocalRotation));
+                    bone.AddValue("wp", Vector3.Transform(bone.WorldPosition, parent.WorldRotation) + parent.WorldPosition);
                 }
             }
         }
