@@ -2,7 +2,7 @@
 using Cast.NET.Nodes;
 using SharpGLTF.Schema2;
 
-namespace Cast.NET.Example
+namespace Cast.NET.Example.GltfToCast
 {
     public class Program
     {
@@ -222,10 +222,10 @@ namespace Cast.NET.Example
             // but if you want to help, feel free to file a PR improving this! :D
             // TODO: Add animations and shapes to this example!
             var gltfModel = ModelRoot.Load(fileName);
-            var gltfSkin  = gltfModel.LogicalSkins.Count == 0 ? null : gltfModel.LogicalSkins[0];
-            var root      = new CastNode(CastNodeIdentifier.Root);
-            var model     = root.AddNode<ModelNode>();
-            var skeleton  = model.AddNode<SkeletonNode>();
+            var gltfSkin = gltfModel.LogicalSkins.Count == 0 ? null : gltfModel.LogicalSkins[0];
+            var root = new CastNode(CastNodeIdentifier.Root);
+            var model = root.AddNode<ModelNode>();
+            var skeleton = model.AddNode<SkeletonNode>();
 
             // First consume the skin, grabbing all bones if any exist.
             ConsumeGltfSkin(gltfSkin, skeleton);
@@ -249,7 +249,7 @@ namespace Cast.NET.Example
                         Console.WriteLine($"| WARNING: Primitive in: {gltfMesh.Name} has unsupported primitive type: {gltfPrimitive.DrawPrimitiveType}. Skipping primitive.");
                         continue;
                     }
-  
+
                     var meshNode = new MeshNode();
                     // Add material hash.
                     meshNode.AddValue("m", materialHashes[gltfPrimitive.Material.LogicalIndex]);
@@ -270,7 +270,7 @@ namespace Cast.NET.Example
         {
             foreach (var file in args)
             {
-                if(Path.GetExtension(file).Equals(".gltf", StringComparison.CurrentCultureIgnoreCase))
+                if (Path.GetExtension(file).Equals(".gltf", StringComparison.CurrentCultureIgnoreCase))
                 {
                     Console.WriteLine($"Converting: {file}...");
                     try
@@ -278,7 +278,7 @@ namespace Cast.NET.Example
                         ConvertGltfFile(file);
                         Console.WriteLine($"Converted: {file}...");
                     }
-                    catch(Exception e)
+                    catch (Exception e)
                     {
                         Console.WriteLine($"Error: {e.Message}");
                     }

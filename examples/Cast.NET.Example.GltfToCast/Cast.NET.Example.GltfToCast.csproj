@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Cast.NET\Cast.NET.csproj" />
+    <ProjectReference Include="..\..\src\Cast.NET\Cast.NET.csproj" />
   </ItemGroup>
 
 </Project>

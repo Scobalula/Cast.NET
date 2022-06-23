@@ -9,7 +9,7 @@ namespace Cast.NET.Tests
         [TestMethod]
         public void CastReadWriteTest()
         {
-            var dir = Path.Combine(Environment.GetEnvironmentVariable("CAST_TEST_DIR") ?? "tests", "CastReadWriteTests");
+            var dir = Path.Combine(Environment.GetEnvironmentVariable("CAST_TEST_DIR") ?? "tests", "testfiles", "CastReadWriteTests");
 
             // At the very least, Cast.NET should produce identical output for the given input
             // if a file changes, we've messed something up

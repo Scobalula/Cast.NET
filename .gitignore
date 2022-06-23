@@ -17,7 +17,7 @@
 mono_crash.*
 
 # Test data
-[Tt]ests/
+[Tt]estfiles/
 
 # Build results
 [Dd]ebug/
