@@ -1,0 +1,413 @@
+{
+  "homepages": [],
+  "source_base_path": "D:/a/Cast.NET/Cast.NET/docfx",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      },
+      "is_incremental": false
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cast.NET.Cast.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cast.NET.Cast.html",
+          "hash": "B1zxhpIUL1c/ky/z7OXD4NDQXzQfknPz+9AC7B05fVQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cast.NET.CastArrayProperty-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cast.NET.CastArrayProperty-1.html",
+          "hash": "23XVDoB0H7Vzj4pYycKrQD5TwnUsotSdpoqMI8NNNLQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cast.NET.CastHasher.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cast.NET.CastHasher.html",
+          "hash": "gUUzNF+dQTvVHaO4fVMIHejprxky0xSlV4X932oOCSo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cast.NET.CastHelpers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cast.NET.CastHelpers.html",
+          "hash": "8cdRe33NSaOV8qR/e6i1vgoKd2LrjYaAqiL+jPVL8LM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cast.NET.CastNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cast.NET.CastNode.html",
+          "hash": "ZtDUWn85mHr4e+qXZVyk86IH04qs3RtZudMmGsLalVg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cast.NET.CastNodeIdentifier.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cast.NET.CastNodeIdentifier.html",
+          "hash": "jOXpddslAV8Yl7A5hi8lVvCNpPI/LUxEGkp7jbM4wVI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cast.NET.CastProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cast.NET.CastProperty.html",
+          "hash": "omuWn7D4OAqyq/sXUXZxvdWDozzQ1aqrppq0fnL4MQ8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cast.NET.CastPropertyIdentifier.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cast.NET.CastPropertyIdentifier.html",
+          "hash": "ytZ/RCsKmZifwWtx1cVwBpOdrsTzhudWWq42sKKDO/A="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cast.NET.CastReader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cast.NET.CastReader.html",
+          "hash": "45bJClY4pe1uLkQWL05ed8Zh2sOJ+7arKwLaqVaw8fI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cast.NET.CastStringProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cast.NET.CastStringProperty.html",
+          "hash": "591yw2iFbFGLB9Vq+gwulDIP+HPXCh8fPSoCOnRYxGw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cast.NET.CastWriter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cast.NET.CastWriter.html",
+          "hash": "EoCJ+xseIaB7i6+vShTaQlh1GKto2PN8rSGfjeM0Jpk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cast.NET.Nodes.AnimationNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cast.NET.Nodes.AnimationNode.html",
+          "hash": "B3RgkLo7D6X+eUsbUOldVUF5GuzaUpqW3JD4f9VKYzg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cast.NET.Nodes.BlendShapeNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cast.NET.Nodes.BlendShapeNode.html",
+          "hash": "Jvq4EhLkKnbPjsDu9YmCPart3qmATkw6kU8IqIiMnY0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cast.NET.Nodes.BoneNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cast.NET.Nodes.BoneNode.html",
+          "hash": "uz/gGzT6RDmOGdELE1E3kvdFmBpiMaSs4X01rzRIFhQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cast.NET.Nodes.CurveNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cast.NET.Nodes.CurveNode.html",
+          "hash": "GjPPuqwpv6OkQaEt3xNHLSqLdzUU3vWkXWoM50kN5hc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cast.NET.Nodes.FileNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cast.NET.Nodes.FileNode.html",
+          "hash": "0szOXTf8uscATGu0e0IKYtss6TmAdIP5hY1MQiTQN3o="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cast.NET.Nodes.MaterialNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cast.NET.Nodes.MaterialNode.html",
+          "hash": "NFWE1OYAZloQsHnKbVFrjl1HGVfJEDGg4fTacxIQnRw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cast.NET.Nodes.MeshNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cast.NET.Nodes.MeshNode.html",
+          "hash": "Hh8KgsRruqXaX1vle1ojYNVD5pFyEcIKNNpfcF/JTc4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cast.NET.Nodes.ModelNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cast.NET.Nodes.ModelNode.html",
+          "hash": "jOoeLjKAWljrD8ONAbnYPwKrnapdCE8a37XhzCs7he8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cast.NET.Nodes.NotificationTrackNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cast.NET.Nodes.NotificationTrackNode.html",
+          "hash": "cLEfr7oV3X40grYEPb6nAkar6Rp2RFDTyiKEKmWADdE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cast.NET.Nodes.SkeletonNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cast.NET.Nodes.SkeletonNode.html",
+          "hash": "b4DLMRGuY6Uut9VFXHkG67XgH91mMc+PTD6Ax3+qmBQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cast.NET.Nodes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cast.NET.Nodes.html",
+          "hash": "okZ+ntjytZEtUy7fBHaTpV5Mb2QqewbEk6/5+Zo3T8A="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Cast.NET.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Cast.NET.html",
+          "hash": "rKVjXFpKx669YJNEcIYB4GdfgQnWYt3KGUpVoCf6zmE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "/dz2nIPblX1tVgf7HtwPZCADbymZ9OC2CHWsJiskUCM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "zDnHsIw/6F5aR1xqc9PfU9aeTVKUnL27lG9FHvt6XUU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/quickstart.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/quickstart.html",
+          "hash": "BZwZB6TiGoNsaW1tD66gtCmvhwbtt/iiQSviM5b4Z1k="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "dZDttFdLhSBo2oTJxUhUPGOBWnuOiTkHJY0XEpOU+jM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "TI2lK1sEfc6GMW8t5pCmexRj0tPj6aPqx/CxHOcl44Q="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "PghBLPJfjv2ABxheQo56P5qmZne3Fuz7JZfoGu7JJ+U="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0,
+        "full_build_reason_code": "NoAvailableBuildCache"
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 3,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 23,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: should not trace intermediate info.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
