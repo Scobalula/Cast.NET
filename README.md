@@ -10,7 +10,7 @@ Cast.NET requires .NET 6.0 and has been tested on both Windows and Linux.
 
 # Documentation
 
-TODO
+Documentation is available here: [https://scobalula.github.io/Cast.NET/](https://scobalula.github.io/Cast.NET/). Documentation for Cast.NET is constantly evolving, if you want to help out, please feel free to file a PR!
 
 # Quick Usage Examples
 
