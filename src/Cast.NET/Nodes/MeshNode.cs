@@ -90,6 +90,11 @@ namespace Cast.NET.Nodes
         public int MaximumWeightInfluence => (int)GetFirstIntegerOrDefault("mi", 0, 32);
 
         /// <summary>
+        /// Gets the skinning type the mesh uses.
+        /// </summary>
+        public string SkinningMethod => GetStringValueOrDefault("s", "linear");
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="MeshNode"/> class.
         /// </summary>
         public MeshNode() : base(CastNodeIdentifier.Mesh) { }

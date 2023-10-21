@@ -36,7 +36,7 @@ namespace Cast.NET.Nodes
         /// <summary>
         /// Gets all the notification tracks stored within this animation.
         /// </summary>
-        public CurveNode[] NotificationTracks => GetChildrenOfType<CurveNode>();
+        public NotificationTrackNode[] NotificationTracks => GetChildrenOfType<NotificationTrackNode>();
 
         /// <summary>
         /// Gets the framerate of this animation.
