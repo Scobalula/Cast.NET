@@ -1,10 +1,22 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AppDesignerFolder>PropertyTypes</AppDesignerFolder>
+    <PackageId>Cast.NET</PackageId>
+    <PackageVersion>1.0.0-alpha</PackageVersion>
+    <PackageReleaseNotes>Initial alpha release.</PackageReleaseNotes>
+    <Authors>Scobalula</Authors>
+    <Description>A .NET Library for reading and writing Cast files.</Description>
+    <Copyright>README.md</Copyright>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/Scobalula/Cast.NET</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/Scobalula/Cast.NET</PackageProjectUrl>
   </PropertyGroup>
-
+    <ItemGroup>
+        <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
+    </ItemGroup>
 </Project>

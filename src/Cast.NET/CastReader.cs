@@ -1,7 +1,7 @@
 ﻿
 // ------------------------------------------------------------------------
 // Cast.NET - A .NET Library for reading and writing Cast files.
-// Copyright(c) 2022 Philip/Scobalula
+// Copyright(c) 2024 Philip/Scobalula
 // ------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -93,18 +93,20 @@ namespace Cast.NET
 
             var newNode = identifier switch
             {
-                CastNodeIdentifier.Root              => new CastNode(identifier, nodeHash),
-                CastNodeIdentifier.Curve             => new CurveNode(identifier, nodeHash),
-                CastNodeIdentifier.Bone              => new BoneNode(identifier, nodeHash),
-                CastNodeIdentifier.Skeleton          => new SkeletonNode(identifier, nodeHash),
-                CastNodeIdentifier.Model             => new ModelNode(identifier, nodeHash),
-                CastNodeIdentifier.Mesh              => new MeshNode(identifier, nodeHash),
-                CastNodeIdentifier.BlendShape        => new BlendShapeNode(identifier, nodeHash),
-                CastNodeIdentifier.Animation         => new AnimationNode(identifier, nodeHash),
-                CastNodeIdentifier.NotificationTrack => new NotificationTrackNode(identifier, nodeHash),
-                CastNodeIdentifier.Material          => new MaterialNode(identifier, nodeHash),
-                CastNodeIdentifier.File              => new FileNode(identifier, nodeHash),
-                _                                    => new CastNode(identifier, nodeHash),
+                CastNodeIdentifier.Root                    => new CastNode(identifier, nodeHash),
+                CastNodeIdentifier.Curve                   => new CurveNode(identifier, nodeHash),
+                CastNodeIdentifier.Bone                    => new BoneNode(identifier, nodeHash),
+                CastNodeIdentifier.IKHandle                => new IKHandleNode(identifier, nodeHash),
+                CastNodeIdentifier.Constraint              => new ConstraintNode(identifier, nodeHash),
+                CastNodeIdentifier.Skeleton                => new SkeletonNode(identifier, nodeHash),
+                CastNodeIdentifier.Model                   => new ModelNode(identifier, nodeHash),
+                CastNodeIdentifier.Mesh                    => new MeshNode(identifier, nodeHash),
+                CastNodeIdentifier.BlendShape              => new BlendShapeNode(identifier, nodeHash),
+                CastNodeIdentifier.Animation               => new AnimationNode(identifier, nodeHash),
+                CastNodeIdentifier.NotificationTrack       => new NotificationTrackNode(identifier, nodeHash),
+                CastNodeIdentifier.Material                => new MaterialNode(identifier, nodeHash),
+                CastNodeIdentifier.File                    => new FileNode(identifier, nodeHash),
+                _                                          => new CastNode(identifier, nodeHash),
             };
 
             for (uint i = 0; i < propCount; i++)

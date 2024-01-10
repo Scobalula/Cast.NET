@@ -1,6 +1,6 @@
 ﻿// ------------------------------------------------------------------------
 // Cast.NET - A .NET Library for reading and writing Cast files.
-// Copyright(c) 2022 Philip/Scobalula
+// Copyright(c) 2024 Philip/Scobalula
 // ------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -28,6 +28,11 @@ namespace Cast.NET.Nodes
     /// </summary>
     public class FileNode : CastNode
     {
+        /// <summary>
+        /// Gets the path of this file.
+        /// </summary>
+        public string Path => GetStringValueOrDefault("p", string.Empty);
+
         /// <summary>
         /// Initializes a new instance of the <see cref="FileNode"/> class.
         /// </summary>
@@ -78,10 +83,5 @@ namespace Cast.NET.Nodes
         /// </summary>
         /// <param name="source">Node to copy from. A shallow copy is performed and references to the source are stored.</param>
         public FileNode(CastNode source) : base(source) { }
-
-        /// <summary>
-        /// Gets the path of this file.
-        /// </summary>
-        public string Path => GetStringValueOrDefault("p", string.Empty);
     }
 }

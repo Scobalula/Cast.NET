@@ -24,71 +24,97 @@
 namespace Cast.NET.Nodes
 {
     /// <summary>
-    /// A class to hold a <see cref="CastNode"/> that contains an Animation.
+    /// A class to hold a <see cref="CastNode"/> that contains an IK handle.
     /// </summary>
-    public class AnimationNode : CastNode
+    public class IKHandleNode : CastNode
     {
         /// <summary>
-        /// Gets the skeleton assigned to this animation, if none is assigned, null is returned.
+        /// Gets the hash of the start <see cref="BoneNode"/>.
         /// </summary>
-        public SkeletonNode? Skeleton => GetFirstChildOfTypeOrNull<SkeletonNode>();
+        public ulong StartBoneHash => GetFirstValueOrDefault<ulong>("sb", 0);
 
         /// <summary>
-        /// Gets all the curves stored within this animation.
+        /// Gets the hash of the end <see cref="BoneNode"/>.
         /// </summary>
-        public CurveNode[] Curves => GetChildrenOfType<CurveNode>();
+        public ulong EndBoneHash => GetFirstValueOrDefault<ulong>("eb", 0);
 
         /// <summary>
-        /// Gets all the notification tracks stored within this animation.
+        /// Gets the hash of the target <see cref="BoneNode"/>.
         /// </summary>
-        public NotificationTrackNode[] NotificationTracks => GetChildrenOfType<NotificationTrackNode>();
+        public ulong TargetBoneHash => GetFirstValueOrDefault<ulong>("tb", 0);
 
         /// <summary>
-        /// Gets the framerate of this animation.
+        /// Gets the hash of the pole vector <see cref="BoneNode"/>.
         /// </summary>
-        public float Framerate => GetFirstValueOrDefault("f", 30.0f);
+        public ulong PoleVectorBoneHash => GetFirstValueOrDefault<ulong>("pv", 0);
 
         /// <summary>
-        /// Gets if looping is enabled for this animation.
+        /// Gets the hash of the pole (twist) <see cref="BoneNode"/>.
         /// </summary>
-        public bool Looping => GetFirstValueOrDefault("b", (byte)0) == 1;
+        public ulong PoleBoneHash => GetFirstValueOrDefault<ulong>("pb", 0);
 
         /// <summary>
-        /// Gets the transform space for this animation.
+        /// Gets if target rotation effects the chain.
         /// </summary>
-        public string TransformSpace => GetStringValueOrDefault("s", "local");
+        public bool UseTargetRotation => GetFirstValueOrDefault("tr", (byte)0) == 1;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AnimationNode"/> class.
+        /// Gets the start <see cref="BoneNode"/>.
         /// </summary>
-        public AnimationNode() : base(CastNodeIdentifier.Model) { }
+        public BoneNode? StartBone => Parent?.GetChildByHashOrNull<BoneNode>(StartBoneHash);
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AnimationNode"/> class.
+        /// Gets the end <see cref="BoneNode"/>.
+        /// </summary>
+        public BoneNode? EndBone => Parent?.GetChildByHashOrNull<BoneNode>(EndBoneHash);
+
+        /// <summary>
+        /// Gets the target <see cref="BoneNode"/>.
+        /// </summary>
+        public BoneNode? TargetBone => Parent?.GetChildByHashOrNull<BoneNode>(TargetBoneHash);
+
+        /// <summary>
+        /// Gets the pole vector <see cref="BoneNode"/>.
+        /// </summary>
+        public BoneNode? PoleVectorBone => Parent?.GetChildByHashOrNull<BoneNode>(PoleVectorBoneHash);
+
+        /// <summary>
+        /// Gets the pole <see cref="BoneNode"/>.
+        /// </summary>
+        public BoneNode? PoleBone => Parent?.GetChildByHashOrNull<BoneNode>(PoleBoneHash);
+
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="IKHandleNode"/> class.
+        /// </summary>
+        public IKHandleNode() : base(CastNodeIdentifier.IKHandle) { }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="IKHandleNode"/> class.
         /// </summary>
         /// <param name="identifier">Node identifier.</param>
-        public AnimationNode(CastNodeIdentifier identifier) : base(identifier) { }
+        public IKHandleNode(CastNodeIdentifier identifier) : base(identifier) { }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AnimationNode"/> class.
+        /// Initializes a new instance of the <see cref="IKHandleNode"/> class.
         /// </summary>
         /// <param name="identifier">Node identifier.</param>
         /// <param name="hash">Optional hash value for lookups.</param>
-        public AnimationNode(CastNodeIdentifier identifier, ulong hash) : base(identifier, hash) { }
+        public IKHandleNode(CastNodeIdentifier identifier, ulong hash) : base(identifier, hash) { }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AnimationNode"/> class.
+        /// Initializes a new instance of the <see cref="IKHandleNode"/> class.
         /// </summary>
         /// <param name="hash">Optional hash value for lookups.</param>
-        public AnimationNode(ulong hash) : base(CastNodeIdentifier.Model, hash) { }
+        public IKHandleNode(ulong hash) : base(CastNodeIdentifier.Model, hash) { }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AnimationNode"/> class.
+        /// Initializes a new instance of the <see cref="IKHandleNode"/> class.
         /// </summary>
         /// <param name="hash">Optional hash value for lookups.</param>
         /// <param name="properties">Properties to assign to this node..</param>
         /// <param name="children">Children to assign to this node..</param>
-        public AnimationNode(ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
+        public IKHandleNode(ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
             base(CastNodeIdentifier.Model, hash, properties, children)
         { }
 
@@ -99,26 +125,14 @@ namespace Cast.NET.Nodes
         /// <param name="hash">Optional hash value for lookups.</param>
         /// <param name="properties">Properties to assign to this node..</param>
         /// <param name="children">Children to assign to this node..</param>
-        public AnimationNode(CastNodeIdentifier identifier, ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
+        public IKHandleNode(CastNodeIdentifier identifier, ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
             base(identifier, hash, properties, children)
         { }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AnimationNode"/> class.
+        /// Initializes a new instance of the <see cref="IKHandleNode"/> class.
         /// </summary>
         /// <param name="source">Node to copy from. A shallow copy is performed and references to the source are stored.</param>
-        public AnimationNode(CastNode source) : base(source) { }
-
-        /// <summary>
-        /// Enumerates through all curves within this animation.
-        /// </summary>
-        /// <returns>An enumerable collection of curves within this animation.</returns>
-        public IEnumerable<CurveNode> EnumerateCurves() => EnumerateChildrenOfType<CurveNode>();
-
-        /// <summary>
-        /// Enumerates through all notification tracks within this animation.
-        /// </summary>
-        /// <returns>An enumerable collection of notification tracks within this animation.</returns>
-        public IEnumerable<CurveNode> EnumerateNotificationTracks() => EnumerateChildrenOfType<CurveNode>();
+        public IKHandleNode(CastNode source) : base(source) { }
     }
 }

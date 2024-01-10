@@ -1,6 +1,6 @@
 ﻿// ------------------------------------------------------------------------
 // Cast.NET - A .NET Library for reading and writing Cast files.
-// Copyright(c) 2022 Philip/Scobalula
+// Copyright(c) 2024 Philip/Scobalula
 // ------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -32,56 +32,66 @@ namespace Cast.NET
         /// <summary>
         /// A node that contains a root <see cref="CastNode"/>.
         /// </summary>
-        Root              = 0x746F6F72,
+        Root                = 0x746F6F72,
 
         /// <summary>
         /// A node that contains a <see cref="ModelNode"/>.
         /// </summary>
-        Model             = 0x6C646F6D,
+        Model               = 0x6C646F6D,
 
         /// <summary>
         /// A node that contains a <see cref="MeshNode"/>.
         /// </summary>
-        Mesh              = 0x6873656D,
+        Mesh                = 0x6873656D,
 
         /// <summary>
         /// A node that contains a <see cref="BlendShapeNode"/>.
         /// </summary>
-        BlendShape        = 0x68736C62,
+        BlendShape          = 0x68736C62,
 
         /// <summary>
         /// A node that contains a <see cref="SkeletonNode"/>.
         /// </summary>
-        Skeleton          = 0x6C656B73,
+        Skeleton            = 0x6C656B73,
 
         /// <summary>
         /// A node that contains a <see cref="BoneNode"/>.
         /// </summary>
-        Bone              = 0x656E6F62,
+        Bone                = 0x656E6F62,
+
+        /// <summary>
+        /// A node that contains a <see cref="IKHandle"/>.
+        /// </summary>
+        IKHandle            = 0x64686B69,
+
+        /// <summary>
+        /// A node that contains a <see cref="ConstraintNode"/>.
+        /// </summary>
+        Constraint          = 0x74736E63,
 
         /// <summary>
         /// A node that contains a <see cref="AnimationNode"/>.
         /// </summary>
-        Animation         = 0x6D696E61,
+        Animation           = 0x6D696E61,
 
         /// <summary>
         /// A node that contains a <see cref="CurveNode"/>.
         /// </summary>
-        Curve             = 0x76727563,
+        Curve               = 0x76727563,
 
         /// <summary>
         /// A node that contains a <see cref="NotificationTrackNode"/>.
         /// </summary>
-        NotificationTrack = 0x6669746E,
+        NotificationTrack   = 0x6669746E,
 
         /// <summary>
         /// A node that contains a <see cref="MaterialNode"/>.
         /// </summary>
-        Material          = 0x6C74616D,
+        Material            = 0x6C74616D,
 
         /// <summary>
         /// A node that contains a <see cref="FileNode"/>.
         /// </summary>
-        File              = 0x656C6966,
+        File                = 0x656C6966,
     };
 }
