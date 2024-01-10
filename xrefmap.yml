@@ -1,0 +1,3121 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: Cast.NET
+  name: Cast.NET
+  href: api/Cast.NET.html
+  commentId: N:Cast.NET
+  fullName: Cast.NET
+  nameWithType: Cast.NET
+- uid: Cast.NET.Cast
+  name: Cast
+  href: api/Cast.NET.Cast.html
+  commentId: T:Cast.NET.Cast
+  fullName: Cast.NET.Cast
+  nameWithType: Cast
+- uid: Cast.NET.Cast.#ctor
+  name: Cast()
+  href: api/Cast.NET.Cast.html#Cast_NET_Cast__ctor
+  commentId: M:Cast.NET.Cast.#ctor
+  fullName: Cast.NET.Cast.Cast()
+  nameWithType: Cast.Cast()
+- uid: Cast.NET.Cast.#ctor(List{Cast.NET.CastNode})
+  name: Cast(List<CastNode>)
+  href: api/Cast.NET.Cast.html#Cast_NET_Cast__ctor_List_Cast_NET_CastNode__
+  commentId: M:Cast.NET.Cast.#ctor(List{Cast.NET.CastNode})
+  name.vb: Cast(List(Of CastNode))
+  fullName: Cast.NET.Cast.Cast(List<Cast.NET.CastNode>)
+  fullName.vb: Cast.NET.Cast.Cast(List(Of Cast.NET.CastNode))
+  nameWithType: Cast.Cast(List<CastNode>)
+  nameWithType.vb: Cast.Cast(List(Of CastNode))
+- uid: Cast.NET.Cast.#ctor*
+  name: Cast
+  href: api/Cast.NET.Cast.html#Cast_NET_Cast__ctor_
+  commentId: Overload:Cast.NET.Cast.#ctor
+  isSpec: "True"
+  fullName: Cast.NET.Cast.Cast
+  nameWithType: Cast.Cast
+- uid: Cast.NET.Cast.AddNode*
+  name: AddNode
+  href: api/Cast.NET.Cast.html#Cast_NET_Cast_AddNode_
+  commentId: Overload:Cast.NET.Cast.AddNode
+  isSpec: "True"
+  fullName: Cast.NET.Cast.AddNode
+  nameWithType: Cast.AddNode
+- uid: Cast.NET.Cast.AddNode``1
+  name: AddNode<T>()
+  href: api/Cast.NET.Cast.html#Cast_NET_Cast_AddNode__1
+  commentId: M:Cast.NET.Cast.AddNode``1
+  name.vb: AddNode(Of T)()
+  fullName: Cast.NET.Cast.AddNode<T>()
+  fullName.vb: Cast.NET.Cast.AddNode(Of T)()
+  nameWithType: Cast.AddNode<T>()
+  nameWithType.vb: Cast.AddNode(Of T)()
+- uid: Cast.NET.Cast.AddNode``1(``0)
+  name: AddNode<T>(T)
+  href: api/Cast.NET.Cast.html#Cast_NET_Cast_AddNode__1___0_
+  commentId: M:Cast.NET.Cast.AddNode``1(``0)
+  name.vb: AddNode(Of T)(T)
+  fullName: Cast.NET.Cast.AddNode<T>(T)
+  fullName.vb: Cast.NET.Cast.AddNode(Of T)(T)
+  nameWithType: Cast.AddNode<T>(T)
+  nameWithType.vb: Cast.AddNode(Of T)(T)
+- uid: Cast.NET.Cast.RootNodes
+  name: RootNodes
+  href: api/Cast.NET.Cast.html#Cast_NET_Cast_RootNodes
+  commentId: P:Cast.NET.Cast.RootNodes
+  fullName: Cast.NET.Cast.RootNodes
+  nameWithType: Cast.RootNodes
+- uid: Cast.NET.Cast.RootNodes*
+  name: RootNodes
+  href: api/Cast.NET.Cast.html#Cast_NET_Cast_RootNodes_
+  commentId: Overload:Cast.NET.Cast.RootNodes
+  isSpec: "True"
+  fullName: Cast.NET.Cast.RootNodes
+  nameWithType: Cast.RootNodes
+- uid: Cast.NET.CastArrayProperty`1
+  name: CastArrayProperty<T>
+  href: api/Cast.NET.CastArrayProperty-1.html
+  commentId: T:Cast.NET.CastArrayProperty`1
+  name.vb: CastArrayProperty(Of T)
+  fullName: Cast.NET.CastArrayProperty<T>
+  fullName.vb: Cast.NET.CastArrayProperty(Of T)
+  nameWithType: CastArrayProperty<T>
+  nameWithType.vb: CastArrayProperty(Of T)
+- uid: Cast.NET.CastArrayProperty`1.#ctor
+  name: CastArrayProperty()
+  href: api/Cast.NET.CastArrayProperty-1.html#Cast_NET_CastArrayProperty_1__ctor
+  commentId: M:Cast.NET.CastArrayProperty`1.#ctor
+  fullName: Cast.NET.CastArrayProperty<T>.CastArrayProperty()
+  fullName.vb: Cast.NET.CastArrayProperty(Of T).CastArrayProperty()
+  nameWithType: CastArrayProperty<T>.CastArrayProperty()
+  nameWithType.vb: CastArrayProperty(Of T).CastArrayProperty()
+- uid: Cast.NET.CastArrayProperty`1.#ctor(`0)
+  name: CastArrayProperty(T)
+  href: api/Cast.NET.CastArrayProperty-1.html#Cast_NET_CastArrayProperty_1__ctor__0_
+  commentId: M:Cast.NET.CastArrayProperty`1.#ctor(`0)
+  fullName: Cast.NET.CastArrayProperty<T>.CastArrayProperty(T)
+  fullName.vb: Cast.NET.CastArrayProperty(Of T).CastArrayProperty(T)
+  nameWithType: CastArrayProperty<T>.CastArrayProperty(T)
+  nameWithType.vb: CastArrayProperty(Of T).CastArrayProperty(T)
+- uid: Cast.NET.CastArrayProperty`1.#ctor(IEnumerable{`0})
+  name: CastArrayProperty(IEnumerable<T>)
+  href: api/Cast.NET.CastArrayProperty-1.html#Cast_NET_CastArrayProperty_1__ctor_IEnumerable__0__
+  commentId: M:Cast.NET.CastArrayProperty`1.#ctor(IEnumerable{`0})
+  name.vb: CastArrayProperty(IEnumerable(Of T))
+  fullName: Cast.NET.CastArrayProperty<T>.CastArrayProperty(IEnumerable<T>)
+  fullName.vb: Cast.NET.CastArrayProperty(Of T).CastArrayProperty(IEnumerable(Of T))
+  nameWithType: CastArrayProperty<T>.CastArrayProperty(IEnumerable<T>)
+  nameWithType.vb: CastArrayProperty(Of T).CastArrayProperty(IEnumerable(Of T))
+- uid: Cast.NET.CastArrayProperty`1.#ctor(List{`0})
+  name: CastArrayProperty(List<T>)
+  href: api/Cast.NET.CastArrayProperty-1.html#Cast_NET_CastArrayProperty_1__ctor_List__0__
+  commentId: M:Cast.NET.CastArrayProperty`1.#ctor(List{`0})
+  name.vb: CastArrayProperty(List(Of T))
+  fullName: Cast.NET.CastArrayProperty<T>.CastArrayProperty(List<T>)
+  fullName.vb: Cast.NET.CastArrayProperty(Of T).CastArrayProperty(List(Of T))
+  nameWithType: CastArrayProperty<T>.CastArrayProperty(List<T>)
+  nameWithType.vb: CastArrayProperty(Of T).CastArrayProperty(List(Of T))
+- uid: Cast.NET.CastArrayProperty`1.#ctor(System.Int32)
+  name: CastArrayProperty(Int32)
+  href: api/Cast.NET.CastArrayProperty-1.html#Cast_NET_CastArrayProperty_1__ctor_System_Int32_
+  commentId: M:Cast.NET.CastArrayProperty`1.#ctor(System.Int32)
+  fullName: Cast.NET.CastArrayProperty<T>.CastArrayProperty(System.Int32)
+  fullName.vb: Cast.NET.CastArrayProperty(Of T).CastArrayProperty(System.Int32)
+  nameWithType: CastArrayProperty<T>.CastArrayProperty(Int32)
+  nameWithType.vb: CastArrayProperty(Of T).CastArrayProperty(Int32)
+- uid: Cast.NET.CastArrayProperty`1.#ctor*
+  name: CastArrayProperty
+  href: api/Cast.NET.CastArrayProperty-1.html#Cast_NET_CastArrayProperty_1__ctor_
+  commentId: Overload:Cast.NET.CastArrayProperty`1.#ctor
+  isSpec: "True"
+  fullName: Cast.NET.CastArrayProperty<T>.CastArrayProperty
+  fullName.vb: Cast.NET.CastArrayProperty(Of T).CastArrayProperty
+  nameWithType: CastArrayProperty<T>.CastArrayProperty
+  nameWithType.vb: CastArrayProperty(Of T).CastArrayProperty
+- uid: Cast.NET.CastArrayProperty`1.Add(`0)
+  name: Add(T)
+  href: api/Cast.NET.CastArrayProperty-1.html#Cast_NET_CastArrayProperty_1_Add__0_
+  commentId: M:Cast.NET.CastArrayProperty`1.Add(`0)
+  fullName: Cast.NET.CastArrayProperty<T>.Add(T)
+  fullName.vb: Cast.NET.CastArrayProperty(Of T).Add(T)
+  nameWithType: CastArrayProperty<T>.Add(T)
+  nameWithType.vb: CastArrayProperty(Of T).Add(T)
+- uid: Cast.NET.CastArrayProperty`1.Add*
+  name: Add
+  href: api/Cast.NET.CastArrayProperty-1.html#Cast_NET_CastArrayProperty_1_Add_
+  commentId: Overload:Cast.NET.CastArrayProperty`1.Add
+  isSpec: "True"
+  fullName: Cast.NET.CastArrayProperty<T>.Add
+  fullName.vb: Cast.NET.CastArrayProperty(Of T).Add
+  nameWithType: CastArrayProperty<T>.Add
+  nameWithType.vb: CastArrayProperty(Of T).Add
+- uid: Cast.NET.CastArrayProperty`1.GetFirstValue
+  name: GetFirstValue()
+  href: api/Cast.NET.CastArrayProperty-1.html#Cast_NET_CastArrayProperty_1_GetFirstValue
+  commentId: M:Cast.NET.CastArrayProperty`1.GetFirstValue
+  fullName: Cast.NET.CastArrayProperty<T>.GetFirstValue()
+  fullName.vb: Cast.NET.CastArrayProperty(Of T).GetFirstValue()
+  nameWithType: CastArrayProperty<T>.GetFirstValue()
+  nameWithType.vb: CastArrayProperty(Of T).GetFirstValue()
+- uid: Cast.NET.CastArrayProperty`1.GetFirstValue(`0)
+  name: GetFirstValue(T)
+  href: api/Cast.NET.CastArrayProperty-1.html#Cast_NET_CastArrayProperty_1_GetFirstValue__0_
+  commentId: M:Cast.NET.CastArrayProperty`1.GetFirstValue(`0)
+  fullName: Cast.NET.CastArrayProperty<T>.GetFirstValue(T)
+  fullName.vb: Cast.NET.CastArrayProperty(Of T).GetFirstValue(T)
+  nameWithType: CastArrayProperty<T>.GetFirstValue(T)
+  nameWithType.vb: CastArrayProperty(Of T).GetFirstValue(T)
+- uid: Cast.NET.CastArrayProperty`1.GetFirstValue*
+  name: GetFirstValue
+  href: api/Cast.NET.CastArrayProperty-1.html#Cast_NET_CastArrayProperty_1_GetFirstValue_
+  commentId: Overload:Cast.NET.CastArrayProperty`1.GetFirstValue
+  isSpec: "True"
+  fullName: Cast.NET.CastArrayProperty<T>.GetFirstValue
+  fullName.vb: Cast.NET.CastArrayProperty(Of T).GetFirstValue
+  nameWithType: CastArrayProperty<T>.GetFirstValue
+  nameWithType.vb: CastArrayProperty(Of T).GetFirstValue
+- uid: Cast.NET.CastArrayProperty`1.Identifier
+  name: Identifier
+  href: api/Cast.NET.CastArrayProperty-1.html#Cast_NET_CastArrayProperty_1_Identifier
+  commentId: P:Cast.NET.CastArrayProperty`1.Identifier
+  fullName: Cast.NET.CastArrayProperty<T>.Identifier
+  fullName.vb: Cast.NET.CastArrayProperty(Of T).Identifier
+  nameWithType: CastArrayProperty<T>.Identifier
+  nameWithType.vb: CastArrayProperty(Of T).Identifier
+- uid: Cast.NET.CastArrayProperty`1.Identifier*
+  name: Identifier
+  href: api/Cast.NET.CastArrayProperty-1.html#Cast_NET_CastArrayProperty_1_Identifier_
+  commentId: Overload:Cast.NET.CastArrayProperty`1.Identifier
+  isSpec: "True"
+  fullName: Cast.NET.CastArrayProperty<T>.Identifier
+  fullName.vb: Cast.NET.CastArrayProperty(Of T).Identifier
+  nameWithType: CastArrayProperty<T>.Identifier
+  nameWithType.vb: CastArrayProperty(Of T).Identifier
+- uid: Cast.NET.CastArrayProperty`1.SetFirstValue(`0)
+  name: SetFirstValue(T)
+  href: api/Cast.NET.CastArrayProperty-1.html#Cast_NET_CastArrayProperty_1_SetFirstValue__0_
+  commentId: M:Cast.NET.CastArrayProperty`1.SetFirstValue(`0)
+  fullName: Cast.NET.CastArrayProperty<T>.SetFirstValue(T)
+  fullName.vb: Cast.NET.CastArrayProperty(Of T).SetFirstValue(T)
+  nameWithType: CastArrayProperty<T>.SetFirstValue(T)
+  nameWithType.vb: CastArrayProperty(Of T).SetFirstValue(T)
+- uid: Cast.NET.CastArrayProperty`1.SetFirstValue*
+  name: SetFirstValue
+  href: api/Cast.NET.CastArrayProperty-1.html#Cast_NET_CastArrayProperty_1_SetFirstValue_
+  commentId: Overload:Cast.NET.CastArrayProperty`1.SetFirstValue
+  isSpec: "True"
+  fullName: Cast.NET.CastArrayProperty<T>.SetFirstValue
+  fullName.vb: Cast.NET.CastArrayProperty(Of T).SetFirstValue
+  nameWithType: CastArrayProperty<T>.SetFirstValue
+  nameWithType.vb: CastArrayProperty(Of T).SetFirstValue
+- uid: Cast.NET.CastArrayProperty`1.ValueCount
+  name: ValueCount
+  href: api/Cast.NET.CastArrayProperty-1.html#Cast_NET_CastArrayProperty_1_ValueCount
+  commentId: P:Cast.NET.CastArrayProperty`1.ValueCount
+  fullName: Cast.NET.CastArrayProperty<T>.ValueCount
+  fullName.vb: Cast.NET.CastArrayProperty(Of T).ValueCount
+  nameWithType: CastArrayProperty<T>.ValueCount
+  nameWithType.vb: CastArrayProperty(Of T).ValueCount
+- uid: Cast.NET.CastArrayProperty`1.ValueCount*
+  name: ValueCount
+  href: api/Cast.NET.CastArrayProperty-1.html#Cast_NET_CastArrayProperty_1_ValueCount_
+  commentId: Overload:Cast.NET.CastArrayProperty`1.ValueCount
+  isSpec: "True"
+  fullName: Cast.NET.CastArrayProperty<T>.ValueCount
+  fullName.vb: Cast.NET.CastArrayProperty(Of T).ValueCount
+  nameWithType: CastArrayProperty<T>.ValueCount
+  nameWithType.vb: CastArrayProperty(Of T).ValueCount
+- uid: Cast.NET.CastArrayProperty`1.Values
+  name: Values
+  href: api/Cast.NET.CastArrayProperty-1.html#Cast_NET_CastArrayProperty_1_Values
+  commentId: P:Cast.NET.CastArrayProperty`1.Values
+  fullName: Cast.NET.CastArrayProperty<T>.Values
+  fullName.vb: Cast.NET.CastArrayProperty(Of T).Values
+  nameWithType: CastArrayProperty<T>.Values
+  nameWithType.vb: CastArrayProperty(Of T).Values
+- uid: Cast.NET.CastArrayProperty`1.Values*
+  name: Values
+  href: api/Cast.NET.CastArrayProperty-1.html#Cast_NET_CastArrayProperty_1_Values_
+  commentId: Overload:Cast.NET.CastArrayProperty`1.Values
+  isSpec: "True"
+  fullName: Cast.NET.CastArrayProperty<T>.Values
+  fullName.vb: Cast.NET.CastArrayProperty(Of T).Values
+  nameWithType: CastArrayProperty<T>.Values
+  nameWithType.vb: CastArrayProperty(Of T).Values
+- uid: Cast.NET.CastHasher
+  name: CastHasher
+  href: api/Cast.NET.CastHasher.html
+  commentId: T:Cast.NET.CastHasher
+  fullName: Cast.NET.CastHasher
+  nameWithType: CastHasher
+- uid: Cast.NET.CastHasher.Compute(System.String)
+  name: Compute(String)
+  href: api/Cast.NET.CastHasher.html#Cast_NET_CastHasher_Compute_System_String_
+  commentId: M:Cast.NET.CastHasher.Compute(System.String)
+  fullName: Cast.NET.CastHasher.Compute(System.String)
+  nameWithType: CastHasher.Compute(String)
+- uid: Cast.NET.CastHasher.Compute*
+  name: Compute
+  href: api/Cast.NET.CastHasher.html#Cast_NET_CastHasher_Compute_
+  commentId: Overload:Cast.NET.CastHasher.Compute
+  isSpec: "True"
+  fullName: Cast.NET.CastHasher.Compute
+  nameWithType: CastHasher.Compute
+- uid: Cast.NET.CastHelpers
+  name: CastHelpers
+  href: api/Cast.NET.CastHelpers.html
+  commentId: T:Cast.NET.CastHelpers
+  fullName: Cast.NET.CastHelpers
+  nameWithType: CastHelpers
+- uid: Cast.NET.CastHelpers.CreateQuaternionFromVector4(System.Numerics.Vector4)
+  name: CreateQuaternionFromVector4(Vector4)
+  href: api/Cast.NET.CastHelpers.html#Cast_NET_CastHelpers_CreateQuaternionFromVector4_System_Numerics_Vector4_
+  commentId: M:Cast.NET.CastHelpers.CreateQuaternionFromVector4(System.Numerics.Vector4)
+  fullName: Cast.NET.CastHelpers.CreateQuaternionFromVector4(System.Numerics.Vector4)
+  nameWithType: CastHelpers.CreateQuaternionFromVector4(Vector4)
+- uid: Cast.NET.CastHelpers.CreateQuaternionFromVector4*
+  name: CreateQuaternionFromVector4
+  href: api/Cast.NET.CastHelpers.html#Cast_NET_CastHelpers_CreateQuaternionFromVector4_
+  commentId: Overload:Cast.NET.CastHelpers.CreateQuaternionFromVector4
+  isSpec: "True"
+  fullName: Cast.NET.CastHelpers.CreateQuaternionFromVector4
+  nameWithType: CastHelpers.CreateQuaternionFromVector4
+- uid: Cast.NET.CastHelpers.CreateVector4FromQuaternion(System.Numerics.Quaternion)
+  name: CreateVector4FromQuaternion(Quaternion)
+  href: api/Cast.NET.CastHelpers.html#Cast_NET_CastHelpers_CreateVector4FromQuaternion_System_Numerics_Quaternion_
+  commentId: M:Cast.NET.CastHelpers.CreateVector4FromQuaternion(System.Numerics.Quaternion)
+  fullName: Cast.NET.CastHelpers.CreateVector4FromQuaternion(System.Numerics.Quaternion)
+  nameWithType: CastHelpers.CreateVector4FromQuaternion(Quaternion)
+- uid: Cast.NET.CastHelpers.CreateVector4FromQuaternion*
+  name: CreateVector4FromQuaternion
+  href: api/Cast.NET.CastHelpers.html#Cast_NET_CastHelpers_CreateVector4FromQuaternion_
+  commentId: Overload:Cast.NET.CastHelpers.CreateVector4FromQuaternion
+  isSpec: "True"
+  fullName: Cast.NET.CastHelpers.CreateVector4FromQuaternion
+  nameWithType: CastHelpers.CreateVector4FromQuaternion
+- uid: Cast.NET.CastHelpers.ReadList*
+  name: ReadList
+  href: api/Cast.NET.CastHelpers.html#Cast_NET_CastHelpers_ReadList_
+  commentId: Overload:Cast.NET.CastHelpers.ReadList
+  isSpec: "True"
+  fullName: Cast.NET.CastHelpers.ReadList
+  nameWithType: CastHelpers.ReadList
+- uid: Cast.NET.CastHelpers.ReadList``1(BinaryReader,System.Int32)
+  name: ReadList<T>(BinaryReader, Int32)
+  href: api/Cast.NET.CastHelpers.html#Cast_NET_CastHelpers_ReadList__1_BinaryReader_System_Int32_
+  commentId: M:Cast.NET.CastHelpers.ReadList``1(BinaryReader,System.Int32)
+  name.vb: ReadList(Of T)(BinaryReader, Int32)
+  fullName: Cast.NET.CastHelpers.ReadList<T>(BinaryReader, System.Int32)
+  fullName.vb: Cast.NET.CastHelpers.ReadList(Of T)(BinaryReader, System.Int32)
+  nameWithType: CastHelpers.ReadList<T>(BinaryReader, Int32)
+  nameWithType.vb: CastHelpers.ReadList(Of T)(BinaryReader, Int32)
+- uid: Cast.NET.CastNode
+  name: CastNode
+  href: api/Cast.NET.CastNode.html
+  commentId: T:Cast.NET.CastNode
+  fullName: Cast.NET.CastNode
+  nameWithType: CastNode
+- uid: Cast.NET.CastNode.#ctor(Cast.NET.CastNode)
+  name: CastNode(CastNode)
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode__ctor_Cast_NET_CastNode_
+  commentId: M:Cast.NET.CastNode.#ctor(Cast.NET.CastNode)
+  fullName: Cast.NET.CastNode.CastNode(Cast.NET.CastNode)
+  nameWithType: CastNode.CastNode(CastNode)
+- uid: Cast.NET.CastNode.#ctor(Cast.NET.CastNodeIdentifier)
+  name: CastNode(CastNodeIdentifier)
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode__ctor_Cast_NET_CastNodeIdentifier_
+  commentId: M:Cast.NET.CastNode.#ctor(Cast.NET.CastNodeIdentifier)
+  fullName: Cast.NET.CastNode.CastNode(Cast.NET.CastNodeIdentifier)
+  nameWithType: CastNode.CastNode(CastNodeIdentifier)
+- uid: Cast.NET.CastNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64)
+  name: CastNode(CastNodeIdentifier, UInt64)
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode__ctor_Cast_NET_CastNodeIdentifier_System_UInt64_
+  commentId: M:Cast.NET.CastNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64)
+  fullName: Cast.NET.CastNode.CastNode(Cast.NET.CastNodeIdentifier, System.UInt64)
+  nameWithType: CastNode.CastNode(CastNodeIdentifier, UInt64)
+- uid: Cast.NET.CastNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name: CastNode(CastNodeIdentifier, UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode__ctor_Cast_NET_CastNodeIdentifier_System_UInt64_System_Nullable_Dictionary_System_String_Cast_NET_CastProperty___System_Nullable_List_Cast_NET_CastNode___
+  commentId: M:Cast.NET.CastNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name.vb: CastNode(CastNodeIdentifier, UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+  fullName: Cast.NET.CastNode.CastNode(Cast.NET.CastNodeIdentifier, System.UInt64, System.Nullable<Dictionary<System.String, Cast.NET.CastProperty>>, System.Nullable<List<Cast.NET.CastNode>>)
+  fullName.vb: Cast.NET.CastNode.CastNode(Cast.NET.CastNodeIdentifier, System.UInt64, System.Nullable(Of Dictionary(Of System.String, Cast.NET.CastProperty)), System.Nullable(Of List(Of Cast.NET.CastNode)))
+  nameWithType: CastNode.CastNode(CastNodeIdentifier, UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  nameWithType.vb: CastNode.CastNode(CastNodeIdentifier, UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+- uid: Cast.NET.CastNode.#ctor*
+  name: CastNode
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode__ctor_
+  commentId: Overload:Cast.NET.CastNode.#ctor
+  isSpec: "True"
+  fullName: Cast.NET.CastNode.CastNode
+  nameWithType: CastNode.CastNode
+- uid: Cast.NET.CastNode.AddArray*
+  name: AddArray
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_AddArray_
+  commentId: Overload:Cast.NET.CastNode.AddArray
+  isSpec: "True"
+  fullName: Cast.NET.CastNode.AddArray
+  nameWithType: CastNode.AddArray
+- uid: Cast.NET.CastNode.AddArray``1(System.String)
+  name: AddArray<T>(String)
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_AddArray__1_System_String_
+  commentId: M:Cast.NET.CastNode.AddArray``1(System.String)
+  name.vb: AddArray(Of T)(String)
+  fullName: Cast.NET.CastNode.AddArray<T>(System.String)
+  fullName.vb: Cast.NET.CastNode.AddArray(Of T)(System.String)
+  nameWithType: CastNode.AddArray<T>(String)
+  nameWithType.vb: CastNode.AddArray(Of T)(String)
+- uid: Cast.NET.CastNode.AddArray``1(System.String,IEnumerable{``0})
+  name: AddArray<T>(String, IEnumerable<T>)
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_AddArray__1_System_String_IEnumerable___0__
+  commentId: M:Cast.NET.CastNode.AddArray``1(System.String,IEnumerable{``0})
+  name.vb: AddArray(Of T)(String, IEnumerable(Of T))
+  fullName: Cast.NET.CastNode.AddArray<T>(System.String, IEnumerable<T>)
+  fullName.vb: Cast.NET.CastNode.AddArray(Of T)(System.String, IEnumerable(Of T))
+  nameWithType: CastNode.AddArray<T>(String, IEnumerable<T>)
+  nameWithType.vb: CastNode.AddArray(Of T)(String, IEnumerable(Of T))
+- uid: Cast.NET.CastNode.AddArray``1(System.String,List{``0})
+  name: AddArray<T>(String, List<T>)
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_AddArray__1_System_String_List___0__
+  commentId: M:Cast.NET.CastNode.AddArray``1(System.String,List{``0})
+  name.vb: AddArray(Of T)(String, List(Of T))
+  fullName: Cast.NET.CastNode.AddArray<T>(System.String, List<T>)
+  fullName.vb: Cast.NET.CastNode.AddArray(Of T)(System.String, List(Of T))
+  nameWithType: CastNode.AddArray<T>(String, List<T>)
+  nameWithType.vb: CastNode.AddArray(Of T)(String, List(Of T))
+- uid: Cast.NET.CastNode.AddNode*
+  name: AddNode
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_AddNode_
+  commentId: Overload:Cast.NET.CastNode.AddNode
+  isSpec: "True"
+  fullName: Cast.NET.CastNode.AddNode
+  nameWithType: CastNode.AddNode
+- uid: Cast.NET.CastNode.AddNode``1
+  name: AddNode<T>()
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_AddNode__1
+  commentId: M:Cast.NET.CastNode.AddNode``1
+  name.vb: AddNode(Of T)()
+  fullName: Cast.NET.CastNode.AddNode<T>()
+  fullName.vb: Cast.NET.CastNode.AddNode(Of T)()
+  nameWithType: CastNode.AddNode<T>()
+  nameWithType.vb: CastNode.AddNode(Of T)()
+- uid: Cast.NET.CastNode.AddNode``1(``0)
+  name: AddNode<T>(T)
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_AddNode__1___0_
+  commentId: M:Cast.NET.CastNode.AddNode``1(``0)
+  name.vb: AddNode(Of T)(T)
+  fullName: Cast.NET.CastNode.AddNode<T>(T)
+  fullName.vb: Cast.NET.CastNode.AddNode(Of T)(T)
+  nameWithType: CastNode.AddNode<T>(T)
+  nameWithType.vb: CastNode.AddNode(Of T)(T)
+- uid: Cast.NET.CastNode.AddString(System.String,System.String)
+  name: AddString(String, String)
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_AddString_System_String_System_String_
+  commentId: M:Cast.NET.CastNode.AddString(System.String,System.String)
+  fullName: Cast.NET.CastNode.AddString(System.String, System.String)
+  nameWithType: CastNode.AddString(String, String)
+- uid: Cast.NET.CastNode.AddString*
+  name: AddString
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_AddString_
+  commentId: Overload:Cast.NET.CastNode.AddString
+  isSpec: "True"
+  fullName: Cast.NET.CastNode.AddString
+  nameWithType: CastNode.AddString
+- uid: Cast.NET.CastNode.AddValue*
+  name: AddValue
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_AddValue_
+  commentId: Overload:Cast.NET.CastNode.AddValue
+  isSpec: "True"
+  fullName: Cast.NET.CastNode.AddValue
+  nameWithType: CastNode.AddValue
+- uid: Cast.NET.CastNode.AddValue``1(System.String,``0)
+  name: AddValue<T>(String, T)
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_AddValue__1_System_String___0_
+  commentId: M:Cast.NET.CastNode.AddValue``1(System.String,``0)
+  name.vb: AddValue(Of T)(String, T)
+  fullName: Cast.NET.CastNode.AddValue<T>(System.String, T)
+  fullName.vb: Cast.NET.CastNode.AddValue(Of T)(System.String, T)
+  nameWithType: CastNode.AddValue<T>(String, T)
+  nameWithType.vb: CastNode.AddValue(Of T)(String, T)
+- uid: Cast.NET.CastNode.ChildCountOfType(Cast.NET.CastNodeIdentifier)
+  name: ChildCountOfType(CastNodeIdentifier)
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_ChildCountOfType_Cast_NET_CastNodeIdentifier_
+  commentId: M:Cast.NET.CastNode.ChildCountOfType(Cast.NET.CastNodeIdentifier)
+  fullName: Cast.NET.CastNode.ChildCountOfType(Cast.NET.CastNodeIdentifier)
+  nameWithType: CastNode.ChildCountOfType(CastNodeIdentifier)
+- uid: Cast.NET.CastNode.ChildCountOfType*
+  name: ChildCountOfType
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_ChildCountOfType_
+  commentId: Overload:Cast.NET.CastNode.ChildCountOfType
+  isSpec: "True"
+  fullName: Cast.NET.CastNode.ChildCountOfType
+  nameWithType: CastNode.ChildCountOfType
+- uid: Cast.NET.CastNode.ChildCountOfType``1
+  name: ChildCountOfType<T>()
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_ChildCountOfType__1
+  commentId: M:Cast.NET.CastNode.ChildCountOfType``1
+  name.vb: ChildCountOfType(Of T)()
+  fullName: Cast.NET.CastNode.ChildCountOfType<T>()
+  fullName.vb: Cast.NET.CastNode.ChildCountOfType(Of T)()
+  nameWithType: CastNode.ChildCountOfType<T>()
+  nameWithType.vb: CastNode.ChildCountOfType(Of T)()
+- uid: Cast.NET.CastNode.Children
+  name: Children
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_Children
+  commentId: P:Cast.NET.CastNode.Children
+  fullName: Cast.NET.CastNode.Children
+  nameWithType: CastNode.Children
+- uid: Cast.NET.CastNode.Children*
+  name: Children
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_Children_
+  commentId: Overload:Cast.NET.CastNode.Children
+  isSpec: "True"
+  fullName: Cast.NET.CastNode.Children
+  nameWithType: CastNode.Children
+- uid: Cast.NET.CastNode.EnumerateChildrenOfType(Cast.NET.CastNodeIdentifier)
+  name: EnumerateChildrenOfType(CastNodeIdentifier)
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_EnumerateChildrenOfType_Cast_NET_CastNodeIdentifier_
+  commentId: M:Cast.NET.CastNode.EnumerateChildrenOfType(Cast.NET.CastNodeIdentifier)
+  fullName: Cast.NET.CastNode.EnumerateChildrenOfType(Cast.NET.CastNodeIdentifier)
+  nameWithType: CastNode.EnumerateChildrenOfType(CastNodeIdentifier)
+- uid: Cast.NET.CastNode.EnumerateChildrenOfType*
+  name: EnumerateChildrenOfType
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_EnumerateChildrenOfType_
+  commentId: Overload:Cast.NET.CastNode.EnumerateChildrenOfType
+  isSpec: "True"
+  fullName: Cast.NET.CastNode.EnumerateChildrenOfType
+  nameWithType: CastNode.EnumerateChildrenOfType
+- uid: Cast.NET.CastNode.EnumerateChildrenOfType``1
+  name: EnumerateChildrenOfType<T>()
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_EnumerateChildrenOfType__1
+  commentId: M:Cast.NET.CastNode.EnumerateChildrenOfType``1
+  name.vb: EnumerateChildrenOfType(Of T)()
+  fullName: Cast.NET.CastNode.EnumerateChildrenOfType<T>()
+  fullName.vb: Cast.NET.CastNode.EnumerateChildrenOfType(Of T)()
+  nameWithType: CastNode.EnumerateChildrenOfType<T>()
+  nameWithType.vb: CastNode.EnumerateChildrenOfType(Of T)()
+- uid: Cast.NET.CastNode.GetChild*
+  name: GetChild
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_GetChild_
+  commentId: Overload:Cast.NET.CastNode.GetChild
+  isSpec: "True"
+  fullName: Cast.NET.CastNode.GetChild
+  nameWithType: CastNode.GetChild
+- uid: Cast.NET.CastNode.GetChild``1(System.Int32)
+  name: GetChild<T>(Int32)
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_GetChild__1_System_Int32_
+  commentId: M:Cast.NET.CastNode.GetChild``1(System.Int32)
+  name.vb: GetChild(Of T)(Int32)
+  fullName: Cast.NET.CastNode.GetChild<T>(System.Int32)
+  fullName.vb: Cast.NET.CastNode.GetChild(Of T)(System.Int32)
+  nameWithType: CastNode.GetChild<T>(Int32)
+  nameWithType.vb: CastNode.GetChild(Of T)(Int32)
+- uid: Cast.NET.CastNode.GetChildByHashOrNull*
+  name: GetChildByHashOrNull
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_GetChildByHashOrNull_
+  commentId: Overload:Cast.NET.CastNode.GetChildByHashOrNull
+  isSpec: "True"
+  fullName: Cast.NET.CastNode.GetChildByHashOrNull
+  nameWithType: CastNode.GetChildByHashOrNull
+- uid: Cast.NET.CastNode.GetChildByHashOrNull``1(System.UInt64)
+  name: GetChildByHashOrNull<T>(UInt64)
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_GetChildByHashOrNull__1_System_UInt64_
+  commentId: M:Cast.NET.CastNode.GetChildByHashOrNull``1(System.UInt64)
+  name.vb: GetChildByHashOrNull(Of T)(UInt64)
+  fullName: Cast.NET.CastNode.GetChildByHashOrNull<T>(System.UInt64)
+  fullName.vb: Cast.NET.CastNode.GetChildByHashOrNull(Of T)(System.UInt64)
+  nameWithType: CastNode.GetChildByHashOrNull<T>(UInt64)
+  nameWithType.vb: CastNode.GetChildByHashOrNull(Of T)(UInt64)
+- uid: Cast.NET.CastNode.GetChildrenOfType(Cast.NET.CastNodeIdentifier)
+  name: GetChildrenOfType(CastNodeIdentifier)
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_GetChildrenOfType_Cast_NET_CastNodeIdentifier_
+  commentId: M:Cast.NET.CastNode.GetChildrenOfType(Cast.NET.CastNodeIdentifier)
+  fullName: Cast.NET.CastNode.GetChildrenOfType(Cast.NET.CastNodeIdentifier)
+  nameWithType: CastNode.GetChildrenOfType(CastNodeIdentifier)
+- uid: Cast.NET.CastNode.GetChildrenOfType*
+  name: GetChildrenOfType
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_GetChildrenOfType_
+  commentId: Overload:Cast.NET.CastNode.GetChildrenOfType
+  isSpec: "True"
+  fullName: Cast.NET.CastNode.GetChildrenOfType
+  nameWithType: CastNode.GetChildrenOfType
+- uid: Cast.NET.CastNode.GetChildrenOfType``1
+  name: GetChildrenOfType<T>()
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_GetChildrenOfType__1
+  commentId: M:Cast.NET.CastNode.GetChildrenOfType``1
+  name.vb: GetChildrenOfType(Of T)()
+  fullName: Cast.NET.CastNode.GetChildrenOfType<T>()
+  fullName.vb: Cast.NET.CastNode.GetChildrenOfType(Of T)()
+  nameWithType: CastNode.GetChildrenOfType<T>()
+  nameWithType.vb: CastNode.GetChildrenOfType(Of T)()
+- uid: Cast.NET.CastNode.GetFirstChildOfTypeOrNull(Cast.NET.CastNodeIdentifier)
+  name: GetFirstChildOfTypeOrNull(CastNodeIdentifier)
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_GetFirstChildOfTypeOrNull_Cast_NET_CastNodeIdentifier_
+  commentId: M:Cast.NET.CastNode.GetFirstChildOfTypeOrNull(Cast.NET.CastNodeIdentifier)
+  fullName: Cast.NET.CastNode.GetFirstChildOfTypeOrNull(Cast.NET.CastNodeIdentifier)
+  nameWithType: CastNode.GetFirstChildOfTypeOrNull(CastNodeIdentifier)
+- uid: Cast.NET.CastNode.GetFirstChildOfTypeOrNull*
+  name: GetFirstChildOfTypeOrNull
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_GetFirstChildOfTypeOrNull_
+  commentId: Overload:Cast.NET.CastNode.GetFirstChildOfTypeOrNull
+  isSpec: "True"
+  fullName: Cast.NET.CastNode.GetFirstChildOfTypeOrNull
+  nameWithType: CastNode.GetFirstChildOfTypeOrNull
+- uid: Cast.NET.CastNode.GetFirstChildOfTypeOrNull``1
+  name: GetFirstChildOfTypeOrNull<T>()
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_GetFirstChildOfTypeOrNull__1
+  commentId: M:Cast.NET.CastNode.GetFirstChildOfTypeOrNull``1
+  name.vb: GetFirstChildOfTypeOrNull(Of T)()
+  fullName: Cast.NET.CastNode.GetFirstChildOfTypeOrNull<T>()
+  fullName.vb: Cast.NET.CastNode.GetFirstChildOfTypeOrNull(Of T)()
+  nameWithType: CastNode.GetFirstChildOfTypeOrNull<T>()
+  nameWithType.vb: CastNode.GetFirstChildOfTypeOrNull(Of T)()
+- uid: Cast.NET.CastNode.GetFirstIntegerOrDefault(System.String,System.UInt64,System.UInt32)
+  name: GetFirstIntegerOrDefault(String, UInt64, UInt32)
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_GetFirstIntegerOrDefault_System_String_System_UInt64_System_UInt32_
+  commentId: M:Cast.NET.CastNode.GetFirstIntegerOrDefault(System.String,System.UInt64,System.UInt32)
+  fullName: Cast.NET.CastNode.GetFirstIntegerOrDefault(System.String, System.UInt64, System.UInt32)
+  nameWithType: CastNode.GetFirstIntegerOrDefault(String, UInt64, UInt32)
+- uid: Cast.NET.CastNode.GetFirstIntegerOrDefault*
+  name: GetFirstIntegerOrDefault
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_GetFirstIntegerOrDefault_
+  commentId: Overload:Cast.NET.CastNode.GetFirstIntegerOrDefault
+  isSpec: "True"
+  fullName: Cast.NET.CastNode.GetFirstIntegerOrDefault
+  nameWithType: CastNode.GetFirstIntegerOrDefault
+- uid: Cast.NET.CastNode.GetFirstValue*
+  name: GetFirstValue
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_GetFirstValue_
+  commentId: Overload:Cast.NET.CastNode.GetFirstValue
+  isSpec: "True"
+  fullName: Cast.NET.CastNode.GetFirstValue
+  nameWithType: CastNode.GetFirstValue
+- uid: Cast.NET.CastNode.GetFirstValue``1(System.String)
+  name: GetFirstValue<T>(String)
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_GetFirstValue__1_System_String_
+  commentId: M:Cast.NET.CastNode.GetFirstValue``1(System.String)
+  name.vb: GetFirstValue(Of T)(String)
+  fullName: Cast.NET.CastNode.GetFirstValue<T>(System.String)
+  fullName.vb: Cast.NET.CastNode.GetFirstValue(Of T)(System.String)
+  nameWithType: CastNode.GetFirstValue<T>(String)
+  nameWithType.vb: CastNode.GetFirstValue(Of T)(String)
+- uid: Cast.NET.CastNode.GetFirstValueOrDefault*
+  name: GetFirstValueOrDefault
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_GetFirstValueOrDefault_
+  commentId: Overload:Cast.NET.CastNode.GetFirstValueOrDefault
+  isSpec: "True"
+  fullName: Cast.NET.CastNode.GetFirstValueOrDefault
+  nameWithType: CastNode.GetFirstValueOrDefault
+- uid: Cast.NET.CastNode.GetFirstValueOrDefault``1(System.String,``0)
+  name: GetFirstValueOrDefault<T>(String, T)
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_GetFirstValueOrDefault__1_System_String___0_
+  commentId: M:Cast.NET.CastNode.GetFirstValueOrDefault``1(System.String,``0)
+  name.vb: GetFirstValueOrDefault(Of T)(String, T)
+  fullName: Cast.NET.CastNode.GetFirstValueOrDefault<T>(System.String, T)
+  fullName.vb: Cast.NET.CastNode.GetFirstValueOrDefault(Of T)(System.String, T)
+  nameWithType: CastNode.GetFirstValueOrDefault<T>(String, T)
+  nameWithType.vb: CastNode.GetFirstValueOrDefault(Of T)(String, T)
+- uid: Cast.NET.CastNode.GetProperty(System.String)
+  name: GetProperty(String)
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_GetProperty_System_String_
+  commentId: M:Cast.NET.CastNode.GetProperty(System.String)
+  fullName: Cast.NET.CastNode.GetProperty(System.String)
+  nameWithType: CastNode.GetProperty(String)
+- uid: Cast.NET.CastNode.GetProperty*
+  name: GetProperty
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_GetProperty_
+  commentId: Overload:Cast.NET.CastNode.GetProperty
+  isSpec: "True"
+  fullName: Cast.NET.CastNode.GetProperty
+  nameWithType: CastNode.GetProperty
+- uid: Cast.NET.CastNode.GetProperty``1(System.String)
+  name: GetProperty<T>(String)
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_GetProperty__1_System_String_
+  commentId: M:Cast.NET.CastNode.GetProperty``1(System.String)
+  name.vb: GetProperty(Of T)(String)
+  fullName: Cast.NET.CastNode.GetProperty<T>(System.String)
+  fullName.vb: Cast.NET.CastNode.GetProperty(Of T)(System.String)
+  nameWithType: CastNode.GetProperty<T>(String)
+  nameWithType.vb: CastNode.GetProperty(Of T)(String)
+- uid: Cast.NET.CastNode.GetPropertyOrNull(System.String)
+  name: GetPropertyOrNull(String)
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_GetPropertyOrNull_System_String_
+  commentId: M:Cast.NET.CastNode.GetPropertyOrNull(System.String)
+  fullName: Cast.NET.CastNode.GetPropertyOrNull(System.String)
+  nameWithType: CastNode.GetPropertyOrNull(String)
+- uid: Cast.NET.CastNode.GetPropertyOrNull*
+  name: GetPropertyOrNull
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_GetPropertyOrNull_
+  commentId: Overload:Cast.NET.CastNode.GetPropertyOrNull
+  isSpec: "True"
+  fullName: Cast.NET.CastNode.GetPropertyOrNull
+  nameWithType: CastNode.GetPropertyOrNull
+- uid: Cast.NET.CastNode.GetPropertyOrNull``1(System.String)
+  name: GetPropertyOrNull<T>(String)
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_GetPropertyOrNull__1_System_String_
+  commentId: M:Cast.NET.CastNode.GetPropertyOrNull``1(System.String)
+  name.vb: GetPropertyOrNull(Of T)(String)
+  fullName: Cast.NET.CastNode.GetPropertyOrNull<T>(System.String)
+  fullName.vb: Cast.NET.CastNode.GetPropertyOrNull(Of T)(System.String)
+  nameWithType: CastNode.GetPropertyOrNull<T>(String)
+  nameWithType.vb: CastNode.GetPropertyOrNull(Of T)(String)
+- uid: Cast.NET.CastNode.GetStringValue(System.String)
+  name: GetStringValue(String)
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_GetStringValue_System_String_
+  commentId: M:Cast.NET.CastNode.GetStringValue(System.String)
+  fullName: Cast.NET.CastNode.GetStringValue(System.String)
+  nameWithType: CastNode.GetStringValue(String)
+- uid: Cast.NET.CastNode.GetStringValue*
+  name: GetStringValue
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_GetStringValue_
+  commentId: Overload:Cast.NET.CastNode.GetStringValue
+  isSpec: "True"
+  fullName: Cast.NET.CastNode.GetStringValue
+  nameWithType: CastNode.GetStringValue
+- uid: Cast.NET.CastNode.GetStringValueOrDefault(System.String,System.String)
+  name: GetStringValueOrDefault(String, String)
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_GetStringValueOrDefault_System_String_System_String_
+  commentId: M:Cast.NET.CastNode.GetStringValueOrDefault(System.String,System.String)
+  fullName: Cast.NET.CastNode.GetStringValueOrDefault(System.String, System.String)
+  nameWithType: CastNode.GetStringValueOrDefault(String, String)
+- uid: Cast.NET.CastNode.GetStringValueOrDefault*
+  name: GetStringValueOrDefault
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_GetStringValueOrDefault_
+  commentId: Overload:Cast.NET.CastNode.GetStringValueOrDefault
+  isSpec: "True"
+  fullName: Cast.NET.CastNode.GetStringValueOrDefault
+  nameWithType: CastNode.GetStringValueOrDefault
+- uid: Cast.NET.CastNode.Hash
+  name: Hash
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_Hash
+  commentId: P:Cast.NET.CastNode.Hash
+  fullName: Cast.NET.CastNode.Hash
+  nameWithType: CastNode.Hash
+- uid: Cast.NET.CastNode.Hash*
+  name: Hash
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_Hash_
+  commentId: Overload:Cast.NET.CastNode.Hash
+  isSpec: "True"
+  fullName: Cast.NET.CastNode.Hash
+  nameWithType: CastNode.Hash
+- uid: Cast.NET.CastNode.Identifier
+  name: Identifier
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_Identifier
+  commentId: P:Cast.NET.CastNode.Identifier
+  fullName: Cast.NET.CastNode.Identifier
+  nameWithType: CastNode.Identifier
+- uid: Cast.NET.CastNode.Identifier*
+  name: Identifier
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_Identifier_
+  commentId: Overload:Cast.NET.CastNode.Identifier
+  isSpec: "True"
+  fullName: Cast.NET.CastNode.Identifier
+  nameWithType: CastNode.Identifier
+- uid: Cast.NET.CastNode.Parent
+  name: Parent
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_Parent
+  commentId: P:Cast.NET.CastNode.Parent
+  fullName: Cast.NET.CastNode.Parent
+  nameWithType: CastNode.Parent
+- uid: Cast.NET.CastNode.Parent*
+  name: Parent
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_Parent_
+  commentId: Overload:Cast.NET.CastNode.Parent
+  isSpec: "True"
+  fullName: Cast.NET.CastNode.Parent
+  nameWithType: CastNode.Parent
+- uid: Cast.NET.CastNode.Properties
+  name: Properties
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_Properties
+  commentId: P:Cast.NET.CastNode.Properties
+  fullName: Cast.NET.CastNode.Properties
+  nameWithType: CastNode.Properties
+- uid: Cast.NET.CastNode.Properties*
+  name: Properties
+  href: api/Cast.NET.CastNode.html#Cast_NET_CastNode_Properties_
+  commentId: Overload:Cast.NET.CastNode.Properties
+  isSpec: "True"
+  fullName: Cast.NET.CastNode.Properties
+  nameWithType: CastNode.Properties
+- uid: Cast.NET.CastNodeIdentifier
+  name: CastNodeIdentifier
+  href: api/Cast.NET.CastNodeIdentifier.html
+  commentId: T:Cast.NET.CastNodeIdentifier
+  fullName: Cast.NET.CastNodeIdentifier
+  nameWithType: CastNodeIdentifier
+- uid: Cast.NET.CastNodeIdentifier.Animation
+  name: Animation
+  href: api/Cast.NET.CastNodeIdentifier.html#Cast_NET_CastNodeIdentifier_Animation
+  commentId: F:Cast.NET.CastNodeIdentifier.Animation
+  fullName: Cast.NET.CastNodeIdentifier.Animation
+  nameWithType: CastNodeIdentifier.Animation
+- uid: Cast.NET.CastNodeIdentifier.BlendShape
+  name: BlendShape
+  href: api/Cast.NET.CastNodeIdentifier.html#Cast_NET_CastNodeIdentifier_BlendShape
+  commentId: F:Cast.NET.CastNodeIdentifier.BlendShape
+  fullName: Cast.NET.CastNodeIdentifier.BlendShape
+  nameWithType: CastNodeIdentifier.BlendShape
+- uid: Cast.NET.CastNodeIdentifier.Bone
+  name: Bone
+  href: api/Cast.NET.CastNodeIdentifier.html#Cast_NET_CastNodeIdentifier_Bone
+  commentId: F:Cast.NET.CastNodeIdentifier.Bone
+  fullName: Cast.NET.CastNodeIdentifier.Bone
+  nameWithType: CastNodeIdentifier.Bone
+- uid: Cast.NET.CastNodeIdentifier.Constraint
+  name: Constraint
+  href: api/Cast.NET.CastNodeIdentifier.html#Cast_NET_CastNodeIdentifier_Constraint
+  commentId: F:Cast.NET.CastNodeIdentifier.Constraint
+  fullName: Cast.NET.CastNodeIdentifier.Constraint
+  nameWithType: CastNodeIdentifier.Constraint
+- uid: Cast.NET.CastNodeIdentifier.Curve
+  name: Curve
+  href: api/Cast.NET.CastNodeIdentifier.html#Cast_NET_CastNodeIdentifier_Curve
+  commentId: F:Cast.NET.CastNodeIdentifier.Curve
+  fullName: Cast.NET.CastNodeIdentifier.Curve
+  nameWithType: CastNodeIdentifier.Curve
+- uid: Cast.NET.CastNodeIdentifier.File
+  name: File
+  href: api/Cast.NET.CastNodeIdentifier.html#Cast_NET_CastNodeIdentifier_File
+  commentId: F:Cast.NET.CastNodeIdentifier.File
+  fullName: Cast.NET.CastNodeIdentifier.File
+  nameWithType: CastNodeIdentifier.File
+- uid: Cast.NET.CastNodeIdentifier.IKHandle
+  name: IKHandle
+  href: api/Cast.NET.CastNodeIdentifier.html#Cast_NET_CastNodeIdentifier_IKHandle
+  commentId: F:Cast.NET.CastNodeIdentifier.IKHandle
+  fullName: Cast.NET.CastNodeIdentifier.IKHandle
+  nameWithType: CastNodeIdentifier.IKHandle
+- uid: Cast.NET.CastNodeIdentifier.Material
+  name: Material
+  href: api/Cast.NET.CastNodeIdentifier.html#Cast_NET_CastNodeIdentifier_Material
+  commentId: F:Cast.NET.CastNodeIdentifier.Material
+  fullName: Cast.NET.CastNodeIdentifier.Material
+  nameWithType: CastNodeIdentifier.Material
+- uid: Cast.NET.CastNodeIdentifier.Mesh
+  name: Mesh
+  href: api/Cast.NET.CastNodeIdentifier.html#Cast_NET_CastNodeIdentifier_Mesh
+  commentId: F:Cast.NET.CastNodeIdentifier.Mesh
+  fullName: Cast.NET.CastNodeIdentifier.Mesh
+  nameWithType: CastNodeIdentifier.Mesh
+- uid: Cast.NET.CastNodeIdentifier.Model
+  name: Model
+  href: api/Cast.NET.CastNodeIdentifier.html#Cast_NET_CastNodeIdentifier_Model
+  commentId: F:Cast.NET.CastNodeIdentifier.Model
+  fullName: Cast.NET.CastNodeIdentifier.Model
+  nameWithType: CastNodeIdentifier.Model
+- uid: Cast.NET.CastNodeIdentifier.NotificationTrack
+  name: NotificationTrack
+  href: api/Cast.NET.CastNodeIdentifier.html#Cast_NET_CastNodeIdentifier_NotificationTrack
+  commentId: F:Cast.NET.CastNodeIdentifier.NotificationTrack
+  fullName: Cast.NET.CastNodeIdentifier.NotificationTrack
+  nameWithType: CastNodeIdentifier.NotificationTrack
+- uid: Cast.NET.CastNodeIdentifier.Root
+  name: Root
+  href: api/Cast.NET.CastNodeIdentifier.html#Cast_NET_CastNodeIdentifier_Root
+  commentId: F:Cast.NET.CastNodeIdentifier.Root
+  fullName: Cast.NET.CastNodeIdentifier.Root
+  nameWithType: CastNodeIdentifier.Root
+- uid: Cast.NET.CastNodeIdentifier.Skeleton
+  name: Skeleton
+  href: api/Cast.NET.CastNodeIdentifier.html#Cast_NET_CastNodeIdentifier_Skeleton
+  commentId: F:Cast.NET.CastNodeIdentifier.Skeleton
+  fullName: Cast.NET.CastNodeIdentifier.Skeleton
+  nameWithType: CastNodeIdentifier.Skeleton
+- uid: Cast.NET.CastProperty
+  name: CastProperty
+  href: api/Cast.NET.CastProperty.html
+  commentId: T:Cast.NET.CastProperty
+  fullName: Cast.NET.CastProperty
+  nameWithType: CastProperty
+- uid: Cast.NET.CastProperty.Identifier
+  name: Identifier
+  href: api/Cast.NET.CastProperty.html#Cast_NET_CastProperty_Identifier
+  commentId: P:Cast.NET.CastProperty.Identifier
+  fullName: Cast.NET.CastProperty.Identifier
+  nameWithType: CastProperty.Identifier
+- uid: Cast.NET.CastProperty.Identifier*
+  name: Identifier
+  href: api/Cast.NET.CastProperty.html#Cast_NET_CastProperty_Identifier_
+  commentId: Overload:Cast.NET.CastProperty.Identifier
+  isSpec: "True"
+  fullName: Cast.NET.CastProperty.Identifier
+  nameWithType: CastProperty.Identifier
+- uid: Cast.NET.CastProperty.ValueCount
+  name: ValueCount
+  href: api/Cast.NET.CastProperty.html#Cast_NET_CastProperty_ValueCount
+  commentId: P:Cast.NET.CastProperty.ValueCount
+  fullName: Cast.NET.CastProperty.ValueCount
+  nameWithType: CastProperty.ValueCount
+- uid: Cast.NET.CastProperty.ValueCount*
+  name: ValueCount
+  href: api/Cast.NET.CastProperty.html#Cast_NET_CastProperty_ValueCount_
+  commentId: Overload:Cast.NET.CastProperty.ValueCount
+  isSpec: "True"
+  fullName: Cast.NET.CastProperty.ValueCount
+  nameWithType: CastProperty.ValueCount
+- uid: Cast.NET.CastPropertyIdentifier
+  name: CastPropertyIdentifier
+  href: api/Cast.NET.CastPropertyIdentifier.html
+  commentId: T:Cast.NET.CastPropertyIdentifier
+  fullName: Cast.NET.CastPropertyIdentifier
+  nameWithType: CastPropertyIdentifier
+- uid: Cast.NET.CastPropertyIdentifier.Byte
+  name: Byte
+  href: api/Cast.NET.CastPropertyIdentifier.html#Cast_NET_CastPropertyIdentifier_Byte
+  commentId: F:Cast.NET.CastPropertyIdentifier.Byte
+  fullName: Cast.NET.CastPropertyIdentifier.Byte
+  nameWithType: CastPropertyIdentifier.Byte
+- uid: Cast.NET.CastPropertyIdentifier.Double
+  name: Double
+  href: api/Cast.NET.CastPropertyIdentifier.html#Cast_NET_CastPropertyIdentifier_Double
+  commentId: F:Cast.NET.CastPropertyIdentifier.Double
+  fullName: Cast.NET.CastPropertyIdentifier.Double
+  nameWithType: CastPropertyIdentifier.Double
+- uid: Cast.NET.CastPropertyIdentifier.Float
+  name: Float
+  href: api/Cast.NET.CastPropertyIdentifier.html#Cast_NET_CastPropertyIdentifier_Float
+  commentId: F:Cast.NET.CastPropertyIdentifier.Float
+  fullName: Cast.NET.CastPropertyIdentifier.Float
+  nameWithType: CastPropertyIdentifier.Float
+- uid: Cast.NET.CastPropertyIdentifier.Integer32
+  name: Integer32
+  href: api/Cast.NET.CastPropertyIdentifier.html#Cast_NET_CastPropertyIdentifier_Integer32
+  commentId: F:Cast.NET.CastPropertyIdentifier.Integer32
+  fullName: Cast.NET.CastPropertyIdentifier.Integer32
+  nameWithType: CastPropertyIdentifier.Integer32
+- uid: Cast.NET.CastPropertyIdentifier.Integer64
+  name: Integer64
+  href: api/Cast.NET.CastPropertyIdentifier.html#Cast_NET_CastPropertyIdentifier_Integer64
+  commentId: F:Cast.NET.CastPropertyIdentifier.Integer64
+  fullName: Cast.NET.CastPropertyIdentifier.Integer64
+  nameWithType: CastPropertyIdentifier.Integer64
+- uid: Cast.NET.CastPropertyIdentifier.Short
+  name: Short
+  href: api/Cast.NET.CastPropertyIdentifier.html#Cast_NET_CastPropertyIdentifier_Short
+  commentId: F:Cast.NET.CastPropertyIdentifier.Short
+  fullName: Cast.NET.CastPropertyIdentifier.Short
+  nameWithType: CastPropertyIdentifier.Short
+- uid: Cast.NET.CastPropertyIdentifier.String
+  name: String
+  href: api/Cast.NET.CastPropertyIdentifier.html#Cast_NET_CastPropertyIdentifier_String
+  commentId: F:Cast.NET.CastPropertyIdentifier.String
+  fullName: Cast.NET.CastPropertyIdentifier.String
+  nameWithType: CastPropertyIdentifier.String
+- uid: Cast.NET.CastPropertyIdentifier.Vector2
+  name: Vector2
+  href: api/Cast.NET.CastPropertyIdentifier.html#Cast_NET_CastPropertyIdentifier_Vector2
+  commentId: F:Cast.NET.CastPropertyIdentifier.Vector2
+  fullName: Cast.NET.CastPropertyIdentifier.Vector2
+  nameWithType: CastPropertyIdentifier.Vector2
+- uid: Cast.NET.CastPropertyIdentifier.Vector3
+  name: Vector3
+  href: api/Cast.NET.CastPropertyIdentifier.html#Cast_NET_CastPropertyIdentifier_Vector3
+  commentId: F:Cast.NET.CastPropertyIdentifier.Vector3
+  fullName: Cast.NET.CastPropertyIdentifier.Vector3
+  nameWithType: CastPropertyIdentifier.Vector3
+- uid: Cast.NET.CastPropertyIdentifier.Vector4
+  name: Vector4
+  href: api/Cast.NET.CastPropertyIdentifier.html#Cast_NET_CastPropertyIdentifier_Vector4
+  commentId: F:Cast.NET.CastPropertyIdentifier.Vector4
+  fullName: Cast.NET.CastPropertyIdentifier.Vector4
+  nameWithType: CastPropertyIdentifier.Vector4
+- uid: Cast.NET.CastReader
+  name: CastReader
+  href: api/Cast.NET.CastReader.html
+  commentId: T:Cast.NET.CastReader
+  fullName: Cast.NET.CastReader
+  nameWithType: CastReader
+- uid: Cast.NET.CastReader.Load(BinaryReader)
+  name: Load(BinaryReader)
+  href: api/Cast.NET.CastReader.html#Cast_NET_CastReader_Load_BinaryReader_
+  commentId: M:Cast.NET.CastReader.Load(BinaryReader)
+  fullName: Cast.NET.CastReader.Load(BinaryReader)
+  nameWithType: CastReader.Load(BinaryReader)
+- uid: Cast.NET.CastReader.Load(Stream)
+  name: Load(Stream)
+  href: api/Cast.NET.CastReader.html#Cast_NET_CastReader_Load_Stream_
+  commentId: M:Cast.NET.CastReader.Load(Stream)
+  fullName: Cast.NET.CastReader.Load(Stream)
+  nameWithType: CastReader.Load(Stream)
+- uid: Cast.NET.CastReader.Load(System.String)
+  name: Load(String)
+  href: api/Cast.NET.CastReader.html#Cast_NET_CastReader_Load_System_String_
+  commentId: M:Cast.NET.CastReader.Load(System.String)
+  fullName: Cast.NET.CastReader.Load(System.String)
+  nameWithType: CastReader.Load(String)
+- uid: Cast.NET.CastReader.Load*
+  name: Load
+  href: api/Cast.NET.CastReader.html#Cast_NET_CastReader_Load_
+  commentId: Overload:Cast.NET.CastReader.Load
+  isSpec: "True"
+  fullName: Cast.NET.CastReader.Load
+  nameWithType: CastReader.Load
+- uid: Cast.NET.CastReader.LoadNode(BinaryReader)
+  name: LoadNode(BinaryReader)
+  href: api/Cast.NET.CastReader.html#Cast_NET_CastReader_LoadNode_BinaryReader_
+  commentId: M:Cast.NET.CastReader.LoadNode(BinaryReader)
+  fullName: Cast.NET.CastReader.LoadNode(BinaryReader)
+  nameWithType: CastReader.LoadNode(BinaryReader)
+- uid: Cast.NET.CastReader.LoadNode*
+  name: LoadNode
+  href: api/Cast.NET.CastReader.html#Cast_NET_CastReader_LoadNode_
+  commentId: Overload:Cast.NET.CastReader.LoadNode
+  isSpec: "True"
+  fullName: Cast.NET.CastReader.LoadNode
+  nameWithType: CastReader.LoadNode
+- uid: Cast.NET.CastReader.LoadProperty(BinaryReader)
+  name: LoadProperty(BinaryReader)
+  href: api/Cast.NET.CastReader.html#Cast_NET_CastReader_LoadProperty_BinaryReader_
+  commentId: M:Cast.NET.CastReader.LoadProperty(BinaryReader)
+  fullName: Cast.NET.CastReader.LoadProperty(BinaryReader)
+  nameWithType: CastReader.LoadProperty(BinaryReader)
+- uid: Cast.NET.CastReader.LoadProperty*
+  name: LoadProperty
+  href: api/Cast.NET.CastReader.html#Cast_NET_CastReader_LoadProperty_
+  commentId: Overload:Cast.NET.CastReader.LoadProperty
+  isSpec: "True"
+  fullName: Cast.NET.CastReader.LoadProperty
+  nameWithType: CastReader.LoadProperty
+- uid: Cast.NET.CastStringProperty
+  name: CastStringProperty
+  href: api/Cast.NET.CastStringProperty.html
+  commentId: T:Cast.NET.CastStringProperty
+  fullName: Cast.NET.CastStringProperty
+  nameWithType: CastStringProperty
+- uid: Cast.NET.CastStringProperty.#ctor
+  name: CastStringProperty()
+  href: api/Cast.NET.CastStringProperty.html#Cast_NET_CastStringProperty__ctor
+  commentId: M:Cast.NET.CastStringProperty.#ctor
+  fullName: Cast.NET.CastStringProperty.CastStringProperty()
+  nameWithType: CastStringProperty.CastStringProperty()
+- uid: Cast.NET.CastStringProperty.#ctor(System.String)
+  name: CastStringProperty(String)
+  href: api/Cast.NET.CastStringProperty.html#Cast_NET_CastStringProperty__ctor_System_String_
+  commentId: M:Cast.NET.CastStringProperty.#ctor(System.String)
+  fullName: Cast.NET.CastStringProperty.CastStringProperty(System.String)
+  nameWithType: CastStringProperty.CastStringProperty(String)
+- uid: Cast.NET.CastStringProperty.#ctor(System.Text.StringBuilder)
+  name: CastStringProperty(StringBuilder)
+  href: api/Cast.NET.CastStringProperty.html#Cast_NET_CastStringProperty__ctor_System_Text_StringBuilder_
+  commentId: M:Cast.NET.CastStringProperty.#ctor(System.Text.StringBuilder)
+  fullName: Cast.NET.CastStringProperty.CastStringProperty(System.Text.StringBuilder)
+  nameWithType: CastStringProperty.CastStringProperty(StringBuilder)
+- uid: Cast.NET.CastStringProperty.#ctor*
+  name: CastStringProperty
+  href: api/Cast.NET.CastStringProperty.html#Cast_NET_CastStringProperty__ctor_
+  commentId: Overload:Cast.NET.CastStringProperty.#ctor
+  isSpec: "True"
+  fullName: Cast.NET.CastStringProperty.CastStringProperty
+  nameWithType: CastStringProperty.CastStringProperty
+- uid: Cast.NET.CastStringProperty.Identifier
+  name: Identifier
+  href: api/Cast.NET.CastStringProperty.html#Cast_NET_CastStringProperty_Identifier
+  commentId: P:Cast.NET.CastStringProperty.Identifier
+  fullName: Cast.NET.CastStringProperty.Identifier
+  nameWithType: CastStringProperty.Identifier
+- uid: Cast.NET.CastStringProperty.Identifier*
+  name: Identifier
+  href: api/Cast.NET.CastStringProperty.html#Cast_NET_CastStringProperty_Identifier_
+  commentId: Overload:Cast.NET.CastStringProperty.Identifier
+  isSpec: "True"
+  fullName: Cast.NET.CastStringProperty.Identifier
+  nameWithType: CastStringProperty.Identifier
+- uid: Cast.NET.CastStringProperty.ToString
+  name: ToString()
+  href: api/Cast.NET.CastStringProperty.html#Cast_NET_CastStringProperty_ToString
+  commentId: M:Cast.NET.CastStringProperty.ToString
+  fullName: Cast.NET.CastStringProperty.ToString()
+  nameWithType: CastStringProperty.ToString()
+- uid: Cast.NET.CastStringProperty.ToString*
+  name: ToString
+  href: api/Cast.NET.CastStringProperty.html#Cast_NET_CastStringProperty_ToString_
+  commentId: Overload:Cast.NET.CastStringProperty.ToString
+  isSpec: "True"
+  fullName: Cast.NET.CastStringProperty.ToString
+  nameWithType: CastStringProperty.ToString
+- uid: Cast.NET.CastStringProperty.Value
+  name: Value
+  href: api/Cast.NET.CastStringProperty.html#Cast_NET_CastStringProperty_Value
+  commentId: P:Cast.NET.CastStringProperty.Value
+  fullName: Cast.NET.CastStringProperty.Value
+  nameWithType: CastStringProperty.Value
+- uid: Cast.NET.CastStringProperty.Value*
+  name: Value
+  href: api/Cast.NET.CastStringProperty.html#Cast_NET_CastStringProperty_Value_
+  commentId: Overload:Cast.NET.CastStringProperty.Value
+  isSpec: "True"
+  fullName: Cast.NET.CastStringProperty.Value
+  nameWithType: CastStringProperty.Value
+- uid: Cast.NET.CastStringProperty.ValueCount
+  name: ValueCount
+  href: api/Cast.NET.CastStringProperty.html#Cast_NET_CastStringProperty_ValueCount
+  commentId: P:Cast.NET.CastStringProperty.ValueCount
+  fullName: Cast.NET.CastStringProperty.ValueCount
+  nameWithType: CastStringProperty.ValueCount
+- uid: Cast.NET.CastStringProperty.ValueCount*
+  name: ValueCount
+  href: api/Cast.NET.CastStringProperty.html#Cast_NET_CastStringProperty_ValueCount_
+  commentId: Overload:Cast.NET.CastStringProperty.ValueCount
+  isSpec: "True"
+  fullName: Cast.NET.CastStringProperty.ValueCount
+  nameWithType: CastStringProperty.ValueCount
+- uid: Cast.NET.CastWriter
+  name: CastWriter
+  href: api/Cast.NET.CastWriter.html
+  commentId: T:Cast.NET.CastWriter
+  fullName: Cast.NET.CastWriter
+  nameWithType: CastWriter
+- uid: Cast.NET.CastWriter.Save(BinaryWriter,Cast.NET.Cast)
+  name: Save(BinaryWriter, Cast)
+  href: api/Cast.NET.CastWriter.html#Cast_NET_CastWriter_Save_BinaryWriter_Cast_NET_Cast_
+  commentId: M:Cast.NET.CastWriter.Save(BinaryWriter,Cast.NET.Cast)
+  fullName: Cast.NET.CastWriter.Save(BinaryWriter, Cast.NET.Cast)
+  nameWithType: CastWriter.Save(BinaryWriter, Cast)
+- uid: Cast.NET.CastWriter.Save(BinaryWriter,Cast.NET.CastNode)
+  name: Save(BinaryWriter, CastNode)
+  href: api/Cast.NET.CastWriter.html#Cast_NET_CastWriter_Save_BinaryWriter_Cast_NET_CastNode_
+  commentId: M:Cast.NET.CastWriter.Save(BinaryWriter,Cast.NET.CastNode)
+  fullName: Cast.NET.CastWriter.Save(BinaryWriter, Cast.NET.CastNode)
+  nameWithType: CastWriter.Save(BinaryWriter, CastNode)
+- uid: Cast.NET.CastWriter.Save(Stream,Cast.NET.Cast)
+  name: Save(Stream, Cast)
+  href: api/Cast.NET.CastWriter.html#Cast_NET_CastWriter_Save_Stream_Cast_NET_Cast_
+  commentId: M:Cast.NET.CastWriter.Save(Stream,Cast.NET.Cast)
+  fullName: Cast.NET.CastWriter.Save(Stream, Cast.NET.Cast)
+  nameWithType: CastWriter.Save(Stream, Cast)
+- uid: Cast.NET.CastWriter.Save(Stream,Cast.NET.CastNode)
+  name: Save(Stream, CastNode)
+  href: api/Cast.NET.CastWriter.html#Cast_NET_CastWriter_Save_Stream_Cast_NET_CastNode_
+  commentId: M:Cast.NET.CastWriter.Save(Stream,Cast.NET.CastNode)
+  fullName: Cast.NET.CastWriter.Save(Stream, Cast.NET.CastNode)
+  nameWithType: CastWriter.Save(Stream, CastNode)
+- uid: Cast.NET.CastWriter.Save(System.String,Cast.NET.Cast)
+  name: Save(String, Cast)
+  href: api/Cast.NET.CastWriter.html#Cast_NET_CastWriter_Save_System_String_Cast_NET_Cast_
+  commentId: M:Cast.NET.CastWriter.Save(System.String,Cast.NET.Cast)
+  fullName: Cast.NET.CastWriter.Save(System.String, Cast.NET.Cast)
+  nameWithType: CastWriter.Save(String, Cast)
+- uid: Cast.NET.CastWriter.Save(System.String,Cast.NET.CastNode)
+  name: Save(String, CastNode)
+  href: api/Cast.NET.CastWriter.html#Cast_NET_CastWriter_Save_System_String_Cast_NET_CastNode_
+  commentId: M:Cast.NET.CastWriter.Save(System.String,Cast.NET.CastNode)
+  fullName: Cast.NET.CastWriter.Save(System.String, Cast.NET.CastNode)
+  nameWithType: CastWriter.Save(String, CastNode)
+- uid: Cast.NET.CastWriter.Save*
+  name: Save
+  href: api/Cast.NET.CastWriter.html#Cast_NET_CastWriter_Save_
+  commentId: Overload:Cast.NET.CastWriter.Save
+  isSpec: "True"
+  fullName: Cast.NET.CastWriter.Save
+  nameWithType: CastWriter.Save
+- uid: Cast.NET.CastWriter.SaveNode(BinaryWriter,Cast.NET.CastNode)
+  name: SaveNode(BinaryWriter, CastNode)
+  href: api/Cast.NET.CastWriter.html#Cast_NET_CastWriter_SaveNode_BinaryWriter_Cast_NET_CastNode_
+  commentId: M:Cast.NET.CastWriter.SaveNode(BinaryWriter,Cast.NET.CastNode)
+  fullName: Cast.NET.CastWriter.SaveNode(BinaryWriter, Cast.NET.CastNode)
+  nameWithType: CastWriter.SaveNode(BinaryWriter, CastNode)
+- uid: Cast.NET.CastWriter.SaveNode*
+  name: SaveNode
+  href: api/Cast.NET.CastWriter.html#Cast_NET_CastWriter_SaveNode_
+  commentId: Overload:Cast.NET.CastWriter.SaveNode
+  isSpec: "True"
+  fullName: Cast.NET.CastWriter.SaveNode
+  nameWithType: CastWriter.SaveNode
+- uid: Cast.NET.CastWriter.SaveProperty(BinaryWriter,System.String,Cast.NET.CastProperty)
+  name: SaveProperty(BinaryWriter, String, CastProperty)
+  href: api/Cast.NET.CastWriter.html#Cast_NET_CastWriter_SaveProperty_BinaryWriter_System_String_Cast_NET_CastProperty_
+  commentId: M:Cast.NET.CastWriter.SaveProperty(BinaryWriter,System.String,Cast.NET.CastProperty)
+  fullName: Cast.NET.CastWriter.SaveProperty(BinaryWriter, System.String, Cast.NET.CastProperty)
+  nameWithType: CastWriter.SaveProperty(BinaryWriter, String, CastProperty)
+- uid: Cast.NET.CastWriter.SaveProperty*
+  name: SaveProperty
+  href: api/Cast.NET.CastWriter.html#Cast_NET_CastWriter_SaveProperty_
+  commentId: Overload:Cast.NET.CastWriter.SaveProperty
+  isSpec: "True"
+  fullName: Cast.NET.CastWriter.SaveProperty
+  nameWithType: CastWriter.SaveProperty
+- uid: Cast.NET.Nodes
+  name: Cast.NET.Nodes
+  href: api/Cast.NET.Nodes.html
+  commentId: N:Cast.NET.Nodes
+  fullName: Cast.NET.Nodes
+  nameWithType: Cast.NET.Nodes
+- uid: Cast.NET.Nodes.AnimationNode
+  name: AnimationNode
+  href: api/Cast.NET.Nodes.AnimationNode.html
+  commentId: T:Cast.NET.Nodes.AnimationNode
+  fullName: Cast.NET.Nodes.AnimationNode
+  nameWithType: AnimationNode
+- uid: Cast.NET.Nodes.AnimationNode.#ctor
+  name: AnimationNode()
+  href: api/Cast.NET.Nodes.AnimationNode.html#Cast_NET_Nodes_AnimationNode__ctor
+  commentId: M:Cast.NET.Nodes.AnimationNode.#ctor
+  fullName: Cast.NET.Nodes.AnimationNode.AnimationNode()
+  nameWithType: AnimationNode.AnimationNode()
+- uid: Cast.NET.Nodes.AnimationNode.#ctor(Cast.NET.CastNode)
+  name: AnimationNode(CastNode)
+  href: api/Cast.NET.Nodes.AnimationNode.html#Cast_NET_Nodes_AnimationNode__ctor_Cast_NET_CastNode_
+  commentId: M:Cast.NET.Nodes.AnimationNode.#ctor(Cast.NET.CastNode)
+  fullName: Cast.NET.Nodes.AnimationNode.AnimationNode(Cast.NET.CastNode)
+  nameWithType: AnimationNode.AnimationNode(CastNode)
+- uid: Cast.NET.Nodes.AnimationNode.#ctor(Cast.NET.CastNodeIdentifier)
+  name: AnimationNode(CastNodeIdentifier)
+  href: api/Cast.NET.Nodes.AnimationNode.html#Cast_NET_Nodes_AnimationNode__ctor_Cast_NET_CastNodeIdentifier_
+  commentId: M:Cast.NET.Nodes.AnimationNode.#ctor(Cast.NET.CastNodeIdentifier)
+  fullName: Cast.NET.Nodes.AnimationNode.AnimationNode(Cast.NET.CastNodeIdentifier)
+  nameWithType: AnimationNode.AnimationNode(CastNodeIdentifier)
+- uid: Cast.NET.Nodes.AnimationNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64)
+  name: AnimationNode(CastNodeIdentifier, UInt64)
+  href: api/Cast.NET.Nodes.AnimationNode.html#Cast_NET_Nodes_AnimationNode__ctor_Cast_NET_CastNodeIdentifier_System_UInt64_
+  commentId: M:Cast.NET.Nodes.AnimationNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64)
+  fullName: Cast.NET.Nodes.AnimationNode.AnimationNode(Cast.NET.CastNodeIdentifier, System.UInt64)
+  nameWithType: AnimationNode.AnimationNode(CastNodeIdentifier, UInt64)
+- uid: Cast.NET.Nodes.AnimationNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name: AnimationNode(CastNodeIdentifier, UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  href: api/Cast.NET.Nodes.AnimationNode.html#Cast_NET_Nodes_AnimationNode__ctor_Cast_NET_CastNodeIdentifier_System_UInt64_System_Nullable_Dictionary_System_String_Cast_NET_CastProperty___System_Nullable_List_Cast_NET_CastNode___
+  commentId: M:Cast.NET.Nodes.AnimationNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name.vb: AnimationNode(CastNodeIdentifier, UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+  fullName: Cast.NET.Nodes.AnimationNode.AnimationNode(Cast.NET.CastNodeIdentifier, System.UInt64, System.Nullable<Dictionary<System.String, Cast.NET.CastProperty>>, System.Nullable<List<Cast.NET.CastNode>>)
+  fullName.vb: Cast.NET.Nodes.AnimationNode.AnimationNode(Cast.NET.CastNodeIdentifier, System.UInt64, System.Nullable(Of Dictionary(Of System.String, Cast.NET.CastProperty)), System.Nullable(Of List(Of Cast.NET.CastNode)))
+  nameWithType: AnimationNode.AnimationNode(CastNodeIdentifier, UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  nameWithType.vb: AnimationNode.AnimationNode(CastNodeIdentifier, UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+- uid: Cast.NET.Nodes.AnimationNode.#ctor(System.UInt64)
+  name: AnimationNode(UInt64)
+  href: api/Cast.NET.Nodes.AnimationNode.html#Cast_NET_Nodes_AnimationNode__ctor_System_UInt64_
+  commentId: M:Cast.NET.Nodes.AnimationNode.#ctor(System.UInt64)
+  fullName: Cast.NET.Nodes.AnimationNode.AnimationNode(System.UInt64)
+  nameWithType: AnimationNode.AnimationNode(UInt64)
+- uid: Cast.NET.Nodes.AnimationNode.#ctor(System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name: AnimationNode(UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  href: api/Cast.NET.Nodes.AnimationNode.html#Cast_NET_Nodes_AnimationNode__ctor_System_UInt64_System_Nullable_Dictionary_System_String_Cast_NET_CastProperty___System_Nullable_List_Cast_NET_CastNode___
+  commentId: M:Cast.NET.Nodes.AnimationNode.#ctor(System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name.vb: AnimationNode(UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+  fullName: Cast.NET.Nodes.AnimationNode.AnimationNode(System.UInt64, System.Nullable<Dictionary<System.String, Cast.NET.CastProperty>>, System.Nullable<List<Cast.NET.CastNode>>)
+  fullName.vb: Cast.NET.Nodes.AnimationNode.AnimationNode(System.UInt64, System.Nullable(Of Dictionary(Of System.String, Cast.NET.CastProperty)), System.Nullable(Of List(Of Cast.NET.CastNode)))
+  nameWithType: AnimationNode.AnimationNode(UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  nameWithType.vb: AnimationNode.AnimationNode(UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+- uid: Cast.NET.Nodes.AnimationNode.#ctor*
+  name: AnimationNode
+  href: api/Cast.NET.Nodes.AnimationNode.html#Cast_NET_Nodes_AnimationNode__ctor_
+  commentId: Overload:Cast.NET.Nodes.AnimationNode.#ctor
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.AnimationNode.AnimationNode
+  nameWithType: AnimationNode.AnimationNode
+- uid: Cast.NET.Nodes.AnimationNode.Curves
+  name: Curves
+  href: api/Cast.NET.Nodes.AnimationNode.html#Cast_NET_Nodes_AnimationNode_Curves
+  commentId: P:Cast.NET.Nodes.AnimationNode.Curves
+  fullName: Cast.NET.Nodes.AnimationNode.Curves
+  nameWithType: AnimationNode.Curves
+- uid: Cast.NET.Nodes.AnimationNode.Curves*
+  name: Curves
+  href: api/Cast.NET.Nodes.AnimationNode.html#Cast_NET_Nodes_AnimationNode_Curves_
+  commentId: Overload:Cast.NET.Nodes.AnimationNode.Curves
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.AnimationNode.Curves
+  nameWithType: AnimationNode.Curves
+- uid: Cast.NET.Nodes.AnimationNode.EnumerateCurves
+  name: EnumerateCurves()
+  href: api/Cast.NET.Nodes.AnimationNode.html#Cast_NET_Nodes_AnimationNode_EnumerateCurves
+  commentId: M:Cast.NET.Nodes.AnimationNode.EnumerateCurves
+  fullName: Cast.NET.Nodes.AnimationNode.EnumerateCurves()
+  nameWithType: AnimationNode.EnumerateCurves()
+- uid: Cast.NET.Nodes.AnimationNode.EnumerateCurves*
+  name: EnumerateCurves
+  href: api/Cast.NET.Nodes.AnimationNode.html#Cast_NET_Nodes_AnimationNode_EnumerateCurves_
+  commentId: Overload:Cast.NET.Nodes.AnimationNode.EnumerateCurves
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.AnimationNode.EnumerateCurves
+  nameWithType: AnimationNode.EnumerateCurves
+- uid: Cast.NET.Nodes.AnimationNode.EnumerateNotificationTracks
+  name: EnumerateNotificationTracks()
+  href: api/Cast.NET.Nodes.AnimationNode.html#Cast_NET_Nodes_AnimationNode_EnumerateNotificationTracks
+  commentId: M:Cast.NET.Nodes.AnimationNode.EnumerateNotificationTracks
+  fullName: Cast.NET.Nodes.AnimationNode.EnumerateNotificationTracks()
+  nameWithType: AnimationNode.EnumerateNotificationTracks()
+- uid: Cast.NET.Nodes.AnimationNode.EnumerateNotificationTracks*
+  name: EnumerateNotificationTracks
+  href: api/Cast.NET.Nodes.AnimationNode.html#Cast_NET_Nodes_AnimationNode_EnumerateNotificationTracks_
+  commentId: Overload:Cast.NET.Nodes.AnimationNode.EnumerateNotificationTracks
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.AnimationNode.EnumerateNotificationTracks
+  nameWithType: AnimationNode.EnumerateNotificationTracks
+- uid: Cast.NET.Nodes.AnimationNode.Framerate
+  name: Framerate
+  href: api/Cast.NET.Nodes.AnimationNode.html#Cast_NET_Nodes_AnimationNode_Framerate
+  commentId: P:Cast.NET.Nodes.AnimationNode.Framerate
+  fullName: Cast.NET.Nodes.AnimationNode.Framerate
+  nameWithType: AnimationNode.Framerate
+- uid: Cast.NET.Nodes.AnimationNode.Framerate*
+  name: Framerate
+  href: api/Cast.NET.Nodes.AnimationNode.html#Cast_NET_Nodes_AnimationNode_Framerate_
+  commentId: Overload:Cast.NET.Nodes.AnimationNode.Framerate
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.AnimationNode.Framerate
+  nameWithType: AnimationNode.Framerate
+- uid: Cast.NET.Nodes.AnimationNode.Looping
+  name: Looping
+  href: api/Cast.NET.Nodes.AnimationNode.html#Cast_NET_Nodes_AnimationNode_Looping
+  commentId: P:Cast.NET.Nodes.AnimationNode.Looping
+  fullName: Cast.NET.Nodes.AnimationNode.Looping
+  nameWithType: AnimationNode.Looping
+- uid: Cast.NET.Nodes.AnimationNode.Looping*
+  name: Looping
+  href: api/Cast.NET.Nodes.AnimationNode.html#Cast_NET_Nodes_AnimationNode_Looping_
+  commentId: Overload:Cast.NET.Nodes.AnimationNode.Looping
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.AnimationNode.Looping
+  nameWithType: AnimationNode.Looping
+- uid: Cast.NET.Nodes.AnimationNode.NotificationTracks
+  name: NotificationTracks
+  href: api/Cast.NET.Nodes.AnimationNode.html#Cast_NET_Nodes_AnimationNode_NotificationTracks
+  commentId: P:Cast.NET.Nodes.AnimationNode.NotificationTracks
+  fullName: Cast.NET.Nodes.AnimationNode.NotificationTracks
+  nameWithType: AnimationNode.NotificationTracks
+- uid: Cast.NET.Nodes.AnimationNode.NotificationTracks*
+  name: NotificationTracks
+  href: api/Cast.NET.Nodes.AnimationNode.html#Cast_NET_Nodes_AnimationNode_NotificationTracks_
+  commentId: Overload:Cast.NET.Nodes.AnimationNode.NotificationTracks
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.AnimationNode.NotificationTracks
+  nameWithType: AnimationNode.NotificationTracks
+- uid: Cast.NET.Nodes.AnimationNode.Skeleton
+  name: Skeleton
+  href: api/Cast.NET.Nodes.AnimationNode.html#Cast_NET_Nodes_AnimationNode_Skeleton
+  commentId: P:Cast.NET.Nodes.AnimationNode.Skeleton
+  fullName: Cast.NET.Nodes.AnimationNode.Skeleton
+  nameWithType: AnimationNode.Skeleton
+- uid: Cast.NET.Nodes.AnimationNode.Skeleton*
+  name: Skeleton
+  href: api/Cast.NET.Nodes.AnimationNode.html#Cast_NET_Nodes_AnimationNode_Skeleton_
+  commentId: Overload:Cast.NET.Nodes.AnimationNode.Skeleton
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.AnimationNode.Skeleton
+  nameWithType: AnimationNode.Skeleton
+- uid: Cast.NET.Nodes.AnimationNode.TransformSpace
+  name: TransformSpace
+  href: api/Cast.NET.Nodes.AnimationNode.html#Cast_NET_Nodes_AnimationNode_TransformSpace
+  commentId: P:Cast.NET.Nodes.AnimationNode.TransformSpace
+  fullName: Cast.NET.Nodes.AnimationNode.TransformSpace
+  nameWithType: AnimationNode.TransformSpace
+- uid: Cast.NET.Nodes.AnimationNode.TransformSpace*
+  name: TransformSpace
+  href: api/Cast.NET.Nodes.AnimationNode.html#Cast_NET_Nodes_AnimationNode_TransformSpace_
+  commentId: Overload:Cast.NET.Nodes.AnimationNode.TransformSpace
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.AnimationNode.TransformSpace
+  nameWithType: AnimationNode.TransformSpace
+- uid: Cast.NET.Nodes.BlendShapeNode
+  name: BlendShapeNode
+  href: api/Cast.NET.Nodes.BlendShapeNode.html
+  commentId: T:Cast.NET.Nodes.BlendShapeNode
+  fullName: Cast.NET.Nodes.BlendShapeNode
+  nameWithType: BlendShapeNode
+- uid: Cast.NET.Nodes.BlendShapeNode.#ctor
+  name: BlendShapeNode()
+  href: api/Cast.NET.Nodes.BlendShapeNode.html#Cast_NET_Nodes_BlendShapeNode__ctor
+  commentId: M:Cast.NET.Nodes.BlendShapeNode.#ctor
+  fullName: Cast.NET.Nodes.BlendShapeNode.BlendShapeNode()
+  nameWithType: BlendShapeNode.BlendShapeNode()
+- uid: Cast.NET.Nodes.BlendShapeNode.#ctor(Cast.NET.CastNode)
+  name: BlendShapeNode(CastNode)
+  href: api/Cast.NET.Nodes.BlendShapeNode.html#Cast_NET_Nodes_BlendShapeNode__ctor_Cast_NET_CastNode_
+  commentId: M:Cast.NET.Nodes.BlendShapeNode.#ctor(Cast.NET.CastNode)
+  fullName: Cast.NET.Nodes.BlendShapeNode.BlendShapeNode(Cast.NET.CastNode)
+  nameWithType: BlendShapeNode.BlendShapeNode(CastNode)
+- uid: Cast.NET.Nodes.BlendShapeNode.#ctor(Cast.NET.CastNodeIdentifier)
+  name: BlendShapeNode(CastNodeIdentifier)
+  href: api/Cast.NET.Nodes.BlendShapeNode.html#Cast_NET_Nodes_BlendShapeNode__ctor_Cast_NET_CastNodeIdentifier_
+  commentId: M:Cast.NET.Nodes.BlendShapeNode.#ctor(Cast.NET.CastNodeIdentifier)
+  fullName: Cast.NET.Nodes.BlendShapeNode.BlendShapeNode(Cast.NET.CastNodeIdentifier)
+  nameWithType: BlendShapeNode.BlendShapeNode(CastNodeIdentifier)
+- uid: Cast.NET.Nodes.BlendShapeNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64)
+  name: BlendShapeNode(CastNodeIdentifier, UInt64)
+  href: api/Cast.NET.Nodes.BlendShapeNode.html#Cast_NET_Nodes_BlendShapeNode__ctor_Cast_NET_CastNodeIdentifier_System_UInt64_
+  commentId: M:Cast.NET.Nodes.BlendShapeNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64)
+  fullName: Cast.NET.Nodes.BlendShapeNode.BlendShapeNode(Cast.NET.CastNodeIdentifier, System.UInt64)
+  nameWithType: BlendShapeNode.BlendShapeNode(CastNodeIdentifier, UInt64)
+- uid: Cast.NET.Nodes.BlendShapeNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name: BlendShapeNode(CastNodeIdentifier, UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  href: api/Cast.NET.Nodes.BlendShapeNode.html#Cast_NET_Nodes_BlendShapeNode__ctor_Cast_NET_CastNodeIdentifier_System_UInt64_System_Nullable_Dictionary_System_String_Cast_NET_CastProperty___System_Nullable_List_Cast_NET_CastNode___
+  commentId: M:Cast.NET.Nodes.BlendShapeNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name.vb: BlendShapeNode(CastNodeIdentifier, UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+  fullName: Cast.NET.Nodes.BlendShapeNode.BlendShapeNode(Cast.NET.CastNodeIdentifier, System.UInt64, System.Nullable<Dictionary<System.String, Cast.NET.CastProperty>>, System.Nullable<List<Cast.NET.CastNode>>)
+  fullName.vb: Cast.NET.Nodes.BlendShapeNode.BlendShapeNode(Cast.NET.CastNodeIdentifier, System.UInt64, System.Nullable(Of Dictionary(Of System.String, Cast.NET.CastProperty)), System.Nullable(Of List(Of Cast.NET.CastNode)))
+  nameWithType: BlendShapeNode.BlendShapeNode(CastNodeIdentifier, UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  nameWithType.vb: BlendShapeNode.BlendShapeNode(CastNodeIdentifier, UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+- uid: Cast.NET.Nodes.BlendShapeNode.#ctor(System.UInt64)
+  name: BlendShapeNode(UInt64)
+  href: api/Cast.NET.Nodes.BlendShapeNode.html#Cast_NET_Nodes_BlendShapeNode__ctor_System_UInt64_
+  commentId: M:Cast.NET.Nodes.BlendShapeNode.#ctor(System.UInt64)
+  fullName: Cast.NET.Nodes.BlendShapeNode.BlendShapeNode(System.UInt64)
+  nameWithType: BlendShapeNode.BlendShapeNode(UInt64)
+- uid: Cast.NET.Nodes.BlendShapeNode.#ctor(System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name: BlendShapeNode(UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  href: api/Cast.NET.Nodes.BlendShapeNode.html#Cast_NET_Nodes_BlendShapeNode__ctor_System_UInt64_System_Nullable_Dictionary_System_String_Cast_NET_CastProperty___System_Nullable_List_Cast_NET_CastNode___
+  commentId: M:Cast.NET.Nodes.BlendShapeNode.#ctor(System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name.vb: BlendShapeNode(UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+  fullName: Cast.NET.Nodes.BlendShapeNode.BlendShapeNode(System.UInt64, System.Nullable<Dictionary<System.String, Cast.NET.CastProperty>>, System.Nullable<List<Cast.NET.CastNode>>)
+  fullName.vb: Cast.NET.Nodes.BlendShapeNode.BlendShapeNode(System.UInt64, System.Nullable(Of Dictionary(Of System.String, Cast.NET.CastProperty)), System.Nullable(Of List(Of Cast.NET.CastNode)))
+  nameWithType: BlendShapeNode.BlendShapeNode(UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  nameWithType.vb: BlendShapeNode.BlendShapeNode(UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+- uid: Cast.NET.Nodes.BlendShapeNode.#ctor*
+  name: BlendShapeNode
+  href: api/Cast.NET.Nodes.BlendShapeNode.html#Cast_NET_Nodes_BlendShapeNode__ctor_
+  commentId: Overload:Cast.NET.Nodes.BlendShapeNode.#ctor
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.BlendShapeNode.BlendShapeNode
+  nameWithType: BlendShapeNode.BlendShapeNode
+- uid: Cast.NET.Nodes.BlendShapeNode.BaseShape
+  name: BaseShape
+  href: api/Cast.NET.Nodes.BlendShapeNode.html#Cast_NET_Nodes_BlendShapeNode_BaseShape
+  commentId: P:Cast.NET.Nodes.BlendShapeNode.BaseShape
+  fullName: Cast.NET.Nodes.BlendShapeNode.BaseShape
+  nameWithType: BlendShapeNode.BaseShape
+- uid: Cast.NET.Nodes.BlendShapeNode.BaseShape*
+  name: BaseShape
+  href: api/Cast.NET.Nodes.BlendShapeNode.html#Cast_NET_Nodes_BlendShapeNode_BaseShape_
+  commentId: Overload:Cast.NET.Nodes.BlendShapeNode.BaseShape
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.BlendShapeNode.BaseShape
+  nameWithType: BlendShapeNode.BaseShape
+- uid: Cast.NET.Nodes.BlendShapeNode.BaseShapeHash
+  name: BaseShapeHash
+  href: api/Cast.NET.Nodes.BlendShapeNode.html#Cast_NET_Nodes_BlendShapeNode_BaseShapeHash
+  commentId: P:Cast.NET.Nodes.BlendShapeNode.BaseShapeHash
+  fullName: Cast.NET.Nodes.BlendShapeNode.BaseShapeHash
+  nameWithType: BlendShapeNode.BaseShapeHash
+- uid: Cast.NET.Nodes.BlendShapeNode.BaseShapeHash*
+  name: BaseShapeHash
+  href: api/Cast.NET.Nodes.BlendShapeNode.html#Cast_NET_Nodes_BlendShapeNode_BaseShapeHash_
+  commentId: Overload:Cast.NET.Nodes.BlendShapeNode.BaseShapeHash
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.BlendShapeNode.BaseShapeHash
+  nameWithType: BlendShapeNode.BaseShapeHash
+- uid: Cast.NET.Nodes.BlendShapeNode.EnumerateTargetShapes
+  name: EnumerateTargetShapes()
+  href: api/Cast.NET.Nodes.BlendShapeNode.html#Cast_NET_Nodes_BlendShapeNode_EnumerateTargetShapes
+  commentId: M:Cast.NET.Nodes.BlendShapeNode.EnumerateTargetShapes
+  fullName: Cast.NET.Nodes.BlendShapeNode.EnumerateTargetShapes()
+  nameWithType: BlendShapeNode.EnumerateTargetShapes()
+- uid: Cast.NET.Nodes.BlendShapeNode.EnumerateTargetShapes*
+  name: EnumerateTargetShapes
+  href: api/Cast.NET.Nodes.BlendShapeNode.html#Cast_NET_Nodes_BlendShapeNode_EnumerateTargetShapes_
+  commentId: Overload:Cast.NET.Nodes.BlendShapeNode.EnumerateTargetShapes
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.BlendShapeNode.EnumerateTargetShapes
+  nameWithType: BlendShapeNode.EnumerateTargetShapes
+- uid: Cast.NET.Nodes.BlendShapeNode.GetTargetShapes
+  name: GetTargetShapes()
+  href: api/Cast.NET.Nodes.BlendShapeNode.html#Cast_NET_Nodes_BlendShapeNode_GetTargetShapes
+  commentId: M:Cast.NET.Nodes.BlendShapeNode.GetTargetShapes
+  fullName: Cast.NET.Nodes.BlendShapeNode.GetTargetShapes()
+  nameWithType: BlendShapeNode.GetTargetShapes()
+- uid: Cast.NET.Nodes.BlendShapeNode.GetTargetShapes*
+  name: GetTargetShapes
+  href: api/Cast.NET.Nodes.BlendShapeNode.html#Cast_NET_Nodes_BlendShapeNode_GetTargetShapes_
+  commentId: Overload:Cast.NET.Nodes.BlendShapeNode.GetTargetShapes
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.BlendShapeNode.GetTargetShapes
+  nameWithType: BlendShapeNode.GetTargetShapes
+- uid: Cast.NET.Nodes.BlendShapeNode.TargetShapeHashes
+  name: TargetShapeHashes
+  href: api/Cast.NET.Nodes.BlendShapeNode.html#Cast_NET_Nodes_BlendShapeNode_TargetShapeHashes
+  commentId: P:Cast.NET.Nodes.BlendShapeNode.TargetShapeHashes
+  fullName: Cast.NET.Nodes.BlendShapeNode.TargetShapeHashes
+  nameWithType: BlendShapeNode.TargetShapeHashes
+- uid: Cast.NET.Nodes.BlendShapeNode.TargetShapeHashes*
+  name: TargetShapeHashes
+  href: api/Cast.NET.Nodes.BlendShapeNode.html#Cast_NET_Nodes_BlendShapeNode_TargetShapeHashes_
+  commentId: Overload:Cast.NET.Nodes.BlendShapeNode.TargetShapeHashes
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.BlendShapeNode.TargetShapeHashes
+  nameWithType: BlendShapeNode.TargetShapeHashes
+- uid: Cast.NET.Nodes.BlendShapeNode.TargetWeightScales
+  name: TargetWeightScales
+  href: api/Cast.NET.Nodes.BlendShapeNode.html#Cast_NET_Nodes_BlendShapeNode_TargetWeightScales
+  commentId: P:Cast.NET.Nodes.BlendShapeNode.TargetWeightScales
+  fullName: Cast.NET.Nodes.BlendShapeNode.TargetWeightScales
+  nameWithType: BlendShapeNode.TargetWeightScales
+- uid: Cast.NET.Nodes.BlendShapeNode.TargetWeightScales*
+  name: TargetWeightScales
+  href: api/Cast.NET.Nodes.BlendShapeNode.html#Cast_NET_Nodes_BlendShapeNode_TargetWeightScales_
+  commentId: Overload:Cast.NET.Nodes.BlendShapeNode.TargetWeightScales
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.BlendShapeNode.TargetWeightScales
+  nameWithType: BlendShapeNode.TargetWeightScales
+- uid: Cast.NET.Nodes.BoneNode
+  name: BoneNode
+  href: api/Cast.NET.Nodes.BoneNode.html
+  commentId: T:Cast.NET.Nodes.BoneNode
+  fullName: Cast.NET.Nodes.BoneNode
+  nameWithType: BoneNode
+- uid: Cast.NET.Nodes.BoneNode.#ctor
+  name: BoneNode()
+  href: api/Cast.NET.Nodes.BoneNode.html#Cast_NET_Nodes_BoneNode__ctor
+  commentId: M:Cast.NET.Nodes.BoneNode.#ctor
+  fullName: Cast.NET.Nodes.BoneNode.BoneNode()
+  nameWithType: BoneNode.BoneNode()
+- uid: Cast.NET.Nodes.BoneNode.#ctor(Cast.NET.CastNode)
+  name: BoneNode(CastNode)
+  href: api/Cast.NET.Nodes.BoneNode.html#Cast_NET_Nodes_BoneNode__ctor_Cast_NET_CastNode_
+  commentId: M:Cast.NET.Nodes.BoneNode.#ctor(Cast.NET.CastNode)
+  fullName: Cast.NET.Nodes.BoneNode.BoneNode(Cast.NET.CastNode)
+  nameWithType: BoneNode.BoneNode(CastNode)
+- uid: Cast.NET.Nodes.BoneNode.#ctor(Cast.NET.CastNodeIdentifier)
+  name: BoneNode(CastNodeIdentifier)
+  href: api/Cast.NET.Nodes.BoneNode.html#Cast_NET_Nodes_BoneNode__ctor_Cast_NET_CastNodeIdentifier_
+  commentId: M:Cast.NET.Nodes.BoneNode.#ctor(Cast.NET.CastNodeIdentifier)
+  fullName: Cast.NET.Nodes.BoneNode.BoneNode(Cast.NET.CastNodeIdentifier)
+  nameWithType: BoneNode.BoneNode(CastNodeIdentifier)
+- uid: Cast.NET.Nodes.BoneNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64)
+  name: BoneNode(CastNodeIdentifier, UInt64)
+  href: api/Cast.NET.Nodes.BoneNode.html#Cast_NET_Nodes_BoneNode__ctor_Cast_NET_CastNodeIdentifier_System_UInt64_
+  commentId: M:Cast.NET.Nodes.BoneNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64)
+  fullName: Cast.NET.Nodes.BoneNode.BoneNode(Cast.NET.CastNodeIdentifier, System.UInt64)
+  nameWithType: BoneNode.BoneNode(CastNodeIdentifier, UInt64)
+- uid: Cast.NET.Nodes.BoneNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name: BoneNode(CastNodeIdentifier, UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  href: api/Cast.NET.Nodes.BoneNode.html#Cast_NET_Nodes_BoneNode__ctor_Cast_NET_CastNodeIdentifier_System_UInt64_System_Nullable_Dictionary_System_String_Cast_NET_CastProperty___System_Nullable_List_Cast_NET_CastNode___
+  commentId: M:Cast.NET.Nodes.BoneNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name.vb: BoneNode(CastNodeIdentifier, UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+  fullName: Cast.NET.Nodes.BoneNode.BoneNode(Cast.NET.CastNodeIdentifier, System.UInt64, System.Nullable<Dictionary<System.String, Cast.NET.CastProperty>>, System.Nullable<List<Cast.NET.CastNode>>)
+  fullName.vb: Cast.NET.Nodes.BoneNode.BoneNode(Cast.NET.CastNodeIdentifier, System.UInt64, System.Nullable(Of Dictionary(Of System.String, Cast.NET.CastProperty)), System.Nullable(Of List(Of Cast.NET.CastNode)))
+  nameWithType: BoneNode.BoneNode(CastNodeIdentifier, UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  nameWithType.vb: BoneNode.BoneNode(CastNodeIdentifier, UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+- uid: Cast.NET.Nodes.BoneNode.#ctor(System.UInt64)
+  name: BoneNode(UInt64)
+  href: api/Cast.NET.Nodes.BoneNode.html#Cast_NET_Nodes_BoneNode__ctor_System_UInt64_
+  commentId: M:Cast.NET.Nodes.BoneNode.#ctor(System.UInt64)
+  fullName: Cast.NET.Nodes.BoneNode.BoneNode(System.UInt64)
+  nameWithType: BoneNode.BoneNode(UInt64)
+- uid: Cast.NET.Nodes.BoneNode.#ctor(System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name: BoneNode(UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  href: api/Cast.NET.Nodes.BoneNode.html#Cast_NET_Nodes_BoneNode__ctor_System_UInt64_System_Nullable_Dictionary_System_String_Cast_NET_CastProperty___System_Nullable_List_Cast_NET_CastNode___
+  commentId: M:Cast.NET.Nodes.BoneNode.#ctor(System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name.vb: BoneNode(UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+  fullName: Cast.NET.Nodes.BoneNode.BoneNode(System.UInt64, System.Nullable<Dictionary<System.String, Cast.NET.CastProperty>>, System.Nullable<List<Cast.NET.CastNode>>)
+  fullName.vb: Cast.NET.Nodes.BoneNode.BoneNode(System.UInt64, System.Nullable(Of Dictionary(Of System.String, Cast.NET.CastProperty)), System.Nullable(Of List(Of Cast.NET.CastNode)))
+  nameWithType: BoneNode.BoneNode(UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  nameWithType.vb: BoneNode.BoneNode(UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+- uid: Cast.NET.Nodes.BoneNode.#ctor*
+  name: BoneNode
+  href: api/Cast.NET.Nodes.BoneNode.html#Cast_NET_Nodes_BoneNode__ctor_
+  commentId: Overload:Cast.NET.Nodes.BoneNode.#ctor
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.BoneNode.BoneNode
+  nameWithType: BoneNode.BoneNode
+- uid: Cast.NET.Nodes.BoneNode.LocalPosition
+  name: LocalPosition
+  href: api/Cast.NET.Nodes.BoneNode.html#Cast_NET_Nodes_BoneNode_LocalPosition
+  commentId: P:Cast.NET.Nodes.BoneNode.LocalPosition
+  fullName: Cast.NET.Nodes.BoneNode.LocalPosition
+  nameWithType: BoneNode.LocalPosition
+- uid: Cast.NET.Nodes.BoneNode.LocalPosition*
+  name: LocalPosition
+  href: api/Cast.NET.Nodes.BoneNode.html#Cast_NET_Nodes_BoneNode_LocalPosition_
+  commentId: Overload:Cast.NET.Nodes.BoneNode.LocalPosition
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.BoneNode.LocalPosition
+  nameWithType: BoneNode.LocalPosition
+- uid: Cast.NET.Nodes.BoneNode.LocalRotation
+  name: LocalRotation
+  href: api/Cast.NET.Nodes.BoneNode.html#Cast_NET_Nodes_BoneNode_LocalRotation
+  commentId: P:Cast.NET.Nodes.BoneNode.LocalRotation
+  fullName: Cast.NET.Nodes.BoneNode.LocalRotation
+  nameWithType: BoneNode.LocalRotation
+- uid: Cast.NET.Nodes.BoneNode.LocalRotation*
+  name: LocalRotation
+  href: api/Cast.NET.Nodes.BoneNode.html#Cast_NET_Nodes_BoneNode_LocalRotation_
+  commentId: Overload:Cast.NET.Nodes.BoneNode.LocalRotation
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.BoneNode.LocalRotation
+  nameWithType: BoneNode.LocalRotation
+- uid: Cast.NET.Nodes.BoneNode.Name
+  name: Name
+  href: api/Cast.NET.Nodes.BoneNode.html#Cast_NET_Nodes_BoneNode_Name
+  commentId: P:Cast.NET.Nodes.BoneNode.Name
+  fullName: Cast.NET.Nodes.BoneNode.Name
+  nameWithType: BoneNode.Name
+- uid: Cast.NET.Nodes.BoneNode.Name*
+  name: Name
+  href: api/Cast.NET.Nodes.BoneNode.html#Cast_NET_Nodes_BoneNode_Name_
+  commentId: Overload:Cast.NET.Nodes.BoneNode.Name
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.BoneNode.Name
+  nameWithType: BoneNode.Name
+- uid: Cast.NET.Nodes.BoneNode.ParentIndex
+  name: ParentIndex
+  href: api/Cast.NET.Nodes.BoneNode.html#Cast_NET_Nodes_BoneNode_ParentIndex
+  commentId: P:Cast.NET.Nodes.BoneNode.ParentIndex
+  fullName: Cast.NET.Nodes.BoneNode.ParentIndex
+  nameWithType: BoneNode.ParentIndex
+- uid: Cast.NET.Nodes.BoneNode.ParentIndex*
+  name: ParentIndex
+  href: api/Cast.NET.Nodes.BoneNode.html#Cast_NET_Nodes_BoneNode_ParentIndex_
+  commentId: Overload:Cast.NET.Nodes.BoneNode.ParentIndex
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.BoneNode.ParentIndex
+  nameWithType: BoneNode.ParentIndex
+- uid: Cast.NET.Nodes.BoneNode.Scale
+  name: Scale
+  href: api/Cast.NET.Nodes.BoneNode.html#Cast_NET_Nodes_BoneNode_Scale
+  commentId: P:Cast.NET.Nodes.BoneNode.Scale
+  fullName: Cast.NET.Nodes.BoneNode.Scale
+  nameWithType: BoneNode.Scale
+- uid: Cast.NET.Nodes.BoneNode.Scale*
+  name: Scale
+  href: api/Cast.NET.Nodes.BoneNode.html#Cast_NET_Nodes_BoneNode_Scale_
+  commentId: Overload:Cast.NET.Nodes.BoneNode.Scale
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.BoneNode.Scale
+  nameWithType: BoneNode.Scale
+- uid: Cast.NET.Nodes.BoneNode.SegmentScaleCompensate
+  name: SegmentScaleCompensate
+  href: api/Cast.NET.Nodes.BoneNode.html#Cast_NET_Nodes_BoneNode_SegmentScaleCompensate
+  commentId: P:Cast.NET.Nodes.BoneNode.SegmentScaleCompensate
+  fullName: Cast.NET.Nodes.BoneNode.SegmentScaleCompensate
+  nameWithType: BoneNode.SegmentScaleCompensate
+- uid: Cast.NET.Nodes.BoneNode.SegmentScaleCompensate*
+  name: SegmentScaleCompensate
+  href: api/Cast.NET.Nodes.BoneNode.html#Cast_NET_Nodes_BoneNode_SegmentScaleCompensate_
+  commentId: Overload:Cast.NET.Nodes.BoneNode.SegmentScaleCompensate
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.BoneNode.SegmentScaleCompensate
+  nameWithType: BoneNode.SegmentScaleCompensate
+- uid: Cast.NET.Nodes.BoneNode.WorldPosition
+  name: WorldPosition
+  href: api/Cast.NET.Nodes.BoneNode.html#Cast_NET_Nodes_BoneNode_WorldPosition
+  commentId: P:Cast.NET.Nodes.BoneNode.WorldPosition
+  fullName: Cast.NET.Nodes.BoneNode.WorldPosition
+  nameWithType: BoneNode.WorldPosition
+- uid: Cast.NET.Nodes.BoneNode.WorldPosition*
+  name: WorldPosition
+  href: api/Cast.NET.Nodes.BoneNode.html#Cast_NET_Nodes_BoneNode_WorldPosition_
+  commentId: Overload:Cast.NET.Nodes.BoneNode.WorldPosition
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.BoneNode.WorldPosition
+  nameWithType: BoneNode.WorldPosition
+- uid: Cast.NET.Nodes.BoneNode.WorldRotation
+  name: WorldRotation
+  href: api/Cast.NET.Nodes.BoneNode.html#Cast_NET_Nodes_BoneNode_WorldRotation
+  commentId: P:Cast.NET.Nodes.BoneNode.WorldRotation
+  fullName: Cast.NET.Nodes.BoneNode.WorldRotation
+  nameWithType: BoneNode.WorldRotation
+- uid: Cast.NET.Nodes.BoneNode.WorldRotation*
+  name: WorldRotation
+  href: api/Cast.NET.Nodes.BoneNode.html#Cast_NET_Nodes_BoneNode_WorldRotation_
+  commentId: Overload:Cast.NET.Nodes.BoneNode.WorldRotation
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.BoneNode.WorldRotation
+  nameWithType: BoneNode.WorldRotation
+- uid: Cast.NET.Nodes.ConstraintNode
+  name: ConstraintNode
+  href: api/Cast.NET.Nodes.ConstraintNode.html
+  commentId: T:Cast.NET.Nodes.ConstraintNode
+  fullName: Cast.NET.Nodes.ConstraintNode
+  nameWithType: ConstraintNode
+- uid: Cast.NET.Nodes.ConstraintNode.#ctor
+  name: ConstraintNode()
+  href: api/Cast.NET.Nodes.ConstraintNode.html#Cast_NET_Nodes_ConstraintNode__ctor
+  commentId: M:Cast.NET.Nodes.ConstraintNode.#ctor
+  fullName: Cast.NET.Nodes.ConstraintNode.ConstraintNode()
+  nameWithType: ConstraintNode.ConstraintNode()
+- uid: Cast.NET.Nodes.ConstraintNode.#ctor(Cast.NET.CastNode)
+  name: ConstraintNode(CastNode)
+  href: api/Cast.NET.Nodes.ConstraintNode.html#Cast_NET_Nodes_ConstraintNode__ctor_Cast_NET_CastNode_
+  commentId: M:Cast.NET.Nodes.ConstraintNode.#ctor(Cast.NET.CastNode)
+  fullName: Cast.NET.Nodes.ConstraintNode.ConstraintNode(Cast.NET.CastNode)
+  nameWithType: ConstraintNode.ConstraintNode(CastNode)
+- uid: Cast.NET.Nodes.ConstraintNode.#ctor(Cast.NET.CastNodeIdentifier)
+  name: ConstraintNode(CastNodeIdentifier)
+  href: api/Cast.NET.Nodes.ConstraintNode.html#Cast_NET_Nodes_ConstraintNode__ctor_Cast_NET_CastNodeIdentifier_
+  commentId: M:Cast.NET.Nodes.ConstraintNode.#ctor(Cast.NET.CastNodeIdentifier)
+  fullName: Cast.NET.Nodes.ConstraintNode.ConstraintNode(Cast.NET.CastNodeIdentifier)
+  nameWithType: ConstraintNode.ConstraintNode(CastNodeIdentifier)
+- uid: Cast.NET.Nodes.ConstraintNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64)
+  name: ConstraintNode(CastNodeIdentifier, UInt64)
+  href: api/Cast.NET.Nodes.ConstraintNode.html#Cast_NET_Nodes_ConstraintNode__ctor_Cast_NET_CastNodeIdentifier_System_UInt64_
+  commentId: M:Cast.NET.Nodes.ConstraintNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64)
+  fullName: Cast.NET.Nodes.ConstraintNode.ConstraintNode(Cast.NET.CastNodeIdentifier, System.UInt64)
+  nameWithType: ConstraintNode.ConstraintNode(CastNodeIdentifier, UInt64)
+- uid: Cast.NET.Nodes.ConstraintNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name: ConstraintNode(CastNodeIdentifier, UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  href: api/Cast.NET.Nodes.ConstraintNode.html#Cast_NET_Nodes_ConstraintNode__ctor_Cast_NET_CastNodeIdentifier_System_UInt64_System_Nullable_Dictionary_System_String_Cast_NET_CastProperty___System_Nullable_List_Cast_NET_CastNode___
+  commentId: M:Cast.NET.Nodes.ConstraintNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name.vb: ConstraintNode(CastNodeIdentifier, UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+  fullName: Cast.NET.Nodes.ConstraintNode.ConstraintNode(Cast.NET.CastNodeIdentifier, System.UInt64, System.Nullable<Dictionary<System.String, Cast.NET.CastProperty>>, System.Nullable<List<Cast.NET.CastNode>>)
+  fullName.vb: Cast.NET.Nodes.ConstraintNode.ConstraintNode(Cast.NET.CastNodeIdentifier, System.UInt64, System.Nullable(Of Dictionary(Of System.String, Cast.NET.CastProperty)), System.Nullable(Of List(Of Cast.NET.CastNode)))
+  nameWithType: ConstraintNode.ConstraintNode(CastNodeIdentifier, UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  nameWithType.vb: ConstraintNode.ConstraintNode(CastNodeIdentifier, UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+- uid: Cast.NET.Nodes.ConstraintNode.#ctor(System.UInt64)
+  name: ConstraintNode(UInt64)
+  href: api/Cast.NET.Nodes.ConstraintNode.html#Cast_NET_Nodes_ConstraintNode__ctor_System_UInt64_
+  commentId: M:Cast.NET.Nodes.ConstraintNode.#ctor(System.UInt64)
+  fullName: Cast.NET.Nodes.ConstraintNode.ConstraintNode(System.UInt64)
+  nameWithType: ConstraintNode.ConstraintNode(UInt64)
+- uid: Cast.NET.Nodes.ConstraintNode.#ctor(System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name: ConstraintNode(UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  href: api/Cast.NET.Nodes.ConstraintNode.html#Cast_NET_Nodes_ConstraintNode__ctor_System_UInt64_System_Nullable_Dictionary_System_String_Cast_NET_CastProperty___System_Nullable_List_Cast_NET_CastNode___
+  commentId: M:Cast.NET.Nodes.ConstraintNode.#ctor(System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name.vb: ConstraintNode(UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+  fullName: Cast.NET.Nodes.ConstraintNode.ConstraintNode(System.UInt64, System.Nullable<Dictionary<System.String, Cast.NET.CastProperty>>, System.Nullable<List<Cast.NET.CastNode>>)
+  fullName.vb: Cast.NET.Nodes.ConstraintNode.ConstraintNode(System.UInt64, System.Nullable(Of Dictionary(Of System.String, Cast.NET.CastProperty)), System.Nullable(Of List(Of Cast.NET.CastNode)))
+  nameWithType: ConstraintNode.ConstraintNode(UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  nameWithType.vb: ConstraintNode.ConstraintNode(UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+- uid: Cast.NET.Nodes.ConstraintNode.#ctor*
+  name: ConstraintNode
+  href: api/Cast.NET.Nodes.ConstraintNode.html#Cast_NET_Nodes_ConstraintNode__ctor_
+  commentId: Overload:Cast.NET.Nodes.ConstraintNode.#ctor
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.ConstraintNode.ConstraintNode
+  nameWithType: ConstraintNode.ConstraintNode
+- uid: Cast.NET.Nodes.ConstraintNode.ConstraintBone
+  name: ConstraintBone
+  href: api/Cast.NET.Nodes.ConstraintNode.html#Cast_NET_Nodes_ConstraintNode_ConstraintBone
+  commentId: P:Cast.NET.Nodes.ConstraintNode.ConstraintBone
+  fullName: Cast.NET.Nodes.ConstraintNode.ConstraintBone
+  nameWithType: ConstraintNode.ConstraintBone
+- uid: Cast.NET.Nodes.ConstraintNode.ConstraintBone*
+  name: ConstraintBone
+  href: api/Cast.NET.Nodes.ConstraintNode.html#Cast_NET_Nodes_ConstraintNode_ConstraintBone_
+  commentId: Overload:Cast.NET.Nodes.ConstraintNode.ConstraintBone
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.ConstraintNode.ConstraintBone
+  nameWithType: ConstraintNode.ConstraintBone
+- uid: Cast.NET.Nodes.ConstraintNode.ConstraintBoneHash
+  name: ConstraintBoneHash
+  href: api/Cast.NET.Nodes.ConstraintNode.html#Cast_NET_Nodes_ConstraintNode_ConstraintBoneHash
+  commentId: P:Cast.NET.Nodes.ConstraintNode.ConstraintBoneHash
+  fullName: Cast.NET.Nodes.ConstraintNode.ConstraintBoneHash
+  nameWithType: ConstraintNode.ConstraintBoneHash
+- uid: Cast.NET.Nodes.ConstraintNode.ConstraintBoneHash*
+  name: ConstraintBoneHash
+  href: api/Cast.NET.Nodes.ConstraintNode.html#Cast_NET_Nodes_ConstraintNode_ConstraintBoneHash_
+  commentId: Overload:Cast.NET.Nodes.ConstraintNode.ConstraintBoneHash
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.ConstraintNode.ConstraintBoneHash
+  nameWithType: ConstraintNode.ConstraintBoneHash
+- uid: Cast.NET.Nodes.ConstraintNode.ConstraintType
+  name: ConstraintType
+  href: api/Cast.NET.Nodes.ConstraintNode.html#Cast_NET_Nodes_ConstraintNode_ConstraintType
+  commentId: P:Cast.NET.Nodes.ConstraintNode.ConstraintType
+  fullName: Cast.NET.Nodes.ConstraintNode.ConstraintType
+  nameWithType: ConstraintNode.ConstraintType
+- uid: Cast.NET.Nodes.ConstraintNode.ConstraintType*
+  name: ConstraintType
+  href: api/Cast.NET.Nodes.ConstraintNode.html#Cast_NET_Nodes_ConstraintNode_ConstraintType_
+  commentId: Overload:Cast.NET.Nodes.ConstraintNode.ConstraintType
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.ConstraintNode.ConstraintType
+  nameWithType: ConstraintNode.ConstraintType
+- uid: Cast.NET.Nodes.ConstraintNode.MaintainOffset
+  name: MaintainOffset
+  href: api/Cast.NET.Nodes.ConstraintNode.html#Cast_NET_Nodes_ConstraintNode_MaintainOffset
+  commentId: P:Cast.NET.Nodes.ConstraintNode.MaintainOffset
+  fullName: Cast.NET.Nodes.ConstraintNode.MaintainOffset
+  nameWithType: ConstraintNode.MaintainOffset
+- uid: Cast.NET.Nodes.ConstraintNode.MaintainOffset*
+  name: MaintainOffset
+  href: api/Cast.NET.Nodes.ConstraintNode.html#Cast_NET_Nodes_ConstraintNode_MaintainOffset_
+  commentId: Overload:Cast.NET.Nodes.ConstraintNode.MaintainOffset
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.ConstraintNode.MaintainOffset
+  nameWithType: ConstraintNode.MaintainOffset
+- uid: Cast.NET.Nodes.ConstraintNode.Name
+  name: Name
+  href: api/Cast.NET.Nodes.ConstraintNode.html#Cast_NET_Nodes_ConstraintNode_Name
+  commentId: P:Cast.NET.Nodes.ConstraintNode.Name
+  fullName: Cast.NET.Nodes.ConstraintNode.Name
+  nameWithType: ConstraintNode.Name
+- uid: Cast.NET.Nodes.ConstraintNode.Name*
+  name: Name
+  href: api/Cast.NET.Nodes.ConstraintNode.html#Cast_NET_Nodes_ConstraintNode_Name_
+  commentId: Overload:Cast.NET.Nodes.ConstraintNode.Name
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.ConstraintNode.Name
+  nameWithType: ConstraintNode.Name
+- uid: Cast.NET.Nodes.ConstraintNode.TargetBone
+  name: TargetBone
+  href: api/Cast.NET.Nodes.ConstraintNode.html#Cast_NET_Nodes_ConstraintNode_TargetBone
+  commentId: P:Cast.NET.Nodes.ConstraintNode.TargetBone
+  fullName: Cast.NET.Nodes.ConstraintNode.TargetBone
+  nameWithType: ConstraintNode.TargetBone
+- uid: Cast.NET.Nodes.ConstraintNode.TargetBone*
+  name: TargetBone
+  href: api/Cast.NET.Nodes.ConstraintNode.html#Cast_NET_Nodes_ConstraintNode_TargetBone_
+  commentId: Overload:Cast.NET.Nodes.ConstraintNode.TargetBone
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.ConstraintNode.TargetBone
+  nameWithType: ConstraintNode.TargetBone
+- uid: Cast.NET.Nodes.ConstraintNode.TargetBoneHash
+  name: TargetBoneHash
+  href: api/Cast.NET.Nodes.ConstraintNode.html#Cast_NET_Nodes_ConstraintNode_TargetBoneHash
+  commentId: P:Cast.NET.Nodes.ConstraintNode.TargetBoneHash
+  fullName: Cast.NET.Nodes.ConstraintNode.TargetBoneHash
+  nameWithType: ConstraintNode.TargetBoneHash
+- uid: Cast.NET.Nodes.ConstraintNode.TargetBoneHash*
+  name: TargetBoneHash
+  href: api/Cast.NET.Nodes.ConstraintNode.html#Cast_NET_Nodes_ConstraintNode_TargetBoneHash_
+  commentId: Overload:Cast.NET.Nodes.ConstraintNode.TargetBoneHash
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.ConstraintNode.TargetBoneHash
+  nameWithType: ConstraintNode.TargetBoneHash
+- uid: Cast.NET.Nodes.CurveNode
+  name: CurveNode
+  href: api/Cast.NET.Nodes.CurveNode.html
+  commentId: T:Cast.NET.Nodes.CurveNode
+  fullName: Cast.NET.Nodes.CurveNode
+  nameWithType: CurveNode
+- uid: Cast.NET.Nodes.CurveNode.#ctor
+  name: CurveNode()
+  href: api/Cast.NET.Nodes.CurveNode.html#Cast_NET_Nodes_CurveNode__ctor
+  commentId: M:Cast.NET.Nodes.CurveNode.#ctor
+  fullName: Cast.NET.Nodes.CurveNode.CurveNode()
+  nameWithType: CurveNode.CurveNode()
+- uid: Cast.NET.Nodes.CurveNode.#ctor(Cast.NET.CastNode)
+  name: CurveNode(CastNode)
+  href: api/Cast.NET.Nodes.CurveNode.html#Cast_NET_Nodes_CurveNode__ctor_Cast_NET_CastNode_
+  commentId: M:Cast.NET.Nodes.CurveNode.#ctor(Cast.NET.CastNode)
+  fullName: Cast.NET.Nodes.CurveNode.CurveNode(Cast.NET.CastNode)
+  nameWithType: CurveNode.CurveNode(CastNode)
+- uid: Cast.NET.Nodes.CurveNode.#ctor(Cast.NET.CastNodeIdentifier)
+  name: CurveNode(CastNodeIdentifier)
+  href: api/Cast.NET.Nodes.CurveNode.html#Cast_NET_Nodes_CurveNode__ctor_Cast_NET_CastNodeIdentifier_
+  commentId: M:Cast.NET.Nodes.CurveNode.#ctor(Cast.NET.CastNodeIdentifier)
+  fullName: Cast.NET.Nodes.CurveNode.CurveNode(Cast.NET.CastNodeIdentifier)
+  nameWithType: CurveNode.CurveNode(CastNodeIdentifier)
+- uid: Cast.NET.Nodes.CurveNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64)
+  name: CurveNode(CastNodeIdentifier, UInt64)
+  href: api/Cast.NET.Nodes.CurveNode.html#Cast_NET_Nodes_CurveNode__ctor_Cast_NET_CastNodeIdentifier_System_UInt64_
+  commentId: M:Cast.NET.Nodes.CurveNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64)
+  fullName: Cast.NET.Nodes.CurveNode.CurveNode(Cast.NET.CastNodeIdentifier, System.UInt64)
+  nameWithType: CurveNode.CurveNode(CastNodeIdentifier, UInt64)
+- uid: Cast.NET.Nodes.CurveNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name: CurveNode(CastNodeIdentifier, UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  href: api/Cast.NET.Nodes.CurveNode.html#Cast_NET_Nodes_CurveNode__ctor_Cast_NET_CastNodeIdentifier_System_UInt64_System_Nullable_Dictionary_System_String_Cast_NET_CastProperty___System_Nullable_List_Cast_NET_CastNode___
+  commentId: M:Cast.NET.Nodes.CurveNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name.vb: CurveNode(CastNodeIdentifier, UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+  fullName: Cast.NET.Nodes.CurveNode.CurveNode(Cast.NET.CastNodeIdentifier, System.UInt64, System.Nullable<Dictionary<System.String, Cast.NET.CastProperty>>, System.Nullable<List<Cast.NET.CastNode>>)
+  fullName.vb: Cast.NET.Nodes.CurveNode.CurveNode(Cast.NET.CastNodeIdentifier, System.UInt64, System.Nullable(Of Dictionary(Of System.String, Cast.NET.CastProperty)), System.Nullable(Of List(Of Cast.NET.CastNode)))
+  nameWithType: CurveNode.CurveNode(CastNodeIdentifier, UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  nameWithType.vb: CurveNode.CurveNode(CastNodeIdentifier, UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+- uid: Cast.NET.Nodes.CurveNode.#ctor(System.UInt64)
+  name: CurveNode(UInt64)
+  href: api/Cast.NET.Nodes.CurveNode.html#Cast_NET_Nodes_CurveNode__ctor_System_UInt64_
+  commentId: M:Cast.NET.Nodes.CurveNode.#ctor(System.UInt64)
+  fullName: Cast.NET.Nodes.CurveNode.CurveNode(System.UInt64)
+  nameWithType: CurveNode.CurveNode(UInt64)
+- uid: Cast.NET.Nodes.CurveNode.#ctor(System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name: CurveNode(UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  href: api/Cast.NET.Nodes.CurveNode.html#Cast_NET_Nodes_CurveNode__ctor_System_UInt64_System_Nullable_Dictionary_System_String_Cast_NET_CastProperty___System_Nullable_List_Cast_NET_CastNode___
+  commentId: M:Cast.NET.Nodes.CurveNode.#ctor(System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name.vb: CurveNode(UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+  fullName: Cast.NET.Nodes.CurveNode.CurveNode(System.UInt64, System.Nullable<Dictionary<System.String, Cast.NET.CastProperty>>, System.Nullable<List<Cast.NET.CastNode>>)
+  fullName.vb: Cast.NET.Nodes.CurveNode.CurveNode(System.UInt64, System.Nullable(Of Dictionary(Of System.String, Cast.NET.CastProperty)), System.Nullable(Of List(Of Cast.NET.CastNode)))
+  nameWithType: CurveNode.CurveNode(UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  nameWithType.vb: CurveNode.CurveNode(UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+- uid: Cast.NET.Nodes.CurveNode.#ctor*
+  name: CurveNode
+  href: api/Cast.NET.Nodes.CurveNode.html#Cast_NET_Nodes_CurveNode__ctor_
+  commentId: Overload:Cast.NET.Nodes.CurveNode.#ctor
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.CurveNode.CurveNode
+  nameWithType: CurveNode.CurveNode
+- uid: Cast.NET.Nodes.CurveNode.AdditiveBlendWeight
+  name: AdditiveBlendWeight
+  href: api/Cast.NET.Nodes.CurveNode.html#Cast_NET_Nodes_CurveNode_AdditiveBlendWeight
+  commentId: P:Cast.NET.Nodes.CurveNode.AdditiveBlendWeight
+  fullName: Cast.NET.Nodes.CurveNode.AdditiveBlendWeight
+  nameWithType: CurveNode.AdditiveBlendWeight
+- uid: Cast.NET.Nodes.CurveNode.AdditiveBlendWeight*
+  name: AdditiveBlendWeight
+  href: api/Cast.NET.Nodes.CurveNode.html#Cast_NET_Nodes_CurveNode_AdditiveBlendWeight_
+  commentId: Overload:Cast.NET.Nodes.CurveNode.AdditiveBlendWeight
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.CurveNode.AdditiveBlendWeight
+  nameWithType: CurveNode.AdditiveBlendWeight
+- uid: Cast.NET.Nodes.CurveNode.KeyFrameBuffer
+  name: KeyFrameBuffer
+  href: api/Cast.NET.Nodes.CurveNode.html#Cast_NET_Nodes_CurveNode_KeyFrameBuffer
+  commentId: P:Cast.NET.Nodes.CurveNode.KeyFrameBuffer
+  fullName: Cast.NET.Nodes.CurveNode.KeyFrameBuffer
+  nameWithType: CurveNode.KeyFrameBuffer
+- uid: Cast.NET.Nodes.CurveNode.KeyFrameBuffer*
+  name: KeyFrameBuffer
+  href: api/Cast.NET.Nodes.CurveNode.html#Cast_NET_Nodes_CurveNode_KeyFrameBuffer_
+  commentId: Overload:Cast.NET.Nodes.CurveNode.KeyFrameBuffer
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.CurveNode.KeyFrameBuffer
+  nameWithType: CurveNode.KeyFrameBuffer
+- uid: Cast.NET.Nodes.CurveNode.KeyPropertyName
+  name: KeyPropertyName
+  href: api/Cast.NET.Nodes.CurveNode.html#Cast_NET_Nodes_CurveNode_KeyPropertyName
+  commentId: P:Cast.NET.Nodes.CurveNode.KeyPropertyName
+  fullName: Cast.NET.Nodes.CurveNode.KeyPropertyName
+  nameWithType: CurveNode.KeyPropertyName
+- uid: Cast.NET.Nodes.CurveNode.KeyPropertyName*
+  name: KeyPropertyName
+  href: api/Cast.NET.Nodes.CurveNode.html#Cast_NET_Nodes_CurveNode_KeyPropertyName_
+  commentId: Overload:Cast.NET.Nodes.CurveNode.KeyPropertyName
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.CurveNode.KeyPropertyName
+  nameWithType: CurveNode.KeyPropertyName
+- uid: Cast.NET.Nodes.CurveNode.KeyValueBuffer
+  name: KeyValueBuffer
+  href: api/Cast.NET.Nodes.CurveNode.html#Cast_NET_Nodes_CurveNode_KeyValueBuffer
+  commentId: P:Cast.NET.Nodes.CurveNode.KeyValueBuffer
+  fullName: Cast.NET.Nodes.CurveNode.KeyValueBuffer
+  nameWithType: CurveNode.KeyValueBuffer
+- uid: Cast.NET.Nodes.CurveNode.KeyValueBuffer*
+  name: KeyValueBuffer
+  href: api/Cast.NET.Nodes.CurveNode.html#Cast_NET_Nodes_CurveNode_KeyValueBuffer_
+  commentId: Overload:Cast.NET.Nodes.CurveNode.KeyValueBuffer
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.CurveNode.KeyValueBuffer
+  nameWithType: CurveNode.KeyValueBuffer
+- uid: Cast.NET.Nodes.CurveNode.Mode
+  name: Mode
+  href: api/Cast.NET.Nodes.CurveNode.html#Cast_NET_Nodes_CurveNode_Mode
+  commentId: P:Cast.NET.Nodes.CurveNode.Mode
+  fullName: Cast.NET.Nodes.CurveNode.Mode
+  nameWithType: CurveNode.Mode
+- uid: Cast.NET.Nodes.CurveNode.Mode*
+  name: Mode
+  href: api/Cast.NET.Nodes.CurveNode.html#Cast_NET_Nodes_CurveNode_Mode_
+  commentId: Overload:Cast.NET.Nodes.CurveNode.Mode
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.CurveNode.Mode
+  nameWithType: CurveNode.Mode
+- uid: Cast.NET.Nodes.CurveNode.NodeName
+  name: NodeName
+  href: api/Cast.NET.Nodes.CurveNode.html#Cast_NET_Nodes_CurveNode_NodeName
+  commentId: P:Cast.NET.Nodes.CurveNode.NodeName
+  fullName: Cast.NET.Nodes.CurveNode.NodeName
+  nameWithType: CurveNode.NodeName
+- uid: Cast.NET.Nodes.CurveNode.NodeName*
+  name: NodeName
+  href: api/Cast.NET.Nodes.CurveNode.html#Cast_NET_Nodes_CurveNode_NodeName_
+  commentId: Overload:Cast.NET.Nodes.CurveNode.NodeName
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.CurveNode.NodeName
+  nameWithType: CurveNode.NodeName
+- uid: Cast.NET.Nodes.FileNode
+  name: FileNode
+  href: api/Cast.NET.Nodes.FileNode.html
+  commentId: T:Cast.NET.Nodes.FileNode
+  fullName: Cast.NET.Nodes.FileNode
+  nameWithType: FileNode
+- uid: Cast.NET.Nodes.FileNode.#ctor
+  name: FileNode()
+  href: api/Cast.NET.Nodes.FileNode.html#Cast_NET_Nodes_FileNode__ctor
+  commentId: M:Cast.NET.Nodes.FileNode.#ctor
+  fullName: Cast.NET.Nodes.FileNode.FileNode()
+  nameWithType: FileNode.FileNode()
+- uid: Cast.NET.Nodes.FileNode.#ctor(Cast.NET.CastNode)
+  name: FileNode(CastNode)
+  href: api/Cast.NET.Nodes.FileNode.html#Cast_NET_Nodes_FileNode__ctor_Cast_NET_CastNode_
+  commentId: M:Cast.NET.Nodes.FileNode.#ctor(Cast.NET.CastNode)
+  fullName: Cast.NET.Nodes.FileNode.FileNode(Cast.NET.CastNode)
+  nameWithType: FileNode.FileNode(CastNode)
+- uid: Cast.NET.Nodes.FileNode.#ctor(Cast.NET.CastNodeIdentifier)
+  name: FileNode(CastNodeIdentifier)
+  href: api/Cast.NET.Nodes.FileNode.html#Cast_NET_Nodes_FileNode__ctor_Cast_NET_CastNodeIdentifier_
+  commentId: M:Cast.NET.Nodes.FileNode.#ctor(Cast.NET.CastNodeIdentifier)
+  fullName: Cast.NET.Nodes.FileNode.FileNode(Cast.NET.CastNodeIdentifier)
+  nameWithType: FileNode.FileNode(CastNodeIdentifier)
+- uid: Cast.NET.Nodes.FileNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64)
+  name: FileNode(CastNodeIdentifier, UInt64)
+  href: api/Cast.NET.Nodes.FileNode.html#Cast_NET_Nodes_FileNode__ctor_Cast_NET_CastNodeIdentifier_System_UInt64_
+  commentId: M:Cast.NET.Nodes.FileNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64)
+  fullName: Cast.NET.Nodes.FileNode.FileNode(Cast.NET.CastNodeIdentifier, System.UInt64)
+  nameWithType: FileNode.FileNode(CastNodeIdentifier, UInt64)
+- uid: Cast.NET.Nodes.FileNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name: FileNode(CastNodeIdentifier, UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  href: api/Cast.NET.Nodes.FileNode.html#Cast_NET_Nodes_FileNode__ctor_Cast_NET_CastNodeIdentifier_System_UInt64_System_Nullable_Dictionary_System_String_Cast_NET_CastProperty___System_Nullable_List_Cast_NET_CastNode___
+  commentId: M:Cast.NET.Nodes.FileNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name.vb: FileNode(CastNodeIdentifier, UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+  fullName: Cast.NET.Nodes.FileNode.FileNode(Cast.NET.CastNodeIdentifier, System.UInt64, System.Nullable<Dictionary<System.String, Cast.NET.CastProperty>>, System.Nullable<List<Cast.NET.CastNode>>)
+  fullName.vb: Cast.NET.Nodes.FileNode.FileNode(Cast.NET.CastNodeIdentifier, System.UInt64, System.Nullable(Of Dictionary(Of System.String, Cast.NET.CastProperty)), System.Nullable(Of List(Of Cast.NET.CastNode)))
+  nameWithType: FileNode.FileNode(CastNodeIdentifier, UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  nameWithType.vb: FileNode.FileNode(CastNodeIdentifier, UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+- uid: Cast.NET.Nodes.FileNode.#ctor(System.UInt64)
+  name: FileNode(UInt64)
+  href: api/Cast.NET.Nodes.FileNode.html#Cast_NET_Nodes_FileNode__ctor_System_UInt64_
+  commentId: M:Cast.NET.Nodes.FileNode.#ctor(System.UInt64)
+  fullName: Cast.NET.Nodes.FileNode.FileNode(System.UInt64)
+  nameWithType: FileNode.FileNode(UInt64)
+- uid: Cast.NET.Nodes.FileNode.#ctor(System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name: FileNode(UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  href: api/Cast.NET.Nodes.FileNode.html#Cast_NET_Nodes_FileNode__ctor_System_UInt64_System_Nullable_Dictionary_System_String_Cast_NET_CastProperty___System_Nullable_List_Cast_NET_CastNode___
+  commentId: M:Cast.NET.Nodes.FileNode.#ctor(System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name.vb: FileNode(UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+  fullName: Cast.NET.Nodes.FileNode.FileNode(System.UInt64, System.Nullable<Dictionary<System.String, Cast.NET.CastProperty>>, System.Nullable<List<Cast.NET.CastNode>>)
+  fullName.vb: Cast.NET.Nodes.FileNode.FileNode(System.UInt64, System.Nullable(Of Dictionary(Of System.String, Cast.NET.CastProperty)), System.Nullable(Of List(Of Cast.NET.CastNode)))
+  nameWithType: FileNode.FileNode(UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  nameWithType.vb: FileNode.FileNode(UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+- uid: Cast.NET.Nodes.FileNode.#ctor*
+  name: FileNode
+  href: api/Cast.NET.Nodes.FileNode.html#Cast_NET_Nodes_FileNode__ctor_
+  commentId: Overload:Cast.NET.Nodes.FileNode.#ctor
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.FileNode.FileNode
+  nameWithType: FileNode.FileNode
+- uid: Cast.NET.Nodes.FileNode.Path
+  name: Path
+  href: api/Cast.NET.Nodes.FileNode.html#Cast_NET_Nodes_FileNode_Path
+  commentId: P:Cast.NET.Nodes.FileNode.Path
+  fullName: Cast.NET.Nodes.FileNode.Path
+  nameWithType: FileNode.Path
+- uid: Cast.NET.Nodes.FileNode.Path*
+  name: Path
+  href: api/Cast.NET.Nodes.FileNode.html#Cast_NET_Nodes_FileNode_Path_
+  commentId: Overload:Cast.NET.Nodes.FileNode.Path
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.FileNode.Path
+  nameWithType: FileNode.Path
+- uid: Cast.NET.Nodes.IKHandleNode
+  name: IKHandleNode
+  href: api/Cast.NET.Nodes.IKHandleNode.html
+  commentId: T:Cast.NET.Nodes.IKHandleNode
+  fullName: Cast.NET.Nodes.IKHandleNode
+  nameWithType: IKHandleNode
+- uid: Cast.NET.Nodes.IKHandleNode.#ctor
+  name: IKHandleNode()
+  href: api/Cast.NET.Nodes.IKHandleNode.html#Cast_NET_Nodes_IKHandleNode__ctor
+  commentId: M:Cast.NET.Nodes.IKHandleNode.#ctor
+  fullName: Cast.NET.Nodes.IKHandleNode.IKHandleNode()
+  nameWithType: IKHandleNode.IKHandleNode()
+- uid: Cast.NET.Nodes.IKHandleNode.#ctor(Cast.NET.CastNode)
+  name: IKHandleNode(CastNode)
+  href: api/Cast.NET.Nodes.IKHandleNode.html#Cast_NET_Nodes_IKHandleNode__ctor_Cast_NET_CastNode_
+  commentId: M:Cast.NET.Nodes.IKHandleNode.#ctor(Cast.NET.CastNode)
+  fullName: Cast.NET.Nodes.IKHandleNode.IKHandleNode(Cast.NET.CastNode)
+  nameWithType: IKHandleNode.IKHandleNode(CastNode)
+- uid: Cast.NET.Nodes.IKHandleNode.#ctor(Cast.NET.CastNodeIdentifier)
+  name: IKHandleNode(CastNodeIdentifier)
+  href: api/Cast.NET.Nodes.IKHandleNode.html#Cast_NET_Nodes_IKHandleNode__ctor_Cast_NET_CastNodeIdentifier_
+  commentId: M:Cast.NET.Nodes.IKHandleNode.#ctor(Cast.NET.CastNodeIdentifier)
+  fullName: Cast.NET.Nodes.IKHandleNode.IKHandleNode(Cast.NET.CastNodeIdentifier)
+  nameWithType: IKHandleNode.IKHandleNode(CastNodeIdentifier)
+- uid: Cast.NET.Nodes.IKHandleNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64)
+  name: IKHandleNode(CastNodeIdentifier, UInt64)
+  href: api/Cast.NET.Nodes.IKHandleNode.html#Cast_NET_Nodes_IKHandleNode__ctor_Cast_NET_CastNodeIdentifier_System_UInt64_
+  commentId: M:Cast.NET.Nodes.IKHandleNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64)
+  fullName: Cast.NET.Nodes.IKHandleNode.IKHandleNode(Cast.NET.CastNodeIdentifier, System.UInt64)
+  nameWithType: IKHandleNode.IKHandleNode(CastNodeIdentifier, UInt64)
+- uid: Cast.NET.Nodes.IKHandleNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name: IKHandleNode(CastNodeIdentifier, UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  href: api/Cast.NET.Nodes.IKHandleNode.html#Cast_NET_Nodes_IKHandleNode__ctor_Cast_NET_CastNodeIdentifier_System_UInt64_System_Nullable_Dictionary_System_String_Cast_NET_CastProperty___System_Nullable_List_Cast_NET_CastNode___
+  commentId: M:Cast.NET.Nodes.IKHandleNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name.vb: IKHandleNode(CastNodeIdentifier, UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+  fullName: Cast.NET.Nodes.IKHandleNode.IKHandleNode(Cast.NET.CastNodeIdentifier, System.UInt64, System.Nullable<Dictionary<System.String, Cast.NET.CastProperty>>, System.Nullable<List<Cast.NET.CastNode>>)
+  fullName.vb: Cast.NET.Nodes.IKHandleNode.IKHandleNode(Cast.NET.CastNodeIdentifier, System.UInt64, System.Nullable(Of Dictionary(Of System.String, Cast.NET.CastProperty)), System.Nullable(Of List(Of Cast.NET.CastNode)))
+  nameWithType: IKHandleNode.IKHandleNode(CastNodeIdentifier, UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  nameWithType.vb: IKHandleNode.IKHandleNode(CastNodeIdentifier, UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+- uid: Cast.NET.Nodes.IKHandleNode.#ctor(System.UInt64)
+  name: IKHandleNode(UInt64)
+  href: api/Cast.NET.Nodes.IKHandleNode.html#Cast_NET_Nodes_IKHandleNode__ctor_System_UInt64_
+  commentId: M:Cast.NET.Nodes.IKHandleNode.#ctor(System.UInt64)
+  fullName: Cast.NET.Nodes.IKHandleNode.IKHandleNode(System.UInt64)
+  nameWithType: IKHandleNode.IKHandleNode(UInt64)
+- uid: Cast.NET.Nodes.IKHandleNode.#ctor(System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name: IKHandleNode(UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  href: api/Cast.NET.Nodes.IKHandleNode.html#Cast_NET_Nodes_IKHandleNode__ctor_System_UInt64_System_Nullable_Dictionary_System_String_Cast_NET_CastProperty___System_Nullable_List_Cast_NET_CastNode___
+  commentId: M:Cast.NET.Nodes.IKHandleNode.#ctor(System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name.vb: IKHandleNode(UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+  fullName: Cast.NET.Nodes.IKHandleNode.IKHandleNode(System.UInt64, System.Nullable<Dictionary<System.String, Cast.NET.CastProperty>>, System.Nullable<List<Cast.NET.CastNode>>)
+  fullName.vb: Cast.NET.Nodes.IKHandleNode.IKHandleNode(System.UInt64, System.Nullable(Of Dictionary(Of System.String, Cast.NET.CastProperty)), System.Nullable(Of List(Of Cast.NET.CastNode)))
+  nameWithType: IKHandleNode.IKHandleNode(UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  nameWithType.vb: IKHandleNode.IKHandleNode(UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+- uid: Cast.NET.Nodes.IKHandleNode.#ctor*
+  name: IKHandleNode
+  href: api/Cast.NET.Nodes.IKHandleNode.html#Cast_NET_Nodes_IKHandleNode__ctor_
+  commentId: Overload:Cast.NET.Nodes.IKHandleNode.#ctor
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.IKHandleNode.IKHandleNode
+  nameWithType: IKHandleNode.IKHandleNode
+- uid: Cast.NET.Nodes.IKHandleNode.EndBone
+  name: EndBone
+  href: api/Cast.NET.Nodes.IKHandleNode.html#Cast_NET_Nodes_IKHandleNode_EndBone
+  commentId: P:Cast.NET.Nodes.IKHandleNode.EndBone
+  fullName: Cast.NET.Nodes.IKHandleNode.EndBone
+  nameWithType: IKHandleNode.EndBone
+- uid: Cast.NET.Nodes.IKHandleNode.EndBone*
+  name: EndBone
+  href: api/Cast.NET.Nodes.IKHandleNode.html#Cast_NET_Nodes_IKHandleNode_EndBone_
+  commentId: Overload:Cast.NET.Nodes.IKHandleNode.EndBone
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.IKHandleNode.EndBone
+  nameWithType: IKHandleNode.EndBone
+- uid: Cast.NET.Nodes.IKHandleNode.EndBoneHash
+  name: EndBoneHash
+  href: api/Cast.NET.Nodes.IKHandleNode.html#Cast_NET_Nodes_IKHandleNode_EndBoneHash
+  commentId: P:Cast.NET.Nodes.IKHandleNode.EndBoneHash
+  fullName: Cast.NET.Nodes.IKHandleNode.EndBoneHash
+  nameWithType: IKHandleNode.EndBoneHash
+- uid: Cast.NET.Nodes.IKHandleNode.EndBoneHash*
+  name: EndBoneHash
+  href: api/Cast.NET.Nodes.IKHandleNode.html#Cast_NET_Nodes_IKHandleNode_EndBoneHash_
+  commentId: Overload:Cast.NET.Nodes.IKHandleNode.EndBoneHash
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.IKHandleNode.EndBoneHash
+  nameWithType: IKHandleNode.EndBoneHash
+- uid: Cast.NET.Nodes.IKHandleNode.PoleBone
+  name: PoleBone
+  href: api/Cast.NET.Nodes.IKHandleNode.html#Cast_NET_Nodes_IKHandleNode_PoleBone
+  commentId: P:Cast.NET.Nodes.IKHandleNode.PoleBone
+  fullName: Cast.NET.Nodes.IKHandleNode.PoleBone
+  nameWithType: IKHandleNode.PoleBone
+- uid: Cast.NET.Nodes.IKHandleNode.PoleBone*
+  name: PoleBone
+  href: api/Cast.NET.Nodes.IKHandleNode.html#Cast_NET_Nodes_IKHandleNode_PoleBone_
+  commentId: Overload:Cast.NET.Nodes.IKHandleNode.PoleBone
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.IKHandleNode.PoleBone
+  nameWithType: IKHandleNode.PoleBone
+- uid: Cast.NET.Nodes.IKHandleNode.PoleBoneHash
+  name: PoleBoneHash
+  href: api/Cast.NET.Nodes.IKHandleNode.html#Cast_NET_Nodes_IKHandleNode_PoleBoneHash
+  commentId: P:Cast.NET.Nodes.IKHandleNode.PoleBoneHash
+  fullName: Cast.NET.Nodes.IKHandleNode.PoleBoneHash
+  nameWithType: IKHandleNode.PoleBoneHash
+- uid: Cast.NET.Nodes.IKHandleNode.PoleBoneHash*
+  name: PoleBoneHash
+  href: api/Cast.NET.Nodes.IKHandleNode.html#Cast_NET_Nodes_IKHandleNode_PoleBoneHash_
+  commentId: Overload:Cast.NET.Nodes.IKHandleNode.PoleBoneHash
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.IKHandleNode.PoleBoneHash
+  nameWithType: IKHandleNode.PoleBoneHash
+- uid: Cast.NET.Nodes.IKHandleNode.PoleVectorBone
+  name: PoleVectorBone
+  href: api/Cast.NET.Nodes.IKHandleNode.html#Cast_NET_Nodes_IKHandleNode_PoleVectorBone
+  commentId: P:Cast.NET.Nodes.IKHandleNode.PoleVectorBone
+  fullName: Cast.NET.Nodes.IKHandleNode.PoleVectorBone
+  nameWithType: IKHandleNode.PoleVectorBone
+- uid: Cast.NET.Nodes.IKHandleNode.PoleVectorBone*
+  name: PoleVectorBone
+  href: api/Cast.NET.Nodes.IKHandleNode.html#Cast_NET_Nodes_IKHandleNode_PoleVectorBone_
+  commentId: Overload:Cast.NET.Nodes.IKHandleNode.PoleVectorBone
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.IKHandleNode.PoleVectorBone
+  nameWithType: IKHandleNode.PoleVectorBone
+- uid: Cast.NET.Nodes.IKHandleNode.PoleVectorBoneHash
+  name: PoleVectorBoneHash
+  href: api/Cast.NET.Nodes.IKHandleNode.html#Cast_NET_Nodes_IKHandleNode_PoleVectorBoneHash
+  commentId: P:Cast.NET.Nodes.IKHandleNode.PoleVectorBoneHash
+  fullName: Cast.NET.Nodes.IKHandleNode.PoleVectorBoneHash
+  nameWithType: IKHandleNode.PoleVectorBoneHash
+- uid: Cast.NET.Nodes.IKHandleNode.PoleVectorBoneHash*
+  name: PoleVectorBoneHash
+  href: api/Cast.NET.Nodes.IKHandleNode.html#Cast_NET_Nodes_IKHandleNode_PoleVectorBoneHash_
+  commentId: Overload:Cast.NET.Nodes.IKHandleNode.PoleVectorBoneHash
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.IKHandleNode.PoleVectorBoneHash
+  nameWithType: IKHandleNode.PoleVectorBoneHash
+- uid: Cast.NET.Nodes.IKHandleNode.StartBone
+  name: StartBone
+  href: api/Cast.NET.Nodes.IKHandleNode.html#Cast_NET_Nodes_IKHandleNode_StartBone
+  commentId: P:Cast.NET.Nodes.IKHandleNode.StartBone
+  fullName: Cast.NET.Nodes.IKHandleNode.StartBone
+  nameWithType: IKHandleNode.StartBone
+- uid: Cast.NET.Nodes.IKHandleNode.StartBone*
+  name: StartBone
+  href: api/Cast.NET.Nodes.IKHandleNode.html#Cast_NET_Nodes_IKHandleNode_StartBone_
+  commentId: Overload:Cast.NET.Nodes.IKHandleNode.StartBone
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.IKHandleNode.StartBone
+  nameWithType: IKHandleNode.StartBone
+- uid: Cast.NET.Nodes.IKHandleNode.StartBoneHash
+  name: StartBoneHash
+  href: api/Cast.NET.Nodes.IKHandleNode.html#Cast_NET_Nodes_IKHandleNode_StartBoneHash
+  commentId: P:Cast.NET.Nodes.IKHandleNode.StartBoneHash
+  fullName: Cast.NET.Nodes.IKHandleNode.StartBoneHash
+  nameWithType: IKHandleNode.StartBoneHash
+- uid: Cast.NET.Nodes.IKHandleNode.StartBoneHash*
+  name: StartBoneHash
+  href: api/Cast.NET.Nodes.IKHandleNode.html#Cast_NET_Nodes_IKHandleNode_StartBoneHash_
+  commentId: Overload:Cast.NET.Nodes.IKHandleNode.StartBoneHash
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.IKHandleNode.StartBoneHash
+  nameWithType: IKHandleNode.StartBoneHash
+- uid: Cast.NET.Nodes.IKHandleNode.TargetBone
+  name: TargetBone
+  href: api/Cast.NET.Nodes.IKHandleNode.html#Cast_NET_Nodes_IKHandleNode_TargetBone
+  commentId: P:Cast.NET.Nodes.IKHandleNode.TargetBone
+  fullName: Cast.NET.Nodes.IKHandleNode.TargetBone
+  nameWithType: IKHandleNode.TargetBone
+- uid: Cast.NET.Nodes.IKHandleNode.TargetBone*
+  name: TargetBone
+  href: api/Cast.NET.Nodes.IKHandleNode.html#Cast_NET_Nodes_IKHandleNode_TargetBone_
+  commentId: Overload:Cast.NET.Nodes.IKHandleNode.TargetBone
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.IKHandleNode.TargetBone
+  nameWithType: IKHandleNode.TargetBone
+- uid: Cast.NET.Nodes.IKHandleNode.TargetBoneHash
+  name: TargetBoneHash
+  href: api/Cast.NET.Nodes.IKHandleNode.html#Cast_NET_Nodes_IKHandleNode_TargetBoneHash
+  commentId: P:Cast.NET.Nodes.IKHandleNode.TargetBoneHash
+  fullName: Cast.NET.Nodes.IKHandleNode.TargetBoneHash
+  nameWithType: IKHandleNode.TargetBoneHash
+- uid: Cast.NET.Nodes.IKHandleNode.TargetBoneHash*
+  name: TargetBoneHash
+  href: api/Cast.NET.Nodes.IKHandleNode.html#Cast_NET_Nodes_IKHandleNode_TargetBoneHash_
+  commentId: Overload:Cast.NET.Nodes.IKHandleNode.TargetBoneHash
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.IKHandleNode.TargetBoneHash
+  nameWithType: IKHandleNode.TargetBoneHash
+- uid: Cast.NET.Nodes.IKHandleNode.UseTargetRotation
+  name: UseTargetRotation
+  href: api/Cast.NET.Nodes.IKHandleNode.html#Cast_NET_Nodes_IKHandleNode_UseTargetRotation
+  commentId: P:Cast.NET.Nodes.IKHandleNode.UseTargetRotation
+  fullName: Cast.NET.Nodes.IKHandleNode.UseTargetRotation
+  nameWithType: IKHandleNode.UseTargetRotation
+- uid: Cast.NET.Nodes.IKHandleNode.UseTargetRotation*
+  name: UseTargetRotation
+  href: api/Cast.NET.Nodes.IKHandleNode.html#Cast_NET_Nodes_IKHandleNode_UseTargetRotation_
+  commentId: Overload:Cast.NET.Nodes.IKHandleNode.UseTargetRotation
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.IKHandleNode.UseTargetRotation
+  nameWithType: IKHandleNode.UseTargetRotation
+- uid: Cast.NET.Nodes.MaterialNode
+  name: MaterialNode
+  href: api/Cast.NET.Nodes.MaterialNode.html
+  commentId: T:Cast.NET.Nodes.MaterialNode
+  fullName: Cast.NET.Nodes.MaterialNode
+  nameWithType: MaterialNode
+- uid: Cast.NET.Nodes.MaterialNode.#ctor
+  name: MaterialNode()
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode__ctor
+  commentId: M:Cast.NET.Nodes.MaterialNode.#ctor
+  fullName: Cast.NET.Nodes.MaterialNode.MaterialNode()
+  nameWithType: MaterialNode.MaterialNode()
+- uid: Cast.NET.Nodes.MaterialNode.#ctor(Cast.NET.CastNode)
+  name: MaterialNode(CastNode)
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode__ctor_Cast_NET_CastNode_
+  commentId: M:Cast.NET.Nodes.MaterialNode.#ctor(Cast.NET.CastNode)
+  fullName: Cast.NET.Nodes.MaterialNode.MaterialNode(Cast.NET.CastNode)
+  nameWithType: MaterialNode.MaterialNode(CastNode)
+- uid: Cast.NET.Nodes.MaterialNode.#ctor(Cast.NET.CastNodeIdentifier)
+  name: MaterialNode(CastNodeIdentifier)
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode__ctor_Cast_NET_CastNodeIdentifier_
+  commentId: M:Cast.NET.Nodes.MaterialNode.#ctor(Cast.NET.CastNodeIdentifier)
+  fullName: Cast.NET.Nodes.MaterialNode.MaterialNode(Cast.NET.CastNodeIdentifier)
+  nameWithType: MaterialNode.MaterialNode(CastNodeIdentifier)
+- uid: Cast.NET.Nodes.MaterialNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64)
+  name: MaterialNode(CastNodeIdentifier, UInt64)
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode__ctor_Cast_NET_CastNodeIdentifier_System_UInt64_
+  commentId: M:Cast.NET.Nodes.MaterialNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64)
+  fullName: Cast.NET.Nodes.MaterialNode.MaterialNode(Cast.NET.CastNodeIdentifier, System.UInt64)
+  nameWithType: MaterialNode.MaterialNode(CastNodeIdentifier, UInt64)
+- uid: Cast.NET.Nodes.MaterialNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name: MaterialNode(CastNodeIdentifier, UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode__ctor_Cast_NET_CastNodeIdentifier_System_UInt64_System_Nullable_Dictionary_System_String_Cast_NET_CastProperty___System_Nullable_List_Cast_NET_CastNode___
+  commentId: M:Cast.NET.Nodes.MaterialNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name.vb: MaterialNode(CastNodeIdentifier, UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+  fullName: Cast.NET.Nodes.MaterialNode.MaterialNode(Cast.NET.CastNodeIdentifier, System.UInt64, System.Nullable<Dictionary<System.String, Cast.NET.CastProperty>>, System.Nullable<List<Cast.NET.CastNode>>)
+  fullName.vb: Cast.NET.Nodes.MaterialNode.MaterialNode(Cast.NET.CastNodeIdentifier, System.UInt64, System.Nullable(Of Dictionary(Of System.String, Cast.NET.CastProperty)), System.Nullable(Of List(Of Cast.NET.CastNode)))
+  nameWithType: MaterialNode.MaterialNode(CastNodeIdentifier, UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  nameWithType.vb: MaterialNode.MaterialNode(CastNodeIdentifier, UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+- uid: Cast.NET.Nodes.MaterialNode.#ctor(System.String,System.String)
+  name: MaterialNode(String, String)
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode__ctor_System_String_System_String_
+  commentId: M:Cast.NET.Nodes.MaterialNode.#ctor(System.String,System.String)
+  fullName: Cast.NET.Nodes.MaterialNode.MaterialNode(System.String, System.String)
+  nameWithType: MaterialNode.MaterialNode(String, String)
+- uid: Cast.NET.Nodes.MaterialNode.#ctor(System.UInt64)
+  name: MaterialNode(UInt64)
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode__ctor_System_UInt64_
+  commentId: M:Cast.NET.Nodes.MaterialNode.#ctor(System.UInt64)
+  fullName: Cast.NET.Nodes.MaterialNode.MaterialNode(System.UInt64)
+  nameWithType: MaterialNode.MaterialNode(UInt64)
+- uid: Cast.NET.Nodes.MaterialNode.#ctor(System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name: MaterialNode(UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode__ctor_System_UInt64_System_Nullable_Dictionary_System_String_Cast_NET_CastProperty___System_Nullable_List_Cast_NET_CastNode___
+  commentId: M:Cast.NET.Nodes.MaterialNode.#ctor(System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name.vb: MaterialNode(UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+  fullName: Cast.NET.Nodes.MaterialNode.MaterialNode(System.UInt64, System.Nullable<Dictionary<System.String, Cast.NET.CastProperty>>, System.Nullable<List<Cast.NET.CastNode>>)
+  fullName.vb: Cast.NET.Nodes.MaterialNode.MaterialNode(System.UInt64, System.Nullable(Of Dictionary(Of System.String, Cast.NET.CastProperty)), System.Nullable(Of List(Of Cast.NET.CastNode)))
+  nameWithType: MaterialNode.MaterialNode(UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  nameWithType.vb: MaterialNode.MaterialNode(UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+- uid: Cast.NET.Nodes.MaterialNode.#ctor*
+  name: MaterialNode
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode__ctor_
+  commentId: Overload:Cast.NET.Nodes.MaterialNode.#ctor
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MaterialNode.MaterialNode
+  nameWithType: MaterialNode.MaterialNode
+- uid: Cast.NET.Nodes.MaterialNode.AlbedoFile
+  name: AlbedoFile
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_AlbedoFile
+  commentId: P:Cast.NET.Nodes.MaterialNode.AlbedoFile
+  fullName: Cast.NET.Nodes.MaterialNode.AlbedoFile
+  nameWithType: MaterialNode.AlbedoFile
+- uid: Cast.NET.Nodes.MaterialNode.AlbedoFile*
+  name: AlbedoFile
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_AlbedoFile_
+  commentId: Overload:Cast.NET.Nodes.MaterialNode.AlbedoFile
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MaterialNode.AlbedoFile
+  nameWithType: MaterialNode.AlbedoFile
+- uid: Cast.NET.Nodes.MaterialNode.AlbedoFileHash
+  name: AlbedoFileHash
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_AlbedoFileHash
+  commentId: P:Cast.NET.Nodes.MaterialNode.AlbedoFileHash
+  fullName: Cast.NET.Nodes.MaterialNode.AlbedoFileHash
+  nameWithType: MaterialNode.AlbedoFileHash
+- uid: Cast.NET.Nodes.MaterialNode.AlbedoFileHash*
+  name: AlbedoFileHash
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_AlbedoFileHash_
+  commentId: Overload:Cast.NET.Nodes.MaterialNode.AlbedoFileHash
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MaterialNode.AlbedoFileHash
+  nameWithType: MaterialNode.AlbedoFileHash
+- uid: Cast.NET.Nodes.MaterialNode.AmbientOcclusionFile
+  name: AmbientOcclusionFile
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_AmbientOcclusionFile
+  commentId: P:Cast.NET.Nodes.MaterialNode.AmbientOcclusionFile
+  fullName: Cast.NET.Nodes.MaterialNode.AmbientOcclusionFile
+  nameWithType: MaterialNode.AmbientOcclusionFile
+- uid: Cast.NET.Nodes.MaterialNode.AmbientOcclusionFile*
+  name: AmbientOcclusionFile
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_AmbientOcclusionFile_
+  commentId: Overload:Cast.NET.Nodes.MaterialNode.AmbientOcclusionFile
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MaterialNode.AmbientOcclusionFile
+  nameWithType: MaterialNode.AmbientOcclusionFile
+- uid: Cast.NET.Nodes.MaterialNode.AmbientOcclusionFileHash
+  name: AmbientOcclusionFileHash
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_AmbientOcclusionFileHash
+  commentId: P:Cast.NET.Nodes.MaterialNode.AmbientOcclusionFileHash
+  fullName: Cast.NET.Nodes.MaterialNode.AmbientOcclusionFileHash
+  nameWithType: MaterialNode.AmbientOcclusionFileHash
+- uid: Cast.NET.Nodes.MaterialNode.AmbientOcclusionFileHash*
+  name: AmbientOcclusionFileHash
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_AmbientOcclusionFileHash_
+  commentId: Overload:Cast.NET.Nodes.MaterialNode.AmbientOcclusionFileHash
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MaterialNode.AmbientOcclusionFileHash
+  nameWithType: MaterialNode.AmbientOcclusionFileHash
+- uid: Cast.NET.Nodes.MaterialNode.CavityFile
+  name: CavityFile
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_CavityFile
+  commentId: P:Cast.NET.Nodes.MaterialNode.CavityFile
+  fullName: Cast.NET.Nodes.MaterialNode.CavityFile
+  nameWithType: MaterialNode.CavityFile
+- uid: Cast.NET.Nodes.MaterialNode.CavityFile*
+  name: CavityFile
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_CavityFile_
+  commentId: Overload:Cast.NET.Nodes.MaterialNode.CavityFile
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MaterialNode.CavityFile
+  nameWithType: MaterialNode.CavityFile
+- uid: Cast.NET.Nodes.MaterialNode.CavityFileHash
+  name: CavityFileHash
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_CavityFileHash
+  commentId: P:Cast.NET.Nodes.MaterialNode.CavityFileHash
+  fullName: Cast.NET.Nodes.MaterialNode.CavityFileHash
+  nameWithType: MaterialNode.CavityFileHash
+- uid: Cast.NET.Nodes.MaterialNode.CavityFileHash*
+  name: CavityFileHash
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_CavityFileHash_
+  commentId: Overload:Cast.NET.Nodes.MaterialNode.CavityFileHash
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MaterialNode.CavityFileHash
+  nameWithType: MaterialNode.CavityFileHash
+- uid: Cast.NET.Nodes.MaterialNode.DiffuseFile
+  name: DiffuseFile
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_DiffuseFile
+  commentId: P:Cast.NET.Nodes.MaterialNode.DiffuseFile
+  fullName: Cast.NET.Nodes.MaterialNode.DiffuseFile
+  nameWithType: MaterialNode.DiffuseFile
+- uid: Cast.NET.Nodes.MaterialNode.DiffuseFile*
+  name: DiffuseFile
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_DiffuseFile_
+  commentId: Overload:Cast.NET.Nodes.MaterialNode.DiffuseFile
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MaterialNode.DiffuseFile
+  nameWithType: MaterialNode.DiffuseFile
+- uid: Cast.NET.Nodes.MaterialNode.DiffuseFileHash
+  name: DiffuseFileHash
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_DiffuseFileHash
+  commentId: P:Cast.NET.Nodes.MaterialNode.DiffuseFileHash
+  fullName: Cast.NET.Nodes.MaterialNode.DiffuseFileHash
+  nameWithType: MaterialNode.DiffuseFileHash
+- uid: Cast.NET.Nodes.MaterialNode.DiffuseFileHash*
+  name: DiffuseFileHash
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_DiffuseFileHash_
+  commentId: Overload:Cast.NET.Nodes.MaterialNode.DiffuseFileHash
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MaterialNode.DiffuseFileHash
+  nameWithType: MaterialNode.DiffuseFileHash
+- uid: Cast.NET.Nodes.MaterialNode.EmissiveFile
+  name: EmissiveFile
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_EmissiveFile
+  commentId: P:Cast.NET.Nodes.MaterialNode.EmissiveFile
+  fullName: Cast.NET.Nodes.MaterialNode.EmissiveFile
+  nameWithType: MaterialNode.EmissiveFile
+- uid: Cast.NET.Nodes.MaterialNode.EmissiveFile*
+  name: EmissiveFile
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_EmissiveFile_
+  commentId: Overload:Cast.NET.Nodes.MaterialNode.EmissiveFile
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MaterialNode.EmissiveFile
+  nameWithType: MaterialNode.EmissiveFile
+- uid: Cast.NET.Nodes.MaterialNode.EmissiveFileHash
+  name: EmissiveFileHash
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_EmissiveFileHash
+  commentId: P:Cast.NET.Nodes.MaterialNode.EmissiveFileHash
+  fullName: Cast.NET.Nodes.MaterialNode.EmissiveFileHash
+  nameWithType: MaterialNode.EmissiveFileHash
+- uid: Cast.NET.Nodes.MaterialNode.EmissiveFileHash*
+  name: EmissiveFileHash
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_EmissiveFileHash_
+  commentId: Overload:Cast.NET.Nodes.MaterialNode.EmissiveFileHash
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MaterialNode.EmissiveFileHash
+  nameWithType: MaterialNode.EmissiveFileHash
+- uid: Cast.NET.Nodes.MaterialNode.GetExtraFile(System.Int32)
+  name: GetExtraFile(Int32)
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_GetExtraFile_System_Int32_
+  commentId: M:Cast.NET.Nodes.MaterialNode.GetExtraFile(System.Int32)
+  fullName: Cast.NET.Nodes.MaterialNode.GetExtraFile(System.Int32)
+  nameWithType: MaterialNode.GetExtraFile(Int32)
+- uid: Cast.NET.Nodes.MaterialNode.GetExtraFile(System.String)
+  name: GetExtraFile(String)
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_GetExtraFile_System_String_
+  commentId: M:Cast.NET.Nodes.MaterialNode.GetExtraFile(System.String)
+  fullName: Cast.NET.Nodes.MaterialNode.GetExtraFile(System.String)
+  nameWithType: MaterialNode.GetExtraFile(String)
+- uid: Cast.NET.Nodes.MaterialNode.GetExtraFile*
+  name: GetExtraFile
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_GetExtraFile_
+  commentId: Overload:Cast.NET.Nodes.MaterialNode.GetExtraFile
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MaterialNode.GetExtraFile
+  nameWithType: MaterialNode.GetExtraFile
+- uid: Cast.NET.Nodes.MaterialNode.GetExtraFileHash(System.Int32)
+  name: GetExtraFileHash(Int32)
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_GetExtraFileHash_System_Int32_
+  commentId: M:Cast.NET.Nodes.MaterialNode.GetExtraFileHash(System.Int32)
+  fullName: Cast.NET.Nodes.MaterialNode.GetExtraFileHash(System.Int32)
+  nameWithType: MaterialNode.GetExtraFileHash(Int32)
+- uid: Cast.NET.Nodes.MaterialNode.GetExtraFileHash(System.String)
+  name: GetExtraFileHash(String)
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_GetExtraFileHash_System_String_
+  commentId: M:Cast.NET.Nodes.MaterialNode.GetExtraFileHash(System.String)
+  fullName: Cast.NET.Nodes.MaterialNode.GetExtraFileHash(System.String)
+  nameWithType: MaterialNode.GetExtraFileHash(String)
+- uid: Cast.NET.Nodes.MaterialNode.GetExtraFileHash*
+  name: GetExtraFileHash
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_GetExtraFileHash_
+  commentId: Overload:Cast.NET.Nodes.MaterialNode.GetExtraFileHash
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MaterialNode.GetExtraFileHash
+  nameWithType: MaterialNode.GetExtraFileHash
+- uid: Cast.NET.Nodes.MaterialNode.GlossFile
+  name: GlossFile
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_GlossFile
+  commentId: P:Cast.NET.Nodes.MaterialNode.GlossFile
+  fullName: Cast.NET.Nodes.MaterialNode.GlossFile
+  nameWithType: MaterialNode.GlossFile
+- uid: Cast.NET.Nodes.MaterialNode.GlossFile*
+  name: GlossFile
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_GlossFile_
+  commentId: Overload:Cast.NET.Nodes.MaterialNode.GlossFile
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MaterialNode.GlossFile
+  nameWithType: MaterialNode.GlossFile
+- uid: Cast.NET.Nodes.MaterialNode.GlossFileHash
+  name: GlossFileHash
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_GlossFileHash
+  commentId: P:Cast.NET.Nodes.MaterialNode.GlossFileHash
+  fullName: Cast.NET.Nodes.MaterialNode.GlossFileHash
+  nameWithType: MaterialNode.GlossFileHash
+- uid: Cast.NET.Nodes.MaterialNode.GlossFileHash*
+  name: GlossFileHash
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_GlossFileHash_
+  commentId: Overload:Cast.NET.Nodes.MaterialNode.GlossFileHash
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MaterialNode.GlossFileHash
+  nameWithType: MaterialNode.GlossFileHash
+- uid: Cast.NET.Nodes.MaterialNode.Name
+  name: Name
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_Name
+  commentId: P:Cast.NET.Nodes.MaterialNode.Name
+  fullName: Cast.NET.Nodes.MaterialNode.Name
+  nameWithType: MaterialNode.Name
+- uid: Cast.NET.Nodes.MaterialNode.Name*
+  name: Name
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_Name_
+  commentId: Overload:Cast.NET.Nodes.MaterialNode.Name
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MaterialNode.Name
+  nameWithType: MaterialNode.Name
+- uid: Cast.NET.Nodes.MaterialNode.NormalFile
+  name: NormalFile
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_NormalFile
+  commentId: P:Cast.NET.Nodes.MaterialNode.NormalFile
+  fullName: Cast.NET.Nodes.MaterialNode.NormalFile
+  nameWithType: MaterialNode.NormalFile
+- uid: Cast.NET.Nodes.MaterialNode.NormalFile*
+  name: NormalFile
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_NormalFile_
+  commentId: Overload:Cast.NET.Nodes.MaterialNode.NormalFile
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MaterialNode.NormalFile
+  nameWithType: MaterialNode.NormalFile
+- uid: Cast.NET.Nodes.MaterialNode.NormalFileHash
+  name: NormalFileHash
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_NormalFileHash
+  commentId: P:Cast.NET.Nodes.MaterialNode.NormalFileHash
+  fullName: Cast.NET.Nodes.MaterialNode.NormalFileHash
+  nameWithType: MaterialNode.NormalFileHash
+- uid: Cast.NET.Nodes.MaterialNode.NormalFileHash*
+  name: NormalFileHash
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_NormalFileHash_
+  commentId: Overload:Cast.NET.Nodes.MaterialNode.NormalFileHash
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MaterialNode.NormalFileHash
+  nameWithType: MaterialNode.NormalFileHash
+- uid: Cast.NET.Nodes.MaterialNode.RoughnessFile
+  name: RoughnessFile
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_RoughnessFile
+  commentId: P:Cast.NET.Nodes.MaterialNode.RoughnessFile
+  fullName: Cast.NET.Nodes.MaterialNode.RoughnessFile
+  nameWithType: MaterialNode.RoughnessFile
+- uid: Cast.NET.Nodes.MaterialNode.RoughnessFile*
+  name: RoughnessFile
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_RoughnessFile_
+  commentId: Overload:Cast.NET.Nodes.MaterialNode.RoughnessFile
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MaterialNode.RoughnessFile
+  nameWithType: MaterialNode.RoughnessFile
+- uid: Cast.NET.Nodes.MaterialNode.RoughnessFileHash
+  name: RoughnessFileHash
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_RoughnessFileHash
+  commentId: P:Cast.NET.Nodes.MaterialNode.RoughnessFileHash
+  fullName: Cast.NET.Nodes.MaterialNode.RoughnessFileHash
+  nameWithType: MaterialNode.RoughnessFileHash
+- uid: Cast.NET.Nodes.MaterialNode.RoughnessFileHash*
+  name: RoughnessFileHash
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_RoughnessFileHash_
+  commentId: Overload:Cast.NET.Nodes.MaterialNode.RoughnessFileHash
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MaterialNode.RoughnessFileHash
+  nameWithType: MaterialNode.RoughnessFileHash
+- uid: Cast.NET.Nodes.MaterialNode.SpecularFile
+  name: SpecularFile
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_SpecularFile
+  commentId: P:Cast.NET.Nodes.MaterialNode.SpecularFile
+  fullName: Cast.NET.Nodes.MaterialNode.SpecularFile
+  nameWithType: MaterialNode.SpecularFile
+- uid: Cast.NET.Nodes.MaterialNode.SpecularFile*
+  name: SpecularFile
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_SpecularFile_
+  commentId: Overload:Cast.NET.Nodes.MaterialNode.SpecularFile
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MaterialNode.SpecularFile
+  nameWithType: MaterialNode.SpecularFile
+- uid: Cast.NET.Nodes.MaterialNode.SpecularFileHash
+  name: SpecularFileHash
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_SpecularFileHash
+  commentId: P:Cast.NET.Nodes.MaterialNode.SpecularFileHash
+  fullName: Cast.NET.Nodes.MaterialNode.SpecularFileHash
+  nameWithType: MaterialNode.SpecularFileHash
+- uid: Cast.NET.Nodes.MaterialNode.SpecularFileHash*
+  name: SpecularFileHash
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_SpecularFileHash_
+  commentId: Overload:Cast.NET.Nodes.MaterialNode.SpecularFileHash
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MaterialNode.SpecularFileHash
+  nameWithType: MaterialNode.SpecularFileHash
+- uid: Cast.NET.Nodes.MaterialNode.Type
+  name: Type
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_Type
+  commentId: P:Cast.NET.Nodes.MaterialNode.Type
+  fullName: Cast.NET.Nodes.MaterialNode.Type
+  nameWithType: MaterialNode.Type
+- uid: Cast.NET.Nodes.MaterialNode.Type*
+  name: Type
+  href: api/Cast.NET.Nodes.MaterialNode.html#Cast_NET_Nodes_MaterialNode_Type_
+  commentId: Overload:Cast.NET.Nodes.MaterialNode.Type
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MaterialNode.Type
+  nameWithType: MaterialNode.Type
+- uid: Cast.NET.Nodes.MeshNode
+  name: MeshNode
+  href: api/Cast.NET.Nodes.MeshNode.html
+  commentId: T:Cast.NET.Nodes.MeshNode
+  fullName: Cast.NET.Nodes.MeshNode
+  nameWithType: MeshNode
+- uid: Cast.NET.Nodes.MeshNode.#ctor
+  name: MeshNode()
+  href: api/Cast.NET.Nodes.MeshNode.html#Cast_NET_Nodes_MeshNode__ctor
+  commentId: M:Cast.NET.Nodes.MeshNode.#ctor
+  fullName: Cast.NET.Nodes.MeshNode.MeshNode()
+  nameWithType: MeshNode.MeshNode()
+- uid: Cast.NET.Nodes.MeshNode.#ctor(Cast.NET.CastNode)
+  name: MeshNode(CastNode)
+  href: api/Cast.NET.Nodes.MeshNode.html#Cast_NET_Nodes_MeshNode__ctor_Cast_NET_CastNode_
+  commentId: M:Cast.NET.Nodes.MeshNode.#ctor(Cast.NET.CastNode)
+  fullName: Cast.NET.Nodes.MeshNode.MeshNode(Cast.NET.CastNode)
+  nameWithType: MeshNode.MeshNode(CastNode)
+- uid: Cast.NET.Nodes.MeshNode.#ctor(Cast.NET.CastNodeIdentifier)
+  name: MeshNode(CastNodeIdentifier)
+  href: api/Cast.NET.Nodes.MeshNode.html#Cast_NET_Nodes_MeshNode__ctor_Cast_NET_CastNodeIdentifier_
+  commentId: M:Cast.NET.Nodes.MeshNode.#ctor(Cast.NET.CastNodeIdentifier)
+  fullName: Cast.NET.Nodes.MeshNode.MeshNode(Cast.NET.CastNodeIdentifier)
+  nameWithType: MeshNode.MeshNode(CastNodeIdentifier)
+- uid: Cast.NET.Nodes.MeshNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64)
+  name: MeshNode(CastNodeIdentifier, UInt64)
+  href: api/Cast.NET.Nodes.MeshNode.html#Cast_NET_Nodes_MeshNode__ctor_Cast_NET_CastNodeIdentifier_System_UInt64_
+  commentId: M:Cast.NET.Nodes.MeshNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64)
+  fullName: Cast.NET.Nodes.MeshNode.MeshNode(Cast.NET.CastNodeIdentifier, System.UInt64)
+  nameWithType: MeshNode.MeshNode(CastNodeIdentifier, UInt64)
+- uid: Cast.NET.Nodes.MeshNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name: MeshNode(CastNodeIdentifier, UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  href: api/Cast.NET.Nodes.MeshNode.html#Cast_NET_Nodes_MeshNode__ctor_Cast_NET_CastNodeIdentifier_System_UInt64_System_Nullable_Dictionary_System_String_Cast_NET_CastProperty___System_Nullable_List_Cast_NET_CastNode___
+  commentId: M:Cast.NET.Nodes.MeshNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name.vb: MeshNode(CastNodeIdentifier, UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+  fullName: Cast.NET.Nodes.MeshNode.MeshNode(Cast.NET.CastNodeIdentifier, System.UInt64, System.Nullable<Dictionary<System.String, Cast.NET.CastProperty>>, System.Nullable<List<Cast.NET.CastNode>>)
+  fullName.vb: Cast.NET.Nodes.MeshNode.MeshNode(Cast.NET.CastNodeIdentifier, System.UInt64, System.Nullable(Of Dictionary(Of System.String, Cast.NET.CastProperty)), System.Nullable(Of List(Of Cast.NET.CastNode)))
+  nameWithType: MeshNode.MeshNode(CastNodeIdentifier, UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  nameWithType.vb: MeshNode.MeshNode(CastNodeIdentifier, UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+- uid: Cast.NET.Nodes.MeshNode.#ctor(System.UInt64)
+  name: MeshNode(UInt64)
+  href: api/Cast.NET.Nodes.MeshNode.html#Cast_NET_Nodes_MeshNode__ctor_System_UInt64_
+  commentId: M:Cast.NET.Nodes.MeshNode.#ctor(System.UInt64)
+  fullName: Cast.NET.Nodes.MeshNode.MeshNode(System.UInt64)
+  nameWithType: MeshNode.MeshNode(UInt64)
+- uid: Cast.NET.Nodes.MeshNode.#ctor(System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name: MeshNode(UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  href: api/Cast.NET.Nodes.MeshNode.html#Cast_NET_Nodes_MeshNode__ctor_System_UInt64_System_Nullable_Dictionary_System_String_Cast_NET_CastProperty___System_Nullable_List_Cast_NET_CastNode___
+  commentId: M:Cast.NET.Nodes.MeshNode.#ctor(System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name.vb: MeshNode(UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+  fullName: Cast.NET.Nodes.MeshNode.MeshNode(System.UInt64, System.Nullable<Dictionary<System.String, Cast.NET.CastProperty>>, System.Nullable<List<Cast.NET.CastNode>>)
+  fullName.vb: Cast.NET.Nodes.MeshNode.MeshNode(System.UInt64, System.Nullable(Of Dictionary(Of System.String, Cast.NET.CastProperty)), System.Nullable(Of List(Of Cast.NET.CastNode)))
+  nameWithType: MeshNode.MeshNode(UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  nameWithType.vb: MeshNode.MeshNode(UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+- uid: Cast.NET.Nodes.MeshNode.#ctor*
+  name: MeshNode
+  href: api/Cast.NET.Nodes.MeshNode.html#Cast_NET_Nodes_MeshNode__ctor_
+  commentId: Overload:Cast.NET.Nodes.MeshNode.#ctor
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MeshNode.MeshNode
+  nameWithType: MeshNode.MeshNode
+- uid: Cast.NET.Nodes.MeshNode.FaceBuffer
+  name: FaceBuffer
+  href: api/Cast.NET.Nodes.MeshNode.html#Cast_NET_Nodes_MeshNode_FaceBuffer
+  commentId: P:Cast.NET.Nodes.MeshNode.FaceBuffer
+  fullName: Cast.NET.Nodes.MeshNode.FaceBuffer
+  nameWithType: MeshNode.FaceBuffer
+- uid: Cast.NET.Nodes.MeshNode.FaceBuffer*
+  name: FaceBuffer
+  href: api/Cast.NET.Nodes.MeshNode.html#Cast_NET_Nodes_MeshNode_FaceBuffer_
+  commentId: Overload:Cast.NET.Nodes.MeshNode.FaceBuffer
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MeshNode.FaceBuffer
+  nameWithType: MeshNode.FaceBuffer
+- uid: Cast.NET.Nodes.MeshNode.GetUVLayer(System.Int32)
+  name: GetUVLayer(Int32)
+  href: api/Cast.NET.Nodes.MeshNode.html#Cast_NET_Nodes_MeshNode_GetUVLayer_System_Int32_
+  commentId: M:Cast.NET.Nodes.MeshNode.GetUVLayer(System.Int32)
+  fullName: Cast.NET.Nodes.MeshNode.GetUVLayer(System.Int32)
+  nameWithType: MeshNode.GetUVLayer(Int32)
+- uid: Cast.NET.Nodes.MeshNode.GetUVLayer(System.String)
+  name: GetUVLayer(String)
+  href: api/Cast.NET.Nodes.MeshNode.html#Cast_NET_Nodes_MeshNode_GetUVLayer_System_String_
+  commentId: M:Cast.NET.Nodes.MeshNode.GetUVLayer(System.String)
+  fullName: Cast.NET.Nodes.MeshNode.GetUVLayer(System.String)
+  nameWithType: MeshNode.GetUVLayer(String)
+- uid: Cast.NET.Nodes.MeshNode.GetUVLayer*
+  name: GetUVLayer
+  href: api/Cast.NET.Nodes.MeshNode.html#Cast_NET_Nodes_MeshNode_GetUVLayer_
+  commentId: Overload:Cast.NET.Nodes.MeshNode.GetUVLayer
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MeshNode.GetUVLayer
+  nameWithType: MeshNode.GetUVLayer
+- uid: Cast.NET.Nodes.MeshNode.Material
+  name: Material
+  href: api/Cast.NET.Nodes.MeshNode.html#Cast_NET_Nodes_MeshNode_Material
+  commentId: P:Cast.NET.Nodes.MeshNode.Material
+  fullName: Cast.NET.Nodes.MeshNode.Material
+  nameWithType: MeshNode.Material
+- uid: Cast.NET.Nodes.MeshNode.Material*
+  name: Material
+  href: api/Cast.NET.Nodes.MeshNode.html#Cast_NET_Nodes_MeshNode_Material_
+  commentId: Overload:Cast.NET.Nodes.MeshNode.Material
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MeshNode.Material
+  nameWithType: MeshNode.Material
+- uid: Cast.NET.Nodes.MeshNode.MaterialHash
+  name: MaterialHash
+  href: api/Cast.NET.Nodes.MeshNode.html#Cast_NET_Nodes_MeshNode_MaterialHash
+  commentId: P:Cast.NET.Nodes.MeshNode.MaterialHash
+  fullName: Cast.NET.Nodes.MeshNode.MaterialHash
+  nameWithType: MeshNode.MaterialHash
+- uid: Cast.NET.Nodes.MeshNode.MaterialHash*
+  name: MaterialHash
+  href: api/Cast.NET.Nodes.MeshNode.html#Cast_NET_Nodes_MeshNode_MaterialHash_
+  commentId: Overload:Cast.NET.Nodes.MeshNode.MaterialHash
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MeshNode.MaterialHash
+  nameWithType: MeshNode.MaterialHash
+- uid: Cast.NET.Nodes.MeshNode.MaximumWeightInfluence
+  name: MaximumWeightInfluence
+  href: api/Cast.NET.Nodes.MeshNode.html#Cast_NET_Nodes_MeshNode_MaximumWeightInfluence
+  commentId: P:Cast.NET.Nodes.MeshNode.MaximumWeightInfluence
+  fullName: Cast.NET.Nodes.MeshNode.MaximumWeightInfluence
+  nameWithType: MeshNode.MaximumWeightInfluence
+- uid: Cast.NET.Nodes.MeshNode.MaximumWeightInfluence*
+  name: MaximumWeightInfluence
+  href: api/Cast.NET.Nodes.MeshNode.html#Cast_NET_Nodes_MeshNode_MaximumWeightInfluence_
+  commentId: Overload:Cast.NET.Nodes.MeshNode.MaximumWeightInfluence
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MeshNode.MaximumWeightInfluence
+  nameWithType: MeshNode.MaximumWeightInfluence
+- uid: Cast.NET.Nodes.MeshNode.Name
+  name: Name
+  href: api/Cast.NET.Nodes.MeshNode.html#Cast_NET_Nodes_MeshNode_Name
+  commentId: P:Cast.NET.Nodes.MeshNode.Name
+  fullName: Cast.NET.Nodes.MeshNode.Name
+  nameWithType: MeshNode.Name
+- uid: Cast.NET.Nodes.MeshNode.Name*
+  name: Name
+  href: api/Cast.NET.Nodes.MeshNode.html#Cast_NET_Nodes_MeshNode_Name_
+  commentId: Overload:Cast.NET.Nodes.MeshNode.Name
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MeshNode.Name
+  nameWithType: MeshNode.Name
+- uid: Cast.NET.Nodes.MeshNode.SkinningMethod
+  name: SkinningMethod
+  href: api/Cast.NET.Nodes.MeshNode.html#Cast_NET_Nodes_MeshNode_SkinningMethod
+  commentId: P:Cast.NET.Nodes.MeshNode.SkinningMethod
+  fullName: Cast.NET.Nodes.MeshNode.SkinningMethod
+  nameWithType: MeshNode.SkinningMethod
+- uid: Cast.NET.Nodes.MeshNode.SkinningMethod*
+  name: SkinningMethod
+  href: api/Cast.NET.Nodes.MeshNode.html#Cast_NET_Nodes_MeshNode_SkinningMethod_
+  commentId: Overload:Cast.NET.Nodes.MeshNode.SkinningMethod
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MeshNode.SkinningMethod
+  nameWithType: MeshNode.SkinningMethod
+- uid: Cast.NET.Nodes.MeshNode.UVLayerCount
+  name: UVLayerCount
+  href: api/Cast.NET.Nodes.MeshNode.html#Cast_NET_Nodes_MeshNode_UVLayerCount
+  commentId: P:Cast.NET.Nodes.MeshNode.UVLayerCount
+  fullName: Cast.NET.Nodes.MeshNode.UVLayerCount
+  nameWithType: MeshNode.UVLayerCount
+- uid: Cast.NET.Nodes.MeshNode.UVLayerCount*
+  name: UVLayerCount
+  href: api/Cast.NET.Nodes.MeshNode.html#Cast_NET_Nodes_MeshNode_UVLayerCount_
+  commentId: Overload:Cast.NET.Nodes.MeshNode.UVLayerCount
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MeshNode.UVLayerCount
+  nameWithType: MeshNode.UVLayerCount
+- uid: Cast.NET.Nodes.MeshNode.VertexColorBuffer
+  name: VertexColorBuffer
+  href: api/Cast.NET.Nodes.MeshNode.html#Cast_NET_Nodes_MeshNode_VertexColorBuffer
+  commentId: P:Cast.NET.Nodes.MeshNode.VertexColorBuffer
+  fullName: Cast.NET.Nodes.MeshNode.VertexColorBuffer
+  nameWithType: MeshNode.VertexColorBuffer
+- uid: Cast.NET.Nodes.MeshNode.VertexColorBuffer*
+  name: VertexColorBuffer
+  href: api/Cast.NET.Nodes.MeshNode.html#Cast_NET_Nodes_MeshNode_VertexColorBuffer_
+  commentId: Overload:Cast.NET.Nodes.MeshNode.VertexColorBuffer
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MeshNode.VertexColorBuffer
+  nameWithType: MeshNode.VertexColorBuffer
+- uid: Cast.NET.Nodes.MeshNode.VertexNormalBuffer
+  name: VertexNormalBuffer
+  href: api/Cast.NET.Nodes.MeshNode.html#Cast_NET_Nodes_MeshNode_VertexNormalBuffer
+  commentId: P:Cast.NET.Nodes.MeshNode.VertexNormalBuffer
+  fullName: Cast.NET.Nodes.MeshNode.VertexNormalBuffer
+  nameWithType: MeshNode.VertexNormalBuffer
+- uid: Cast.NET.Nodes.MeshNode.VertexNormalBuffer*
+  name: VertexNormalBuffer
+  href: api/Cast.NET.Nodes.MeshNode.html#Cast_NET_Nodes_MeshNode_VertexNormalBuffer_
+  commentId: Overload:Cast.NET.Nodes.MeshNode.VertexNormalBuffer
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MeshNode.VertexNormalBuffer
+  nameWithType: MeshNode.VertexNormalBuffer
+- uid: Cast.NET.Nodes.MeshNode.VertexPositionBuffer
+  name: VertexPositionBuffer
+  href: api/Cast.NET.Nodes.MeshNode.html#Cast_NET_Nodes_MeshNode_VertexPositionBuffer
+  commentId: P:Cast.NET.Nodes.MeshNode.VertexPositionBuffer
+  fullName: Cast.NET.Nodes.MeshNode.VertexPositionBuffer
+  nameWithType: MeshNode.VertexPositionBuffer
+- uid: Cast.NET.Nodes.MeshNode.VertexPositionBuffer*
+  name: VertexPositionBuffer
+  href: api/Cast.NET.Nodes.MeshNode.html#Cast_NET_Nodes_MeshNode_VertexPositionBuffer_
+  commentId: Overload:Cast.NET.Nodes.MeshNode.VertexPositionBuffer
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MeshNode.VertexPositionBuffer
+  nameWithType: MeshNode.VertexPositionBuffer
+- uid: Cast.NET.Nodes.MeshNode.VertexTangentBuffer
+  name: VertexTangentBuffer
+  href: api/Cast.NET.Nodes.MeshNode.html#Cast_NET_Nodes_MeshNode_VertexTangentBuffer
+  commentId: P:Cast.NET.Nodes.MeshNode.VertexTangentBuffer
+  fullName: Cast.NET.Nodes.MeshNode.VertexTangentBuffer
+  nameWithType: MeshNode.VertexTangentBuffer
+- uid: Cast.NET.Nodes.MeshNode.VertexTangentBuffer*
+  name: VertexTangentBuffer
+  href: api/Cast.NET.Nodes.MeshNode.html#Cast_NET_Nodes_MeshNode_VertexTangentBuffer_
+  commentId: Overload:Cast.NET.Nodes.MeshNode.VertexTangentBuffer
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MeshNode.VertexTangentBuffer
+  nameWithType: MeshNode.VertexTangentBuffer
+- uid: Cast.NET.Nodes.MeshNode.VertexWeightBoneBuffer
+  name: VertexWeightBoneBuffer
+  href: api/Cast.NET.Nodes.MeshNode.html#Cast_NET_Nodes_MeshNode_VertexWeightBoneBuffer
+  commentId: P:Cast.NET.Nodes.MeshNode.VertexWeightBoneBuffer
+  fullName: Cast.NET.Nodes.MeshNode.VertexWeightBoneBuffer
+  nameWithType: MeshNode.VertexWeightBoneBuffer
+- uid: Cast.NET.Nodes.MeshNode.VertexWeightBoneBuffer*
+  name: VertexWeightBoneBuffer
+  href: api/Cast.NET.Nodes.MeshNode.html#Cast_NET_Nodes_MeshNode_VertexWeightBoneBuffer_
+  commentId: Overload:Cast.NET.Nodes.MeshNode.VertexWeightBoneBuffer
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MeshNode.VertexWeightBoneBuffer
+  nameWithType: MeshNode.VertexWeightBoneBuffer
+- uid: Cast.NET.Nodes.MeshNode.VertexWeightValueBuffer
+  name: VertexWeightValueBuffer
+  href: api/Cast.NET.Nodes.MeshNode.html#Cast_NET_Nodes_MeshNode_VertexWeightValueBuffer
+  commentId: P:Cast.NET.Nodes.MeshNode.VertexWeightValueBuffer
+  fullName: Cast.NET.Nodes.MeshNode.VertexWeightValueBuffer
+  nameWithType: MeshNode.VertexWeightValueBuffer
+- uid: Cast.NET.Nodes.MeshNode.VertexWeightValueBuffer*
+  name: VertexWeightValueBuffer
+  href: api/Cast.NET.Nodes.MeshNode.html#Cast_NET_Nodes_MeshNode_VertexWeightValueBuffer_
+  commentId: Overload:Cast.NET.Nodes.MeshNode.VertexWeightValueBuffer
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.MeshNode.VertexWeightValueBuffer
+  nameWithType: MeshNode.VertexWeightValueBuffer
+- uid: Cast.NET.Nodes.ModelNode
+  name: ModelNode
+  href: api/Cast.NET.Nodes.ModelNode.html
+  commentId: T:Cast.NET.Nodes.ModelNode
+  fullName: Cast.NET.Nodes.ModelNode
+  nameWithType: ModelNode
+- uid: Cast.NET.Nodes.ModelNode.#ctor
+  name: ModelNode()
+  href: api/Cast.NET.Nodes.ModelNode.html#Cast_NET_Nodes_ModelNode__ctor
+  commentId: M:Cast.NET.Nodes.ModelNode.#ctor
+  fullName: Cast.NET.Nodes.ModelNode.ModelNode()
+  nameWithType: ModelNode.ModelNode()
+- uid: Cast.NET.Nodes.ModelNode.#ctor(Cast.NET.CastNode)
+  name: ModelNode(CastNode)
+  href: api/Cast.NET.Nodes.ModelNode.html#Cast_NET_Nodes_ModelNode__ctor_Cast_NET_CastNode_
+  commentId: M:Cast.NET.Nodes.ModelNode.#ctor(Cast.NET.CastNode)
+  fullName: Cast.NET.Nodes.ModelNode.ModelNode(Cast.NET.CastNode)
+  nameWithType: ModelNode.ModelNode(CastNode)
+- uid: Cast.NET.Nodes.ModelNode.#ctor(Cast.NET.CastNodeIdentifier)
+  name: ModelNode(CastNodeIdentifier)
+  href: api/Cast.NET.Nodes.ModelNode.html#Cast_NET_Nodes_ModelNode__ctor_Cast_NET_CastNodeIdentifier_
+  commentId: M:Cast.NET.Nodes.ModelNode.#ctor(Cast.NET.CastNodeIdentifier)
+  fullName: Cast.NET.Nodes.ModelNode.ModelNode(Cast.NET.CastNodeIdentifier)
+  nameWithType: ModelNode.ModelNode(CastNodeIdentifier)
+- uid: Cast.NET.Nodes.ModelNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64)
+  name: ModelNode(CastNodeIdentifier, UInt64)
+  href: api/Cast.NET.Nodes.ModelNode.html#Cast_NET_Nodes_ModelNode__ctor_Cast_NET_CastNodeIdentifier_System_UInt64_
+  commentId: M:Cast.NET.Nodes.ModelNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64)
+  fullName: Cast.NET.Nodes.ModelNode.ModelNode(Cast.NET.CastNodeIdentifier, System.UInt64)
+  nameWithType: ModelNode.ModelNode(CastNodeIdentifier, UInt64)
+- uid: Cast.NET.Nodes.ModelNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name: ModelNode(CastNodeIdentifier, UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  href: api/Cast.NET.Nodes.ModelNode.html#Cast_NET_Nodes_ModelNode__ctor_Cast_NET_CastNodeIdentifier_System_UInt64_System_Nullable_Dictionary_System_String_Cast_NET_CastProperty___System_Nullable_List_Cast_NET_CastNode___
+  commentId: M:Cast.NET.Nodes.ModelNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name.vb: ModelNode(CastNodeIdentifier, UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+  fullName: Cast.NET.Nodes.ModelNode.ModelNode(Cast.NET.CastNodeIdentifier, System.UInt64, System.Nullable<Dictionary<System.String, Cast.NET.CastProperty>>, System.Nullable<List<Cast.NET.CastNode>>)
+  fullName.vb: Cast.NET.Nodes.ModelNode.ModelNode(Cast.NET.CastNodeIdentifier, System.UInt64, System.Nullable(Of Dictionary(Of System.String, Cast.NET.CastProperty)), System.Nullable(Of List(Of Cast.NET.CastNode)))
+  nameWithType: ModelNode.ModelNode(CastNodeIdentifier, UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  nameWithType.vb: ModelNode.ModelNode(CastNodeIdentifier, UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+- uid: Cast.NET.Nodes.ModelNode.#ctor(System.UInt64)
+  name: ModelNode(UInt64)
+  href: api/Cast.NET.Nodes.ModelNode.html#Cast_NET_Nodes_ModelNode__ctor_System_UInt64_
+  commentId: M:Cast.NET.Nodes.ModelNode.#ctor(System.UInt64)
+  fullName: Cast.NET.Nodes.ModelNode.ModelNode(System.UInt64)
+  nameWithType: ModelNode.ModelNode(UInt64)
+- uid: Cast.NET.Nodes.ModelNode.#ctor(System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name: ModelNode(UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  href: api/Cast.NET.Nodes.ModelNode.html#Cast_NET_Nodes_ModelNode__ctor_System_UInt64_System_Nullable_Dictionary_System_String_Cast_NET_CastProperty___System_Nullable_List_Cast_NET_CastNode___
+  commentId: M:Cast.NET.Nodes.ModelNode.#ctor(System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name.vb: ModelNode(UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+  fullName: Cast.NET.Nodes.ModelNode.ModelNode(System.UInt64, System.Nullable<Dictionary<System.String, Cast.NET.CastProperty>>, System.Nullable<List<Cast.NET.CastNode>>)
+  fullName.vb: Cast.NET.Nodes.ModelNode.ModelNode(System.UInt64, System.Nullable(Of Dictionary(Of System.String, Cast.NET.CastProperty)), System.Nullable(Of List(Of Cast.NET.CastNode)))
+  nameWithType: ModelNode.ModelNode(UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  nameWithType.vb: ModelNode.ModelNode(UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+- uid: Cast.NET.Nodes.ModelNode.#ctor*
+  name: ModelNode
+  href: api/Cast.NET.Nodes.ModelNode.html#Cast_NET_Nodes_ModelNode__ctor_
+  commentId: Overload:Cast.NET.Nodes.ModelNode.#ctor
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.ModelNode.ModelNode
+  nameWithType: ModelNode.ModelNode
+- uid: Cast.NET.Nodes.ModelNode.EnumerateMaterials
+  name: EnumerateMaterials()
+  href: api/Cast.NET.Nodes.ModelNode.html#Cast_NET_Nodes_ModelNode_EnumerateMaterials
+  commentId: M:Cast.NET.Nodes.ModelNode.EnumerateMaterials
+  fullName: Cast.NET.Nodes.ModelNode.EnumerateMaterials()
+  nameWithType: ModelNode.EnumerateMaterials()
+- uid: Cast.NET.Nodes.ModelNode.EnumerateMaterials*
+  name: EnumerateMaterials
+  href: api/Cast.NET.Nodes.ModelNode.html#Cast_NET_Nodes_ModelNode_EnumerateMaterials_
+  commentId: Overload:Cast.NET.Nodes.ModelNode.EnumerateMaterials
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.ModelNode.EnumerateMaterials
+  nameWithType: ModelNode.EnumerateMaterials
+- uid: Cast.NET.Nodes.ModelNode.EnumerateMeshes
+  name: EnumerateMeshes()
+  href: api/Cast.NET.Nodes.ModelNode.html#Cast_NET_Nodes_ModelNode_EnumerateMeshes
+  commentId: M:Cast.NET.Nodes.ModelNode.EnumerateMeshes
+  fullName: Cast.NET.Nodes.ModelNode.EnumerateMeshes()
+  nameWithType: ModelNode.EnumerateMeshes()
+- uid: Cast.NET.Nodes.ModelNode.EnumerateMeshes*
+  name: EnumerateMeshes
+  href: api/Cast.NET.Nodes.ModelNode.html#Cast_NET_Nodes_ModelNode_EnumerateMeshes_
+  commentId: Overload:Cast.NET.Nodes.ModelNode.EnumerateMeshes
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.ModelNode.EnumerateMeshes
+  nameWithType: ModelNode.EnumerateMeshes
+- uid: Cast.NET.Nodes.ModelNode.Materials
+  name: Materials
+  href: api/Cast.NET.Nodes.ModelNode.html#Cast_NET_Nodes_ModelNode_Materials
+  commentId: P:Cast.NET.Nodes.ModelNode.Materials
+  fullName: Cast.NET.Nodes.ModelNode.Materials
+  nameWithType: ModelNode.Materials
+- uid: Cast.NET.Nodes.ModelNode.Materials*
+  name: Materials
+  href: api/Cast.NET.Nodes.ModelNode.html#Cast_NET_Nodes_ModelNode_Materials_
+  commentId: Overload:Cast.NET.Nodes.ModelNode.Materials
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.ModelNode.Materials
+  nameWithType: ModelNode.Materials
+- uid: Cast.NET.Nodes.ModelNode.Meshes
+  name: Meshes
+  href: api/Cast.NET.Nodes.ModelNode.html#Cast_NET_Nodes_ModelNode_Meshes
+  commentId: P:Cast.NET.Nodes.ModelNode.Meshes
+  fullName: Cast.NET.Nodes.ModelNode.Meshes
+  nameWithType: ModelNode.Meshes
+- uid: Cast.NET.Nodes.ModelNode.Meshes*
+  name: Meshes
+  href: api/Cast.NET.Nodes.ModelNode.html#Cast_NET_Nodes_ModelNode_Meshes_
+  commentId: Overload:Cast.NET.Nodes.ModelNode.Meshes
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.ModelNode.Meshes
+  nameWithType: ModelNode.Meshes
+- uid: Cast.NET.Nodes.ModelNode.Skeleton
+  name: Skeleton
+  href: api/Cast.NET.Nodes.ModelNode.html#Cast_NET_Nodes_ModelNode_Skeleton
+  commentId: P:Cast.NET.Nodes.ModelNode.Skeleton
+  fullName: Cast.NET.Nodes.ModelNode.Skeleton
+  nameWithType: ModelNode.Skeleton
+- uid: Cast.NET.Nodes.ModelNode.Skeleton*
+  name: Skeleton
+  href: api/Cast.NET.Nodes.ModelNode.html#Cast_NET_Nodes_ModelNode_Skeleton_
+  commentId: Overload:Cast.NET.Nodes.ModelNode.Skeleton
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.ModelNode.Skeleton
+  nameWithType: ModelNode.Skeleton
+- uid: Cast.NET.Nodes.NotificationTrackNode
+  name: NotificationTrackNode
+  href: api/Cast.NET.Nodes.NotificationTrackNode.html
+  commentId: T:Cast.NET.Nodes.NotificationTrackNode
+  fullName: Cast.NET.Nodes.NotificationTrackNode
+  nameWithType: NotificationTrackNode
+- uid: Cast.NET.Nodes.NotificationTrackNode.#ctor
+  name: NotificationTrackNode()
+  href: api/Cast.NET.Nodes.NotificationTrackNode.html#Cast_NET_Nodes_NotificationTrackNode__ctor
+  commentId: M:Cast.NET.Nodes.NotificationTrackNode.#ctor
+  fullName: Cast.NET.Nodes.NotificationTrackNode.NotificationTrackNode()
+  nameWithType: NotificationTrackNode.NotificationTrackNode()
+- uid: Cast.NET.Nodes.NotificationTrackNode.#ctor(Cast.NET.CastNode)
+  name: NotificationTrackNode(CastNode)
+  href: api/Cast.NET.Nodes.NotificationTrackNode.html#Cast_NET_Nodes_NotificationTrackNode__ctor_Cast_NET_CastNode_
+  commentId: M:Cast.NET.Nodes.NotificationTrackNode.#ctor(Cast.NET.CastNode)
+  fullName: Cast.NET.Nodes.NotificationTrackNode.NotificationTrackNode(Cast.NET.CastNode)
+  nameWithType: NotificationTrackNode.NotificationTrackNode(CastNode)
+- uid: Cast.NET.Nodes.NotificationTrackNode.#ctor(Cast.NET.CastNodeIdentifier)
+  name: NotificationTrackNode(CastNodeIdentifier)
+  href: api/Cast.NET.Nodes.NotificationTrackNode.html#Cast_NET_Nodes_NotificationTrackNode__ctor_Cast_NET_CastNodeIdentifier_
+  commentId: M:Cast.NET.Nodes.NotificationTrackNode.#ctor(Cast.NET.CastNodeIdentifier)
+  fullName: Cast.NET.Nodes.NotificationTrackNode.NotificationTrackNode(Cast.NET.CastNodeIdentifier)
+  nameWithType: NotificationTrackNode.NotificationTrackNode(CastNodeIdentifier)
+- uid: Cast.NET.Nodes.NotificationTrackNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64)
+  name: NotificationTrackNode(CastNodeIdentifier, UInt64)
+  href: api/Cast.NET.Nodes.NotificationTrackNode.html#Cast_NET_Nodes_NotificationTrackNode__ctor_Cast_NET_CastNodeIdentifier_System_UInt64_
+  commentId: M:Cast.NET.Nodes.NotificationTrackNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64)
+  fullName: Cast.NET.Nodes.NotificationTrackNode.NotificationTrackNode(Cast.NET.CastNodeIdentifier, System.UInt64)
+  nameWithType: NotificationTrackNode.NotificationTrackNode(CastNodeIdentifier, UInt64)
+- uid: Cast.NET.Nodes.NotificationTrackNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name: NotificationTrackNode(CastNodeIdentifier, UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  href: api/Cast.NET.Nodes.NotificationTrackNode.html#Cast_NET_Nodes_NotificationTrackNode__ctor_Cast_NET_CastNodeIdentifier_System_UInt64_System_Nullable_Dictionary_System_String_Cast_NET_CastProperty___System_Nullable_List_Cast_NET_CastNode___
+  commentId: M:Cast.NET.Nodes.NotificationTrackNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name.vb: NotificationTrackNode(CastNodeIdentifier, UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+  fullName: Cast.NET.Nodes.NotificationTrackNode.NotificationTrackNode(Cast.NET.CastNodeIdentifier, System.UInt64, System.Nullable<Dictionary<System.String, Cast.NET.CastProperty>>, System.Nullable<List<Cast.NET.CastNode>>)
+  fullName.vb: Cast.NET.Nodes.NotificationTrackNode.NotificationTrackNode(Cast.NET.CastNodeIdentifier, System.UInt64, System.Nullable(Of Dictionary(Of System.String, Cast.NET.CastProperty)), System.Nullable(Of List(Of Cast.NET.CastNode)))
+  nameWithType: NotificationTrackNode.NotificationTrackNode(CastNodeIdentifier, UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  nameWithType.vb: NotificationTrackNode.NotificationTrackNode(CastNodeIdentifier, UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+- uid: Cast.NET.Nodes.NotificationTrackNode.#ctor(System.UInt64)
+  name: NotificationTrackNode(UInt64)
+  href: api/Cast.NET.Nodes.NotificationTrackNode.html#Cast_NET_Nodes_NotificationTrackNode__ctor_System_UInt64_
+  commentId: M:Cast.NET.Nodes.NotificationTrackNode.#ctor(System.UInt64)
+  fullName: Cast.NET.Nodes.NotificationTrackNode.NotificationTrackNode(System.UInt64)
+  nameWithType: NotificationTrackNode.NotificationTrackNode(UInt64)
+- uid: Cast.NET.Nodes.NotificationTrackNode.#ctor(System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name: NotificationTrackNode(UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  href: api/Cast.NET.Nodes.NotificationTrackNode.html#Cast_NET_Nodes_NotificationTrackNode__ctor_System_UInt64_System_Nullable_Dictionary_System_String_Cast_NET_CastProperty___System_Nullable_List_Cast_NET_CastNode___
+  commentId: M:Cast.NET.Nodes.NotificationTrackNode.#ctor(System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name.vb: NotificationTrackNode(UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+  fullName: Cast.NET.Nodes.NotificationTrackNode.NotificationTrackNode(System.UInt64, System.Nullable<Dictionary<System.String, Cast.NET.CastProperty>>, System.Nullable<List<Cast.NET.CastNode>>)
+  fullName.vb: Cast.NET.Nodes.NotificationTrackNode.NotificationTrackNode(System.UInt64, System.Nullable(Of Dictionary(Of System.String, Cast.NET.CastProperty)), System.Nullable(Of List(Of Cast.NET.CastNode)))
+  nameWithType: NotificationTrackNode.NotificationTrackNode(UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  nameWithType.vb: NotificationTrackNode.NotificationTrackNode(UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+- uid: Cast.NET.Nodes.NotificationTrackNode.#ctor*
+  name: NotificationTrackNode
+  href: api/Cast.NET.Nodes.NotificationTrackNode.html#Cast_NET_Nodes_NotificationTrackNode__ctor_
+  commentId: Overload:Cast.NET.Nodes.NotificationTrackNode.#ctor
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.NotificationTrackNode.NotificationTrackNode
+  nameWithType: NotificationTrackNode.NotificationTrackNode
+- uid: Cast.NET.Nodes.NotificationTrackNode.KeyFrameBuffer
+  name: KeyFrameBuffer
+  href: api/Cast.NET.Nodes.NotificationTrackNode.html#Cast_NET_Nodes_NotificationTrackNode_KeyFrameBuffer
+  commentId: P:Cast.NET.Nodes.NotificationTrackNode.KeyFrameBuffer
+  fullName: Cast.NET.Nodes.NotificationTrackNode.KeyFrameBuffer
+  nameWithType: NotificationTrackNode.KeyFrameBuffer
+- uid: Cast.NET.Nodes.NotificationTrackNode.KeyFrameBuffer*
+  name: KeyFrameBuffer
+  href: api/Cast.NET.Nodes.NotificationTrackNode.html#Cast_NET_Nodes_NotificationTrackNode_KeyFrameBuffer_
+  commentId: Overload:Cast.NET.Nodes.NotificationTrackNode.KeyFrameBuffer
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.NotificationTrackNode.KeyFrameBuffer
+  nameWithType: NotificationTrackNode.KeyFrameBuffer
+- uid: Cast.NET.Nodes.NotificationTrackNode.NodeName
+  name: NodeName
+  href: api/Cast.NET.Nodes.NotificationTrackNode.html#Cast_NET_Nodes_NotificationTrackNode_NodeName
+  commentId: P:Cast.NET.Nodes.NotificationTrackNode.NodeName
+  fullName: Cast.NET.Nodes.NotificationTrackNode.NodeName
+  nameWithType: NotificationTrackNode.NodeName
+- uid: Cast.NET.Nodes.NotificationTrackNode.NodeName*
+  name: NodeName
+  href: api/Cast.NET.Nodes.NotificationTrackNode.html#Cast_NET_Nodes_NotificationTrackNode_NodeName_
+  commentId: Overload:Cast.NET.Nodes.NotificationTrackNode.NodeName
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.NotificationTrackNode.NodeName
+  nameWithType: NotificationTrackNode.NodeName
+- uid: Cast.NET.Nodes.SkeletonNode
+  name: SkeletonNode
+  href: api/Cast.NET.Nodes.SkeletonNode.html
+  commentId: T:Cast.NET.Nodes.SkeletonNode
+  fullName: Cast.NET.Nodes.SkeletonNode
+  nameWithType: SkeletonNode
+- uid: Cast.NET.Nodes.SkeletonNode.#ctor
+  name: SkeletonNode()
+  href: api/Cast.NET.Nodes.SkeletonNode.html#Cast_NET_Nodes_SkeletonNode__ctor
+  commentId: M:Cast.NET.Nodes.SkeletonNode.#ctor
+  fullName: Cast.NET.Nodes.SkeletonNode.SkeletonNode()
+  nameWithType: SkeletonNode.SkeletonNode()
+- uid: Cast.NET.Nodes.SkeletonNode.#ctor(Cast.NET.CastNode)
+  name: SkeletonNode(CastNode)
+  href: api/Cast.NET.Nodes.SkeletonNode.html#Cast_NET_Nodes_SkeletonNode__ctor_Cast_NET_CastNode_
+  commentId: M:Cast.NET.Nodes.SkeletonNode.#ctor(Cast.NET.CastNode)
+  fullName: Cast.NET.Nodes.SkeletonNode.SkeletonNode(Cast.NET.CastNode)
+  nameWithType: SkeletonNode.SkeletonNode(CastNode)
+- uid: Cast.NET.Nodes.SkeletonNode.#ctor(Cast.NET.CastNodeIdentifier)
+  name: SkeletonNode(CastNodeIdentifier)
+  href: api/Cast.NET.Nodes.SkeletonNode.html#Cast_NET_Nodes_SkeletonNode__ctor_Cast_NET_CastNodeIdentifier_
+  commentId: M:Cast.NET.Nodes.SkeletonNode.#ctor(Cast.NET.CastNodeIdentifier)
+  fullName: Cast.NET.Nodes.SkeletonNode.SkeletonNode(Cast.NET.CastNodeIdentifier)
+  nameWithType: SkeletonNode.SkeletonNode(CastNodeIdentifier)
+- uid: Cast.NET.Nodes.SkeletonNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64)
+  name: SkeletonNode(CastNodeIdentifier, UInt64)
+  href: api/Cast.NET.Nodes.SkeletonNode.html#Cast_NET_Nodes_SkeletonNode__ctor_Cast_NET_CastNodeIdentifier_System_UInt64_
+  commentId: M:Cast.NET.Nodes.SkeletonNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64)
+  fullName: Cast.NET.Nodes.SkeletonNode.SkeletonNode(Cast.NET.CastNodeIdentifier, System.UInt64)
+  nameWithType: SkeletonNode.SkeletonNode(CastNodeIdentifier, UInt64)
+- uid: Cast.NET.Nodes.SkeletonNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name: SkeletonNode(CastNodeIdentifier, UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  href: api/Cast.NET.Nodes.SkeletonNode.html#Cast_NET_Nodes_SkeletonNode__ctor_Cast_NET_CastNodeIdentifier_System_UInt64_System_Nullable_Dictionary_System_String_Cast_NET_CastProperty___System_Nullable_List_Cast_NET_CastNode___
+  commentId: M:Cast.NET.Nodes.SkeletonNode.#ctor(Cast.NET.CastNodeIdentifier,System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name.vb: SkeletonNode(CastNodeIdentifier, UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+  fullName: Cast.NET.Nodes.SkeletonNode.SkeletonNode(Cast.NET.CastNodeIdentifier, System.UInt64, System.Nullable<Dictionary<System.String, Cast.NET.CastProperty>>, System.Nullable<List<Cast.NET.CastNode>>)
+  fullName.vb: Cast.NET.Nodes.SkeletonNode.SkeletonNode(Cast.NET.CastNodeIdentifier, System.UInt64, System.Nullable(Of Dictionary(Of System.String, Cast.NET.CastProperty)), System.Nullable(Of List(Of Cast.NET.CastNode)))
+  nameWithType: SkeletonNode.SkeletonNode(CastNodeIdentifier, UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  nameWithType.vb: SkeletonNode.SkeletonNode(CastNodeIdentifier, UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+- uid: Cast.NET.Nodes.SkeletonNode.#ctor(System.UInt64)
+  name: SkeletonNode(UInt64)
+  href: api/Cast.NET.Nodes.SkeletonNode.html#Cast_NET_Nodes_SkeletonNode__ctor_System_UInt64_
+  commentId: M:Cast.NET.Nodes.SkeletonNode.#ctor(System.UInt64)
+  fullName: Cast.NET.Nodes.SkeletonNode.SkeletonNode(System.UInt64)
+  nameWithType: SkeletonNode.SkeletonNode(UInt64)
+- uid: Cast.NET.Nodes.SkeletonNode.#ctor(System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name: SkeletonNode(UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  href: api/Cast.NET.Nodes.SkeletonNode.html#Cast_NET_Nodes_SkeletonNode__ctor_System_UInt64_System_Nullable_Dictionary_System_String_Cast_NET_CastProperty___System_Nullable_List_Cast_NET_CastNode___
+  commentId: M:Cast.NET.Nodes.SkeletonNode.#ctor(System.UInt64,System.Nullable{Dictionary{System.String,Cast.NET.CastProperty}},System.Nullable{List{Cast.NET.CastNode}})
+  name.vb: SkeletonNode(UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+  fullName: Cast.NET.Nodes.SkeletonNode.SkeletonNode(System.UInt64, System.Nullable<Dictionary<System.String, Cast.NET.CastProperty>>, System.Nullable<List<Cast.NET.CastNode>>)
+  fullName.vb: Cast.NET.Nodes.SkeletonNode.SkeletonNode(System.UInt64, System.Nullable(Of Dictionary(Of System.String, Cast.NET.CastProperty)), System.Nullable(Of List(Of Cast.NET.CastNode)))
+  nameWithType: SkeletonNode.SkeletonNode(UInt64, Nullable<Dictionary<String, CastProperty>>, Nullable<List<CastNode>>)
+  nameWithType.vb: SkeletonNode.SkeletonNode(UInt64, Nullable(Of Dictionary(Of String, CastProperty)), Nullable(Of List(Of CastNode)))
+- uid: Cast.NET.Nodes.SkeletonNode.#ctor*
+  name: SkeletonNode
+  href: api/Cast.NET.Nodes.SkeletonNode.html#Cast_NET_Nodes_SkeletonNode__ctor_
+  commentId: Overload:Cast.NET.Nodes.SkeletonNode.#ctor
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.SkeletonNode.SkeletonNode
+  nameWithType: SkeletonNode.SkeletonNode
+- uid: Cast.NET.Nodes.SkeletonNode.Bones
+  name: Bones
+  href: api/Cast.NET.Nodes.SkeletonNode.html#Cast_NET_Nodes_SkeletonNode_Bones
+  commentId: P:Cast.NET.Nodes.SkeletonNode.Bones
+  fullName: Cast.NET.Nodes.SkeletonNode.Bones
+  nameWithType: SkeletonNode.Bones
+- uid: Cast.NET.Nodes.SkeletonNode.Bones*
+  name: Bones
+  href: api/Cast.NET.Nodes.SkeletonNode.html#Cast_NET_Nodes_SkeletonNode_Bones_
+  commentId: Overload:Cast.NET.Nodes.SkeletonNode.Bones
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.SkeletonNode.Bones
+  nameWithType: SkeletonNode.Bones
+- uid: Cast.NET.Nodes.SkeletonNode.CalculateLocalTransforms
+  name: CalculateLocalTransforms()
+  href: api/Cast.NET.Nodes.SkeletonNode.html#Cast_NET_Nodes_SkeletonNode_CalculateLocalTransforms
+  commentId: M:Cast.NET.Nodes.SkeletonNode.CalculateLocalTransforms
+  fullName: Cast.NET.Nodes.SkeletonNode.CalculateLocalTransforms()
+  nameWithType: SkeletonNode.CalculateLocalTransforms()
+- uid: Cast.NET.Nodes.SkeletonNode.CalculateLocalTransforms*
+  name: CalculateLocalTransforms
+  href: api/Cast.NET.Nodes.SkeletonNode.html#Cast_NET_Nodes_SkeletonNode_CalculateLocalTransforms_
+  commentId: Overload:Cast.NET.Nodes.SkeletonNode.CalculateLocalTransforms
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.SkeletonNode.CalculateLocalTransforms
+  nameWithType: SkeletonNode.CalculateLocalTransforms
+- uid: Cast.NET.Nodes.SkeletonNode.CalculateWorldTransforms
+  name: CalculateWorldTransforms()
+  href: api/Cast.NET.Nodes.SkeletonNode.html#Cast_NET_Nodes_SkeletonNode_CalculateWorldTransforms
+  commentId: M:Cast.NET.Nodes.SkeletonNode.CalculateWorldTransforms
+  fullName: Cast.NET.Nodes.SkeletonNode.CalculateWorldTransforms()
+  nameWithType: SkeletonNode.CalculateWorldTransforms()
+- uid: Cast.NET.Nodes.SkeletonNode.CalculateWorldTransforms*
+  name: CalculateWorldTransforms
+  href: api/Cast.NET.Nodes.SkeletonNode.html#Cast_NET_Nodes_SkeletonNode_CalculateWorldTransforms_
+  commentId: Overload:Cast.NET.Nodes.SkeletonNode.CalculateWorldTransforms
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.SkeletonNode.CalculateWorldTransforms
+  nameWithType: SkeletonNode.CalculateWorldTransforms
+- uid: Cast.NET.Nodes.SkeletonNode.EnumerateBones
+  name: EnumerateBones()
+  href: api/Cast.NET.Nodes.SkeletonNode.html#Cast_NET_Nodes_SkeletonNode_EnumerateBones
+  commentId: M:Cast.NET.Nodes.SkeletonNode.EnumerateBones
+  fullName: Cast.NET.Nodes.SkeletonNode.EnumerateBones()
+  nameWithType: SkeletonNode.EnumerateBones()
+- uid: Cast.NET.Nodes.SkeletonNode.EnumerateBones*
+  name: EnumerateBones
+  href: api/Cast.NET.Nodes.SkeletonNode.html#Cast_NET_Nodes_SkeletonNode_EnumerateBones_
+  commentId: Overload:Cast.NET.Nodes.SkeletonNode.EnumerateBones
+  isSpec: "True"
+  fullName: Cast.NET.Nodes.SkeletonNode.EnumerateBones
+  nameWithType: SkeletonNode.EnumerateBones
