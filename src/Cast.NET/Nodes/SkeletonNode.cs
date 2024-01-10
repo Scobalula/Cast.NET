@@ -1,6 +1,6 @@
 ﻿// ------------------------------------------------------------------------
 // Cast.NET - A .NET Library for reading and writing Cast files.
-// Copyright(c) 2022 Philip/Scobalula
+// Copyright(c) 2024 Philip/Scobalula
 // ------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -25,7 +25,7 @@ using System.Numerics;
 namespace Cast.NET.Nodes
 {
     /// <summary>
-    /// A class to hold a <see cref="CastNode"/> that contains a Skeleton.
+    /// A class to hold a <see cref="CastNode"/> that contains a skeleton.
     /// </summary>
     public class SkeletonNode : CastNode
     {

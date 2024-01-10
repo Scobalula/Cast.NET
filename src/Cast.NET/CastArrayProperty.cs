@@ -1,6 +1,6 @@
 ﻿// ------------------------------------------------------------------------
 // Cast.NET - A .NET Library for reading and writing Cast files.
-// Copyright(c) 2022 Philip/Scobalula
+// Copyright(c) 2024 Philip/Scobalula
 // ------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -149,11 +149,10 @@ namespace Cast.NET
         /// <param name="value">The value to add.</param>
         public void Add(T value) => Values.Add(value);
 
-        #region TypeMap
         /// <summary>
         /// A map of supported types to identifiers.
         /// </summary>
-        private static readonly Dictionary<Type, CastPropertyIdentifier> Identifiers = new()
+        internal static readonly Dictionary<Type, CastPropertyIdentifier> Identifiers = new()
         {
             { typeof(byte), CastPropertyIdentifier.Byte },
             { typeof(ushort), CastPropertyIdentifier.Short },
@@ -165,6 +164,5 @@ namespace Cast.NET
             { typeof(Vector3), CastPropertyIdentifier.Vector3 },
             { typeof(Vector4), CastPropertyIdentifier.Vector4 },
         };
-        #endregion
     }
 }

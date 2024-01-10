@@ -24,46 +24,77 @@
 namespace Cast.NET.Nodes
 {
     /// <summary>
-    /// A class to hold a <see cref="CastNode"/> that contains a Model.
+    /// A class to hold a <see cref="CastNode"/> that contains an constraint.
     /// </summary>
-    public class ModelNode : CastNode
+    public class ConstraintNode : CastNode
     {
         /// <summary>
-        /// Gets all the meshes stored within this model.
+        /// Gets the name of this constraint.
         /// </summary>
-        public MaterialNode[] Materials => GetChildrenOfType<MaterialNode>();
+        public string Name => GetStringValueOrDefault("n", string.Empty);
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ModelNode"/> class.
+        /// Gets the constraint type.
         /// </summary>
-        public ModelNode() : base(CastNodeIdentifier.Model) { }
+        public string ConstraintType  => GetStringValueOrDefault("ct", "unknown");
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ModelNode"/> class.
+        /// Gets the hash of the constraint <see cref="BoneNode"/>.
+        /// </summary>
+        public ulong ConstraintBoneHash => GetFirstValueOrDefault<ulong>("cb", 0);
+
+        /// <summary>
+        /// Gets the hash of the target <see cref="BoneNode"/>.
+        /// </summary>
+        public ulong TargetBoneHash => GetFirstValueOrDefault<ulong>("tb", 0);
+
+        /// <summary>
+        /// Gets if to enable maintain offset.
+        /// </summary>
+        public bool MaintainOffset  => GetFirstValueOrDefault("tr", (byte)0) == 1;
+
+        /// <summary>
+        /// Gets the start <see cref="BoneNode"/>.
+        /// </summary>
+        public BoneNode? ConstraintBone => Parent?.GetChildByHashOrNull<BoneNode>(ConstraintBoneHash);
+
+        /// <summary>
+        /// Gets the target <see cref="BoneNode"/>.
+        /// </summary>
+        public BoneNode? TargetBone => Parent?.GetChildByHashOrNull<BoneNode>(TargetBoneHash);
+
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ConstraintNode"/> class.
+        /// </summary>
+        public ConstraintNode() : base(CastNodeIdentifier.Constraint) { }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ConstraintNode"/> class.
         /// </summary>
         /// <param name="identifier">Node identifier.</param>
-        public ModelNode(CastNodeIdentifier identifier) : base(identifier) { }
+        public ConstraintNode(CastNodeIdentifier identifier) : base(identifier) { }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ModelNode"/> class.
+        /// Initializes a new instance of the <see cref="ConstraintNode"/> class.
         /// </summary>
         /// <param name="identifier">Node identifier.</param>
         /// <param name="hash">Optional hash value for lookups.</param>
-        public ModelNode(CastNodeIdentifier identifier, ulong hash) : base(identifier, hash) { }
+        public ConstraintNode(CastNodeIdentifier identifier, ulong hash) : base(identifier, hash) { }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ModelNode"/> class.
+        /// Initializes a new instance of the <see cref="ConstraintNode"/> class.
         /// </summary>
         /// <param name="hash">Optional hash value for lookups.</param>
-        public ModelNode(ulong hash) : base(CastNodeIdentifier.Model, hash) { }
+        public ConstraintNode(ulong hash) : base(CastNodeIdentifier.Model, hash) { }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ModelNode"/> class.
+        /// Initializes a new instance of the <see cref="ConstraintNode"/> class.
         /// </summary>
         /// <param name="hash">Optional hash value for lookups.</param>
         /// <param name="properties">Properties to assign to this node..</param>
         /// <param name="children">Children to assign to this node..</param>
-        public ModelNode(ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
+        public ConstraintNode(ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
             base(CastNodeIdentifier.Model, hash, properties, children)
         { }
 
@@ -74,36 +105,14 @@ namespace Cast.NET.Nodes
         /// <param name="hash">Optional hash value for lookups.</param>
         /// <param name="properties">Properties to assign to this node..</param>
         /// <param name="children">Children to assign to this node..</param>
-        public ModelNode(CastNodeIdentifier identifier, ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
+        public ConstraintNode(CastNodeIdentifier identifier, ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
             base(identifier, hash, properties, children)
         { }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ModelNode"/> class.
+        /// Initializes a new instance of the <see cref="ConstraintNode"/> class.
         /// </summary>
         /// <param name="source">Node to copy from. A shallow copy is performed and references to the source are stored.</param>
-        public ModelNode(CastNode source) : base(source) { }
-
-        /// <summary>
-        /// Gets the skeleton assigned to this model, if none is assigned, null is returned.
-        /// </summary>
-        public SkeletonNode? Skeleton => GetFirstChildOfTypeOrNull<SkeletonNode>();
-
-        /// <summary>
-        /// Gets all the meshes stored within this model.
-        /// </summary>
-        public MeshNode[] Meshes => GetChildrenOfType<MeshNode>();
-
-        /// <summary>
-        /// Enumerates through all meshes within this model.
-        /// </summary>
-        /// <returns>An enumerable collection of meshes within this model.</returns>
-        public IEnumerable<MeshNode> EnumerateMeshes() => EnumerateChildrenOfType<MeshNode>();
-
-        /// <summary>
-        /// Enumerates through all materials within this model.
-        /// </summary>
-        /// <returns>An enumerable collection of materials within this model.</returns>
-        public IEnumerable<MaterialNode> EnumerateMaterials() => EnumerateChildrenOfType<MaterialNode>();
+        public ConstraintNode(CastNode source) : base(source) { }
     }
 }

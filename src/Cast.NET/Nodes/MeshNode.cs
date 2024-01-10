@@ -1,6 +1,6 @@
 ﻿// ------------------------------------------------------------------------
 // Cast.NET - A .NET Library for reading and writing Cast files.
-// Copyright(c) 2022 Philip/Scobalula
+// Copyright(c) 2024 Philip/Scobalula
 // ------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -88,6 +88,11 @@ namespace Cast.NET.Nodes
         /// Gets the max number of weight influences within this mesh.
         /// </summary>
         public int MaximumWeightInfluence => (int)GetFirstIntegerOrDefault("mi", 0, 32);
+
+        /// <summary>
+        /// Gets the skinning type the mesh uses.
+        /// </summary>
+        public string SkinningMethod => GetStringValueOrDefault("s", "linear");
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MeshNode"/> class.

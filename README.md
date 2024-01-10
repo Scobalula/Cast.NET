@@ -6,7 +6,19 @@ Cast.NET provides you with the ability the read and write these files in an easy
 
 # Requirements
 
-Cast.NET requires .NET 6.0 and has been tested on both Windows and Linux.
+Cast.NET requires .NET 6.0 or higher and has been tested on both Windows and Linux.
+
+# Installing
+
+To install Cast.NET you can either pull the code and reference or use package installer:
+
+```
+dotnet add package Cast.NET
+```
+
+```
+Install-Package Cast.NET
+```
 
 # Documentation
 
@@ -73,5 +85,7 @@ CastWriter.Save("your_cast_file.cast", root);
 More in-depth examples are included in the source code, these include a basic Gltf to cast converter and a simple project that dumps all information in the cast file to a text file. The examples are constantly evolving with more being added as time goes on. If you're interested in helping out, feel free to file a PR with an example to help other learn how to use the library.
 
 # License/Disclaimers
+
+Cast.NET is currently in an alpha state but tests show it's perfectly usable, the API may have breaking changes pre-release but I hope to avoid anything that would break current usage.
 
 Cast.NET is licensed under the [MIT license](LICENSE). Cast.NET is a third-party library and is not associated with DTZxPorter or anyone who has worked on Cast, any issues with Cast.NET should be directed to this repo. This library comes with no warranty, please refer to the [license](LICENSE) file for more information.
