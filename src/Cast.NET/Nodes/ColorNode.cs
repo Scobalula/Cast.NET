@@ -21,55 +21,62 @@
 // SOFTWARE.
 // ------------------------------------------------------------------------
 
+using System.Numerics;
+
 namespace Cast.NET.Nodes
 {
     /// <summary>
-    /// A class to hold a <see cref="CastNode"/> that contains a Notification Track.
+    /// A class to hold a <see cref="CastNode"/> that contains Color information.
     /// </summary>
-    public class NotificationTrackNode : CastNode
+    public class ColorNode : CastNode
     {
         /// <summary>
-        /// Gets the name of the notification.
+        /// Gets or Sets the name.
         /// </summary>
-        public string NodeName => GetStringValue("n");
+        public string Name => GetStringValue("n", string.Empty);
 
         /// <summary>
-        /// Gets the raw key frame buffer stored within this notification track.
+        /// Gets the author.
         /// </summary>
-        public CastProperty KeyFrameBuffer => GetProperty("vn");
+        public string ColorSpace => GetStringValue("cs", "srgb");
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationTrackNode"/> class.
+        /// Gets the software.
         /// </summary>
-        public NotificationTrackNode() : base(CastNodeIdentifier.Model) { }
+        public Vector4 RgbaColor => GetFirstValue<Vector4>("rgba");
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationTrackNode"/> class.
+        /// Initializes a new instance of the <see cref="ColorNode"/> class.
+        /// </summary>
+        public ColorNode() : base(CastNodeIdentifier.Mesh) { }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ColorNode"/> class.
         /// </summary>
         /// <param name="identifier">Node identifier.</param>
-        public NotificationTrackNode(CastNodeIdentifier identifier) : base(identifier) { }
+        public ColorNode(CastNodeIdentifier identifier) : base(identifier) { }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationTrackNode"/> class.
+        /// Initializes a new instance of the <see cref="ColorNode"/> class.
         /// </summary>
         /// <param name="identifier">Node identifier.</param>
         /// <param name="hash">Optional hash value for lookups.</param>
-        public NotificationTrackNode(CastNodeIdentifier identifier, ulong hash) : base(identifier, hash) { }
+        public ColorNode(CastNodeIdentifier identifier, ulong hash) : base(identifier, hash) { }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationTrackNode"/> class.
+        /// Initializes a new instance of the <see cref="ColorNode"/> class.
         /// </summary>
         /// <param name="hash">Optional hash value for lookups.</param>
-        public NotificationTrackNode(ulong hash) : base(CastNodeIdentifier.Model, hash) { }
+        public ColorNode(ulong hash) : base(CastNodeIdentifier.Mesh, hash) { }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationTrackNode"/> class.
+        /// Initializes a new instance of the <see cref="ColorNode"/> class.
         /// </summary>
         /// <param name="hash">Optional hash value for lookups.</param>
         /// <param name="properties">Properties to assign to this node..</param>
         /// <param name="children">Children to assign to this node..</param>
-        public NotificationTrackNode(ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(CastNodeIdentifier.Model, hash, properties, children)
+        public ColorNode(ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
+            base(CastNodeIdentifier.Mesh, hash, properties, children)
         { }
 
         /// <summary>
@@ -79,14 +86,14 @@ namespace Cast.NET.Nodes
         /// <param name="hash">Optional hash value for lookups.</param>
         /// <param name="properties">Properties to assign to this node..</param>
         /// <param name="children">Children to assign to this node..</param>
-        public NotificationTrackNode(CastNodeIdentifier identifier, ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
+        public ColorNode(CastNodeIdentifier identifier, ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
             base(identifier, hash, properties, children)
         { }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationTrackNode"/> class.
+        /// Initializes a new instance of the <see cref="ColorNode"/> class.
         /// </summary>
         /// <param name="source">Node to copy from. A shallow copy is performed and references to the source are stored.</param>
-        public NotificationTrackNode(CastNode source) : base(source) { }
+        public ColorNode(CastNode source) : base(source) { }
     }
 }

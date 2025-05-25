@@ -1,6 +1,6 @@
 ﻿// ------------------------------------------------------------------------
 // Cast.NET - A .NET Library for reading and writing Cast files.
-// Copyright(c) 2024 Philip/Scobalula
+// Copyright(c) 2025 Philip/Scobalula
 // ------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -43,7 +43,7 @@ namespace Cast.NET
             Span<byte> buffer = sizeOfBuffer > 1024 ? new byte[sizeOfBuffer] : stackalloc byte[sizeOfBuffer];
             if (reader.Read(buffer) != buffer.Length)
                 throw new EndOfStreamException();
-            return new(MemoryMarshal.Cast<byte, T>(buffer).ToArray());
+            return [.. MemoryMarshal.Cast<byte, T>(buffer).ToArray()];
         }
 
         /// <summary>

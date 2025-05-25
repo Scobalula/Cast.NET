@@ -1,6 +1,6 @@
 ﻿// ------------------------------------------------------------------------
 // Cast.NET - A .NET Library for reading and writing Cast files.
-// Copyright(c) 2024 Philip/Scobalula
+// Copyright(c) 2025 Philip/Scobalula
 // ------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -56,7 +56,7 @@ namespace Cast.NET
         public CastArrayProperty()
         {
             Identifier = Identifiers[typeof(T)];
-            Values = new();
+            Values = [];
         }
 
         /// <summary>
@@ -78,7 +78,7 @@ namespace Cast.NET
         public CastArrayProperty(List<T> values)
         {
             Identifier = Identifiers[typeof(T)];
-            Values = new(values);
+            Values = [.. values];
         }
 
         /// <summary>
@@ -89,7 +89,7 @@ namespace Cast.NET
         public CastArrayProperty(IEnumerable<T> values)
         {
             Identifier = Identifiers[typeof(T)];
-            Values = new(values);
+            Values = [.. values];
         }
 
         /// <summary>
@@ -100,10 +100,10 @@ namespace Cast.NET
         public CastArrayProperty(T value)
         {
             Identifier = Identifiers[typeof(T)];
-            Values = new()
-            {
+            Values =
+            [
                 value
-            };
+            ];
         }
 
         /// <summary>

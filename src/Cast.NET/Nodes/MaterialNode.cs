@@ -1,6 +1,6 @@
 ﻿// ------------------------------------------------------------------------
 // Cast.NET - A .NET Library for reading and writing Cast files.
-// Copyright(c) 2024 Philip/Scobalula
+// Copyright(c) 2025 Philip/Scobalula
 // ------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -31,102 +31,102 @@ namespace Cast.NET.Nodes
         /// <summary>
         /// Gets the name of the material.
         /// </summary>
-        public string Name => GetStringValueOrDefault("n", string.Empty);
+        public string Name => GetStringValue("n", string.Empty);
 
         /// <summary>
         /// Gets the material type.
         /// </summary>
-        public string Type => GetStringValueOrDefault("t", string.Empty);
+        public string Type => GetStringValue("t", string.Empty);
 
         /// <summary>
         /// Gets the hash of the albedo <see cref="FileNode"/>.
         /// </summary>
-        public ulong AlbedoFileHash => GetFirstValueOrDefault<ulong>("albedo", 0);
+        public ulong AlbedoFileHash => GetFirstValue<ulong>("albedo", 0);
 
         /// <summary>
         /// Gets the hash of the diffuse <see cref="FileNode"/>.
         /// </summary>
-        public ulong DiffuseFileHash => GetFirstValueOrDefault<ulong>("diffuse", 0);
+        public ulong DiffuseFileHash => GetFirstValue<ulong>("diffuse", 0);
 
         /// <summary>
         /// Gets the hash of the normal <see cref="FileNode"/>.
         /// </summary>
-        public ulong NormalFileHash => GetFirstValueOrDefault<ulong>("normal", 0);
+        public ulong NormalFileHash => GetFirstValue<ulong>("normal", 0);
 
         /// <summary>
         /// Gets the hash of the specular <see cref="FileNode"/>.
         /// </summary>
-        public ulong SpecularFileHash => GetFirstValueOrDefault<ulong>("specular", 0);
+        public ulong SpecularFileHash => GetFirstValue<ulong>("specular", 0);
 
         /// <summary>
         /// Gets the hash of the emissive <see cref="FileNode"/>.
         /// </summary>
-        public ulong EmissiveFileHash => GetFirstValueOrDefault<ulong>("emissive", 0);
+        public ulong EmissiveFileHash => GetFirstValue<ulong>("emissive", 0);
 
         /// <summary>
         /// Gets the hash of the gloss <see cref="FileNode"/>.
         /// </summary>
-        public ulong GlossFileHash => GetFirstValueOrDefault<ulong>("gloss", 0);
+        public ulong GlossFileHash => GetFirstValue<ulong>("gloss", 0);
 
         /// <summary>
         /// Gets the hash of the roughness <see cref="FileNode"/>.
         /// </summary>
-        public ulong RoughnessFileHash => GetFirstValueOrDefault<ulong>("roughness", 0);
+        public ulong RoughnessFileHash => GetFirstValue<ulong>("roughness", 0);
 
         /// <summary>
         /// Gets the hash of the ao <see cref="FileNode"/>.
         /// </summary>
-        public ulong AmbientOcclusionFileHash => GetFirstValueOrDefault<ulong>("ao", 0);
+        public ulong AmbientOcclusionFileHash => GetFirstValue<ulong>("ao", 0);
 
         /// <summary>
         /// Gets the hash of the cavity <see cref="FileNode"/>.
         /// </summary>
-        public ulong CavityFileHash => GetFirstValueOrDefault<ulong>("cavity", 0);
+        public ulong CavityFileHash => GetFirstValue<ulong>("cavity", 0);
 
         /// <summary>
         /// Gets the albedo <see cref="FileNode"/>.
         /// </summary>
-        public FileNode? AlbedoFile => GetChildByHashOrNull<FileNode>(AlbedoFileHash);
+        public FileNode? AlbedoFile => TryGetChild<FileNode>(AlbedoFileHash, out var node) ? node : null;
 
         /// <summary>
         /// Gets the diffuse <see cref="FileNode"/>.
         /// </summary>
-        public FileNode? DiffuseFile => GetChildByHashOrNull<FileNode>(DiffuseFileHash);
+        public FileNode? DiffuseFile => TryGetChild<FileNode>(DiffuseFileHash, out var node) ? node : null;
 
         /// <summary>
         /// Gets the normal <see cref="FileNode"/>.
         /// </summary>
-        public FileNode? NormalFile => GetChildByHashOrNull<FileNode>(NormalFileHash);
+        public FileNode? NormalFile => TryGetChild<FileNode>(NormalFileHash, out var node) ? node : null;
 
         /// <summary>
         /// Gets the specular <see cref="FileNode"/>.
         /// </summary>
-        public FileNode? SpecularFile => GetChildByHashOrNull<FileNode>(SpecularFileHash);
+        public FileNode? SpecularFile => TryGetChild<FileNode>(SpecularFileHash, out var node) ? node : null;
 
         /// <summary>
         /// Gets the emissive <see cref="FileNode"/>.
         /// </summary>
-        public FileNode? EmissiveFile => GetChildByHashOrNull<FileNode>(EmissiveFileHash);
+        public FileNode? EmissiveFile => TryGetChild<FileNode>(EmissiveFileHash, out var node) ? node : null;
 
         /// <summary>
         /// Gets the gloss <see cref="FileNode"/>.
         /// </summary>
-        public FileNode? GlossFile => GetChildByHashOrNull<FileNode>(GlossFileHash);
+        public FileNode? GlossFile => TryGetChild<FileNode>(GlossFileHash, out var node) ? node : null;
 
         /// <summary>
         /// Gets the roughness <see cref="FileNode"/>.
         /// </summary>
-        public FileNode? RoughnessFile => GetChildByHashOrNull<FileNode>(RoughnessFileHash);
+        public FileNode? RoughnessFile => TryGetChild<FileNode>(RoughnessFileHash, out var node) ? node : null;
 
         /// <summary>
         /// Gets the ao <see cref="FileNode"/>.
         /// </summary>
-        public FileNode? AmbientOcclusionFile => GetChildByHashOrNull<FileNode>(AmbientOcclusionFileHash);
+        public FileNode? AmbientOcclusionFile => TryGetChild<FileNode>(AmbientOcclusionFileHash, out var node) ? node : null;
 
         /// <summary>
         /// Gets the cavity <see cref="FileNode"/>.
         /// </summary>
-        public FileNode? CavityFile => GetChildByHashOrNull<FileNode>(CavityFileHash);
+        public FileNode? CavityFile => TryGetChild<FileNode>(CavityFileHash, out var node) ? node : null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MaterialNode"/> class.
@@ -201,7 +201,7 @@ namespace Cast.NET.Nodes
         /// </summary>
         /// <param name="name">Name of the extra file.</param>
         /// <returns>Hash of the extra file if found.</returns>
-        public ulong GetExtraFileHash(string name) => GetFirstValueOrDefault<ulong>(name, 0);
+        public ulong GetExtraFileHash(string name) => GetFirstValue<ulong>(name, 0);
 
         /// <summary>
         /// Gets the extra <see cref="FileNode"/>.
@@ -215,6 +215,6 @@ namespace Cast.NET.Nodes
         /// </summary>
         /// <param name="name">Name of the extra file.</param>
         /// <returns>The extra file if found.</returns>
-        public FileNode? GetExtraFile(string name) => GetChildByHashOrNull<FileNode>(GetFirstValueOrDefault<ulong>(name, 0));
+        public FileNode? GetExtraFile(string name) => TryGetChild<FileNode>(GetFirstValue<ulong>(name, 0), out var node) ? node : null;
     }
 }

@@ -24,52 +24,57 @@
 namespace Cast.NET.Nodes
 {
     /// <summary>
-    /// A class to hold a <see cref="CastNode"/> that contains a Notification Track.
+    /// A class to hold a <see cref="CastNode"/> that contains Hair.
     /// </summary>
-    public class NotificationTrackNode : CastNode
+    public class HairNode : CastNode
     {
         /// <summary>
-        /// Gets the name of the notification.
+        /// Gets or Sets the name.
         /// </summary>
-        public string NodeName => GetStringValue("n");
+        public string Name => GetStringValue("n", string.Empty);
 
         /// <summary>
-        /// Gets the raw key frame buffer stored within this notification track.
+        /// Gets the software.
         /// </summary>
-        public CastProperty KeyFrameBuffer => GetProperty("vn");
+        public string Software => GetStringValue("s", string.Empty);
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationTrackNode"/> class.
+        /// Gets the author.
         /// </summary>
-        public NotificationTrackNode() : base(CastNodeIdentifier.Model) { }
+        public string UpAxis => GetStringValue("up", string.Empty);
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationTrackNode"/> class.
+        /// Initializes a new instance of the <see cref="HairNode"/> class.
+        /// </summary>
+        public HairNode() : base(CastNodeIdentifier.Mesh) { }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HairNode"/> class.
         /// </summary>
         /// <param name="identifier">Node identifier.</param>
-        public NotificationTrackNode(CastNodeIdentifier identifier) : base(identifier) { }
+        public HairNode(CastNodeIdentifier identifier) : base(identifier) { }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationTrackNode"/> class.
+        /// Initializes a new instance of the <see cref="HairNode"/> class.
         /// </summary>
         /// <param name="identifier">Node identifier.</param>
         /// <param name="hash">Optional hash value for lookups.</param>
-        public NotificationTrackNode(CastNodeIdentifier identifier, ulong hash) : base(identifier, hash) { }
+        public HairNode(CastNodeIdentifier identifier, ulong hash) : base(identifier, hash) { }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationTrackNode"/> class.
+        /// Initializes a new instance of the <see cref="HairNode"/> class.
         /// </summary>
         /// <param name="hash">Optional hash value for lookups.</param>
-        public NotificationTrackNode(ulong hash) : base(CastNodeIdentifier.Model, hash) { }
+        public HairNode(ulong hash) : base(CastNodeIdentifier.Mesh, hash) { }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationTrackNode"/> class.
+        /// Initializes a new instance of the <see cref="HairNode"/> class.
         /// </summary>
         /// <param name="hash">Optional hash value for lookups.</param>
         /// <param name="properties">Properties to assign to this node..</param>
         /// <param name="children">Children to assign to this node..</param>
-        public NotificationTrackNode(ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(CastNodeIdentifier.Model, hash, properties, children)
+        public HairNode(ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
+            base(CastNodeIdentifier.Mesh, hash, properties, children)
         { }
 
         /// <summary>
@@ -79,14 +84,14 @@ namespace Cast.NET.Nodes
         /// <param name="hash">Optional hash value for lookups.</param>
         /// <param name="properties">Properties to assign to this node..</param>
         /// <param name="children">Children to assign to this node..</param>
-        public NotificationTrackNode(CastNodeIdentifier identifier, ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
+        public HairNode(CastNodeIdentifier identifier, ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
             base(identifier, hash, properties, children)
         { }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationTrackNode"/> class.
+        /// Initializes a new instance of the <see cref="HairNode"/> class.
         /// </summary>
         /// <param name="source">Node to copy from. A shallow copy is performed and references to the source are stored.</param>
-        public NotificationTrackNode(CastNode source) : base(source) { }
+        public HairNode(CastNode source) : base(source) { }
     }
 }

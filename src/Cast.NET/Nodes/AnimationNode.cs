@@ -1,6 +1,6 @@
 ﻿// ------------------------------------------------------------------------
 // Cast.NET - A .NET Library for reading and writing Cast files.
-// Copyright(c) 2024 Philip/Scobalula
+// Copyright(c) 2025 Philip/Scobalula
 // ------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -31,7 +31,7 @@ namespace Cast.NET.Nodes
         /// <summary>
         /// Gets the skeleton assigned to this animation, if none is assigned, null is returned.
         /// </summary>
-        public SkeletonNode? Skeleton => GetFirstChildOfTypeOrNull<SkeletonNode>();
+        public SkeletonNode? Skeleton => TryGetFirstChild<SkeletonNode>(out var node) ? node : null;
 
         /// <summary>
         /// Gets all the curves stored within this animation.
@@ -46,17 +46,17 @@ namespace Cast.NET.Nodes
         /// <summary>
         /// Gets the framerate of this animation.
         /// </summary>
-        public float Framerate => GetFirstValueOrDefault("f", 30.0f);
+        public float Framerate => GetFirstValue("f", 30.0f);
 
         /// <summary>
         /// Gets if looping is enabled for this animation.
         /// </summary>
-        public bool Looping => GetFirstValueOrDefault("b", (byte)0) == 1;
+        public bool Looping => GetFirstValue("b", (byte)0) == 1;
 
         /// <summary>
         /// Gets the transform space for this animation.
         /// </summary>
-        public string TransformSpace => GetStringValueOrDefault("s", "local");
+        public string TransformSpace => GetStringValue("s", "local");
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AnimationNode"/> class.

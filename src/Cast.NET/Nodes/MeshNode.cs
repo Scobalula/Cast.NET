@@ -1,6 +1,6 @@
 ﻿// ------------------------------------------------------------------------
 // Cast.NET - A .NET Library for reading and writing Cast files.
-// Copyright(c) 2024 Philip/Scobalula
+// Copyright(c) 2025 Philip/Scobalula
 // ------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -21,6 +21,7 @@
 // SOFTWARE.
 // ------------------------------------------------------------------------
 using System.Numerics;
+using System.Reflection.Emit;
 
 namespace Cast.NET.Nodes
 {
@@ -32,35 +33,35 @@ namespace Cast.NET.Nodes
         /// <summary>
         /// Gets the hash of the <see cref="MaterialNode"/> assigned to this mesh.
         /// </summary>
-        public ulong MaterialHash => GetFirstValueOrDefault<ulong>("m", 0);
+        public ulong MaterialHash => GetFirstValue<ulong>("m", 0);
 
         /// <summary>
         /// Gets the <see cref="MaterialNode"/> assigned to this mesh.
         /// </summary>
-        public MaterialNode? Material => Parent?.GetChildByHashOrNull<MaterialNode>(MaterialHash);
+        public MaterialNode? Material => Parent?.TryGetChild<MaterialNode>(MaterialHash, out var node) == true ? node : null;
 
         /// <summary>
         /// Gets the name of the mesh.
         /// </summary>
-        public string Name => GetStringValueOrDefault("n", string.Empty);
+        public string Name => GetStringValue("n", string.Empty);
 
         /// <summary>
         /// Gets the raw vertex positions buffer stored within this mesh.
         /// </summary>
-        public CastProperty VertexPositionBuffer => GetProperty("vp");
+        public CastArrayProperty<Vector3> VertexPositionBuffer => GetArrayProperty<Vector3>("vp");
 
         /// <summary>
         /// Gets the raw vertex normal buffer stored within this mesh.
         /// </summary>
-        public CastProperty? VertexNormalBuffer => GetPropertyOrNull("vn");
+        public CastArrayProperty<Vector3>? VertexNormalBuffer => TryGetArrayProperty<Vector3>("vn", out var array) ? array : null;
 
         /// <summary>
         /// Gets the raw vertex tangent buffer stored within this mesh.
         /// </summary>
-        public CastProperty? VertexTangentBuffer => GetPropertyOrNull("vt");
+        public CastArrayProperty<Vector3>? VertexTangentBuffer => TryGetArrayProperty<Vector3>("vt", out var array) ? array : null;
 
         /// <summary>
-        /// Gets the raw vertex color buffer stored within this mesh.
+        /// Gets the raw vertex color buffer stored within this mesh for legacy files.
         /// </summary>
         public CastProperty? VertexColorBuffer => GetPropertyOrNull("vc");
 
@@ -72,7 +73,7 @@ namespace Cast.NET.Nodes
         /// <summary>
         /// Gets the raw vertex weight value buffer.
         /// </summary>
-        public CastProperty? VertexWeightValueBuffer => GetPropertyOrNull("wv");
+        public CastArrayProperty<float>? VertexWeightValueBuffer => TryGetArrayProperty<float>("wv", out var array) ? array : null;
 
         /// <summary>
         /// Gets the raw face value buffer.
@@ -82,17 +83,22 @@ namespace Cast.NET.Nodes
         /// <summary>
         /// Gets the number of uv layers within this mesh.
         /// </summary>
-        public int UVLayerCount => (int)GetFirstIntegerOrDefault("ul", 0, 32);
+        public int UVLayerCount => (int)GetFirstInteger("ul", 0, 32);
+
+        /// <summary>
+        /// Gets the number of color layers within this mesh.
+        /// </summary>
+        public int ColorLayerCount => (int)GetFirstInteger("cl", 0, 32);
 
         /// <summary>
         /// Gets the max number of weight influences within this mesh.
         /// </summary>
-        public int MaximumWeightInfluence => (int)GetFirstIntegerOrDefault("mi", 0, 32);
+        public int MaximumWeightInfluence => (int)GetFirstInteger("mi", 0, 32);
 
         /// <summary>
         /// Gets the skinning type the mesh uses.
         /// </summary>
-        public string SkinningMethod => GetStringValueOrDefault("sm", "linear");
+        public string SkinningMethod => GetStringValue("sm", "linear");
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MeshNode"/> class.
@@ -146,17 +152,31 @@ namespace Cast.NET.Nodes
         public MeshNode(CastNode source) : base(source) { }
 
         /// <summary>
-        /// Gets the uv layer with the given index.
+        /// Gets the layer with the given index.
         /// </summary>
-        /// <param name="key">The index of the uv layer to obtain.</param>
-        /// <returns>The uv layer if found, otherwise null.</returns>
+        /// <param name="index">The index of the layer to obtain.</param>
+        /// <returns>The layer if found, otherwise null.</returns>
         public CastProperty? GetUVLayer(int index) => GetUVLayer($"u{index}");
 
         /// <summary>
-        /// Gets the uv layer with the given key.
+        /// Gets the layer with the given key.
         /// </summary>
-        /// <param name="key">The key of the uv layer to obtain.</param>
-        /// <returns>The uv layer if found, otherwise null.</returns>
+        /// <param name="key">The key of the layer to obtain.</param>
+        /// <returns>The layer if found, otherwise null.</returns>
         public CastProperty? GetUVLayer(string key) => GetPropertyOrNull(key);
+
+        /// <summary>
+        /// Gets the layer with the given index.
+        /// </summary>
+        /// <param name="index">The index of the layer to obtain.</param>
+        /// <returns>The layer if found, otherwise null.</returns>
+        public CastProperty? GetColorLayer(int index) => GetColorLayer($"c{index}");
+
+        /// <summary>
+        /// Gets the layer with the given key.
+        /// </summary>
+        /// <param name="key">The key of the layer to obtain.</param>
+        /// <returns>The layer if found, otherwise null.</returns>
+        public CastProperty? GetColorLayer(string key) => GetPropertyOrNull(key);
     }
 }

@@ -1,6 +1,6 @@
 ﻿// ------------------------------------------------------------------------
 // Cast.NET - A .NET Library for reading and writing Cast files.
-// Copyright(c) 2024 Philip/Scobalula
+// Copyright(c) 2025 Philip/Scobalula
 // ------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -82,7 +82,7 @@ namespace Cast.NET.Nodes
         /// <summary>
         /// Gets the hash of the base shape.
         /// </summary>
-        public ulong BaseShapeHash => GetFirstValueOrDefault<ulong>("b", 0);
+        public ulong BaseShapeHash => GetFirstValue<ulong>("b", 0);
 
         /// <summary>
         /// Gets the hashes of the target shapes.
@@ -97,7 +97,7 @@ namespace Cast.NET.Nodes
         /// <summary>
         /// Gets the base shape.
         /// </summary>
-        public MeshNode? BaseShape => Parent?.GetChildByHashOrNull<MeshNode>(BaseShapeHash);
+        public MeshNode? BaseShape => Parent?.TryGetChild<MeshNode>(BaseShapeHash, out var node) == true ? node : null;
 
         /// <summary>
         /// Gets all target shapes within this blend shape.
@@ -112,7 +112,7 @@ namespace Cast.NET.Nodes
                 results.Add(item);
             }
 
-            return results.ToArray();
+            return [.. results];
         }
 
         /// <summary>
@@ -128,14 +128,14 @@ namespace Cast.NET.Nodes
 
                 for (int i = 0; i < targets.Count; i++)
                 {
-                    if (Parent.GetChildByHashOrNull<MeshNode>(targets[i]) is MeshNode targetMesh)
+                    if (Parent.TryGetChild<MeshNode>(targets[i], out var meshNode))
                     {
                         var weight = 1.0f;
 
                         if (weights is not null && i < weights.Count)
                             weight = weights[i];
 
-                        yield return (targetMesh, weight);
+                        yield return (meshNode, weight);
                     }
                 }
             }

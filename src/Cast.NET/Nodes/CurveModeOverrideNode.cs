@@ -21,55 +21,72 @@
 // SOFTWARE.
 // ------------------------------------------------------------------------
 
+using System.Transactions;
+
 namespace Cast.NET.Nodes
 {
     /// <summary>
-    /// A class to hold a <see cref="CastNode"/> that contains a Notification Track.
+    /// A class to hold a <see cref="CastNode"/> that contains a Curve Mode Override.
     /// </summary>
-    public class NotificationTrackNode : CastNode
+    public class CurveModeOverrideNode : CastNode
     {
         /// <summary>
-        /// Gets the name of the notification.
+        /// Gets the name of the node this overrides targets.
         /// </summary>
-        public string NodeName => GetStringValue("n");
+        public string NodeName => GetStringValue("nn");
 
         /// <summary>
-        /// Gets the raw key frame buffer stored within this notification track.
+        /// Gets the curve's mode.
         /// </summary>
-        public CastProperty KeyFrameBuffer => GetProperty("vn");
+        public string Mode => GetStringValue("m");
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationTrackNode"/> class.
+        /// Gets if this overrides translations.
         /// </summary>
-        public NotificationTrackNode() : base(CastNodeIdentifier.Model) { }
+        public bool OverrideTranslationCurves => GetFirstValue("ot", (byte)0) == 1;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationTrackNode"/> class.
+        /// Gets if this overrides rotations.
+        /// </summary>
+        public bool OverrideRotationCurves => GetFirstValue("or", (byte)0) == 1;
+
+        /// <summary>
+        /// Gets if this overrides scale.
+        /// </summary>
+        public bool OverrideScaleCurves => GetFirstValue("os", (byte)0) == 1;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CurveModeOverrideNode"/> class.
+        /// </summary>
+        public CurveModeOverrideNode() : base(CastNodeIdentifier.Curve) { }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CurveModeOverrideNode"/> class.
         /// </summary>
         /// <param name="identifier">Node identifier.</param>
-        public NotificationTrackNode(CastNodeIdentifier identifier) : base(identifier) { }
+        public CurveModeOverrideNode(CastNodeIdentifier identifier) : base(identifier) { }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationTrackNode"/> class.
+        /// Initializes a new instance of the <see cref="CurveModeOverrideNode"/> class.
         /// </summary>
         /// <param name="identifier">Node identifier.</param>
         /// <param name="hash">Optional hash value for lookups.</param>
-        public NotificationTrackNode(CastNodeIdentifier identifier, ulong hash) : base(identifier, hash) { }
+        public CurveModeOverrideNode(CastNodeIdentifier identifier, ulong hash) : base(identifier, hash) { }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationTrackNode"/> class.
+        /// Initializes a new instance of the <see cref="CurveModeOverrideNode"/> class.
         /// </summary>
         /// <param name="hash">Optional hash value for lookups.</param>
-        public NotificationTrackNode(ulong hash) : base(CastNodeIdentifier.Model, hash) { }
+        public CurveModeOverrideNode(ulong hash) : base(CastNodeIdentifier.Curve, hash) { }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationTrackNode"/> class.
+        /// Initializes a new instance of the <see cref="CurveModeOverrideNode"/> class.
         /// </summary>
         /// <param name="hash">Optional hash value for lookups.</param>
         /// <param name="properties">Properties to assign to this node..</param>
         /// <param name="children">Children to assign to this node..</param>
-        public NotificationTrackNode(ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(CastNodeIdentifier.Model, hash, properties, children)
+        public CurveModeOverrideNode(ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
+            base(CastNodeIdentifier.Curve, hash, properties, children)
         { }
 
         /// <summary>
@@ -79,14 +96,14 @@ namespace Cast.NET.Nodes
         /// <param name="hash">Optional hash value for lookups.</param>
         /// <param name="properties">Properties to assign to this node..</param>
         /// <param name="children">Children to assign to this node..</param>
-        public NotificationTrackNode(CastNodeIdentifier identifier, ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
+        public CurveModeOverrideNode(CastNodeIdentifier identifier, ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
             base(identifier, hash, properties, children)
         { }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationTrackNode"/> class.
+        /// Initializes a new instance of the <see cref="CurveModeOverrideNode"/> class.
         /// </summary>
         /// <param name="source">Node to copy from. A shallow copy is performed and references to the source are stored.</param>
-        public NotificationTrackNode(CastNode source) : base(source) { }
+        public CurveModeOverrideNode(CastNode source) : base(source) { }
     }
 }

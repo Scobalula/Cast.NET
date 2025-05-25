@@ -1,6 +1,6 @@
 ﻿// ------------------------------------------------------------------------
 // Cast.NET - A .NET Library for reading and writing Cast files.
-// Copyright(c) 2024 Philip/Scobalula
+// Copyright(c) 2025 Philip/Scobalula
 // ------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -21,6 +21,8 @@
 // SOFTWARE.
 // ------------------------------------------------------------------------
 
+using System.Numerics;
+
 namespace Cast.NET.Nodes
 {
     /// <summary>
@@ -31,37 +33,42 @@ namespace Cast.NET.Nodes
         /// <summary>
         /// Gets the name of this constraint.
         /// </summary>
-        public string Name => GetStringValueOrDefault("n", string.Empty);
+        public string Name => GetStringValue("n", string.Empty);
 
         /// <summary>
         /// Gets the constraint type.
         /// </summary>
-        public string ConstraintType  => GetStringValueOrDefault("ct", "unknown");
+        public string ConstraintType  => GetStringValue("ct", "unknown");
 
         /// <summary>
         /// Gets the hash of the constraint <see cref="BoneNode"/>.
         /// </summary>
-        public ulong ConstraintBoneHash => GetFirstValueOrDefault<ulong>("cb", 0);
+        public ulong ConstraintBoneHash => GetFirstValue<ulong>("cb", 0);
 
         /// <summary>
         /// Gets the hash of the target <see cref="BoneNode"/>.
         /// </summary>
-        public ulong TargetBoneHash => GetFirstValueOrDefault<ulong>("tb", 0);
+        public ulong TargetBoneHash => GetFirstValue<ulong>("tb", 0);
 
         /// <summary>
         /// Gets if to enable maintain offset.
         /// </summary>
-        public bool MaintainOffset  => GetFirstValueOrDefault("tr", (byte)0) == 1;
+        public bool MaintainOffset  => GetFirstValue("tr", (byte)0) == 1;
+
+        /// <summary>
+        /// Gets if to enable custom offset.
+        /// </summary>
+        public Vector3 CustomOffset => GetFirstValue("tr", Vector3.Zero);
 
         /// <summary>
         /// Gets the start <see cref="BoneNode"/>.
         /// </summary>
-        public BoneNode? ConstraintBone => Parent?.GetChildByHashOrNull<BoneNode>(ConstraintBoneHash);
+        public BoneNode? ConstraintBone => Parent?.TryGetChild<BoneNode>(ConstraintBoneHash, out var node) == true ? node : null;
 
         /// <summary>
         /// Gets the target <see cref="BoneNode"/>.
         /// </summary>
-        public BoneNode? TargetBone => Parent?.GetChildByHashOrNull<BoneNode>(TargetBoneHash);
+        public BoneNode? TargetBone => Parent?.TryGetChild<BoneNode>(TargetBoneHash, out var node) == true ? node : null;
 
 
         /// <summary>

@@ -1,7 +1,7 @@
 ﻿
 // ------------------------------------------------------------------------
 // Cast.NET - A .NET Library for reading and writing Cast files.
-// Copyright(c) 2024 Philip/Scobalula
+// Copyright(c) 2025 Philip/Scobalula
 // ------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -106,6 +106,9 @@ namespace Cast.NET
                 CastNodeIdentifier.NotificationTrack       => new NotificationTrackNode(identifier, nodeHash),
                 CastNodeIdentifier.Material                => new MaterialNode(identifier, nodeHash),
                 CastNodeIdentifier.File                    => new FileNode(identifier, nodeHash),
+                CastNodeIdentifier.Instance                => new InstanceNode(identifier, nodeHash),
+                CastNodeIdentifier.Color                   => new ColorNode(identifier, nodeHash),
+                CastNodeIdentifier.Metadata                => new MetadataNode(identifier, nodeHash),
                 _                                          => new CastNode(identifier, nodeHash),
             };
 

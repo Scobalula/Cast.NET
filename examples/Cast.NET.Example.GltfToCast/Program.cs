@@ -68,17 +68,17 @@ namespace Cast.NET.Example.GltfToCast
 
                 if (boneSets > 0)
                 {
-                    var boneWeights = meshNode.AddArray<float>("wv", new(vertCount * boneSets));
+                    var boneWeights = meshNode.AddArray<float>("wv", vertCount * boneSets);
                     meshNode.AddValue("mi", (byte)(boneSets * 4));
 
                     // We allocate bone indices depending on the type
                     CastProperty boneIndices;
                     if (boneCount <= 0xFF)
-                        boneIndices = meshNode.AddArray<byte>("wb", new(vertCount * boneSets));
+                        boneIndices = meshNode.AddArray<byte>("wb", vertCount * boneSets);
                     else if (boneCount <= 0xFFFF)
-                        boneIndices = meshNode.AddArray<ushort>("wb", new(vertCount * boneSets));
+                        boneIndices = meshNode.AddArray<ushort>("wb", vertCount * boneSets);
                     else
-                        boneIndices = meshNode.AddArray<uint>("wb", new(vertCount * boneSets));
+                        boneIndices = meshNode.AddArray<uint>("wb", vertCount * boneSets);
 
                     for (int i = 0; i < boneSets; i++)
                     {
@@ -135,7 +135,7 @@ namespace Cast.NET.Example.GltfToCast
 
             if (vertCount <= 0xFF)
             {
-                var faceIndices = meshNode.AddArray<byte>("f", new(faceCount));
+                var faceIndices = meshNode.AddArray<byte>("f", faceCount);
 
                 for (int i = 0; i < faceCount / 3; i++)
                 {
@@ -153,7 +153,7 @@ namespace Cast.NET.Example.GltfToCast
             }
             else if (vertCount <= 0xFFFF)
             {
-                var faceIndices = meshNode.AddArray<ushort>("f", new(faceCount));
+                var faceIndices = meshNode.AddArray<ushort>("f", faceCount);
 
                 for (int i = 0; i < faceCount / 3; i++)
                 {
@@ -171,7 +171,7 @@ namespace Cast.NET.Example.GltfToCast
             }
             else
             {
-                var faceIndices = meshNode.AddArray<uint>("f", new(faceCount));
+                var faceIndices = meshNode.AddArray<uint>("f", faceCount);
 
                 for (int i = 0; i < faceCount / 3; i++)
                 {
@@ -233,7 +233,7 @@ namespace Cast.NET.Example.GltfToCast
             // Required to determine our bone indices data type, this isn't necessary for Cast files,
             // if you don't care for their size, you can skip this and just write big numbers, this helps
             // reduce size however for complicated models that contain counts that can fit in 1/2 byte values.
-            var boneCount = skeleton.ChildCountOfType(CastNodeIdentifier.Bone);
+            var boneCount = skeleton.GetChildCount(CastNodeIdentifier.Bone);
 
             // Next our beautiful materials, at this point you would also want to add images.
             var materialHashes = ConsumeGltfMaterials(gltfModel, model);

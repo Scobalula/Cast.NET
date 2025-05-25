@@ -1,6 +1,6 @@
 ﻿// ------------------------------------------------------------------------
 // Cast.NET - A .NET Library for reading and writing Cast files.
-// Copyright(c) 2024 Philip/Scobalula
+// Copyright(c) 2025 Philip/Scobalula
 // ------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -31,57 +31,57 @@ namespace Cast.NET.Nodes
         /// <summary>
         /// Gets the hash of the start <see cref="BoneNode"/>.
         /// </summary>
-        public ulong StartBoneHash => GetFirstValueOrDefault<ulong>("sb", 0);
+        public ulong StartBoneHash => GetFirstValue<ulong>("sb", 0);
 
         /// <summary>
         /// Gets the hash of the end <see cref="BoneNode"/>.
         /// </summary>
-        public ulong EndBoneHash => GetFirstValueOrDefault<ulong>("eb", 0);
+        public ulong EndBoneHash => GetFirstValue<ulong>("eb", 0);
 
         /// <summary>
         /// Gets the hash of the target <see cref="BoneNode"/>.
         /// </summary>
-        public ulong TargetBoneHash => GetFirstValueOrDefault<ulong>("tb", 0);
+        public ulong TargetBoneHash => GetFirstValue<ulong>("tb", 0);
 
         /// <summary>
         /// Gets the hash of the pole vector <see cref="BoneNode"/>.
         /// </summary>
-        public ulong PoleVectorBoneHash => GetFirstValueOrDefault<ulong>("pv", 0);
+        public ulong PoleVectorBoneHash => GetFirstValue<ulong>("pv", 0);
 
         /// <summary>
         /// Gets the hash of the pole (twist) <see cref="BoneNode"/>.
         /// </summary>
-        public ulong PoleBoneHash => GetFirstValueOrDefault<ulong>("pb", 0);
+        public ulong PoleBoneHash => GetFirstValue<ulong>("pb", 0);
 
         /// <summary>
         /// Gets if target rotation effects the chain.
         /// </summary>
-        public bool UseTargetRotation => GetFirstValueOrDefault("tr", (byte)0) == 1;
+        public bool UseTargetRotation => GetFirstValue("tr", (byte)0) == 1;
 
         /// <summary>
         /// Gets the start <see cref="BoneNode"/>.
         /// </summary>
-        public BoneNode? StartBone => Parent?.GetChildByHashOrNull<BoneNode>(StartBoneHash);
+        public BoneNode? StartBone => Parent?.TryGetChild<BoneNode>(StartBoneHash, out var node) == true ? node : null;
 
         /// <summary>
         /// Gets the end <see cref="BoneNode"/>.
         /// </summary>
-        public BoneNode? EndBone => Parent?.GetChildByHashOrNull<BoneNode>(EndBoneHash);
+        public BoneNode? EndBone => Parent?.TryGetChild<BoneNode>(EndBoneHash, out var node) == true ? node : null;
 
         /// <summary>
         /// Gets the target <see cref="BoneNode"/>.
         /// </summary>
-        public BoneNode? TargetBone => Parent?.GetChildByHashOrNull<BoneNode>(TargetBoneHash);
+        public BoneNode? TargetBone => Parent?.TryGetChild<BoneNode>(TargetBoneHash, out var node) == true ? node : null;
 
         /// <summary>
         /// Gets the pole vector <see cref="BoneNode"/>.
         /// </summary>
-        public BoneNode? PoleVectorBone => Parent?.GetChildByHashOrNull<BoneNode>(PoleVectorBoneHash);
+        public BoneNode? PoleVectorBone => Parent?.TryGetChild<BoneNode>(PoleVectorBoneHash, out var node) == true ? node : null;
 
         /// <summary>
         /// Gets the pole <see cref="BoneNode"/>.
         /// </summary>
-        public BoneNode? PoleBone => Parent?.GetChildByHashOrNull<BoneNode>(PoleBoneHash);
+        public BoneNode? PoleBone => Parent?.TryGetChild<BoneNode>(PoleBoneHash, out var node) == true ? node : null;
 
 
         /// <summary>

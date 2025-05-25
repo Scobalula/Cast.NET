@@ -1,6 +1,6 @@
 ﻿// ------------------------------------------------------------------------
 // Cast.NET - A .NET Library for reading and writing Cast files.
-// Copyright(c) 2024 Philip/Scobalula
+// Copyright(c) 2025 Philip/Scobalula
 // ------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -51,12 +51,12 @@ namespace Cast.NET.Nodes
         /// <summary>
         /// Gets the curve's mode.
         /// </summary>
-        public string Mode => GetStringValueOrDefault("m", "relative");
+        public string Mode => GetStringValue("m", "relative");
 
         /// <summary>
         /// Gets the additive blend weight.
         /// </summary>
-        public float AdditiveBlendWeight => GetFirstValueOrDefault("ab", 0.0f);
+        public float AdditiveBlendWeight => GetFirstValue("ab", 0.0f);
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CurveNode"/> class.

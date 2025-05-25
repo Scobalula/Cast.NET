@@ -1,6 +1,6 @@
 ﻿// ------------------------------------------------------------------------
 // Cast.NET - A .NET Library for reading and writing Cast files.
-// Copyright(c) 2024 Philip/Scobalula
+// Copyright(c) 2025 Philip/Scobalula
 // ------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -105,8 +105,8 @@ namespace Cast.NET
         {
             Identifier = identifier;
             Hash = 0;
-            Properties = new();
-            Children = new();
+            Properties = [];
+            Children = [];
         }
 
         /// <summary>
@@ -118,8 +118,8 @@ namespace Cast.NET
         {
             Identifier = identifier;
             Hash = hash;
-            Properties = new();
-            Children = new();
+            Properties = [];
+            Children = [];
         }
 
         /// <summary>
@@ -134,7 +134,7 @@ namespace Cast.NET
             Identifier = identifier;
             Hash = hash;
             Properties = properties ?? new();
-            Children = new();
+            Children = [];
 
             if (children != null)
             {
@@ -157,7 +157,7 @@ namespace Cast.NET
             Identifier = source.Identifier;
             Hash = source.Hash;
             Properties = source.Properties;
-            Children = new();
+            Children = [];
 
             foreach (var child in source.Children)
             {
@@ -192,31 +192,17 @@ namespace Cast.NET
         }
 
         /// <summary>
-        /// Gets the number of children within this node with the given identifier.
+        /// Gets the number of children within this node.
         /// </summary>
-        /// <param name="id">The identifier to look for.</param>
-        /// <returns>The number of children with the given identifier.</returns>
-        public int ChildCountOfType(CastNodeIdentifier id)
-        {
-            var result = 0;
-
-            foreach (var child in Children)
-            {
-                if(child.Identifier == id)
-                {
-                    result++;
-                }
-            }
-
-            return result;
-        }
+        /// <returns>The number of children.</returns>
+        public int GetChildCount() => Children.Count;
 
         /// <summary>
         /// Gets the number of children within this node of the given type.
         /// </summary>
         /// <typeparam name="T">The type to look for.</typeparam>
         /// <returns>The number of children of the given type.</returns>
-        public int ChildCountOfType<T>() where T : CastNode
+        public int GetChildCount<T>() where T : CastNode
         {
             var result = 0;
             var t = typeof(T);
@@ -233,11 +219,38 @@ namespace Cast.NET
         }
 
         /// <summary>
-        /// Gets the first child with the given identifier.
+        /// Gets the number of children within this node with the given identifier.
         /// </summary>
         /// <param name="id">The identifier to look for.</param>
-        /// <returns>The child with the given identifier if found, otherwise null.</returns>
-        public CastNode? GetFirstChildOfTypeOrNull(CastNodeIdentifier id)
+        /// <returns>The number of children with the given identifier.</returns>
+        public int GetChildCount(CastNodeIdentifier id)
+        {
+            var result = 0;
+
+            foreach (var child in Children)
+            {
+                if (child.Identifier == id)
+                {
+                    result++;
+                }
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Attempts to get the first child of this node.
+        /// </summary>
+        /// <returns>The node if found.</returns>
+        public CastNode GetFirstChild() => Children.First();
+
+        /// <summary>
+        /// Attempts to get the first child of this node with the given identifier.
+        /// </summary>
+        /// <param name="id">The identifier for the node.</param>
+        /// <returns>The node if found.</returns>
+        /// <exception cref="KeyNotFoundException">Thrown if a child with the given identifier cannot be found.</exception>
+        public CastNode GetFirstChild(CastNodeIdentifier id)
         {
             foreach (var child in Children)
             {
@@ -247,15 +260,16 @@ namespace Cast.NET
                 }
             }
 
-            return null;
+            throw new KeyNotFoundException();
         }
 
         /// <summary>
         /// Gets the first child of the given type.
         /// </summary>
-        /// <typeparam name="T">The type to look for.</typeparam>
-        /// <returns>The child of the given type if found, otherwise null.</returns>
-        public T? GetFirstChildOfTypeOrNull<T>() where T : CastNode
+        /// <typeparam name="T">The type of the node.</typeparam>
+        /// <returns>The node if found.</returns>
+        /// <exception cref="KeyNotFoundException">Thrown if a child of the given type cannot be found.</exception>
+        public T GetFirstChild<T>() where T : CastNode
         {
             var t = typeof(T);
 
@@ -267,34 +281,95 @@ namespace Cast.NET
                 }
             }
 
-            return null;
+            throw new KeyNotFoundException();
         }
 
         /// <summary>
-        /// Gets the first child with the given hash.
+        /// Attempts to get the first child of this node.
         /// </summary>
-        /// <typeparam name="T">The type to look for.</typeparam>
-        /// <param name="hash">The hash to look for.</param>
-        /// <returns>The child with the given hash and of the given type if found, otherwise null.</returns>
-        public T? GetChildByHashOrNull<T>(ulong hash) where T : CastNode
+        /// <param name="node">The node if found, otherwise null.</param>
+        /// <returns>True if found, otherwise false.</returns>
+        public bool TryGetFirstChild([NotNullWhen(true)] out CastNode? node)
         {
-            if (hash != 0)
+            if (Children.Count > 0)
             {
-                if (Children.Find(x => x.Hash == hash) is T result)
+                node = Children[0];
+                return true;
+            }
+
+            node = null;
+            return false;
+        }
+
+        /// <summary>
+        /// Attempts to get the first child of this node with the given identifier.
+        /// </summary>
+        /// <param name="id">The identifier for the node.</param>
+        /// <param name="node">The node if found, otherwise null.</param>
+        /// <returns>True if found, otherwise false.</returns>
+        public bool TryGetFirstChild(CastNodeIdentifier id, [NotNullWhen(true)] out CastNode? node)
+        {
+            foreach (var child in Children)
+            {
+                if (child.Identifier == id)
                 {
-                    return result;
+                    node = child;
+                    return true;
                 }
             }
 
-            return null;
+            node = null;
+            return false;
+        }
+
+        /// <summary>
+        /// Attempts to get the first child of this node with the given identifier.
+        /// </summary>
+        /// <typeparam name="T">The type of the node.</typeparam>
+        /// <param name="node">The node if found, otherwise null.</param>
+        /// <returns>True if found, otherwise false.</returns>
+        public bool TryGetFirstChild<T>([NotNullWhen(true)] out T? node) where T : CastNode
+        {
+            if (Children.Count > 0)
+            {
+                node = (T)Children[0];
+                return true;
+            }
+
+            node = null;
+            return false;
         }
 
         /// <summary>
         /// Gets the child at the given index with the given type.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="index"></param>
-        /// <returns></returns>
+        /// <param name="index">The index of the node.</param>
+        /// <returns>The node at the given index.</returns>
+        public CastNode GetChild(int index) => Children[index];
+
+        /// <summary>
+        /// Gets the child at the given index with the given type.
+        /// </summary>
+        /// <param name="id">The identifier for the node.</param>
+        /// <param name="index">The index of the node.</param>
+        /// <returns>The node at the given index.</returns>
+        /// <exception cref="InvalidCastException">Thrown if the node at the given index is of an invalid type.</exception>
+        public CastNode GetChild(CastNodeIdentifier id, int index)
+        {
+            var r = Children[index];
+
+            if (r.Identifier != id)
+                throw new InvalidCastException();
+
+            return r;
+        }
+
+        /// <summary>
+        /// Gets the child at the given index with the given type.
+        /// </summary>
+        /// <typeparam name="T">The type of the node.</typeparam>
+        /// <param name="index">The index of the node.</param>
+        /// <returns>The node at the given index.</returns>
         /// <exception cref="InvalidCastException">Thrown if the node at the given index is of an invalid type.</exception>
         public T GetChild<T>(int index) where T : CastNode
         {
@@ -305,10 +380,54 @@ namespace Cast.NET
         }
 
         /// <summary>
-        /// Gets all children with the given identifier.
+        /// Attempts to get a child with the given hash of the given type.
         /// </summary>
-        /// <param name="id">The identifier to look for.</param>
-        /// <returns>All children found with the given identifier.</returns>
+        /// <param name="id">The identifier for the node.</param>
+        /// <param name="hash">The hash of the node.</param>
+        /// <param name="node">The node if found, otherwise null.</param>
+        /// <returns>True if found, otherwise false.</returns>
+        public bool TryGetChild(CastNodeIdentifier id, ulong hash, [NotNullWhen(true)] out CastNode? node)
+        {
+            if (hash != 0)
+            {
+                if (Children.Find(x => x.Hash == hash && x.Identifier == id) is CastNode foundNode)
+                {
+                    node = foundNode;
+                    return true;
+                }
+            }
+
+            node = null;
+            return false;
+        }
+
+        /// <summary>
+        /// Attempts to get a child with the given hash of the given type.
+        /// </summary>
+        /// <typeparam name="T">The type of the node.</typeparam>
+        /// <param name="hash">The hash of the node.</param>
+        /// <param name="node">The node if found, otherwise null.</param>
+        /// <returns>True if found, otherwise false.</returns>
+        public bool TryGetChild<T>(ulong hash, [NotNullWhen(true)] out T? node) where T : CastNode
+        {
+            if (hash != 0)
+            {
+                if (Children.Find(x => x.Hash == hash) is T result)
+                {
+                    node = result;
+                    return true;
+                }
+            }
+
+            node = null;
+            return false;
+        }
+
+        /// <summary>
+        /// Attempts to get all children of this node with the given identifier.
+        /// </summary>
+        /// <param name="id">The identifier for the nodes.</param>
+        /// <returns>All nodes found.</returns>
         public CastNode[] GetChildrenOfType(CastNodeIdentifier id)
         {
             var results = new List<CastNode>(Children.Count);
@@ -321,14 +440,14 @@ namespace Cast.NET
                 }
             }
 
-            return results.ToArray();
+            return [.. results];
         }
 
         /// <summary>
         /// Gets all children of the given type.
         /// </summary>
         /// <typeparam name="T">The type to look for.</typeparam>
-        /// <returns>All children found of the given type.</returns>
+        /// <returns>All nodes found.</returns>
         public T[] GetChildrenOfType<T>() where T : CastNode
         {
             var t = typeof(T);
@@ -342,7 +461,7 @@ namespace Cast.NET
                 }
             }
 
-            return results.ToArray();
+            return [.. results];
         }
 
         /// <summary>
@@ -409,7 +528,7 @@ namespace Cast.NET
         /// The string value for the given property key.
         /// If a property with the given key is not found or has an invalid type, the default value is returned.
         /// </returns>
-        public string GetStringValueOrDefault(string propKey, string defaultValue)
+        public string GetStringValue(string propKey, string defaultValue)
         {
             if (Properties.TryGetValue(propKey, out var prop) && prop is CastStringProperty stringProp)
             {
@@ -453,7 +572,7 @@ namespace Cast.NET
         /// <param name="propKey">The property key to look for.</param>
         /// <param name="defaultValue">The default value to return.</param>
         /// <returns>The first value within the array with the given property key, otherwise the default value.</returns>
-        public T GetFirstValueOrDefault<T>(string propKey, T defaultValue) where T : unmanaged
+        public T GetFirstValue<T>(string propKey, T defaultValue) where T : unmanaged
         {
             if (Properties.TryGetValue(propKey, out var prop) && prop is CastArrayProperty<T> arrayProp)
             {
@@ -470,7 +589,7 @@ namespace Cast.NET
         /// <param name="defaultValue">The default value to return.</param>
         /// <param name="maxBits">The max number of bits for the integer type.</param>
         /// <returns>The first value within the array with the given property key, otherwise the default value.</returns>
-        public ulong GetFirstIntegerOrDefault(string propKey, ulong defaultValue, uint maxBits)
+        public ulong GetFirstInteger(string propKey, ulong defaultValue, uint maxBits)
         {
             if (Properties.TryGetValue(propKey, out var prop))
             {
@@ -498,18 +617,50 @@ namespace Cast.NET
         /// <summary>
         /// Gets the property with the given property key.
         /// </summary>
-        /// <param name="propKey">The property key to look for.</param>
+        /// <param name="name">The property key to look for.</param>
         /// <returns>The property.</returns>
         /// <exception cref="KeyNotFoundException">Thrown if a property with the given key was not found.</exception>
-        public CastProperty GetProperty(string propKey)
+        public CastArrayProperty<T> GetArrayProperty<T>(string name) where T : unmanaged
         {
-            if (!Properties.TryGetValue(propKey, out var result))
+            if (!Properties.TryGetValue(name, out var prop))
             {
                 throw new KeyNotFoundException();
             }
+            if (prop is not CastArrayProperty<T> finalProp)
+            {
+                throw new InvalidCastException();
+            }
 
-            return result;
+            return finalProp;
         }
+
+        public bool TryGetArrayProperty<T>(string name, [NotNullWhen(true)] out CastArrayProperty<T>? array) where T : unmanaged
+        {
+            if (Properties.TryGetValue(name, out var prop) && prop is CastArrayProperty<T> finalArray)
+            {
+                array = finalArray;
+                return true;
+            }
+
+            array = null;
+            return false;
+        }
+
+        ///// <summary>
+        ///// Gets the property with the given property key.
+        ///// </summary>
+        ///// <param name="propKey">The property key to look for.</param>
+        ///// <returns>The property.</returns>
+        ///// <exception cref="KeyNotFoundException">Thrown if a property with the given key was not found.</exception>
+        //public CastProperty GetProperty(string propKey)
+        //{
+        //    if (!Properties.TryGetValue(propKey, out var result))
+        //    {
+        //        throw new KeyNotFoundException();
+        //    }
+
+        //    return result;
+        //}
 
         /// <summary>
         /// Gets the property with the given property key.
@@ -526,6 +677,21 @@ namespace Cast.NET
             return result;
         }
 
+        /// <summary>
+        /// Gets the property with the given property key.
+        /// </summary>
+        /// <param name="propKey">The property key to look for.</param>
+        /// <returns>The property.</returns>
+        /// <exception cref="KeyNotFoundException">Thrown if a property with the given key was not found.</exception>
+        public CastProperty GetProperty(string propKey)
+        {
+            if (!Properties.TryGetValue(propKey, out var result))
+            {
+                throw new KeyNotFoundException();
+            }
+
+            return result;
+        }
 
         /// <summary>
         /// Gets the property with the given property key.
@@ -605,7 +771,7 @@ namespace Cast.NET
         /// Add the value to the properties, overwriting any previous property with the given key.
         /// </summary>
         /// <typeparam name="T">The type to add.</typeparam>
-        /// <param name="propKey">The property key to look for.</param>
+        /// <param name="name">The name of the property.</param>
         /// <param name="value">The value to add.</param>
         /// <returns>The resulting property that was added to the node.</returns>
         public CastArrayProperty<T> AddArray<T>(string name, IEnumerable<T> value) where T : unmanaged
@@ -619,13 +785,27 @@ namespace Cast.NET
         /// Add the value to the properties, overwriting any previous property with the given key.
         /// </summary>
         /// <typeparam name="T">The type to add.</typeparam>
-        /// <param name="propKey">The property key to look for.</param>
+        /// <param name="name">The name of the property.</param>
         /// <param name="value">The value to add.</param>
         /// <returns>The resulting property that was added to the node.</returns>
-        public CastArrayProperty<T> AddValue<T>(string propKey, T value) where T : unmanaged
+        public CastArrayProperty<T> AddArray<T>(string name, int capacity) where T : unmanaged
+        {
+            var result = new CastArrayProperty<T>(capacity);
+            Properties[name] = result;
+            return result;
+        }
+
+        /// <summary>
+        /// Add the value to the properties, overwriting any previous property with the given key.
+        /// </summary>
+        /// <typeparam name="T">The type to add.</typeparam>
+        /// <param name="name">The name of the property.</param>
+        /// <param name="value">The value to add.</param>
+        /// <returns>The resulting property that was added to the node.</returns>
+        public CastArrayProperty<T> AddValue<T>(string name, T value) where T : unmanaged
         {
             var result = new CastArrayProperty<T>(value);
-            Properties[propKey] = result;
+            Properties[name] = result;
             return result;
         }
     }

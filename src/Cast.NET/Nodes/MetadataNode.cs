@@ -24,52 +24,57 @@
 namespace Cast.NET.Nodes
 {
     /// <summary>
-    /// A class to hold a <see cref="CastNode"/> that contains a Notification Track.
+    /// A class to hold a <see cref="CastNode"/> that contains Metadata.
     /// </summary>
-    public class NotificationTrackNode : CastNode
+    public class MetadataNode : CastNode
     {
         /// <summary>
-        /// Gets the name of the notification.
+        /// Gets the author.
         /// </summary>
-        public string NodeName => GetStringValue("n");
+        public string Author => GetStringValue("a", string.Empty);
 
         /// <summary>
-        /// Gets the raw key frame buffer stored within this notification track.
+        /// Gets the software.
         /// </summary>
-        public CastProperty KeyFrameBuffer => GetProperty("vn");
+        public string Software => GetStringValue("s", string.Empty);
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationTrackNode"/> class.
+        /// Gets the author.
         /// </summary>
-        public NotificationTrackNode() : base(CastNodeIdentifier.Model) { }
+        public string UpAxis => GetStringValue("up", string.Empty);
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationTrackNode"/> class.
+        /// Initializes a new instance of the <see cref="MetadataNode"/> class.
+        /// </summary>
+        public MetadataNode() : base(CastNodeIdentifier.Mesh) { }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MetadataNode"/> class.
         /// </summary>
         /// <param name="identifier">Node identifier.</param>
-        public NotificationTrackNode(CastNodeIdentifier identifier) : base(identifier) { }
+        public MetadataNode(CastNodeIdentifier identifier) : base(identifier) { }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationTrackNode"/> class.
+        /// Initializes a new instance of the <see cref="MetadataNode"/> class.
         /// </summary>
         /// <param name="identifier">Node identifier.</param>
         /// <param name="hash">Optional hash value for lookups.</param>
-        public NotificationTrackNode(CastNodeIdentifier identifier, ulong hash) : base(identifier, hash) { }
+        public MetadataNode(CastNodeIdentifier identifier, ulong hash) : base(identifier, hash) { }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationTrackNode"/> class.
+        /// Initializes a new instance of the <see cref="MetadataNode"/> class.
         /// </summary>
         /// <param name="hash">Optional hash value for lookups.</param>
-        public NotificationTrackNode(ulong hash) : base(CastNodeIdentifier.Model, hash) { }
+        public MetadataNode(ulong hash) : base(CastNodeIdentifier.Mesh, hash) { }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationTrackNode"/> class.
+        /// Initializes a new instance of the <see cref="MetadataNode"/> class.
         /// </summary>
         /// <param name="hash">Optional hash value for lookups.</param>
         /// <param name="properties">Properties to assign to this node..</param>
         /// <param name="children">Children to assign to this node..</param>
-        public NotificationTrackNode(ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(CastNodeIdentifier.Model, hash, properties, children)
+        public MetadataNode(ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
+            base(CastNodeIdentifier.Mesh, hash, properties, children)
         { }
 
         /// <summary>
@@ -79,14 +84,14 @@ namespace Cast.NET.Nodes
         /// <param name="hash">Optional hash value for lookups.</param>
         /// <param name="properties">Properties to assign to this node..</param>
         /// <param name="children">Children to assign to this node..</param>
-        public NotificationTrackNode(CastNodeIdentifier identifier, ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
+        public MetadataNode(CastNodeIdentifier identifier, ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
             base(identifier, hash, properties, children)
         { }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationTrackNode"/> class.
+        /// Initializes a new instance of the <see cref="MetadataNode"/> class.
         /// </summary>
         /// <param name="source">Node to copy from. A shallow copy is performed and references to the source are stored.</param>
-        public NotificationTrackNode(CastNode source) : base(source) { }
+        public MetadataNode(CastNode source) : base(source) { }
     }
 }
