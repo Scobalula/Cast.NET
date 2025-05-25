@@ -92,7 +92,7 @@ namespace Cast.NET.Nodes
         /// <summary>
         /// Gets the skinning type the mesh uses.
         /// </summary>
-        public string SkinningMethod => GetStringValueOrDefault("s", "linear");
+        public string SkinningMethod => GetStringValueOrDefault("sm", "linear");
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MeshNode"/> class.
