@@ -78,7 +78,7 @@ namespace Cast.NET.Nodes
         /// <summary>
         /// Gets the raw face value buffer.
         /// </summary>
-        public CastProperty? FaceBuffer => GetPropertyOrNull("f");
+        public CastProperty FaceBuffer => GetProperty("f");
 
         /// <summary>
         /// Gets the number of uv layers within this mesh.

@@ -21,6 +21,8 @@
 // SOFTWARE.
 // ------------------------------------------------------------------------
 
+using System.Numerics;
+
 namespace Cast.NET.Nodes
 {
     /// <summary>
@@ -34,14 +36,24 @@ namespace Cast.NET.Nodes
         public string Name => GetStringValue("n", string.Empty);
 
         /// <summary>
-        /// Gets the software.
+        /// Gets the raw segment buffer.
         /// </summary>
-        public string Software => GetStringValue("s", string.Empty);
+        public CastProperty SegmentsBuffer => GetProperty("se");
 
         /// <summary>
-        /// Gets the author.
+        /// Gets the particle buffer.
         /// </summary>
-        public string UpAxis => GetStringValue("up", string.Empty);
+        public CastArrayProperty<Vector3> ParticleBuffer => GetArrayProperty<Vector3>("se");
+
+        /// <summary>
+        /// Gets the hash of the <see cref="MaterialNode"/> assigned to this hair.
+        /// </summary>
+        public ulong MaterialHash => GetFirstValue<ulong>("m", 0);
+
+        /// <summary>
+        /// Gets the <see cref="MaterialNode"/> assigned to this mesh.
+        /// </summary>
+        public MaterialNode? Material => Parent?.TryGetChild<MaterialNode>(MaterialHash, out var node) == true ? node : null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="HairNode"/> class.

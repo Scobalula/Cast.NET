@@ -39,6 +39,11 @@ namespace Cast.NET.Nodes
         public CurveNode[] Curves => GetChildrenOfType<CurveNode>();
 
         /// <summary>
+        /// Gets all the curve mode overrides stored within this animation.
+        /// </summary>
+        public CurveModeOverrideNode[] CurveModeOverrides => GetChildrenOfType<CurveModeOverrideNode>();
+
+        /// <summary>
         /// Gets all the notification tracks stored within this animation.
         /// </summary>
         public NotificationTrackNode[] NotificationTracks => GetChildrenOfType<NotificationTrackNode>();
@@ -52,11 +57,6 @@ namespace Cast.NET.Nodes
         /// Gets if looping is enabled for this animation.
         /// </summary>
         public bool Looping => GetFirstValue("b", (byte)0) == 1;
-
-        /// <summary>
-        /// Gets the transform space for this animation.
-        /// </summary>
-        public string TransformSpace => GetStringValue("s", "local");
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AnimationNode"/> class.
@@ -114,6 +114,12 @@ namespace Cast.NET.Nodes
         /// </summary>
         /// <returns>An enumerable collection of curves within this animation.</returns>
         public IEnumerable<CurveNode> EnumerateCurves() => EnumerateChildrenOfType<CurveNode>();
+
+        /// <summary>
+        /// Enumerates through all curve move overrides within this animation.
+        /// </summary>
+        /// <returns>An enumerable collection of curve move overrides within this animation.</returns>
+        public IEnumerable<CurveModeOverrideNode> EnumerateCurveModeOverrides() => EnumerateChildrenOfType<CurveModeOverrideNode>();
 
         /// <summary>
         /// Enumerates through all notification tracks within this animation.

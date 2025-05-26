@@ -61,6 +61,21 @@ namespace Cast.NET.Nodes
         public Vector3 CustomOffset => GetFirstValue("tr", Vector3.Zero);
 
         /// <summary>
+        /// Gets if X is skipped.
+        /// </summary>
+        public bool SkipX => GetFirstValue("sx", (byte)0) == 1;
+
+        /// <summary>
+        /// Gets if Y is skipped.
+        /// </summary>
+        public bool SkipY => GetFirstValue("sy", (byte)0) == 1;
+
+        /// <summary>
+        /// Gets if Z is skipped.
+        /// </summary>
+        public bool SkipZ => GetFirstValue("sz", (byte)0) == 1;
+
+        /// <summary>
         /// Gets the start <see cref="BoneNode"/>.
         /// </summary>
         public BoneNode? ConstraintBone => Parent?.TryGetChild<BoneNode>(ConstraintBoneHash, out var node) == true ? node : null;
@@ -69,7 +84,6 @@ namespace Cast.NET.Nodes
         /// Gets the target <see cref="BoneNode"/>.
         /// </summary>
         public BoneNode? TargetBone => Parent?.TryGetChild<BoneNode>(TargetBoneHash, out var node) == true ? node : null;
-
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ConstraintNode"/> class.

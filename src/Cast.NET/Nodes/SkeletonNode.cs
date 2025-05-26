@@ -20,7 +20,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 // ------------------------------------------------------------------------
+using System.Data;
 using System.Numerics;
+using System.Reflection.Metadata;
 
 namespace Cast.NET.Nodes
 {
@@ -33,6 +35,16 @@ namespace Cast.NET.Nodes
         /// Gets all the bones stored within this skeleton.
         /// </summary>
         public BoneNode[] Bones => GetChildrenOfType<BoneNode>();
+
+        /// <summary>
+        /// Gets all the IK handles stored within this skeleton.
+        /// </summary>
+        public IKHandleNode[] IKHandles => GetChildrenOfType<IKHandleNode>();
+
+        /// <summary>
+        /// Gets all the constraints stored within this skeleton.
+        /// </summary>
+        public ConstraintNode[] Constraints => GetChildrenOfType<ConstraintNode>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SkeletonNode"/> class.
@@ -90,6 +102,18 @@ namespace Cast.NET.Nodes
         /// </summary>
         /// <returns>An enumerable collection of bones within this skeleton.</returns>
         public IEnumerable<BoneNode> EnumerateBones() => EnumerateChildrenOfType<BoneNode>();
+
+        /// <summary>
+        /// Enumerates through all IK handles within this skeleton.
+        /// </summary>
+        /// <returns>An enumerable collection of IK handles within this skeleton.</returns>
+        public IEnumerable<IKHandleNode> EnumerateIKHandles() => EnumerateChildrenOfType<IKHandleNode>();
+
+        /// <summary>
+        /// Enumerates through all constraints within this skeleton.
+        /// </summary>
+        /// <returns>An enumerable collection of constraints within this skeleton.</returns>
+        public IEnumerable<ConstraintNode> EnumerateConstraints() => EnumerateChildrenOfType<ConstraintNode>();
 
         /// <summary>
         /// Calculates the local positions of all bones within this skeleton.

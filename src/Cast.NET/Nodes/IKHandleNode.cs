@@ -83,7 +83,6 @@ namespace Cast.NET.Nodes
         /// </summary>
         public BoneNode? PoleBone => Parent?.TryGetChild<BoneNode>(PoleBoneHash, out var node) == true ? node : null;
 
-
         /// <summary>
         /// Initializes a new instance of the <see cref="IKHandleNode"/> class.
         /// </summary>

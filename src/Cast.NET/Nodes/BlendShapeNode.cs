@@ -29,6 +29,26 @@ namespace Cast.NET.Nodes
     public class BlendShapeNode : CastNode
     {
         /// <summary>
+        /// Gets the hash of the base shape.
+        /// </summary>
+        public ulong BaseShapeHash => GetFirstValue<ulong>("b", 0);
+
+        /// <summary>
+        /// Gets the hashes of the target shapes.
+        /// </summary>
+        public CastArrayProperty<ulong> TargetShapeHashes => GetArrayProperty<ulong>("t");
+
+        /// <summary>
+        /// Gets the weight scales of the target shapes.
+        /// </summary>
+        public CastArrayProperty<float>? TargetWeightScales => TryGetArrayProperty<float>("ts", out var array) ? array : null;
+
+        /// <summary>
+        /// Gets the base shape.
+        /// </summary>
+        public MeshNode? BaseShape => Parent?.TryGetChild<MeshNode>(BaseShapeHash, out var node) == true ? node : null;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="BlendShapeNode"/> class.
         /// </summary>
         public BlendShapeNode() : base(CastNodeIdentifier.BlendShape) { }
@@ -80,26 +100,6 @@ namespace Cast.NET.Nodes
         public BlendShapeNode(CastNode source) : base(source) { }
 
         /// <summary>
-        /// Gets the hash of the base shape.
-        /// </summary>
-        public ulong BaseShapeHash => GetFirstValue<ulong>("b", 0);
-
-        /// <summary>
-        /// Gets the hashes of the target shapes.
-        /// </summary>
-        public List<ulong> TargetShapeHashes => GetProperty<CastArrayProperty<ulong>>("t").Values;
-
-        /// <summary>
-        /// Gets the weight scales of the target shapes.
-        /// </summary>
-        public List<float>? TargetWeightScales => GetPropertyOrNull<CastArrayProperty<float>>("ts")?.Values;
-
-        /// <summary>
-        /// Gets the base shape.
-        /// </summary>
-        public MeshNode? BaseShape => Parent?.TryGetChild<MeshNode>(BaseShapeHash, out var node) == true ? node : null;
-
-        /// <summary>
         /// Gets all target shapes within this blend shape.
         /// </summary>
         /// <returns>Target shapes with their weight.</returns>
@@ -126,14 +126,14 @@ namespace Cast.NET.Nodes
                 var targets = TargetShapeHashes;
                 var weights = TargetWeightScales;
 
-                for (int i = 0; i < targets.Count; i++)
+                for (int i = 0; i < targets.Values.Count; i++)
                 {
-                    if (Parent.TryGetChild<MeshNode>(targets[i], out var meshNode))
+                    if (Parent.TryGetChild<MeshNode>(targets.Values[i], out var meshNode))
                     {
                         var weight = 1.0f;
 
-                        if (weights is not null && i < weights.Count)
-                            weight = weights[i];
+                        if (weights is not null && i < weights.Values.Count)
+                            weight = weights.Values[i];
 
                         yield return (meshNode, weight);
                     }
