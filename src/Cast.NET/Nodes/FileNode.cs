@@ -55,7 +55,7 @@ namespace Cast.NET.Nodes
         /// Initializes a new instance of the <see cref="FileNode"/> class.
         /// </summary>
         /// <param name="hash">Optional hash value for lookups.</param>
-        public FileNode(ulong hash) : base(CastNodeIdentifier.Model, hash) { }
+        public FileNode(ulong hash) : base(CastNodeIdentifier.File, hash) { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FileNode"/> class.
@@ -64,7 +64,7 @@ namespace Cast.NET.Nodes
         /// <param name="properties">Properties to assign to this node..</param>
         /// <param name="children">Children to assign to this node..</param>
         public FileNode(ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(CastNodeIdentifier.Model, hash, properties, children)
+            base(CastNodeIdentifier.File, hash, properties, children)
         { }
 
         /// <summary>

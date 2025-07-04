@@ -70,7 +70,7 @@ namespace Cast.NET.Nodes
         /// Initializes a new instance of the <see cref="BlendShapeNode"/> class.
         /// </summary>
         /// <param name="hash">Optional hash value for lookups.</param>
-        public BlendShapeNode(ulong hash) : base(CastNodeIdentifier.Model, hash) { }
+        public BlendShapeNode(ulong hash) : base(CastNodeIdentifier.BlendShape, hash) { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BlendShapeNode"/> class.
@@ -79,7 +79,7 @@ namespace Cast.NET.Nodes
         /// <param name="properties">Properties to assign to this node..</param>
         /// <param name="children">Children to assign to this node..</param>
         public BlendShapeNode(ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(CastNodeIdentifier.Model, hash, properties, children)
+            base(CastNodeIdentifier.BlendShape, hash, properties, children)
         { }
 
         /// <summary>

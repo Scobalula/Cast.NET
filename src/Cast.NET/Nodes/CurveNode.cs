@@ -21,6 +21,9 @@
 // SOFTWARE.
 // ------------------------------------------------------------------------
 
+using System.Numerics;
+using System.Runtime.InteropServices;
+
 namespace Cast.NET.Nodes
 {
     /// <summary>
@@ -29,34 +32,34 @@ namespace Cast.NET.Nodes
     public class CurveNode : CastNode
     {
         /// <summary>
-        /// Gets the name of the node this curve targets.
+        /// Gets or Sets the name of the node this curve targets.
         /// </summary>
-        public string NodeName => GetStringValue("nn");
+        public string NodeName { get => GetStringValue("nn"); set => AddString("nn", value); }
 
         /// <summary>
-        /// Gets the key this curve targets.
+        /// Gets or Sets the key this curve targets.
         /// </summary>
-        public string KeyPropertyName => GetStringValue("kp");
+        public string KeyPropertyName { get => GetStringValue("kp"); set => AddString("kp", value); }
 
         /// <summary>
-        /// Gets the raw key frame buffer stored within this curve.
+        /// Gets or Sets the raw key frame buffer stored within this curve.
         /// </summary>
-        public CastProperty KeyFrameBuffer => GetProperty("kb");
+        public CastProperty KeyFrameBuffer { get => GetProperty("kb"); set => Properties["kb"] = value; }
 
         /// <summary>
-        /// Gets the raw key value buffer stored within this curve.
+        /// Gets or Sets the raw key value buffer stored within this curve.
         /// </summary>
-        public CastProperty KeyValueBuffer => GetProperty("kv");
+        public CastProperty KeyValueBuffer { get => GetProperty("kv"); set => Properties["kv"] = value; }
 
         /// <summary>
-        /// Gets the curve's mode.
+        /// Gets or Sets the curve's mode.
         /// </summary>
-        public string Mode => GetStringValue("m", "relative");
+        public string Mode { get => GetStringValue("m", "relative"); set => AddString("m", value); }
 
         /// <summary>
-        /// Gets the additive blend weight.
+        /// Gets or Sets the additive blend weight.
         /// </summary>
-        public float AdditiveBlendWeight => GetFirstValue("ab", 0.0f);
+        public float AdditiveBlendWeight { get => GetFirstValue("ab", 0.0f); set => AddValue("ab", value); }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CurveNode"/> class.
@@ -108,5 +111,49 @@ namespace Cast.NET.Nodes
         /// </summary>
         /// <param name="source">Node to copy from. A shallow copy is performed and references to the source are stored.</param>
         public CurveNode(CastNode source) : base(source) { }
+
+        public IEnumerable<float> EnumerateKeyFrames()
+        {
+            if (KeyFrameBuffer is CastArrayProperty<byte> byteArray)
+            {
+                foreach (var k in byteArray.Values)
+                {
+                    yield return k;
+                }
+            }
+            else if (KeyFrameBuffer is CastArrayProperty<ushort> shortArray)
+            {
+                foreach (var k in shortArray.Values)
+                {
+                    yield return k;
+                }
+            }
+            else if (KeyFrameBuffer is CastArrayProperty<uint> intArray)
+            {
+                foreach (var k in intArray.Values)
+                {
+                    yield return k;
+                }
+            }
+            else
+            {
+                throw new NotImplementedException($"Unimplemented face buffer type: {KeyFrameBuffer.GetType()}");
+            }
+        }
+
+        public IEnumerable<T> EnumerateKeyValues<T>() where T : unmanaged
+        {
+            if (KeyValueBuffer is CastArrayProperty<T> array)
+            {
+                foreach (var value in array.Values)
+                {
+                    yield return value;
+                }
+            }
+            else
+            {
+                throw new NotSupportedException($"Key values of type: {typeof(T)} for curve: {KeyPropertyName} are not supported.");
+            }
+        }
     }
 }

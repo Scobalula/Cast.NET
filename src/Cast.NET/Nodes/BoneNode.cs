@@ -118,5 +118,73 @@ namespace Cast.NET.Nodes
         /// </summary>
         /// <param name="source">Node to copy from. A shallow copy is performed and references to the source are stored.</param>
         public BoneNode(CastNode source) : base(source) { }
+
+        /// <summary>
+        /// Attempts to get the local position of this <see cref="BoneNode"/>.
+        /// </summary>
+        /// <param name="localPosition">Local position if found.</param>
+        /// <returns>True if found, otherwise false.</returns>
+        public bool TryGetLocalPosition(out Vector3 localPosition)
+        {
+            if (Properties.TryGetValue("lp", out var prop) && prop is CastArrayProperty<Vector3> arrayProp && arrayProp.ValueCount > 0)
+            {
+                localPosition = arrayProp.Values[0];
+                return true;
+            }
+
+            localPosition = Vector3.Zero;
+            return false;
+        }
+
+        /// <summary>
+        /// Attempts to get the local rotation of this <see cref="BoneNode"/>.
+        /// </summary>
+        /// <param name="localRotation">Local rotation if found.</param>
+        /// <returns>True if found, otherwise false.</returns>
+        public bool TryGetLocalRotation(out Quaternion localRotation)
+        {
+            if (Properties.TryGetValue("lr", out var prop) && prop is CastArrayProperty<Vector4> arrayProp && arrayProp.ValueCount > 0)
+            {
+                localRotation = CastHelpers.CreateQuaternionFromVector4(arrayProp.Values[0]);
+                return true;
+            }
+
+            localRotation = Quaternion.Identity;
+            return false;
+        }
+
+        /// <summary>
+        /// Attempts to get the world position of this <see cref="BoneNode"/>.
+        /// </summary>
+        /// <param name="worldPosition">world position if found.</param>
+        /// <returns>True if found, otherwise false.</returns>
+        public bool TryGetWorldPosition(out Vector3 worldPosition)
+        {
+            if (Properties.TryGetValue("wp", out var prop) && prop is CastArrayProperty<Vector3> arrayProp && arrayProp.ValueCount > 0)
+            {
+                worldPosition = arrayProp.Values[0];
+                return true;
+            }
+
+            worldPosition = Vector3.Zero;
+            return false;
+        }
+
+        /// <summary>
+        /// Attempts to get the world rotation of this <see cref="BoneNode"/>.
+        /// </summary>
+        /// <param name="worldRotation">World rotation if found.</param>
+        /// <returns>True if found, otherwise false.</returns>
+        public bool TryGetWorldRotation(out Quaternion worldRotation)
+        {
+            if (Properties.TryGetValue("wr", out var prop) && prop is CastArrayProperty<Vector4> arrayProp && arrayProp.ValueCount > 0)
+            {
+                worldRotation = CastHelpers.CreateQuaternionFromVector4(arrayProp.Values[0]);
+                return true;
+            }
+
+            worldRotation = Quaternion.Identity;
+            return false;
+        }
     }
 }

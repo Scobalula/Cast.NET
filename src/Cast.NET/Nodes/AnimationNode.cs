@@ -51,17 +51,17 @@ namespace Cast.NET.Nodes
         /// <summary>
         /// Gets the framerate of this animation.
         /// </summary>
-        public float Framerate => GetFirstValue("f", 30.0f);
+        public float Framerate { get => GetFirstValue("fr", 30.0f); }
 
         /// <summary>
         /// Gets if looping is enabled for this animation.
         /// </summary>
-        public bool Looping => GetFirstValue("b", (byte)0) == 1;
+        public bool Looping => GetFirstValue("lo", (byte)0) == 1;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AnimationNode"/> class.
         /// </summary>
-        public AnimationNode() : base(CastNodeIdentifier.Model) { }
+        public AnimationNode() : base(CastNodeIdentifier.Animation) { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AnimationNode"/> class.
@@ -80,7 +80,7 @@ namespace Cast.NET.Nodes
         /// Initializes a new instance of the <see cref="AnimationNode"/> class.
         /// </summary>
         /// <param name="hash">Optional hash value for lookups.</param>
-        public AnimationNode(ulong hash) : base(CastNodeIdentifier.Model, hash) { }
+        public AnimationNode(ulong hash) : base(CastNodeIdentifier.Animation, hash) { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AnimationNode"/> class.
@@ -89,7 +89,7 @@ namespace Cast.NET.Nodes
         /// <param name="properties">Properties to assign to this node..</param>
         /// <param name="children">Children to assign to this node..</param>
         public AnimationNode(ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(CastNodeIdentifier.Model, hash, properties, children)
+            base(CastNodeIdentifier.Animation, hash, properties, children)
         { }
 
         /// <summary>
@@ -125,6 +125,6 @@ namespace Cast.NET.Nodes
         /// Enumerates through all notification tracks within this animation.
         /// </summary>
         /// <returns>An enumerable collection of notification tracks within this animation.</returns>
-        public IEnumerable<CurveNode> EnumerateNotificationTracks() => EnumerateChildrenOfType<CurveNode>();
+        public IEnumerable<NotificationTrackNode> EnumerateNotificationTracks() => EnumerateChildrenOfType<NotificationTrackNode>();
     }
 }

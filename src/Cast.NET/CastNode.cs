@@ -796,7 +796,7 @@ namespace Cast.NET
         }
 
         /// <summary>
-        /// Add the value to the properties, overwriting any previous property with the given key.
+        /// Adds the value to the properties, overwriting any previous property with the given key.
         /// </summary>
         /// <typeparam name="T">The type to add.</typeparam>
         /// <param name="name">The name of the property.</param>

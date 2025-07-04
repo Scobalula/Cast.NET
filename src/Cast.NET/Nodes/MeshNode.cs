@@ -178,5 +178,37 @@ namespace Cast.NET.Nodes
         /// <param name="key">The key of the layer to obtain.</param>
         /// <returns>The layer if found, otherwise null.</returns>
         public CastProperty? GetColorLayer(string key) => GetPropertyOrNull(key);
+
+        /// <summary>
+        /// Enumerates all weight bones and values.
+        /// </summary>
+        /// <returns>An <see cref="IEnumerable{T}"/> with the bone and weight value.</returns>
+        public IEnumerable<(int, float)> EnumerateBoneWeights()
+        {
+            if (VertexWeightValueBuffer is not null)
+            {
+                if (VertexWeightBoneBuffer is CastArrayProperty<byte> byteArray)
+                {
+                    for (int i = 0; i < VertexWeightBoneBuffer.ValueCount; i++)
+                    {
+                        yield return (byteArray.Values[i], VertexWeightValueBuffer.Values[i]);
+                    }
+                }
+                else if (VertexWeightBoneBuffer is CastArrayProperty<ushort> shortArray)
+                {
+                    for (int i = 0; i < VertexWeightBoneBuffer.ValueCount; i++)
+                    {
+                        yield return (shortArray.Values[i], VertexWeightValueBuffer.Values[i]);
+                    }
+                }
+                else if (VertexWeightBoneBuffer is CastArrayProperty<uint> intArray)
+                {
+                    for (int i = 0; i < VertexWeightBoneBuffer.ValueCount; i++)
+                    {
+                        yield return ((int)intArray.Values[i], VertexWeightValueBuffer.Values[i]);
+                    }
+                }
+            }
+        }
     }
 }
