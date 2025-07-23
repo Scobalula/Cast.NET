@@ -100,12 +100,12 @@ namespace Cast.NET
         File = 0x656C6966,
 
         /// <summary>
-        /// A node that contains a <see cref="ColorNode"/>.
+        /// A node that contains a <see cref="InstanceNode"/>.
         /// </summary>
         Instance = 0x74736E69,
 
         /// <summary>
-        /// A node that contains a <see cref="InstanceNode"/>.
+        /// A node that contains a <see cref="ColorNode"/>.
         /// </summary>
         Color = 0x726C6F63,
 
@@ -113,5 +113,10 @@ namespace Cast.NET
         /// A node that contains a <see cref="MetadataNode"/>.
         /// </summary>
         Metadata = 0x6174656D,
+
+        /// <summary>
+        /// A node that contains a <see cref="HairNode"/>.
+        /// </summary>
+        Hair = 0x72696168
     };
 }

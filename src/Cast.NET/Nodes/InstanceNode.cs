@@ -58,7 +58,7 @@ namespace Cast.NET.Nodes
         /// <summary>
         /// Initializes a new instance of the <see cref="InstanceNode"/> class.
         /// </summary>
-        public InstanceNode() : base(CastNodeIdentifier.Mesh) { }
+        public InstanceNode() : base(CastNodeIdentifier.Instance) { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="InstanceNode"/> class.
@@ -77,7 +77,7 @@ namespace Cast.NET.Nodes
         /// Initializes a new instance of the <see cref="InstanceNode"/> class.
         /// </summary>
         /// <param name="hash">Optional hash value for lookups.</param>
-        public InstanceNode(ulong hash) : base(CastNodeIdentifier.Mesh, hash) { }
+        public InstanceNode(ulong hash) : base(CastNodeIdentifier.Instance, hash) { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="InstanceNode"/> class.
@@ -86,7 +86,7 @@ namespace Cast.NET.Nodes
         /// <param name="properties">Properties to assign to this node..</param>
         /// <param name="children">Children to assign to this node..</param>
         public InstanceNode(ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(CastNodeIdentifier.Mesh, hash, properties, children)
+            base(CastNodeIdentifier.Instance, hash, properties, children)
         { }
 
         /// <summary>

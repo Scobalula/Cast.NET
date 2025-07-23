@@ -58,7 +58,7 @@ namespace Cast.NET.Nodes
         /// <summary>
         /// Initializes a new instance of the <see cref="HairNode"/> class.
         /// </summary>
-        public HairNode() : base(CastNodeIdentifier.Mesh) { }
+        public HairNode() : base(CastNodeIdentifier.Hair) { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="HairNode"/> class.
@@ -77,7 +77,7 @@ namespace Cast.NET.Nodes
         /// Initializes a new instance of the <see cref="HairNode"/> class.
         /// </summary>
         /// <param name="hash">Optional hash value for lookups.</param>
-        public HairNode(ulong hash) : base(CastNodeIdentifier.Mesh, hash) { }
+        public HairNode(ulong hash) : base(CastNodeIdentifier.Hair, hash) { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="HairNode"/> class.
@@ -86,7 +86,7 @@ namespace Cast.NET.Nodes
         /// <param name="properties">Properties to assign to this node..</param>
         /// <param name="children">Children to assign to this node..</param>
         public HairNode(ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(CastNodeIdentifier.Mesh, hash, properties, children)
+            base(CastNodeIdentifier.Hair, hash, properties, children)
         { }
 
         /// <summary>
