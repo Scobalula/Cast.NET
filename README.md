@@ -1,7 +1,7 @@
 # Cast.NET
 
 <p align="center">
-	<img src="img/logo.webp" alt="Cast"/>
+	<img src="img/logo.png" alt="Cast"/>
 </p>
 
 Cast.NET is a .NET library for reading and writing cast files. [Cast](https://github.com/dtzxporter/cast) is an open source container for models, animations, materials and more designed by DTZxPorter.
