@@ -57,7 +57,7 @@ namespace Cast.NET
         public List<CastNode> Children { get; set; }
 
         /// <summary>
-        /// Gets or Sets the parent node.
+        /// Gets or Sets the parent node. Setting this removes this node from the current parent node and add it to the new parent's child list.
         /// </summary>
         public CastNode? Parent
         {
@@ -380,6 +380,27 @@ namespace Cast.NET
         }
 
         /// <summary>
+        /// Attempts to get a child with the given hash.
+        /// </summary>
+        /// <param name="hash">The hash of the node.</param>
+        /// <param name="node">The node if found, otherwise null.</param>
+        /// <returns>True if found, otherwise false.</returns>
+        public bool TryGetChild(ulong hash, [NotNullWhen(true)] out CastNode? node)
+        {
+            if (hash != 0)
+            {
+                if (Children.Find(x => x.Hash == hash) is CastNode foundNode)
+                {
+                    node = foundNode;
+                    return true;
+                }
+            }
+
+            node = null;
+            return false;
+        }
+
+        /// <summary>
         /// Attempts to get a child with the given hash of the given type.
         /// </summary>
         /// <param name="id">The identifier for the node.</param>
@@ -593,22 +614,14 @@ namespace Cast.NET
         {
             if (Properties.TryGetValue(propKey, out var prop))
             {
-                if (prop is CastArrayProperty<ulong> aul && maxBits >= 64)
+                return prop switch
                 {
-                    return aul.GetFirstValue(defaultValue);
-                }
-                else if (prop is CastArrayProperty<uint> aup && maxBits >= 32)
-                {
-                    return aup.GetFirstValue((uint)defaultValue);
-                }
-                else if(prop is CastArrayProperty<ushort> asp && maxBits >= 16)
-                {
-                    return asp.GetFirstValue((ushort)defaultValue);
-                }
-                else if(prop is CastArrayProperty<byte> abp && maxBits >= 8)
-                {
-                    return abp.GetFirstValue((byte)defaultValue);
-                }
+                    CastArrayProperty<ulong> a when maxBits >= 64 => a.GetFirstValue(defaultValue),
+                    CastArrayProperty<uint> a when maxBits >= 32 => a.GetFirstValue((uint)defaultValue),
+                    CastArrayProperty<ushort> a when maxBits >= 16 => a.GetFirstValue((ushort)defaultValue),
+                    CastArrayProperty<byte> a when maxBits >= 8 => a.GetFirstValue((byte)defaultValue),
+                    _ => defaultValue
+                };
             }
 
             return defaultValue;

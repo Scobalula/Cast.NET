@@ -21,6 +21,8 @@
 // SOFTWARE.
 // ------------------------------------------------------------------------
 
+using System.Numerics;
+
 namespace Cast.NET.Nodes
 {
     /// <summary>
@@ -29,24 +31,34 @@ namespace Cast.NET.Nodes
     public class BlendShapeNode : CastNode
     {
         /// <summary>
+        /// Gets or Sets the name of this blend shape.
+        /// </summary>
+        public string Name { get => GetStringValue("n", string.Empty); set => AddString("n", value); }
+
+        /// <summary>
         /// Gets the hash of the base shape.
         /// </summary>
-        public ulong BaseShapeHash => GetFirstValue<ulong>("b", 0);
+        public ulong BaseShapeHash { get => GetFirstValue<ulong>("b"); set => AddValue("b", value); }
 
         /// <summary>
-        /// Gets the hashes of the target shapes.
+        /// Gets or Sets the base <see cref="MeshNode"/>.
         /// </summary>
-        public CastArrayProperty<ulong> TargetShapeHashes => GetArrayProperty<ulong>("t");
+        public MeshNode BaseShape { get => Parent?.TryGetChild<MeshNode>(BaseShapeHash, out var node) == true ? node : throw new KeyNotFoundException(); set { BaseShapeHash = value.Hash; } }
 
         /// <summary>
-        /// Gets the weight scales of the target shapes.
+        /// Gets or Sets the raw vertex index buffer.
         /// </summary>
-        public CastArrayProperty<float>? TargetWeightScales => TryGetArrayProperty<float>("ts", out var array) ? array : null;
+        public CastProperty TargetShapeVertexIndices { get => GetProperty("vi"); set => Properties["vi"] = value; }
 
         /// <summary>
-        /// Gets the base shape.
+        /// Gets or Sets the raw vertex positions buffer stored within this blend shape.
         /// </summary>
-        public MeshNode? BaseShape => Parent?.TryGetChild<MeshNode>(BaseShapeHash, out var node) == true ? node : null;
+        public CastArrayProperty<Vector3> TargetShapeVertexPositions { get => GetArrayProperty<Vector3>("vp"); set => Properties["vp"] = value; }
+
+        /// <summary>
+        /// Gets or Sets the weight of this constraint.
+        /// </summary>
+        public float Weight { get => GetFirstValue("ts", 1.0f); set => AddValue("ts", value); }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BlendShapeNode"/> class.
@@ -100,45 +112,45 @@ namespace Cast.NET.Nodes
         public BlendShapeNode(CastNode source) : base(source) { }
 
         /// <summary>
-        /// Gets all target shapes within this blend shape.
+        /// Enumerates through vertex indices.
         /// </summary>
-        /// <returns>Target shapes with their weight.</returns>
-        public (MeshNode, float)[] GetTargetShapes()
+        /// <returns>An enumerable collection of vertex indices.</returns>
+        /// <exception cref="NotImplementedException">Thrown if the underlying index buffer not supported.</exception>
+        public IEnumerable<int> EnumerateVertexIndices()
         {
-            var results = new List<(MeshNode, float)>();
-
-            foreach (var item in EnumerateTargetShapes())
+            return TargetShapeVertexIndices switch
             {
-                results.Add(item);
-            }
-
-            return [.. results];
+                CastArrayProperty<byte> { Values: var v } => v.Select(x => (int)x),
+                CastArrayProperty<ushort> { Values: var v } => v.Select(x => (int)x),
+                CastArrayProperty<uint> { Values: var v } => v.Select(x => (int)x),
+                _ => throw new NotImplementedException($"Unsupported buffer type {TargetShapeVertexIndices.GetType()}")
+            };
         }
 
         /// <summary>
-        /// Enumerates through all target shapes within this blend shape.
+        /// Enumerates through vertex indices and their corrosponding positions.
         /// </summary>
-        /// <returns>An enumerable collection of target shapes with their weight.</returns>
-        public IEnumerable<(MeshNode, float)> EnumerateTargetShapes()
+        /// <returns>An enumerable collection of vertex indices and their corrosponding positions.</returns>
+        /// <exception cref="DataMisalignedException">Thrown if the index and position buffer have different value counts.</exception>
+        /// <exception cref="NotImplementedException">Thrown if the underlying index buffer not supported.</exception>
+        public IEnumerable<(int, Vector3)> EnumerateVertices()
         {
-            if (Parent != null)
+            var targetShapeVertexIndices = TargetShapeVertexIndices;
+            var targetShapeVertexPositions = TargetShapeVertexPositions;
+
+            if (targetShapeVertexIndices.ValueCount != targetShapeVertexPositions.ValueCount)
+                throw new DataMisalignedException($"TargetShapeVertexIndices and TargetShapeVertexPositions have different value counts.");
+
+            return targetShapeVertexIndices switch
             {
-                var targets = TargetShapeHashes;
-                var weights = TargetWeightScales;
-
-                for (int i = 0; i < targets.Values.Count; i++)
-                {
-                    if (Parent.TryGetChild<MeshNode>(targets.Values[i], out var meshNode))
-                    {
-                        var weight = 1.0f;
-
-                        if (weights is not null && i < weights.Values.Count)
-                            weight = weights.Values[i];
-
-                        yield return (meshNode, weight);
-                    }
-                }
-            }
+                CastArrayProperty<byte> { Values: var v } => v.Select(x => (int)x).Zip(targetShapeVertexPositions.Values),
+                CastArrayProperty<ushort> { Values: var v } => v.Select(x => (int)x).Zip(targetShapeVertexPositions.Values),
+                CastArrayProperty<uint> { Values: var v } => v.Select(x => (int)x).Zip(targetShapeVertexPositions.Values),
+                _ => throw new NotImplementedException($"Unsupported buffer type {TargetShapeVertexIndices.GetType()}")
+            };
         }
+
+        /// <inheritdoc/>
+        public override string ToString() => Name;
     }
 }

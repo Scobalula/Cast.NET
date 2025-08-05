@@ -21,6 +21,8 @@
 // SOFTWARE.
 // ------------------------------------------------------------------------
 
+using System.Numerics;
+
 namespace Cast.NET.Nodes
 {
     /// <summary>
@@ -29,29 +31,90 @@ namespace Cast.NET.Nodes
     public class ModelNode : CastNode
     {
         /// <summary>
-        /// Gets the skeleton assigned to this model, if none is assigned, null is returned.
+        /// Gets or Sets the name of this model.
         /// </summary>
-        public SkeletonNode? Skeleton => TryGetFirstChild<SkeletonNode>(out var node) ? node : null;
+        public string Name => GetStringValue("n", string.Empty);
 
         /// <summary>
-        /// Gets all the materials stored within this model.
+        /// Gets or Sets the model's position.
         /// </summary>
-        public MaterialNode[] Materials => GetChildrenOfType<MaterialNode>();
+        public Vector3 Position { get => GetFirstValue("p", Vector3.Zero); set => AddValue("p", value); }
 
         /// <summary>
-        /// Gets all the meshes stored within this model.
+        /// Gets or Sets the model's rotation.
         /// </summary>
-        public MeshNode[] Meshes => GetChildrenOfType<MeshNode>();
+        public Quaternion Rotation { get => CastHelpers.CreateQuaternionFromVector4(GetFirstValue("r", Vector4.Zero)); set => AddValue("r", CastHelpers.CreateVector4FromQuaternion(value)); }
 
         /// <summary>
-        /// Gets all the Blend Shapes stored within this model.
+        /// Gets or Sets the model's position.
         /// </summary>
-        public BlendShapeNode[] BlendShapes => GetChildrenOfType<BlendShapeNode>();
+        public Vector3 Scale { get => GetFirstValue("s", Vector3.Zero); set => AddValue("s", value); }
 
         /// <summary>
-        /// Gets all the hairs stored within this model.
+        /// Gets or Sets the skeleton assigned to this model. When setting a new skeleton, all existing instances of a skeleton are removed from this.
         /// </summary>
-        public HairNode[] Hairs => GetChildrenOfType<HairNode>();
+        public SkeletonNode? Skeleton
+        {
+            get => TryGetFirstChild<SkeletonNode>(out var node) ? node : null;
+            set
+            {
+                Children.RemoveAll(x => x is SkeletonNode);
+                if (value is not null)
+                    AddNode(value);
+            }
+        }
+
+        /// <summary>
+        /// Gets all the materials stored within this model. Setting this will remove all existing from the children.
+        /// </summary>
+        public MaterialNode[] Materials
+        {
+            get => GetChildrenOfType<MaterialNode>();
+            set
+            {
+                Children.RemoveAll(x => x is MaterialNode);
+                Children.AddRange(value);
+            }
+        }
+
+        /// <summary>
+        /// Gets or Sets all the meshes stored within this model. Setting this will remove all existing from the children.
+        /// </summary>
+        public MeshNode[] Meshes
+        {
+            get => GetChildrenOfType<MeshNode>();
+            set
+            {
+                Children.RemoveAll(x => x is MeshNode);
+                Children.AddRange(value);
+            }
+        }
+
+        /// <summary>
+        /// Gets or Sets all the blend shapes stored within this model. Setting this will remove all existing from the children.
+        /// </summary>
+        public BlendShapeNode[] BlendShapes
+        {
+            get => GetChildrenOfType<BlendShapeNode>();
+            set
+            {
+                Children.RemoveAll(x => x is BlendShapeNode);
+                Children.AddRange(value);
+            }
+        }
+
+        /// <summary>
+        /// Gets or Sets all the hairs stored within this model. Setting this will remove all existing from the children.
+        /// </summary>
+        public HairNode[] Hairs
+        {
+            get => GetChildrenOfType<HairNode>();
+            set
+            {
+                Children.RemoveAll(x => x is HairNode);
+                Children.AddRange(value);
+            }
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelNode"/> class.
@@ -115,5 +178,20 @@ namespace Cast.NET.Nodes
         /// </summary>
         /// <returns>An enumerable collection of materials within this model.</returns>
         public IEnumerable<MaterialNode> EnumerateMaterials() => EnumerateChildrenOfType<MaterialNode>();
+
+        /// <summary>
+        /// Enumerates through all blendshapes within this model.
+        /// </summary>
+        /// <returns>An enumerable collection of blendshapes within this model.</returns>
+        public IEnumerable<BlendShapeNode> EnumerateBlendShapes() => EnumerateChildrenOfType<BlendShapeNode>();
+
+        /// <summary>
+        /// Enumerates through all hairs within this model.
+        /// </summary>
+        /// <returns>An enumerable collection of hairs within this model.</returns>
+        public IEnumerable<HairNode> EnumerateHairs() => EnumerateChildrenOfType<HairNode>();
+
+        /// <inheritdoc/>
+        public override string ToString() => Name;
     }
 }

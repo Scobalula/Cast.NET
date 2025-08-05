@@ -20,9 +20,9 @@ namespace Cast.NET.Example.GltfToCast
                     var rot = Quaternion.CreateFromRotationMatrix(inverted);
                     var pos = inverted.Translation;
 
-                    bone.AddString("n", joint.Name);
-                    bone.AddValue("wp", new Vector3(pos.X, pos.Y, pos.Z));
-                    bone.AddValue("wr", new Vector4(rot.X, rot.Y, rot.Z, rot.W));
+                    bone.Name = joint.Name;
+                    bone.WorldPosition = pos;
+                    bone.WorldRotation = rot;
                 }
 
                 // Resolve parent indices after we can safely assume we've
@@ -33,7 +33,7 @@ namespace Cast.NET.Example.GltfToCast
 
                     foreach (var child in joint.VisualChildren)
                     {
-                        skeleton.Bones[child.LogicalIndex].AddValue("p", (uint)joint.LogicalIndex);
+                        skeleton.GetBone(child.LogicalIndex).ParentIndex = joint.LogicalIndex;
                     }
                 }
 
@@ -98,24 +98,24 @@ namespace Cast.NET.Example.GltfToCast
 
                             if (boneIndices is CastArrayProperty<byte> bb)
                             {
-                                bb.Values.Add((byte)joint.X);
-                                bb.Values.Add((byte)joint.Y);
-                                bb.Values.Add((byte)joint.Z);
-                                bb.Values.Add((byte)joint.W);
+                                bb.Add((byte)joint.X);
+                                bb.Add((byte)joint.Y);
+                                bb.Add((byte)joint.Z);
+                                bb.Add((byte)joint.W);
                             }
                             else if (boneIndices is CastArrayProperty<ushort> bs)
                             {
-                                bs.Values.Add((ushort)gltfSkin.GetJoint((int)joint.X).Joint.LogicalIndex);
-                                bs.Values.Add((ushort)gltfSkin.GetJoint((int)joint.Y).Joint.LogicalIndex);
-                                bs.Values.Add((ushort)gltfSkin.GetJoint((int)joint.Z).Joint.LogicalIndex);
-                                bs.Values.Add((ushort)gltfSkin.GetJoint((int)joint.W).Joint.LogicalIndex);
+                                bs.Add((ushort)gltfSkin.GetJoint((int)joint.X).Joint.LogicalIndex);
+                                bs.Add((ushort)gltfSkin.GetJoint((int)joint.Y).Joint.LogicalIndex);
+                                bs.Add((ushort)gltfSkin.GetJoint((int)joint.Z).Joint.LogicalIndex);
+                                bs.Add((ushort)gltfSkin.GetJoint((int)joint.W).Joint.LogicalIndex);
                             }
                             else if (boneIndices is CastArrayProperty<uint> bi)
                             {
-                                bi.Values.Add((uint)gltfSkin.GetJoint((int)joint.X).Joint.LogicalIndex);
-                                bi.Values.Add((uint)gltfSkin.GetJoint((int)joint.Y).Joint.LogicalIndex);
-                                bi.Values.Add((uint)gltfSkin.GetJoint((int)joint.Z).Joint.LogicalIndex);
-                                bi.Values.Add((uint)gltfSkin.GetJoint((int)joint.W).Joint.LogicalIndex);
+                                bi.Add((uint)gltfSkin.GetJoint((int)joint.X).Joint.LogicalIndex);
+                                bi.Add((uint)gltfSkin.GetJoint((int)joint.Y).Joint.LogicalIndex);
+                                bi.Add((uint)gltfSkin.GetJoint((int)joint.Z).Joint.LogicalIndex);
+                                bi.Add((uint)gltfSkin.GetJoint((int)joint.W).Joint.LogicalIndex);
                             }
 
                             boneWeights.Add(weight.X);
@@ -201,6 +201,8 @@ namespace Cast.NET.Example.GltfToCast
             {
                 var gltfNormals = normAccessor.AsVector3Array();
                 meshNode.AddArray("vn", gltfNormals);
+
+                meshNode.VertexNormalBuffer = new(gltfNormals);
             }
 
             // Check for uv layers, you may want to parse all layers, but for this example we'll stick with layer 0.
@@ -208,8 +210,9 @@ namespace Cast.NET.Example.GltfToCast
             if (uvAccessor is not null)
             {
                 var gltfUVs = uvAccessor.AsVector2Array();
-                meshNode.AddValue("ul", (byte)1);
-                meshNode.AddArray("u0", gltfUVs);
+
+                meshNode.UVLayerCount = 1;
+                meshNode.AddUVLayer(0, new(gltfUVs));
             }
 
             vertCount = gltfPositions.Count;
@@ -250,9 +253,11 @@ namespace Cast.NET.Example.GltfToCast
                         continue;
                     }
 
-                    var meshNode = new MeshNode();
-                    // Add material hash.
-                    meshNode.AddValue("m", materialHashes[gltfPrimitive.Material.LogicalIndex]);
+                    var meshNode = new MeshNode
+                    {
+                        // Add material hash.
+                        MaterialHash = materialHashes[gltfPrimitive.Material.LogicalIndex]
+                    };
                     // We require vert count to determine face index sizes, like bones, this is optional, you ccould
                     // opt to just store ushort.
                     ConsumeGltfVertices(gltfPrimitive, meshNode, out int vertCount);

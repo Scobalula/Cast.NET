@@ -45,6 +45,11 @@ namespace Cast.NET
         Mesh = 0x6873656D,
 
         /// <summary>
+        /// A node that contains a <see cref="HairNode"/>.
+        /// </summary>
+        Hair = 0x72696168,
+
+        /// <summary>
         /// A node that contains a <see cref="BlendShapeNode"/>.
         /// </summary>
         BlendShape = 0x68736C62,
@@ -100,14 +105,14 @@ namespace Cast.NET
         File = 0x656C6966,
 
         /// <summary>
-        /// A node that contains a <see cref="ColorNode"/>.
-        /// </summary>
-        Instance = 0x74736E69,
-
-        /// <summary>
         /// A node that contains a <see cref="InstanceNode"/>.
         /// </summary>
         Color = 0x726C6F63,
+
+        /// <summary>
+        /// A node that contains a <see cref="ColorNode"/>.
+        /// </summary>
+        Instance = 0x74736E69,
 
         /// <summary>
         /// A node that contains a <see cref="MetadataNode"/>.

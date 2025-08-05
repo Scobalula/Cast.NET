@@ -29,9 +29,9 @@ namespace Cast.NET.Nodes
     public class FileNode : CastNode
     {
         /// <summary>
-        /// Gets the path of this file.
+        /// Gets or Sets the path of this file.
         /// </summary>
-        public string Path => GetStringValue("p", string.Empty);
+        public string Path { get => GetStringValue("p"); set => AddString("p", value); }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FileNode"/> class.
@@ -83,5 +83,8 @@ namespace Cast.NET.Nodes
         /// </summary>
         /// <param name="source">Node to copy from. A shallow copy is performed and references to the source are stored.</param>
         public FileNode(CastNode source) : base(source) { }
+
+        /// <inheritdoc/>
+        public override string ToString() => Path;
     }
 }

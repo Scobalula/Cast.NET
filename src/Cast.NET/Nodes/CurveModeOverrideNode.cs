@@ -22,6 +22,7 @@
 // ------------------------------------------------------------------------
 
 using System.Transactions;
+using System.Xml.Linq;
 
 namespace Cast.NET.Nodes
 {
@@ -31,34 +32,34 @@ namespace Cast.NET.Nodes
     public class CurveModeOverrideNode : CastNode
     {
         /// <summary>
-        /// Gets the name of the node this overrides targets.
+        /// Gets or Sets the name of the node this overrides targets.
         /// </summary>
-        public string NodeName => GetStringValue("nn");
+        public string NodeName { get => GetStringValue("nn"); set => AddString("nn", value); }
 
         /// <summary>
-        /// Gets the curve's mode.
+        /// Gets or Sets the curve's mode.
         /// </summary>
-        public string Mode => GetStringValue("m");
+        public string Mode { get => GetStringValue("m"); set => AddString("m", value); }
 
         /// <summary>
-        /// Gets if this overrides translations.
+        /// Gets or Sets if translation curves are to be overriden.
         /// </summary>
-        public bool OverrideTranslationCurves => GetFirstValue("ot", (byte)0) == 1;
+        public bool OverrideTranslationCurves { get => GetFirstValue("ot", (byte)0) == 1; set => AddValue("ot", (byte)(value ? 1 : 0)); }
 
         /// <summary>
-        /// Gets if this overrides rotations.
+        /// Gets or Sets if rotation curves are to be overriden.
         /// </summary>
-        public bool OverrideRotationCurves => GetFirstValue("or", (byte)0) == 1;
+        public bool OverrideRotationCurves { get => GetFirstValue("or", (byte)0) == 1; set => AddValue("ot", (byte)(value ? 1 : 0)); }
 
         /// <summary>
-        /// Gets if this overrides scale.
+        /// Gets or Sets if scale curves are to be overriden.
         /// </summary>
-        public bool OverrideScaleCurves => GetFirstValue("os", (byte)0) == 1;
+        public bool OverrideScaleCurves { get => GetFirstValue("os", (byte)0) == 1; set => AddValue("ot", (byte)(value ? 1 : 0)); }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CurveModeOverrideNode"/> class.
         /// </summary>
-        public CurveModeOverrideNode() : base(CastNodeIdentifier.Curve) { }
+        public CurveModeOverrideNode() : base(CastNodeIdentifier.CurveModeOverride) { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CurveModeOverrideNode"/> class.
@@ -77,7 +78,7 @@ namespace Cast.NET.Nodes
         /// Initializes a new instance of the <see cref="CurveModeOverrideNode"/> class.
         /// </summary>
         /// <param name="hash">Optional hash value for lookups.</param>
-        public CurveModeOverrideNode(ulong hash) : base(CastNodeIdentifier.Curve, hash) { }
+        public CurveModeOverrideNode(ulong hash) : base(CastNodeIdentifier.CurveModeOverride, hash) { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CurveModeOverrideNode"/> class.
@@ -86,7 +87,7 @@ namespace Cast.NET.Nodes
         /// <param name="properties">Properties to assign to this node..</param>
         /// <param name="children">Children to assign to this node..</param>
         public CurveModeOverrideNode(ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(CastNodeIdentifier.Curve, hash, properties, children)
+            base(CastNodeIdentifier.CurveModeOverride, hash, properties, children)
         { }
 
         /// <summary>
@@ -105,5 +106,8 @@ namespace Cast.NET.Nodes
         /// </summary>
         /// <param name="source">Node to copy from. A shallow copy is performed and references to the source are stored.</param>
         public CurveModeOverrideNode(CastNode source) : base(source) { }
+
+        /// <inheritdoc/>
+        public override string ToString() => NodeName;
     }
 }

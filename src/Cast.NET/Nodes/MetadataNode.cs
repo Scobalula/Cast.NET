@@ -29,24 +29,24 @@ namespace Cast.NET.Nodes
     public class MetadataNode : CastNode
     {
         /// <summary>
-        /// Gets the author.
+        /// Gets or Sets the author.
         /// </summary>
-        public string Author => GetStringValue("a", string.Empty);
+        public string Author { get => GetStringValue("a", string.Empty); set => AddString("a", value); }
 
         /// <summary>
-        /// Gets the software.
+        /// Gets or Sets the software.
         /// </summary>
-        public string Software => GetStringValue("s", string.Empty);
+        public string Software { get => GetStringValue("s", string.Empty); set => AddString("s", value); }
 
         /// <summary>
-        /// Gets the author.
+        /// Gets or Sets the author.
         /// </summary>
-        public string UpAxis => GetStringValue("up", string.Empty);
+        public string UpAxis { get => GetStringValue("up", string.Empty); set => AddString("up", value); }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MetadataNode"/> class.
         /// </summary>
-        public MetadataNode() : base(CastNodeIdentifier.Mesh) { }
+        public MetadataNode() : base(CastNodeIdentifier.Metadata) { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MetadataNode"/> class.
@@ -65,7 +65,7 @@ namespace Cast.NET.Nodes
         /// Initializes a new instance of the <see cref="MetadataNode"/> class.
         /// </summary>
         /// <param name="hash">Optional hash value for lookups.</param>
-        public MetadataNode(ulong hash) : base(CastNodeIdentifier.Mesh, hash) { }
+        public MetadataNode(ulong hash) : base(CastNodeIdentifier.Metadata, hash) { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MetadataNode"/> class.
@@ -74,7 +74,7 @@ namespace Cast.NET.Nodes
         /// <param name="properties">Properties to assign to this node..</param>
         /// <param name="children">Children to assign to this node..</param>
         public MetadataNode(ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(CastNodeIdentifier.Mesh, hash, properties, children)
+            base(CastNodeIdentifier.Metadata, hash, properties, children)
         { }
 
         /// <summary>

@@ -29,114 +29,124 @@ namespace Cast.NET.Nodes
     public class MaterialNode : CastNode
     {
         /// <summary>
-        /// Gets the name of the material.
+        /// Gets or Sets the name of the material.
         /// </summary>
-        public string Name => GetStringValue("n", string.Empty);
+        public string Name { get => GetStringValue("n"); set => AddString("n", value); }
 
         /// <summary>
-        /// Gets the material type.
+        /// Gets or Sets the material type.
         /// </summary>
-        public string Type => GetStringValue("t", string.Empty);
+        public string Type { get => GetStringValue("t"); set => AddString("t", value); }
 
         /// <summary>
-        /// Gets the hash of the albedo <see cref="CastNode"/>.
+        /// Gets or Sets the hash of the albedo <see cref="CastNode"/>.
         /// </summary>
-        public ulong AlbedoHash => GetFirstValue<ulong>("albedo", 0);
+        public ulong AlbedoHash { get => GetFirstValue<ulong>("albedo", 0); set => AddValue("albedo", value); }
 
         /// <summary>
-        /// Gets the hash of the diffuse <see cref="CastNode"/>.
+        /// Gets or Sets the hash of the diffuse <see cref="CastNode"/>.
         /// </summary>
-        public ulong DiffuseHash => GetFirstValue<ulong>("diffuse", 0);
+        public ulong DiffuseHash { get => GetFirstValue<ulong>("diffuse", 0); set => AddValue("diffuse", value); }
 
         /// <summary>
-        /// Gets the hash of the normal <see cref="CastNode"/>.
+        /// Gets or Sets the hash of the normal <see cref="CastNode"/>.
         /// </summary>
-        public ulong NormalHash => GetFirstValue<ulong>("normal", 0);
+        public ulong NormalHash { get => GetFirstValue<ulong>("normal", 0); set => AddValue("normal", value); }
 
         /// <summary>
-        /// Gets the hash of the specular <see cref="CastNode"/>.
+        /// Gets or Sets the hash of the specular <see cref="CastNode"/>.
         /// </summary>
-        public ulong SpecularHash => GetFirstValue<ulong>("specular", 0);
+        public ulong SpecularHash { get => GetFirstValue<ulong>("specular", 0); set => AddValue("specular", value); }
 
         /// <summary>
-        /// Gets the hash of the emissive <see cref="CastNode"/>.
+        /// Gets or Sets the hash of the emissive <see cref="CastNode"/>.
         /// </summary>
-        public ulong EmissiveHash => GetFirstValue<ulong>("emissive", 0);
+        public ulong EmissiveHash { get => GetFirstValue<ulong>("emissive", 0); set => AddValue("emissive", value); }
 
         /// <summary>
-        /// Gets the hash of the gloss <see cref="CastNode"/>.
+        /// Gets or Sets the hash of the emissive mask <see cref="CastNode"/>.
         /// </summary>
-        public ulong GlossHash => GetFirstValue<ulong>("gloss", 0);
+        public ulong EmissiveMaskHash { get => GetFirstValue<ulong>("emask", 0); set => AddValue("emask", value); }
 
         /// <summary>
-        /// Gets the hash of the roughness <see cref="CastNode"/>.
+        /// Gets or Sets the hash of the gloss <see cref="CastNode"/>.
         /// </summary>
-        public ulong RoughnessHash => GetFirstValue<ulong>("roughness", 0);
+        public ulong GlossHash { get => GetFirstValue<ulong>("gloss", 0); set => AddValue("gloss", value); }
 
         /// <summary>
-        /// Gets the hash of the ao <see cref="CastNode"/>.
+        /// Gets or Sets the hash of the roughness <see cref="CastNode"/>.
         /// </summary>
-        public ulong AmbientOcclusionHash => GetFirstValue<ulong>("ao", 0);
+        public ulong RoughnessHash { get => GetFirstValue<ulong>("roughness", 0); set => AddValue("roughness", value); }
 
         /// <summary>
-        /// Gets the hash of the cavity <see cref="CastNode"/>.
+        /// Gets or Sets the hash of the ao <see cref="CastNode"/>.
         /// </summary>
-        public ulong CavityHash => GetFirstValue<ulong>("cavity", 0);
+        public ulong AmbientOcclusionHash { get => GetFirstValue<ulong>("ao", 0); set => AddValue("ao", value); }
 
         /// <summary>
-        /// Gets the hash of the anisotropy <see cref="CastNode"/>.
+        /// Gets or Sets the hash of the cavity <see cref="CastNode"/>.
         /// </summary>
-        public ulong AnisotropyHash => GetFirstValue<ulong>("aniso", 0);
+        public ulong CavityHash { get => GetFirstValue<ulong>("cavity", 0); set => AddValue("cavity", value); }
 
         /// <summary>
-        /// Gets the albedo <see cref="CastNode"/>.
+        /// Gets or Sets the hash of the anisotropy <see cref="CastNode"/>.
         /// </summary>
-        public CastNode? Albedo => TryGetChild<CastNode>(AlbedoHash, out var node) ? node : null;
+        public ulong AnisotropyHash { get => GetFirstValue<ulong>("aniso", 0); set => AddValue("aniso", value); }
 
         /// <summary>
-        /// Gets the diffuse <see cref="CastNode"/>.
+        /// Gets or Sets the albedo <see cref="CastNode"/>.
         /// </summary>
-        public CastNode? Diffuse => TryGetChild<CastNode>(DiffuseHash, out var node) ? node : null;
+        public CastNode? Albedo { get => TryGetChild(AlbedoHash, out var node) == true ? node : null; set { if (value is not null) AlbedoHash = value.Hash; } }
 
         /// <summary>
-        /// Gets the normal <see cref="CastNode"/>.
+        /// Gets or Sets the diffuse <see cref="CastNode"/>.
         /// </summary>
-        public CastNode? Normal => TryGetChild<CastNode>(NormalHash, out var node) ? node : null;
+        public CastNode? Diffuse { get => TryGetChild(DiffuseHash, out var node) == true ? node : null; set { if (value is not null) DiffuseHash = value.Hash; } }
 
         /// <summary>
-        /// Gets the specular <see cref="CastNode"/>.
+        /// Gets or Sets the normal <see cref="CastNode"/>.
         /// </summary>
-        public CastNode? Specular => TryGetChild<CastNode>(SpecularHash, out var node) ? node : null;
+        public CastNode? Normal { get => TryGetChild(NormalHash, out var node) == true ? node : null; set { if (value is not null) NormalHash = value.Hash; } }
 
         /// <summary>
-        /// Gets the emissive <see cref="CastNode"/>.
+        /// Gets or Sets the specular <see cref="CastNode"/>.
         /// </summary>
-        public CastNode? Emissive=> TryGetChild<CastNode>(EmissiveHash, out var node) ? node : null;
+        public CastNode? Specular { get => TryGetChild(SpecularHash, out var node) == true ? node : null; set { if (value is not null) SpecularHash = value.Hash; } }
 
         /// <summary>
-        /// Gets the gloss <see cref="CastNode"/>.
+        /// Gets or Sets the emissive <see cref="CastNode"/>.
         /// </summary>
-        public CastNode? Gloss => TryGetChild<CastNode>(GlossHash, out var node) ? node : null;
+        public CastNode? Emissive { get => TryGetChild(EmissiveHash, out var node) == true ? node : null; set { if (value is not null) EmissiveHash = value.Hash; } }
 
         /// <summary>
-        /// Gets the roughness <see cref="CastNode"/>.
+        /// Gets or Sets the emissive mask <see cref="CastNode"/>.
         /// </summary>
-        public CastNode? Roughness => TryGetChild<CastNode>(RoughnessHash, out var node) ? node : null;
+        public CastNode? EmissiveMask { get => TryGetChild(EmissiveMaskHash, out var node) == true ? node : null; set { if (value is not null) EmissiveMaskHash = value.Hash; } }
 
         /// <summary>
-        /// Gets the ao <see cref="CastNode"/>.
+        /// Gets or Sets the gloss <see cref="CastNode"/>.
         /// </summary>
-        public CastNode? AmbientOcclusion => TryGetChild<CastNode>(AmbientOcclusionHash, out var node) ? node : null;
+        public CastNode? Gloss { get => TryGetChild(GlossHash, out var node) == true ? node : null; set { if (value is not null) GlossHash = value.Hash; } }
 
         /// <summary>
-        /// Gets the cavity <see cref="CastNode"/>.
+        /// Gets or Sets the roughness <see cref="CastNode"/>.
         /// </summary>
-        public CastNode? Cavity => TryGetChild<CastNode>(CavityHash, out var node) ? node : null;
+        public CastNode? Roughness { get => TryGetChild(RoughnessHash, out var node) == true ? node : null; set { if (value is not null) RoughnessHash = value.Hash; } }
 
         /// <summary>
-        /// Gets the anisotropy <see cref="CastNode"/>.
+        /// Gets or Sets the ao <see cref="CastNode"/>.
         /// </summary>
-        public CastNode? Anisotropy => TryGetChild<CastNode>(CavityHash, out var node) ? node : null;
+        public CastNode? AmbientOcclusion { get => TryGetChild(AmbientOcclusionHash, out var node) == true ? node : null; set { if (value is not null) AmbientOcclusionHash = value.Hash; } }
+
+        /// <summary>
+        /// Gets or Sets the cavity <see cref="CastNode"/>.
+        /// </summary>
+        public CastNode? Cavity { get => TryGetChild(CavityHash, out var node) == true ? node : null; set { if (value is not null) CavityHash = value.Hash; } }
+
+        /// <summary>
+        /// Gets or Sets the anisotropy <see cref="CastNode"/>.
+        /// </summary>
+        public CastNode? Anisotropy { get => TryGetChild(AnisotropyHash, out var node) == true ? node : null; set { if (value is not null) AnisotropyHash = value.Hash; } }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MaterialNode"/> class.
@@ -200,31 +210,34 @@ namespace Cast.NET.Nodes
         public MaterialNode(CastNode source) : base(source) { }
 
         /// <summary>
-        /// Gets the hash of the extra <see cref="CastNode"/>.
+        /// Gets or Sets the hash of the extra <see cref="CastNode"/>.
         /// </summary>
         /// <param name="index">Index of the extra data.</param>
         /// <returns>Hash of the extra data if found.</returns>
         public ulong GetExtraHash(int index) => GetExtraHash($"extra{index}");
 
         /// <summary>
-        /// Gets the hash of the extra <see cref="CastNode"/>.
+        /// Gets or Sets the hash of the extra <see cref="CastNode"/>.
         /// </summary>
         /// <param name="name">Name of the extra data.</param>
         /// <returns>Hash of the extra data if found.</returns>
         public ulong GetExtraHash(string name) => GetFirstValue<ulong>(name, 0);
 
         /// <summary>
-        /// Gets the extra <see cref="CastNode"/>.
+        /// Gets or Sets the extra <see cref="CastNode"/>.
         /// </summary>
         /// <param name="index">Index of the extra data.</param>
         /// <returns>The extra data if found.</returns>
         public CastNode? GetExtraFile(int index) => GetExtraFile($"extra{index}");
 
         /// <summary>
-        /// Gets the extra <see cref="CastNode"/>.
+        /// Gets or Sets the extra <see cref="CastNode"/>.
         /// </summary>
         /// <param name="name">Name of the extra data.</param>
         /// <returns>The extra data if found.</returns>
         public CastNode? GetExtraFile(string name) => TryGetChild<CastNode>(GetFirstValue<ulong>(name, 0), out var node) ? node : null;
+
+        /// <inheritdoc/>
+        public override string ToString() => Name;
     }
 }

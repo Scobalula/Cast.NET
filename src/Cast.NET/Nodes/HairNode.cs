@@ -31,34 +31,34 @@ namespace Cast.NET.Nodes
     public class HairNode : CastNode
     {
         /// <summary>
-        /// Gets or Sets the name.
+        /// Gets or Sets the name of the hair.
         /// </summary>
-        public string Name => GetStringValue("n", string.Empty);
+        public string Name { get => GetStringValue("n", string.Empty); set => AddString("n", value); }
 
         /// <summary>
-        /// Gets the raw segment buffer.
+        /// Gets or Sets the raw segment buffer.
         /// </summary>
-        public CastProperty SegmentsBuffer => GetProperty("se");
+        public CastProperty SegmentsBuffer { get => GetProperty("se"); set => Properties["se"] = value; }
 
         /// <summary>
-        /// Gets the particle buffer.
+        /// Gets or Sets the particle buffer.
         /// </summary>
-        public CastArrayProperty<Vector3> ParticleBuffer => GetArrayProperty<Vector3>("se");
+        public CastArrayProperty<Vector3> ParticleBuffer { get => GetArrayProperty<Vector3>("pt"); set => Properties["pt"] = value; }
 
         /// <summary>
-        /// Gets the hash of the <see cref="MaterialNode"/> assigned to this hair.
+        /// Gets or Sets the hash of the <see cref="MaterialNode"/> assigned to this hair.
         /// </summary>
-        public ulong MaterialHash => GetFirstValue<ulong>("m", 0);
+        public ulong MaterialHash { get => GetFirstValue<ulong>("m", 0); set => AddValue("m", value); }
 
         /// <summary>
-        /// Gets the <see cref="MaterialNode"/> assigned to this mesh.
+        /// Gets or Sets the <see cref="MaterialNode"/> assigned to this mesh.
         /// </summary>
-        public MaterialNode? Material => Parent?.TryGetChild<MaterialNode>(MaterialHash, out var node) == true ? node : null;
+        public MaterialNode? Material { get => Parent?.TryGetChild<MaterialNode>(MaterialHash, out var node) == true ? node : null; set { if (value is not null) MaterialHash = value.Hash; } }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="HairNode"/> class.
         /// </summary>
-        public HairNode() : base(CastNodeIdentifier.Mesh) { }
+        public HairNode() : base(CastNodeIdentifier.Hair) { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="HairNode"/> class.
@@ -77,7 +77,7 @@ namespace Cast.NET.Nodes
         /// Initializes a new instance of the <see cref="HairNode"/> class.
         /// </summary>
         /// <param name="hash">Optional hash value for lookups.</param>
-        public HairNode(ulong hash) : base(CastNodeIdentifier.Mesh, hash) { }
+        public HairNode(ulong hash) : base(CastNodeIdentifier.Hair, hash) { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="HairNode"/> class.
@@ -86,7 +86,7 @@ namespace Cast.NET.Nodes
         /// <param name="properties">Properties to assign to this node..</param>
         /// <param name="children">Children to assign to this node..</param>
         public HairNode(ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(CastNodeIdentifier.Mesh, hash, properties, children)
+            base(CastNodeIdentifier.Hair, hash, properties, children)
         { }
 
         /// <summary>
@@ -105,5 +105,24 @@ namespace Cast.NET.Nodes
         /// </summary>
         /// <param name="source">Node to copy from. A shallow copy is performed and references to the source are stored.</param>
         public HairNode(CastNode source) : base(source) { }
+
+        /// <summary>
+        /// Enumerates the segment indices.
+        /// </summary>
+        /// <returns>An enumerable collection of indices.</returns>
+        /// <exception cref="NotSupportedException">Thrown if the underlying <see cref="CastProperty"/> type is not supported.</exception>
+        public IEnumerable<int> EnumerateSegments()
+        {
+            return SegmentsBuffer switch
+            {
+                CastArrayProperty<byte> a => a.Values.Select(x => (int)x),
+                CastArrayProperty<ushort> a => a.Values.Select(x => (int)x),
+                CastArrayProperty<uint> a => a.Values.Select(x => (int)x),
+                _ => throw new NotSupportedException($"Unsupported buffer type: {SegmentsBuffer.GetType()}")
+            };
+        }
+
+        /// <inheritdoc/>
+        public override string ToString() => Name;
     }
 }

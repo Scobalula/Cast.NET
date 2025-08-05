@@ -31,34 +31,39 @@ namespace Cast.NET.Nodes
     public class InstanceNode : CastNode
     {
         /// <summary>
-        /// Gets or Sets the name.
+        /// Gets or Sets the name of the instance.
         /// </summary>
-        public string Name => GetStringValue("n", string.Empty);
+        public string Name { get => GetStringValue("n", string.Empty); set => AddString("n", value); }
 
         /// <summary>
         /// Gets or Sets the reference file hash.
         /// </summary>
-        public ulong ReferenceFileHash => GetFirstValue<ulong>("rf");
+        public ulong ReferenceFileHash { get => GetFirstValue<ulong>("rf"); set => AddValue("rf", value); }
 
         /// <summary>
-        /// Gets the position of this instance.
+        /// Gets or Sets the reference file.
         /// </summary>
-        public Vector3 Position => GetFirstValue<Vector3>("p");
+        public FileNode ReferenceFile { get => Parent?.TryGetChild<FileNode>(ReferenceFileHash, out var node) == true ? node : throw new KeyNotFoundException(nameof(ReferenceFileHash)); set => ReferenceFileHash = value.Hash; }
 
         /// <summary>
-        /// Gets the rotation of this instance.
+        /// Gets or Sets the instance's position.
         /// </summary>
-        public Vector4 Rotation => GetFirstValue<Vector4>("r");
+        public Vector3 Position { get => GetFirstValue("p", Vector3.Zero); set => AddValue("p", value); }
 
         /// <summary>
-        /// Gets the scale of this instance.
+        /// Gets or Sets the instance's rotation.
         /// </summary>
-        public Vector3 Scale => GetFirstValue<Vector3>("s");
+        public Quaternion Rotation { get => CastHelpers.CreateQuaternionFromVector4(GetFirstValue("r", Vector4.Zero)); set => AddValue("r", CastHelpers.CreateVector4FromQuaternion(value)); }
+
+        /// <summary>
+        /// Gets or Sets the instance's position.
+        /// </summary>
+        public Vector3 Scale { get => GetFirstValue("s", Vector3.Zero); set => AddValue("s", value); }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="InstanceNode"/> class.
         /// </summary>
-        public InstanceNode() : base(CastNodeIdentifier.Mesh) { }
+        public InstanceNode() : base(CastNodeIdentifier.Instance) { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="InstanceNode"/> class.
@@ -77,7 +82,7 @@ namespace Cast.NET.Nodes
         /// Initializes a new instance of the <see cref="InstanceNode"/> class.
         /// </summary>
         /// <param name="hash">Optional hash value for lookups.</param>
-        public InstanceNode(ulong hash) : base(CastNodeIdentifier.Mesh, hash) { }
+        public InstanceNode(ulong hash) : base(CastNodeIdentifier.Instance, hash) { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="InstanceNode"/> class.
@@ -86,7 +91,7 @@ namespace Cast.NET.Nodes
         /// <param name="properties">Properties to assign to this node..</param>
         /// <param name="children">Children to assign to this node..</param>
         public InstanceNode(ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(CastNodeIdentifier.Mesh, hash, properties, children)
+            base(CastNodeIdentifier.Instance, hash, properties, children)
         { }
 
         /// <summary>
@@ -105,5 +110,8 @@ namespace Cast.NET.Nodes
         /// </summary>
         /// <param name="source">Node to copy from. A shallow copy is performed and references to the source are stored.</param>
         public InstanceNode(CastNode source) : base(source) { }
+
+        /// <inheritdoc/>
+        public override string ToString() => $"{Name} = {ReferenceFile}";
     }
 }

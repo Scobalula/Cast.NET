@@ -31,59 +31,93 @@ namespace Cast.NET.Nodes
     public class ConstraintNode : CastNode
     {
         /// <summary>
-        /// Gets the name of this constraint.
+        /// Gets or Sets the name of this constraint.
         /// </summary>
         public string Name => GetStringValue("n", string.Empty);
 
         /// <summary>
-        /// Gets the constraint type.
+        /// Gets or Sets the constraint type.
         /// </summary>
-        public string ConstraintType  => GetStringValue("ct", "unknown");
+        public string ConstraintType { get => GetStringValue("ct"); set => AddString("ct", value); }
 
         /// <summary>
-        /// Gets the hash of the constraint <see cref="BoneNode"/>.
+        /// Gets or Sets the hash of the constraint <see cref="BoneNode"/>.
         /// </summary>
-        public ulong ConstraintBoneHash => GetFirstValue<ulong>("cb", 0);
+        public ulong ConstraintBoneHash { get => GetFirstValue<ulong>("cb"); set => AddValue("cb", value); }
 
         /// <summary>
-        /// Gets the hash of the target <see cref="BoneNode"/>.
+        /// Gets or Sets the hash of the target <see cref="BoneNode"/>.
         /// </summary>
-        public ulong TargetBoneHash => GetFirstValue<ulong>("tb", 0);
+        public ulong TargetBoneHash { get => GetFirstValue<ulong>("tb"); set => AddValue("tb", value); }
 
         /// <summary>
-        /// Gets if to enable maintain offset.
+        /// Gets or Sets if to enable maintain offset.
         /// </summary>
-        public bool MaintainOffset  => GetFirstValue("tr", (byte)0) == 1;
+        public bool MaintainOffset { get => GetFirstValue("mo", (byte)0) == 1; set => AddValue("mo", (byte)(value ? 1 : 0)); }
 
         /// <summary>
-        /// Gets if to enable custom offset.
+        /// Gets or Sets the custom offset.
+        /// When getting the value, if no value is set, this returns a default value which is based off the <see cref="ConstraintType"/> per the cast specification.
+        /// When setting a value, this is narrowed/expanded to the type based off the <see cref="ConstraintType"/> per the cast specification.
         /// </summary>
-        public Vector3 CustomOffset => GetFirstValue("tr", Vector3.Zero);
+        public Vector4 CustomOffset
+        {
+            get
+            {
+                var defaultValue = ConstraintType switch
+                {
+                    "pt" => Vector4.Zero,
+                    "or" => Vector4.UnitW,
+                    "sc" => Vector4.One,
+                    _ => throw new NotImplementedException()
+                };
+                return GetFirstValue("co", defaultValue);
+            }
+            set
+            {
+                switch(ConstraintType)
+                {
+                    case "pt":
+                        AddValue("co", new Vector3(value.X, value.Y, value.Z)); break;
+                    case "or":
+                        AddValue("co", value); break;
+                    case "sc":
+                        AddValue("co", new Vector3(value.X, value.Y, value.Z)); break;
+                    default:
+                        throw new NotImplementedException(ConstraintType);
+                }
+            }
+        }
 
         /// <summary>
-        /// Gets if X is skipped.
+        /// Gets or Sets the weight of this constraint.
         /// </summary>
-        public bool SkipX => GetFirstValue("sx", (byte)0) == 1;
+        public float Weight { get => GetFirstValue<float>("wt"); set => AddValue("wt", value); }
 
         /// <summary>
-        /// Gets if Y is skipped.
+        /// Gets or Sets if X is skipped.
         /// </summary>
-        public bool SkipY => GetFirstValue("sy", (byte)0) == 1;
+        public bool SkipX { get => GetFirstValue("sx", (byte)0) == 1; set => AddValue("sx", (byte)(value ? 1 : 0)); }
 
         /// <summary>
-        /// Gets if Z is skipped.
+        /// Gets or Sets if Y is skipped.
         /// </summary>
-        public bool SkipZ => GetFirstValue("sz", (byte)0) == 1;
+        public bool SkipY { get => GetFirstValue("sx", (byte)0) == 1; set => AddValue("sx", (byte)(value ? 1 : 0)); }
 
         /// <summary>
-        /// Gets the start <see cref="BoneNode"/>.
+        /// Gets or Sets if Z is skipped.
         /// </summary>
-        public BoneNode? ConstraintBone => Parent?.TryGetChild<BoneNode>(ConstraintBoneHash, out var node) == true ? node : null;
+        public bool SkipZ { get => GetFirstValue("sx", (byte)0) == 1; set => AddValue("sx", (byte)(value ? 1 : 0)); }
 
         /// <summary>
-        /// Gets the target <see cref="BoneNode"/>.
+        /// Gets or Sets the start <see cref="BoneNode"/>.
         /// </summary>
-        public BoneNode? TargetBone => Parent?.TryGetChild<BoneNode>(TargetBoneHash, out var node) == true ? node : null;
+        public BoneNode ConstraintBone { get => Parent?.TryGetChild<BoneNode>(ConstraintBoneHash, out var node) == true ? node : throw new KeyNotFoundException(nameof(ConstraintBoneHash)); set => ConstraintBoneHash = value.Hash; }
+
+        /// <summary>
+        /// Gets or Sets the target <see cref="BoneNode"/>.
+        /// </summary>
+        public BoneNode TargetBone { get => Parent?.TryGetChild<BoneNode>(TargetBoneHash, out var node) == true ? node : throw new KeyNotFoundException(nameof(TargetBoneHash)); set => TargetBoneHash = value.Hash; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ConstraintNode"/> class.
@@ -135,5 +169,8 @@ namespace Cast.NET.Nodes
         /// </summary>
         /// <param name="source">Node to copy from. A shallow copy is performed and references to the source are stored.</param>
         public ConstraintNode(CastNode source) : base(source) { }
+
+        /// <inheritdoc/>
+        public override string ToString() => Name;
     }
 }

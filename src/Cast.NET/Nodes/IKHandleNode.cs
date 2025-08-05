@@ -29,59 +29,64 @@ namespace Cast.NET.Nodes
     public class IKHandleNode : CastNode
     {
         /// <summary>
-        /// Gets the hash of the start <see cref="BoneNode"/>.
+        /// Gets or Sets the name of this IK handle.
         /// </summary>
-        public ulong StartBoneHash => GetFirstValue<ulong>("sb", 0);
+        public string Name { get => GetStringValue("n", string.Empty); set => AddString("n", value); }
 
         /// <summary>
-        /// Gets the hash of the end <see cref="BoneNode"/>.
+        /// Gets or Sets the hash of the start <see cref="BoneNode"/>.
         /// </summary>
-        public ulong EndBoneHash => GetFirstValue<ulong>("eb", 0);
+        public ulong StartBoneHash { get => GetFirstValue<ulong>("sb"); set => AddValue("sb", value); }
 
         /// <summary>
-        /// Gets the hash of the target <see cref="BoneNode"/>.
+        /// Gets or Sets the hash of the end <see cref="BoneNode"/>.
         /// </summary>
-        public ulong TargetBoneHash => GetFirstValue<ulong>("tb", 0);
+        public ulong EndBoneHash { get => GetFirstValue<ulong>("eb"); set => AddValue("eb", value); }
 
         /// <summary>
-        /// Gets the hash of the pole vector <see cref="BoneNode"/>.
+        /// Gets or Sets the hash of the target <see cref="BoneNode"/>.
         /// </summary>
-        public ulong PoleVectorBoneHash => GetFirstValue<ulong>("pv", 0);
+        public ulong TargetBoneHash { get => GetFirstValue<ulong>("tb", 0); set => AddValue("tb", value); }
 
         /// <summary>
-        /// Gets the hash of the pole (twist) <see cref="BoneNode"/>.
+        /// Gets or Sets the hash of the pole vector <see cref="BoneNode"/>.
         /// </summary>
-        public ulong PoleBoneHash => GetFirstValue<ulong>("pb", 0);
+        public ulong PoleVectorBoneHash { get => GetFirstValue<ulong>("pv", 0); set => AddValue("pv", value); }
 
         /// <summary>
-        /// Gets if target rotation effects the chain.
+        /// Gets or Sets the hash of the pole (twist) <see cref="BoneNode"/>.
         /// </summary>
-        public bool UseTargetRotation => GetFirstValue("tr", (byte)0) == 1;
+        public ulong PoleBoneHash { get => GetFirstValue<ulong>("pb", 0); set => AddValue("pb", value); }
 
         /// <summary>
-        /// Gets the start <see cref="BoneNode"/>.
+        /// Gets or Sets if target rotation effects the chain.
         /// </summary>
-        public BoneNode? StartBone => Parent?.TryGetChild<BoneNode>(StartBoneHash, out var node) == true ? node : null;
+        public bool UseTargetRotation { get => GetFirstValue("tr", (byte)0) == 1; set => AddValue("tr", (byte)(value ? 1 : 0)); }
 
         /// <summary>
-        /// Gets the end <see cref="BoneNode"/>.
+        /// Gets or Sets the start <see cref="BoneNode"/>.
         /// </summary>
-        public BoneNode? EndBone => Parent?.TryGetChild<BoneNode>(EndBoneHash, out var node) == true ? node : null;
+        public BoneNode StartBone { get => Parent?.TryGetChild<BoneNode>(StartBoneHash, out var node) == true ? node : throw new KeyNotFoundException(nameof(EndBoneHash)); set { StartBoneHash = value.Hash; } }
 
         /// <summary>
-        /// Gets the target <see cref="BoneNode"/>.
+        /// Gets or Sets the end <see cref="BoneNode"/>.
         /// </summary>
-        public BoneNode? TargetBone => Parent?.TryGetChild<BoneNode>(TargetBoneHash, out var node) == true ? node : null;
+        public BoneNode EndBone { get => Parent?.TryGetChild<BoneNode>(EndBoneHash, out var node) == true ? node : throw new KeyNotFoundException(nameof(EndBoneHash)); set { EndBoneHash = value.Hash; } }
 
         /// <summary>
-        /// Gets the pole vector <see cref="BoneNode"/>.
+        /// Gets or Sets the target <see cref="BoneNode"/>.
         /// </summary>
-        public BoneNode? PoleVectorBone => Parent?.TryGetChild<BoneNode>(PoleVectorBoneHash, out var node) == true ? node : null;
+        public BoneNode? TargetBone { get => Parent?.TryGetChild<BoneNode>(TargetBoneHash, out var node) == true ? node : null; set { if (value is not null) TargetBoneHash = value.Hash; } }
 
         /// <summary>
-        /// Gets the pole <see cref="BoneNode"/>.
+        /// Gets or Sets the pole vector <see cref="BoneNode"/>.
         /// </summary>
-        public BoneNode? PoleBone => Parent?.TryGetChild<BoneNode>(PoleBoneHash, out var node) == true ? node : null;
+        public BoneNode? PoleVectorBone { get => Parent?.TryGetChild<BoneNode>(PoleVectorBoneHash, out var node) == true ? node : null; set { if (value is not null) PoleVectorBoneHash = value.Hash; } }
+
+        /// <summary>
+        /// Gets or Sets the pole <see cref="BoneNode"/>.
+        /// </summary>
+        public BoneNode? PoleBone { get => Parent?.TryGetChild<BoneNode>(PoleBoneHash, out var node) == true ? node : null; set { if (value is not null) PoleBoneHash = value.Hash; } }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="IKHandleNode"/> class.
@@ -133,5 +138,8 @@ namespace Cast.NET.Nodes
         /// </summary>
         /// <param name="source">Node to copy from. A shallow copy is performed and references to the source are stored.</param>
         public IKHandleNode(CastNode source) : base(source) { }
+
+        /// <inheritdoc/>
+        public override string ToString() => Name;
     }
 }

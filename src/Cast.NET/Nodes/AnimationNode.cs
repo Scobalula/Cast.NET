@@ -31,32 +31,65 @@ namespace Cast.NET.Nodes
         /// <summary>
         /// Gets the skeleton assigned to this animation, if none is assigned, null is returned.
         /// </summary>
-        public SkeletonNode? Skeleton => TryGetFirstChild<SkeletonNode>(out var node) ? node : null;
+        public SkeletonNode? Skeleton
+        {
+            get => TryGetFirstChild<SkeletonNode>(out var node) ? node : null;
+            set
+            {
+                Children.RemoveAll(x => x is SkeletonNode);
+                if (value is not null)
+                    AddNode(value);
+            }
+        }
 
         /// <summary>
-        /// Gets all the curves stored within this animation.
+        /// Gets all the curves stored within this animation. Setting this will remove all existing from the children.
         /// </summary>
-        public CurveNode[] Curves => GetChildrenOfType<CurveNode>();
+        public CurveNode[] Curves
+        {
+            get => GetChildrenOfType<CurveNode>();
+            set
+            {
+                Children.RemoveAll(x => x is CurveNode);
+                Children.AddRange(value);
+            }
+        }
 
         /// <summary>
-        /// Gets all the curve mode overrides stored within this animation.
+        /// Gets all the curve mode overrides stored within this animation. Setting this will remove all existing from the children.
         /// </summary>
-        public CurveModeOverrideNode[] CurveModeOverrides => GetChildrenOfType<CurveModeOverrideNode>();
+        public CurveModeOverrideNode[] CurveModeOverrides
+        {
+            get => GetChildrenOfType<CurveModeOverrideNode>();
+            set
+            {
+                Children.RemoveAll(x => x is CurveModeOverrideNode);
+                Children.AddRange(value);
+            }
+        }
 
         /// <summary>
-        /// Gets all the notification tracks stored within this animation.
+        /// Gets all the notification tracks stored within this animation. Setting this will remove all existing from the children.
         /// </summary>
-        public NotificationTrackNode[] NotificationTracks => GetChildrenOfType<NotificationTrackNode>();
+        public NotificationTrackNode[] NotificationTracks
+        {
+            get => GetChildrenOfType<NotificationTrackNode>();
+            set
+            {
+                Children.RemoveAll(x => x is NotificationTrackNode);
+                Children.AddRange(value);
+            }
+        }
 
         /// <summary>
-        /// Gets the framerate of this animation.
+        /// Gets or Sets the framerate of this animation.
         /// </summary>
-        public float Framerate { get => GetFirstValue("fr", 30.0f); }
+        public float Framerate { get => GetFirstValue("fr", 30.0f); set => AddValue("fr", value); }
 
         /// <summary>
-        /// Gets if looping is enabled for this animation.
+        /// Gets or Sets if looping is enabled for this animation.
         /// </summary>
-        public bool Looping => GetFirstValue("lo", (byte)0) == 1;
+        public bool Looping { get => GetFirstValue("lo", (byte)0) == 1; set => AddValue("lo", (byte)(value ? 1 : 0)); }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AnimationNode"/> class.

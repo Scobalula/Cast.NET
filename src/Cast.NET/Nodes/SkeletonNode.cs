@@ -32,19 +32,43 @@ namespace Cast.NET.Nodes
     public class SkeletonNode : CastNode
     {
         /// <summary>
-        /// Gets all the bones stored within this skeleton.
+        /// Gets or Sets all the bones stored within this skeleton. Setting this will remove all existing from the children and you will need to update each bone's parent index.
         /// </summary>
-        public BoneNode[] Bones => GetChildrenOfType<BoneNode>();
+        public BoneNode[] Bones
+        {
+            get => GetChildrenOfType<BoneNode>();
+            set
+            {
+                Children.RemoveAll(x => x is BoneNode);
+                Children.AddRange(value);
+            }
+        }
 
         /// <summary>
-        /// Gets all the IK handles stored within this skeleton.
+        /// Gets or Sets all the IK handles stored within this skeleton. Setting this will remove all existing from the children.
         /// </summary>
-        public IKHandleNode[] IKHandles => GetChildrenOfType<IKHandleNode>();
+        public IKHandleNode[] IKHandles
+        {
+            get => GetChildrenOfType<IKHandleNode>();
+            set
+            {
+                Children.RemoveAll(x => x is IKHandleNode);
+                Children.AddRange(value);
+            }
+        }
 
         /// <summary>
-        /// Gets all the constraints stored within this skeleton.
+        /// Gets or Sets all the constraints stored within this skeleton. Setting this will remove all existing from the children.
         /// </summary>
-        public ConstraintNode[] Constraints => GetChildrenOfType<ConstraintNode>();
+        public ConstraintNode[] Constraints
+        {
+            get => GetChildrenOfType<ConstraintNode>();
+            set
+            {
+                Children.RemoveAll(x => x is ConstraintNode);
+                Children.AddRange(value);
+            }
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SkeletonNode"/> class.
@@ -116,20 +140,36 @@ namespace Cast.NET.Nodes
         public IEnumerable<ConstraintNode> EnumerateConstraints() => EnumerateChildrenOfType<ConstraintNode>();
 
         /// <summary>
+        /// Gets the bone at the provided index.
+        /// </summary>
+        /// <param name="index">The index of the bone within the list of child odes.</param>
+        /// <returns>Resulting bone node.</returns>
+        /// <exception cref="NotSupportedException">Thrown if the object at the index is not a <see cref="BoneNode"/>.</exception>
+        public BoneNode GetBone(int index)
+        {
+            if (Children[index] is BoneNode bone)
+                return bone;
+
+            throw new NotSupportedException($"Node at index {index} is of type: {Children[index].GetType()}");
+        }
+
+        /// <summary>
         /// Calculates the local positions of all bones within this skeleton.
         /// </summary>
         public void CalculateLocalTransforms()
         {
             foreach (var bone in EnumerateBones())
             {
-                if(bone.ParentIndex == -1)
+                var parentIndex = bone.ParentIndex;
+
+                if (parentIndex == -1)
                 {
                     bone.AddValue("lp", bone.WorldPosition);
                     bone.AddValue("lr", CastHelpers.CreateVector4FromQuaternion(bone.WorldRotation));
                 }
                 else
                 {
-                    var parent = GetChild<BoneNode>(bone.ParentIndex);
+                    var parent = GetChild<BoneNode>(parentIndex);
 
                     bone.AddValue("lr", CastHelpers.CreateVector4FromQuaternion(Quaternion.Conjugate(parent.WorldRotation) * bone.WorldRotation));
                     bone.AddValue("lp", Vector3.Transform(bone.WorldPosition - parent.WorldPosition, Quaternion.Conjugate(parent.WorldRotation)));
@@ -144,14 +184,16 @@ namespace Cast.NET.Nodes
         {
             foreach (var bone in EnumerateBones())
             {
-                if (bone.ParentIndex == -1)
+                var parentIndex = bone.ParentIndex;
+
+                if (parentIndex == -1)
                 {
                     bone.AddValue("wp", bone.LocalPosition);
                     bone.AddValue("wr", CastHelpers.CreateVector4FromQuaternion(bone.LocalRotation));
                 }
                 else
                 {
-                    var parent = GetChild<BoneNode>(bone.ParentIndex);
+                    var parent = GetChild<BoneNode>(parentIndex);
 
                     bone.AddValue("wr", CastHelpers.CreateVector4FromQuaternion(parent.WorldRotation * bone.LocalRotation));
                     bone.AddValue("wp", Vector3.Transform(bone.WorldPosition, parent.WorldRotation) + parent.WorldPosition);

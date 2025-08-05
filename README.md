@@ -1,12 +1,16 @@
 # Cast.NET
 
+<p align="center">
+	<img src="img/logo.webp" alt="Cast"/>
+</p>
+
 Cast.NET is a .NET library for reading and writing cast files. [Cast](https://github.com/dtzxporter/cast) is an open source container for models, animations, materials and more designed by DTZxPorter.
 
 Cast.NET provides you with the ability the read and write these files in an easy and efficient way in .NET. It provides high level access to cast files while also allowing you to work with them in any way you want.
 
 # Requirements
 
-Cast.NET requires .NET 6.0 or higher and has been tested on both Windows and Linux.
+Cast.NET requires .NET 8.0 or higher and has been tested on both Windows and Linux.
 
 # Installing
 
@@ -34,7 +38,7 @@ var root = cast.RootNodes[0];
 
 foreach (var model in root.EnumerateChildrenOfType<ModelNode>())
 {
-    if(model.Skeleton is not null)
+    if (model.Skeleton is not null)
     {
         foreach (var bone in model.Skeleton.EnumerateBones())
         {
@@ -46,15 +50,15 @@ foreach (var model in root.EnumerateChildrenOfType<ModelNode>())
     {
         Console.WriteLine(material.Name);
 
-        Console.WriteLine($"\tAlbedoFile: {material.AlbedoFile?.Path}");
-        Console.WriteLine($"\tDiffuseFile: {material.DiffuseFile?.Path}");
-        Console.WriteLine($"\tNormalFile: {material.NormalFile?.Path}");
-        Console.WriteLine($"\tSpecularFile: {material.SpecularFile?.Path}");
-        Console.WriteLine($"\tEmissiveFile: {material.EmissiveFile?.Path}");
-        Console.WriteLine($"\tGlossFile: {material.GlossFile?.Path}");
-        Console.WriteLine($"\tRoughnessFile: {material.RoughnessFile?.Path}");
-        Console.WriteLine($"\tAmbientOcclusionFile: {material.AmbientOcclusionFile?.Path}");
-        Console.WriteLine($"\tCavityFile: {material.CavityFile?.Path}");
+        Console.WriteLine($"\tAlbedo: {material.Albedo}");
+        Console.WriteLine($"\tDiffuse: {material.Diffuse}");
+        Console.WriteLine($"\tNormal: {material.Normal}");
+        Console.WriteLine($"\tSpecular: {material.Specular}");
+        Console.WriteLine($"\tEmissive: {material.Emissive}");
+        Console.WriteLine($"\tGloss: {material.Gloss}");
+        Console.WriteLine($"\tRoughness: {material.Roughness}");
+        Console.WriteLine($"\tAmbientOcclusion: {material.AmbientOcclusion}");
+        Console.WriteLine($"\tCavity: {material.Cavity}");
     }
 }
 ```
@@ -62,8 +66,6 @@ foreach (var model in root.EnumerateChildrenOfType<ModelNode>())
 A quick example of building a simple skeleton only model:
 
 ```cs
-using System.Numerics;
-
 var root = new CastNode(CastNodeIdentifier.Root);
 var model = root.AddNode<ModelNode>();
 var skeleton = model.AddNode<SkeletonNode>();
@@ -72,20 +74,24 @@ for (int i = 0; i < 16; i++)
 {
     var bone = skeleton.AddNode<BoneNode>();
 
-    bone.AddString("n", $"bone_{i}");
-    bone.AddValue("p", (uint)(i - 1));
-    bone.AddValue("lp", new Vector3(0, 0, i));
-    bone.AddValue("lr", new Vector4(0, 0, 0, 1));
+    bone.Name = $"bone_{i}";
+    bone.ParentIndex = i - 1;
+    bone.LocalPosition = new Vector3(0, 0, i);
+    bone.LocalRotation = Quaternion.Identity;
 }
 
 CastWriter.Save("your_cast_file.cast", root);
 ```
 # In-depth Examples
 
-More in-depth examples are included in the source code, these include a basic Gltf to cast converter and a simple project that dumps all information in the cast file to a text file. The examples are constantly evolving with more being added as time goes on. If you're interested in helping out, feel free to file a PR with an example to help other learn how to use the library.
+More in-depth examples are included in the source code, these include a basic Gltf to cast converter that shows direct access to underlying node properties and higher level helper properties/methods, and a simple project that dumps all information in the cast file to a text file. The examples are constantly evolving with more being added as time goes on. If you're interested in helping out, feel free to file a PR with an example to help other learn how to use the library.
 
 # License/Disclaimers
 
 Cast.NET is currently in an alpha state but tests show it's perfectly usable, the API may have breaking changes pre-release but I hope to avoid anything that would break current usage.
 
 Cast.NET is licensed under the [MIT license](LICENSE). Cast.NET is a third-party library and is not associated with DTZxPorter or anyone who has worked on Cast, any issues with Cast.NET should be directed to this repo. This library comes with no warranty, please refer to the [license](LICENSE) file for more information.
+
+# Attribution
+
+Icons by Smashicons (Modified)

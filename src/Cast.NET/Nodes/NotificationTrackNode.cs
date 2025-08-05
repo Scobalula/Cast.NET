@@ -89,33 +89,23 @@ namespace Cast.NET.Nodes
         /// <param name="source">Node to copy from. A shallow copy is performed and references to the source are stored.</param>
         public NotificationTrackNode(CastNode source) : base(source) { }
 
-        public IEnumerable<float> EnumerateKeyFrames()
+        /// <summary>
+        /// Enumerates through key frames.
+        /// </summary>
+        /// <returns>An enumerable collection of the key frames.</returns>
+        /// <exception cref="NotSupportedException">Thrown if the underlying <see cref="CastProperty"/> type is not supported.</exception>
+        public IEnumerable<double> EnumerateKeyFrames()
         {
-            if (KeyFrameBuffer is CastArrayProperty<byte> byteArray)
+            return KeyFrameBuffer switch
             {
-                foreach (var k in byteArray.Values)
-                {
-                    yield return k;
-                }
-            }
-            else if (KeyFrameBuffer is CastArrayProperty<ushort> shortArray)
-            {
-                foreach (var k in shortArray.Values)
-                {
-                    yield return k;
-                }
-            }
-            else if (KeyFrameBuffer is CastArrayProperty<uint> intArray)
-            {
-                foreach (var k in intArray.Values)
-                {
-                    yield return k;
-                }
-            }
-            else
-            {
-                throw new NotImplementedException($"Unimplemented face buffer type: {KeyFrameBuffer.GetType()}");
-            }
+                CastArrayProperty<byte> { Values: var v } => v.Select(x => (double)x),
+                CastArrayProperty<ushort> { Values: var v } => v.Select(x => (double)x),
+                CastArrayProperty<uint> { Values: var v } => v.Select(x => (double)x),
+                _ => throw new NotSupportedException($"Unimplemented buffer type {KeyFrameBuffer.GetType()}")
+            };
         }
+
+        /// <inheritdoc/>
+        public override string ToString() => Name;
     }
 }

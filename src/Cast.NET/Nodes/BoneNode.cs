@@ -32,42 +32,42 @@ namespace Cast.NET.Nodes
         /// <summary>
         /// Gets or Sets the name of this bone.
         /// </summary>
-        public string Name => GetStringValue("n", string.Empty);
+        public string Name { get => GetStringValue("n", string.Empty); set => AddString("n", value); }
 
         /// <summary>
-        /// Gets the index of the this bone's parent. If this bone has no parent, then -1 is returned.
+        /// Gets or Sets the index of the this bone's parent. If this bone has no parent, then -1 is returned.
         /// </summary>
-        public int ParentIndex => (int)GetFirstValue("p", uint.MaxValue);
+        public int ParentIndex { get => (int)GetFirstValue("p", uint.MaxValue); set => AddValue("p", (uint)value); }
 
         /// <summary>
-        /// Gets if segment scale compensation is enabled for this bone.
+        /// Gets or Sets if segment scale compensation is enabled for this bone.
         /// </summary>
-        public bool SegmentScaleCompensate => GetFirstValue("ssc", (byte)0) == 1;
+        public bool SegmentScaleCompensate { get => GetFirstValue("ssc", (byte)0) == 1; set => AddValue("ssc", value ? 1 : 0); }
 
         /// <summary>
-        /// Gets the bone's local position.
+        /// Gets or Sets the bone's local position.
         /// </summary>
-        public Vector3 LocalPosition => GetFirstValue("lp", Vector3.Zero);
+        public Vector3 LocalPosition { get => GetFirstValue("lp", Vector3.Zero); set => AddValue("lp", value); }
 
         /// <summary>
-        /// Gets the bone's local rotation.
+        /// Gets or Sets the bone's local rotation.
         /// </summary>
-        public Quaternion LocalRotation => CastHelpers.CreateQuaternionFromVector4(GetFirstValue("lr", Vector4.UnitW));
+        public Quaternion LocalRotation { get => CastHelpers.CreateQuaternionFromVector4(GetFirstValue("lr", Vector4.UnitW)); set => AddValue("lr", CastHelpers.CreateVector4FromQuaternion(value)); }
 
         /// <summary>
-        /// Gets the bone's world position.
+        /// Gets or Sets the bone's world position.
         /// </summary>
-        public Vector3 WorldPosition => GetFirstValue("wp", Vector3.Zero);
+        public Vector3 WorldPosition { get => GetFirstValue("wp", Vector3.Zero); set => AddValue("wp", value); }
 
         /// <summary>
-        /// Gets the bone's world rotation.
+        /// Gets or Sets the bone's world rotation.
         /// </summary>
-        public Quaternion WorldRotation => CastHelpers.CreateQuaternionFromVector4(GetFirstValue("wr", Vector4.UnitW));
+        public Quaternion WorldRotation { get => CastHelpers.CreateQuaternionFromVector4(GetFirstValue("wr", Vector4.UnitW)); set => AddValue("wr", CastHelpers.CreateVector4FromQuaternion(value)); }
 
         /// <summary>
-        /// Gets the bone's scale.
+        /// Gets or Sets the bone's scale.
         /// </summary>
-        public Vector3 Scale => GetFirstValue("s", Vector3.One);
+        public Vector3 Scale { get => GetFirstValue("s", Vector3.One); set => AddValue("s", value); }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BoneNode"/> class.
@@ -186,5 +186,8 @@ namespace Cast.NET.Nodes
             worldRotation = Quaternion.Identity;
             return false;
         }
+
+        /// <inheritdoc/>
+        public override string ToString() => Name;
     }
 }

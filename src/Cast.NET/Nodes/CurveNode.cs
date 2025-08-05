@@ -20,7 +20,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 // ------------------------------------------------------------------------
-
 using System.Numerics;
 using System.Runtime.InteropServices;
 
@@ -112,48 +111,69 @@ namespace Cast.NET.Nodes
         /// <param name="source">Node to copy from. A shallow copy is performed and references to the source are stored.</param>
         public CurveNode(CastNode source) : base(source) { }
 
-        public IEnumerable<float> EnumerateKeyFrames()
+        /// <summary>
+        /// Enumerates through key frames.
+        /// </summary>
+        /// <returns>An enumerable collection of the key frames.</returns>
+        /// <exception cref="NotSupportedException">Thrown if the underlying <see cref="CastProperty"/> type is not supported.</exception>
+        public IEnumerable<double> EnumerateKeyFrames()
         {
-            if (KeyFrameBuffer is CastArrayProperty<byte> byteArray)
+            return KeyFrameBuffer switch
             {
-                foreach (var k in byteArray.Values)
-                {
-                    yield return k;
-                }
-            }
-            else if (KeyFrameBuffer is CastArrayProperty<ushort> shortArray)
-            {
-                foreach (var k in shortArray.Values)
-                {
-                    yield return k;
-                }
-            }
-            else if (KeyFrameBuffer is CastArrayProperty<uint> intArray)
-            {
-                foreach (var k in intArray.Values)
-                {
-                    yield return k;
-                }
-            }
-            else
-            {
-                throw new NotImplementedException($"Unimplemented face buffer type: {KeyFrameBuffer.GetType()}");
-            }
+                CastArrayProperty<byte> { Values: var v }   => v.Select(x => (double)x),
+                CastArrayProperty<ushort> { Values: var v } => v.Select(x => (double)x),
+                CastArrayProperty<uint> { Values: var v }   => v.Select(x => (double)x),
+                _ => throw new NotSupportedException($"Unimplemented buffer type {KeyFrameBuffer.GetType()}")
+            };
         }
 
+        /// <summary>
+        /// Enumerates through frames and their corresponding values.
+        /// </summary>
+        /// <returns>An enumerable collection of frames and their corresponding values.</returns>
+        /// <typeparam name="T">The type to request.</typeparam>
+        /// <exception cref="DataMisalignedException">Thrown if underlying buffers have different counts.</exception>
+        /// <exception cref="NotSupportedException">Thrown if the underlying <see cref="CastProperty"/> type is not supported.</exception>
+        public IEnumerable<(double, T)> EnumerateKeys<T>() where T : unmanaged
+        {
+            var keyFrameBuffer = KeyFrameBuffer;
+            var keyValueBuffer = KeyValueBuffer;
+
+            if (KeyValueBuffer.ValueCount != KeyFrameBuffer.ValueCount)
+                throw new DataMisalignedException($"KeyValueBuffer and KeyFrameBuffer for node: {NodeName} have different lengths.");
+
+            if (keyValueBuffer is not CastArrayProperty<T> keyValueBufferAsType)
+                throw new NotSupportedException($"Requested key value buffer of type: {typeof(T)} but underlying type is {keyValueBuffer.GetType()} for node: {NodeName}");
+
+            return KeyFrameBuffer switch
+            {
+                CastArrayProperty<byte> { Values: var v } => v.Select(x => (double)x).Zip(keyValueBufferAsType.Values),
+                CastArrayProperty<ushort> { Values: var v } => v.Select(x => (double)x).Zip(keyValueBufferAsType.Values),
+                CastArrayProperty<uint> { Values: var v } => v.Select(x => (double)x).Zip(keyValueBufferAsType.Values),
+                _ => throw new NotSupportedException($"Unimplemented buffer type {KeyFrameBuffer.GetType()}")
+            };
+        }
+
+        /// <summary>
+        /// Enumerates through key values.
+        /// </summary>
+        /// <returns>An enumerable collection of key values.</returns>
+        /// <typeparam name="T">The type to request.</typeparam>
+        /// <returns>An enumerable collection of key values.</returns>
+        /// <exception cref="NotSupportedException">Thrown if the underlying <see cref="CastProperty"/> type is not supported.</exception>
         public IEnumerable<T> EnumerateKeyValues<T>() where T : unmanaged
         {
             if (KeyValueBuffer is CastArrayProperty<T> array)
             {
-                foreach (var value in array.Values)
-                {
-                    yield return value;
-                }
+                return array.Values;
             }
             else
             {
-                throw new NotSupportedException($"Key values of type: {typeof(T)} for curve: {KeyPropertyName} are not supported.");
+                throw new NotSupportedException($"Requested key value buffer of type: {typeof(T)} but underlying type is {KeyValueBuffer.GetType()} for node: {NodeName}");
             }
         }
+
+        /// <inheritdoc/>
+        public override string ToString() => NodeName;
     }
 }

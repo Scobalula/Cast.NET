@@ -33,22 +33,22 @@ namespace Cast.NET.Nodes
         /// <summary>
         /// Gets or Sets the name.
         /// </summary>
-        public string Name => GetStringValue("n", string.Empty);
+        public string Name { get => GetStringValue("n", string.Empty); set => AddString("n", value); }
 
         /// <summary>
-        /// Gets the author.
+        /// Gets or Sets the author.
         /// </summary>
-        public string ColorSpace => GetStringValue("cs", "srgb");
+        public string ColorSpace { get => GetStringValue("cs", "srgb"); set => AddString("cs", value); }
 
         /// <summary>
-        /// Gets the software.
+        /// Gets or Sets the software.
         /// </summary>
-        public Vector4 RgbaColor => GetFirstValue<Vector4>("rgba");
+        public Vector4 RgbaColor { get => GetFirstValue<Vector4>("rgba"); set => AddValue("rgba", value); }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ColorNode"/> class.
         /// </summary>
-        public ColorNode() : base(CastNodeIdentifier.Mesh) { }
+        public ColorNode() : base(CastNodeIdentifier.Color) { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ColorNode"/> class.
@@ -67,7 +67,7 @@ namespace Cast.NET.Nodes
         /// Initializes a new instance of the <see cref="ColorNode"/> class.
         /// </summary>
         /// <param name="hash">Optional hash value for lookups.</param>
-        public ColorNode(ulong hash) : base(CastNodeIdentifier.Mesh, hash) { }
+        public ColorNode(ulong hash) : base(CastNodeIdentifier.Color, hash) { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ColorNode"/> class.
@@ -76,7 +76,7 @@ namespace Cast.NET.Nodes
         /// <param name="properties">Properties to assign to this node..</param>
         /// <param name="children">Children to assign to this node..</param>
         public ColorNode(ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(CastNodeIdentifier.Mesh, hash, properties, children)
+            base(CastNodeIdentifier.Color, hash, properties, children)
         { }
 
         /// <summary>
@@ -95,5 +95,8 @@ namespace Cast.NET.Nodes
         /// </summary>
         /// <param name="source">Node to copy from. A shallow copy is performed and references to the source are stored.</param>
         public ColorNode(CastNode source) : base(source) { }
+
+        /// <inheritdoc/>
+        public override string ToString() => RgbaColor.ToString();
     }
 }
