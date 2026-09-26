@@ -141,7 +141,9 @@ public static class CastWriter
 
             if (property is CastStringProperty value)
             {
-                stream.Write(text, 0, EncodeText(value.Value, ref text));
+                var valueSize = EncodeText(value.Value, ref text);
+
+                stream.Write(text, 0, valueSize);
                 stream.WriteByte(0);
             }
             else

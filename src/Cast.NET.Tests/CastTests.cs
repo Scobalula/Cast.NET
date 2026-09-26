@@ -21,6 +21,25 @@ public sealed class CastTests
     }
 
     [TestMethod]
+    public void LongStringsRoundTrip()
+    {
+        var root = new RootNode();
+        var model = root.AddNode<ModelNode>();
+        var lengths = new[] { 1, 84, 85, 86, 300, 5000, 90 };
+
+        foreach (var length in lengths)
+            model.AddNode(new FileNode { Path = new string((char)('a' + length % 26), length) });
+
+        model.SetString(new string('k', 400), "value");
+
+        var loaded = SaveAndLoad(root).Roots[0].GetChild<ModelNode>()!;
+        var paths = loaded.EnumerateChildren<FileNode>().Select(file => file.Path).ToArray();
+
+        CollectionAssert.AreEqual(lengths.Select(length => new string((char)('a' + length % 26), length)).ToArray(), paths);
+        Assert.AreEqual("value", loaded.GetString(new string('k', 400)));
+    }
+
+    [TestMethod]
     public void NodesLoadAsTheirTypedClasses()
     {
         var root = new RootNode();
