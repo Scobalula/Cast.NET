@@ -1,6 +1,6 @@
-﻿// ------------------------------------------------------------------------
+// ------------------------------------------------------------------------
 // Cast.NET - A .NET Library for reading and writing Cast files.
-// Copyright(c) 2025 Philip/Scobalula
+// Copyright(c) 2026 Philip/Scobalula
 // ------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,58 +20,21 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 // ------------------------------------------------------------------------
+using CastNet.Nodes;
 
-namespace Cast.NET
+namespace CastNet;
+
+/// <summary>
+/// An in-memory cast file.
+/// </summary>
+public sealed class Cast
 {
+    internal const uint Magic = 0x74736163;
+
+    internal const uint Version = 1;
+
     /// <summary>
-    /// A class to hold an instance of a Cast object.
+    /// Gets the root nodes of this file.
     /// </summary>
-    public class Cast
-    {
-        /// <summary>
-        /// Gets or Sets the Root Nodes
-        /// </summary>
-        public List<CastNode> RootNodes { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Cast"/> class.
-        /// </summary>
-        public Cast()
-        {
-            RootNodes = [];
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Cast"/> class.
-        /// </summary>
-        /// <param name="rootNodes">The root nodes.</param>
-        public Cast(List<CastNode> rootNodes)
-        {
-            RootNodes = rootNodes;
-        }
-
-        /// <summary>
-        /// Adds the node to the child list of this node.
-        /// </summary>
-        /// <typeparam name="T">The type to add.</typeparam>
-        /// <returns>The node that was added.</returns>
-        public T AddNode<T>() where T : CastNode, new()
-        {
-            var node = new T();
-            RootNodes.Add(node);
-            return node;
-        }
-
-        /// <summary>
-        /// Adds the node to the child list of this node.
-        /// </summary>
-        /// <typeparam name="T">The type to add.</typeparam>
-        /// <param name="node">The node to add.</param>
-        /// <returns>The node that was added.</returns>
-        public T AddNode<T>(T node) where T : CastNode
-        {
-            RootNodes.Add(node);
-            return node;
-        }
-    }
+    public List<RootNode> Roots { get; } = [];
 }

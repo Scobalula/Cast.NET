@@ -1,6 +1,6 @@
-﻿// ------------------------------------------------------------------------
+// ------------------------------------------------------------------------
 // Cast.NET - A .NET Library for reading and writing Cast files.
-// Copyright(c) 2025 Philip/Scobalula
+// Copyright(c) 2026 Philip/Scobalula
 // ------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,224 +20,125 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 // ------------------------------------------------------------------------
+namespace CastNet.Nodes;
 
-namespace Cast.NET.Nodes
+/// <summary>
+/// A material. Properties other than the name and type are slots, such as <c>albedo</c>, referencing a child <see cref="FileNode"/> or <see cref="ColorNode"/>.
+/// </summary>
+/// <param name="hash">The node hash.</param>
+public sealed class MaterialNode(ulong hash) : CastNode(CastNodeIdentifier.Material, hash)
 {
     /// <summary>
-    /// A class to hold a <see cref="CastNode"/> that contains a material.
+    /// Gets or sets the name of the material.
     /// </summary>
-    public class MaterialNode : CastNode
+    public string Name { get => GetString("n") ?? string.Empty; set => SetString("n", value); }
+
+    /// <summary>
+    /// Gets or sets the material type.
+    /// </summary>
+    public string Type { get => GetString("t") ?? "pbr"; set => SetString("t", value); }
+
+    /// <summary>
+    /// Gets or sets the albedo slot.
+    /// </summary>
+    public CastNode? Albedo { get => GetSlot("albedo"); set => SetSlot("albedo", value); }
+
+    /// <summary>
+    /// Gets or sets the diffuse slot.
+    /// </summary>
+    public CastNode? Diffuse { get => GetSlot("diffuse"); set => SetSlot("diffuse", value); }
+
+    /// <summary>
+    /// Gets or sets the normal slot.
+    /// </summary>
+    public CastNode? Normal { get => GetSlot("normal"); set => SetSlot("normal", value); }
+
+    /// <summary>
+    /// Gets or sets the specular slot.
+    /// </summary>
+    public CastNode? Specular { get => GetSlot("specular"); set => SetSlot("specular", value); }
+
+    /// <summary>
+    /// Gets or sets the emissive slot.
+    /// </summary>
+    public CastNode? Emissive { get => GetSlot("emissive"); set => SetSlot("emissive", value); }
+
+    /// <summary>
+    /// Gets or sets the emissive mask slot.
+    /// </summary>
+    public CastNode? EmissiveMask { get => GetSlot("emask"); set => SetSlot("emask", value); }
+
+    /// <summary>
+    /// Gets or sets the gloss slot.
+    /// </summary>
+    public CastNode? Gloss { get => GetSlot("gloss"); set => SetSlot("gloss", value); }
+
+    /// <summary>
+    /// Gets or sets the roughness slot.
+    /// </summary>
+    public CastNode? Roughness { get => GetSlot("roughness"); set => SetSlot("roughness", value); }
+
+    /// <summary>
+    /// Gets or sets the ambient occlusion slot.
+    /// </summary>
+    public CastNode? AmbientOcclusion { get => GetSlot("ao"); set => SetSlot("ao", value); }
+
+    /// <summary>
+    /// Gets or sets the cavity slot.
+    /// </summary>
+    public CastNode? Cavity { get => GetSlot("cavity"); set => SetSlot("cavity", value); }
+
+    /// <summary>
+    /// Gets or sets the anisotropy slot.
+    /// </summary>
+    public CastNode? Anisotropy { get => GetSlot("aniso"); set => SetSlot("aniso", value); }
+
+    /// <summary>
+    /// Gets or sets the metalness slot.
+    /// </summary>
+    public CastNode? Metalness { get => GetSlot("metal"); set => SetSlot("metal", value); }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="MaterialNode"/> class with a unique hash.
+    /// </summary>
+    public MaterialNode() : this(CastHash.Next())
     {
-        /// <summary>
-        /// Gets or Sets the name of the material.
-        /// </summary>
-        public string Name { get => GetStringValue("n"); set => AddString("n", value); }
+    }
 
-        /// <summary>
-        /// Gets or Sets the material type.
-        /// </summary>
-        public string Type { get => GetStringValue("t"); set => AddString("t", value); }
+    /// <summary>
+    /// Gets the node assigned to the given slot.
+    /// </summary>
+    /// <param name="slot">The slot name, such as <c>albedo</c>.</param>
+    /// <returns>The node, or <see langword="null"/> if the slot is empty.</returns>
+    public CastNode? GetSlot(string slot) => GetScalar<ulong>(slot) is ulong hash ? FindChild<CastNode>(hash) : null;
 
-        /// <summary>
-        /// Gets or Sets the hash of the albedo <see cref="CastNode"/>.
-        /// </summary>
-        public ulong AlbedoHash { get => GetFirstValue<ulong>("albedo", 0); set => AddValue("albedo", value); }
+    /// <summary>
+    /// Assigns a node to the given slot, or clears it if <paramref name="node"/> is <see langword="null"/>.
+    /// </summary>
+    /// <param name="slot">The slot name, such as <c>albedo</c>.</param>
+    /// <param name="node">The <see cref="FileNode"/> or <see cref="ColorNode"/> to assign.</param>
+    /// <exception cref="InvalidOperationException">Thrown if the node already belongs to another node.</exception>
+    public void SetSlot(string slot, CastNode? node)
+    {
+        if (node?.Parent is not null && node.Parent != this)
+            throw new InvalidOperationException("The node already belongs to another node. Create a separate node for each material.");
 
-        /// <summary>
-        /// Gets or Sets the hash of the diffuse <see cref="CastNode"/>.
-        /// </summary>
-        public ulong DiffuseHash { get => GetFirstValue<ulong>("diffuse", 0); set => AddValue("diffuse", value); }
+        if (node is not null && node.Parent is null)
+            AddNode(node);
 
-        /// <summary>
-        /// Gets or Sets the hash of the normal <see cref="CastNode"/>.
-        /// </summary>
-        public ulong NormalHash { get => GetFirstValue<ulong>("normal", 0); set => AddValue("normal", value); }
+        SetValue(slot, node?.Hash);
+    }
 
-        /// <summary>
-        /// Gets or Sets the hash of the specular <see cref="CastNode"/>.
-        /// </summary>
-        public ulong SpecularHash { get => GetFirstValue<ulong>("specular", 0); set => AddValue("specular", value); }
-
-        /// <summary>
-        /// Gets or Sets the hash of the emissive <see cref="CastNode"/>.
-        /// </summary>
-        public ulong EmissiveHash { get => GetFirstValue<ulong>("emissive", 0); set => AddValue("emissive", value); }
-
-        /// <summary>
-        /// Gets or Sets the hash of the emissive mask <see cref="CastNode"/>.
-        /// </summary>
-        public ulong EmissiveMaskHash { get => GetFirstValue<ulong>("emask", 0); set => AddValue("emask", value); }
-
-        /// <summary>
-        /// Gets or Sets the hash of the gloss <see cref="CastNode"/>.
-        /// </summary>
-        public ulong GlossHash { get => GetFirstValue<ulong>("gloss", 0); set => AddValue("gloss", value); }
-
-        /// <summary>
-        /// Gets or Sets the hash of the roughness <see cref="CastNode"/>.
-        /// </summary>
-        public ulong RoughnessHash { get => GetFirstValue<ulong>("roughness", 0); set => AddValue("roughness", value); }
-
-        /// <summary>
-        /// Gets or Sets the hash of the ao <see cref="CastNode"/>.
-        /// </summary>
-        public ulong AmbientOcclusionHash { get => GetFirstValue<ulong>("ao", 0); set => AddValue("ao", value); }
-
-        /// <summary>
-        /// Gets or Sets the hash of the cavity <see cref="CastNode"/>.
-        /// </summary>
-        public ulong CavityHash { get => GetFirstValue<ulong>("cavity", 0); set => AddValue("cavity", value); }
-
-        /// <summary>
-        /// Gets or Sets the hash of the anisotropy <see cref="CastNode"/>.
-        /// </summary>
-        public ulong AnisotropyHash { get => GetFirstValue<ulong>("aniso", 0); set => AddValue("aniso", value); }
-
-        /// <summary>
-        /// Gets or Sets the albedo <see cref="CastNode"/>.
-        /// </summary>
-        public CastNode? Albedo { get => TryGetChild(AlbedoHash, out var node) == true ? node : null; set { if (value is not null) AlbedoHash = value.Hash; } }
-
-        /// <summary>
-        /// Gets or Sets the diffuse <see cref="CastNode"/>.
-        /// </summary>
-        public CastNode? Diffuse { get => TryGetChild(DiffuseHash, out var node) == true ? node : null; set { if (value is not null) DiffuseHash = value.Hash; } }
-
-        /// <summary>
-        /// Gets or Sets the normal <see cref="CastNode"/>.
-        /// </summary>
-        public CastNode? Normal { get => TryGetChild(NormalHash, out var node) == true ? node : null; set { if (value is not null) NormalHash = value.Hash; } }
-
-        /// <summary>
-        /// Gets or Sets the specular <see cref="CastNode"/>.
-        /// </summary>
-        public CastNode? Specular { get => TryGetChild(SpecularHash, out var node) == true ? node : null; set { if (value is not null) SpecularHash = value.Hash; } }
-
-        /// <summary>
-        /// Gets or Sets the emissive <see cref="CastNode"/>.
-        /// </summary>
-        public CastNode? Emissive { get => TryGetChild(EmissiveHash, out var node) == true ? node : null; set { if (value is not null) EmissiveHash = value.Hash; } }
-
-        /// <summary>
-        /// Gets or Sets the emissive mask <see cref="CastNode"/>.
-        /// </summary>
-        public CastNode? EmissiveMask { get => TryGetChild(EmissiveMaskHash, out var node) == true ? node : null; set { if (value is not null) EmissiveMaskHash = value.Hash; } }
-
-        /// <summary>
-        /// Gets or Sets the gloss <see cref="CastNode"/>.
-        /// </summary>
-        public CastNode? Gloss { get => TryGetChild(GlossHash, out var node) == true ? node : null; set { if (value is not null) GlossHash = value.Hash; } }
-
-        /// <summary>
-        /// Gets or Sets the roughness <see cref="CastNode"/>.
-        /// </summary>
-        public CastNode? Roughness { get => TryGetChild(RoughnessHash, out var node) == true ? node : null; set { if (value is not null) RoughnessHash = value.Hash; } }
-
-        /// <summary>
-        /// Gets or Sets the ao <see cref="CastNode"/>.
-        /// </summary>
-        public CastNode? AmbientOcclusion { get => TryGetChild(AmbientOcclusionHash, out var node) == true ? node : null; set { if (value is not null) AmbientOcclusionHash = value.Hash; } }
-
-        /// <summary>
-        /// Gets or Sets the cavity <see cref="CastNode"/>.
-        /// </summary>
-        public CastNode? Cavity { get => TryGetChild(CavityHash, out var node) == true ? node : null; set { if (value is not null) CavityHash = value.Hash; } }
-
-        /// <summary>
-        /// Gets or Sets the anisotropy <see cref="CastNode"/>.
-        /// </summary>
-        public CastNode? Anisotropy { get => TryGetChild(AnisotropyHash, out var node) == true ? node : null; set { if (value is not null) AnisotropyHash = value.Hash; } }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MaterialNode"/> class.
-        /// </summary>
-        public MaterialNode() : base(CastNodeIdentifier.Material) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MaterialNode"/> class.
-        /// </summary>
-        public MaterialNode(string name, string type) : base(CastNodeIdentifier.Material)
+    /// <summary>
+    /// Enumerates the assigned slots.
+    /// </summary>
+    /// <returns>The slot names and their assigned nodes.</returns>
+    public IEnumerable<KeyValuePair<string, CastNode>> EnumerateSlots()
+    {
+        foreach (var (name, property) in Properties)
         {
-            AddString("n", name);
-            AddString("t", type);
-            Hash = CastHasher.Compute(name);
+            if (property is CastArrayProperty { Type: CastPropertyType.Integer64, Count: > 0 } slot && FindChild<CastNode>(slot.Get<ulong>(0)) is CastNode node)
+                yield return new(name, node);
         }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MaterialNode"/> class.
-        /// </summary>
-        /// <param name="identifier">Node identifier.</param>
-        public MaterialNode(CastNodeIdentifier identifier) : base(identifier) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MaterialNode"/> class.
-        /// </summary>
-        /// <param name="identifier">Node identifier.</param>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        public MaterialNode(CastNodeIdentifier identifier, ulong hash) : base(identifier, hash) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MaterialNode"/> class.
-        /// </summary>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        public MaterialNode(ulong hash) : base(CastNodeIdentifier.Material, hash) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MaterialNode"/> class.
-        /// </summary>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        /// <param name="properties">Properties to assign to this node..</param>
-        /// <param name="children">Children to assign to this node..</param>
-        public MaterialNode(ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(CastNodeIdentifier.Material, hash, properties, children)
-        { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CastNode"/> class.
-        /// </summary>
-        /// <param name="identifier">Node identifier.</param>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        /// <param name="properties">Properties to assign to this node..</param>
-        /// <param name="children">Children to assign to this node..</param>
-        public MaterialNode(CastNodeIdentifier identifier, ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(identifier, hash, properties, children)
-        { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MaterialNode"/> class.
-        /// </summary>
-        /// <param name="source">Node to copy from. A shallow copy is performed and references to the source are stored.</param>
-        public MaterialNode(CastNode source) : base(source) { }
-
-        /// <summary>
-        /// Gets or Sets the hash of the extra <see cref="CastNode"/>.
-        /// </summary>
-        /// <param name="index">Index of the extra data.</param>
-        /// <returns>Hash of the extra data if found.</returns>
-        public ulong GetExtraHash(int index) => GetExtraHash($"extra{index}");
-
-        /// <summary>
-        /// Gets or Sets the hash of the extra <see cref="CastNode"/>.
-        /// </summary>
-        /// <param name="name">Name of the extra data.</param>
-        /// <returns>Hash of the extra data if found.</returns>
-        public ulong GetExtraHash(string name) => GetFirstValue<ulong>(name, 0);
-
-        /// <summary>
-        /// Gets or Sets the extra <see cref="CastNode"/>.
-        /// </summary>
-        /// <param name="index">Index of the extra data.</param>
-        /// <returns>The extra data if found.</returns>
-        public CastNode? GetExtraFile(int index) => GetExtraFile($"extra{index}");
-
-        /// <summary>
-        /// Gets or Sets the extra <see cref="CastNode"/>.
-        /// </summary>
-        /// <param name="name">Name of the extra data.</param>
-        /// <returns>The extra data if found.</returns>
-        public CastNode? GetExtraFile(string name) => TryGetChild<CastNode>(GetFirstValue<ulong>(name, 0), out var node) ? node : null;
-
-        /// <inheritdoc/>
-        public override string ToString() => Name;
     }
 }

@@ -1,0 +1,11 @@
+<Project Sdk="MSTest.Sdk/4.4.1">
+
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cast.NET\Cast.NET.csproj" />
+  </ItemGroup>
+
+</Project>

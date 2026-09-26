@@ -1,6 +1,6 @@
-﻿// ------------------------------------------------------------------------
+// ------------------------------------------------------------------------
 // Cast.NET - A .NET Library for reading and writing Cast files.
-// Copyright(c) 2025 Philip/Scobalula
+// Copyright(c) 2026 Philip/Scobalula
 // ------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,98 +20,58 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 // ------------------------------------------------------------------------
-
 using System.Numerics;
 
-namespace Cast.NET.Nodes
+namespace CastNet.Nodes;
+
+/// <summary>
+/// A placed instance of another cast file.
+/// </summary>
+/// <param name="hash">The node hash.</param>
+public sealed class InstanceNode(ulong hash) : CastNode(CastNodeIdentifier.Instance, hash)
 {
     /// <summary>
-    /// A class to hold a <see cref="CastNode"/> that contains Instance information.
+    /// Gets or sets the name of the instance.
     /// </summary>
-    public class InstanceNode : CastNode
+    public string? Name { get => GetString("n"); set => SetString("n", value); }
+
+    /// <summary>
+    /// Gets or sets the referenced file.
+    /// </summary>
+    public FileNode? ReferenceFile
     {
-        /// <summary>
-        /// Gets or Sets the name of the instance.
-        /// </summary>
-        public string Name { get => GetStringValue("n", string.Empty); set => AddString("n", value); }
+        get => GetScalar<ulong>("rf") is ulong hash ? FindChild<FileNode>(hash) : null;
+        set
+        {
+            if (value?.Parent is not null && value.Parent != this)
+                throw new InvalidOperationException("The file already belongs to another node. Create a separate file node for each instance.");
 
-        /// <summary>
-        /// Gets or Sets the reference file hash.
-        /// </summary>
-        public ulong ReferenceFileHash { get => GetFirstValue<ulong>("rf"); set => AddValue("rf", value); }
+            if (value is not null && value.Parent is null)
+                AddNode(value);
 
-        /// <summary>
-        /// Gets or Sets the reference file.
-        /// </summary>
-        public FileNode ReferenceFile { get => Parent?.TryGetChild<FileNode>(ReferenceFileHash, out var node) == true ? node : throw new KeyNotFoundException(nameof(ReferenceFileHash)); set => ReferenceFileHash = value.Hash; }
+            SetValue("rf", value?.Hash);
+        }
+    }
 
-        /// <summary>
-        /// Gets or Sets the instance's position.
-        /// </summary>
-        public Vector3 Position { get => GetFirstValue("p", Vector3.Zero); set => AddValue("p", value); }
+    /// <summary>
+    /// Gets or sets the position of the instance.
+    /// </summary>
+    public Vector3 Position { get => GetValue("p", Vector3.Zero); set => SetValue("p", value); }
 
-        /// <summary>
-        /// Gets or Sets the instance's rotation.
-        /// </summary>
-        public Quaternion Rotation { get => CastHelpers.CreateQuaternionFromVector4(GetFirstValue("r", Vector4.Zero)); set => AddValue("r", CastHelpers.CreateVector4FromQuaternion(value)); }
+    /// <summary>
+    /// Gets or sets the rotation of the instance.
+    /// </summary>
+    public Quaternion Rotation { get => GetValue("r", Quaternion.Identity); set => SetValue("r", value); }
 
-        /// <summary>
-        /// Gets or Sets the instance's position.
-        /// </summary>
-        public Vector3 Scale { get => GetFirstValue("s", Vector3.Zero); set => AddValue("s", value); }
+    /// <summary>
+    /// Gets or sets the scale of the instance.
+    /// </summary>
+    public Vector3 Scale { get => GetValue("s", Vector3.One); set => SetValue("s", value); }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InstanceNode"/> class.
-        /// </summary>
-        public InstanceNode() : base(CastNodeIdentifier.Instance) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InstanceNode"/> class.
-        /// </summary>
-        /// <param name="identifier">Node identifier.</param>
-        public InstanceNode(CastNodeIdentifier identifier) : base(identifier) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InstanceNode"/> class.
-        /// </summary>
-        /// <param name="identifier">Node identifier.</param>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        public InstanceNode(CastNodeIdentifier identifier, ulong hash) : base(identifier, hash) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InstanceNode"/> class.
-        /// </summary>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        public InstanceNode(ulong hash) : base(CastNodeIdentifier.Instance, hash) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InstanceNode"/> class.
-        /// </summary>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        /// <param name="properties">Properties to assign to this node..</param>
-        /// <param name="children">Children to assign to this node..</param>
-        public InstanceNode(ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(CastNodeIdentifier.Instance, hash, properties, children)
-        { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CastNode"/> class.
-        /// </summary>
-        /// <param name="identifier">Node identifier.</param>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        /// <param name="properties">Properties to assign to this node..</param>
-        /// <param name="children">Children to assign to this node..</param>
-        public InstanceNode(CastNodeIdentifier identifier, ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(identifier, hash, properties, children)
-        { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InstanceNode"/> class.
-        /// </summary>
-        /// <param name="source">Node to copy from. A shallow copy is performed and references to the source are stored.</param>
-        public InstanceNode(CastNode source) : base(source) { }
-
-        /// <inheritdoc/>
-        public override string ToString() => $"{Name} = {ReferenceFile}";
+    /// <summary>
+    /// Initializes a new instance of the <see cref="InstanceNode"/> class with a unique hash.
+    /// </summary>
+    public InstanceNode() : this(CastHash.Next())
+    {
     }
 }

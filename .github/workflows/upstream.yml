@@ -1,0 +1,54 @@
+name: Upstream Spec Watch
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compare with upstream
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          synced=$(cat .github/cast-upstream.txt)
+          latest=$(gh api repos/dtzxporter/cast/commits/master --jq .sha)
+
+          if [ "$synced" = "$latest" ]; then exit 0; fi
+
+          compare="repos/dtzxporter/cast/compare/$synced...$latest"
+          diff=$(gh api "$compare" --jq '.files[] | select(.filename == "README.md" or .filename == "libraries/python/cast.py") | "### \(.filename)\n\n```diff\n\(.patch)\n```\n"' | head -c 55000)
+
+          if [ -z "$diff" ]; then exit 0; fi
+
+          {
+            echo "The Cast specification or reference library changed upstream between \`${synced:0:7}\` and \`${latest:0:7}\`."
+            echo
+            echo "After updating Cast.NET, set \`.github/cast-upstream.txt\` to \`$latest\`."
+            echo
+            echo "## Commits"
+            echo
+            gh api "$compare" --jq '.commits[] | "- [`\(.sha[0:7])`](\(.html_url)) \(.commit.message | split("\n")[0])"'
+            echo
+            echo "## Changes"
+            echo
+            echo "$diff"
+          } > body.md
+
+          title="Upstream Cast specification changed"
+          existing=$(gh issue list --state open --search "\"$title\" in:title" --json number --jq '.[0].number')
+
+          if [ -n "$existing" ]; then
+            gh issue edit "$existing" --body-file body.md
+          else
+            gh issue create --title "$title" --body-file body.md
+          fi

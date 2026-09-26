@@ -1,6 +1,6 @@
-﻿// ------------------------------------------------------------------------
+// ------------------------------------------------------------------------
 // Cast.NET - A .NET Library for reading and writing Cast files.
-// Copyright(c) 2025 Philip/Scobalula
+// Copyright(c) 2026 Philip/Scobalula
 // ------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -22,172 +22,58 @@
 // ------------------------------------------------------------------------
 using System.Numerics;
 
-namespace Cast.NET.Nodes
+namespace CastNet.Nodes;
+
+/// <summary>
+/// A skeleton bone.
+/// </summary>
+/// <param name="hash">The node hash.</param>
+public sealed class BoneNode(ulong hash) : CastNode(CastNodeIdentifier.Bone, hash)
 {
     /// <summary>
-    /// A class to hold a <see cref="CastNode"/> that contains a Bone.
+    /// Gets or sets the name of the bone.
     /// </summary>
-    public class BoneNode : CastNode
+    public string Name { get => GetString("n") ?? string.Empty; set => SetString("n", value); }
+
+    /// <summary>
+    /// Gets or sets the index of the parent bone within the skeleton, or -1 if this bone has no parent.
+    /// </summary>
+    public int ParentIndex { get => GetArray("p") is { Count: > 0 } parent ? (parent.Type == CastPropertyType.Integer32 ? parent.Get<int>(0) : parent.GetScalar<int>(0)) : -1; set => SetValue("p", value); }
+
+    /// <summary>
+    /// Gets or sets whether segment scale compensation is enabled.
+    /// </summary>
+    public bool SegmentScaleCompensate { get => GetBoolean("ssc", true); set => SetBoolean("ssc", value); }
+
+    /// <summary>
+    /// Gets or sets the position relative to the parent bone.
+    /// </summary>
+    public Vector3? LocalPosition { get => GetValue<Vector3>("lp"); set => SetValue("lp", value); }
+
+    /// <summary>
+    /// Gets or sets the rotation relative to the parent bone.
+    /// </summary>
+    public Quaternion? LocalRotation { get => GetValue<Quaternion>("lr"); set => SetValue("lr", value); }
+
+    /// <summary>
+    /// Gets or sets the position in world space.
+    /// </summary>
+    public Vector3? WorldPosition { get => GetValue<Vector3>("wp"); set => SetValue("wp", value); }
+
+    /// <summary>
+    /// Gets or sets the rotation in world space.
+    /// </summary>
+    public Quaternion? WorldRotation { get => GetValue<Quaternion>("wr"); set => SetValue("wr", value); }
+
+    /// <summary>
+    /// Gets or sets the local scale.
+    /// </summary>
+    public Vector3? Scale { get => GetValue<Vector3>("s"); set => SetValue("s", value); }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="BoneNode"/> class with a unique hash.
+    /// </summary>
+    public BoneNode() : this(CastHash.Next())
     {
-        /// <summary>
-        /// Gets or Sets the name of this bone.
-        /// </summary>
-        public string Name { get => GetStringValue("n", string.Empty); set => AddString("n", value); }
-
-        /// <summary>
-        /// Gets or Sets the index of the this bone's parent. If this bone has no parent, then -1 is returned.
-        /// </summary>
-        public int ParentIndex { get => (int)GetFirstValue("p", uint.MaxValue); set => AddValue("p", (uint)value); }
-
-        /// <summary>
-        /// Gets or Sets if segment scale compensation is enabled for this bone.
-        /// </summary>
-        public bool SegmentScaleCompensate { get => GetFirstValue("ssc", (byte)0) == 1; set => AddValue("ssc", value ? 1 : 0); }
-
-        /// <summary>
-        /// Gets or Sets the bone's local position.
-        /// </summary>
-        public Vector3 LocalPosition { get => GetFirstValue("lp", Vector3.Zero); set => AddValue("lp", value); }
-
-        /// <summary>
-        /// Gets or Sets the bone's local rotation.
-        /// </summary>
-        public Quaternion LocalRotation { get => CastHelpers.CreateQuaternionFromVector4(GetFirstValue("lr", Vector4.UnitW)); set => AddValue("lr", CastHelpers.CreateVector4FromQuaternion(value)); }
-
-        /// <summary>
-        /// Gets or Sets the bone's world position.
-        /// </summary>
-        public Vector3 WorldPosition { get => GetFirstValue("wp", Vector3.Zero); set => AddValue("wp", value); }
-
-        /// <summary>
-        /// Gets or Sets the bone's world rotation.
-        /// </summary>
-        public Quaternion WorldRotation { get => CastHelpers.CreateQuaternionFromVector4(GetFirstValue("wr", Vector4.UnitW)); set => AddValue("wr", CastHelpers.CreateVector4FromQuaternion(value)); }
-
-        /// <summary>
-        /// Gets or Sets the bone's scale.
-        /// </summary>
-        public Vector3 Scale { get => GetFirstValue("s", Vector3.One); set => AddValue("s", value); }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BoneNode"/> class.
-        /// </summary>
-        public BoneNode() : base(CastNodeIdentifier.Bone) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BoneNode"/> class.
-        /// </summary>
-        /// <param name="identifier">Node identifier.</param>
-        public BoneNode(CastNodeIdentifier identifier) : base(identifier) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BoneNode"/> class.
-        /// </summary>
-        /// <param name="identifier">Node identifier.</param>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        public BoneNode(CastNodeIdentifier identifier, ulong hash) : base(identifier, hash) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BoneNode"/> class.
-        /// </summary>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        public BoneNode(ulong hash) : base(CastNodeIdentifier.Bone, hash) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BoneNode"/> class.
-        /// </summary>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        /// <param name="properties">Properties to assign to this node..</param>
-        /// <param name="children">Children to assign to this node..</param>
-        public BoneNode(ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(CastNodeIdentifier.Bone, hash, properties, children)
-        { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CastNode"/> class.
-        /// </summary>
-        /// <param name="identifier">Node identifier.</param>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        /// <param name="properties">Properties to assign to this node..</param>
-        /// <param name="children">Children to assign to this node..</param>
-        public BoneNode(CastNodeIdentifier identifier, ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(identifier, hash, properties, children) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BoneNode"/> class.
-        /// </summary>
-        /// <param name="source">Node to copy from. A shallow copy is performed and references to the source are stored.</param>
-        public BoneNode(CastNode source) : base(source) { }
-
-        /// <summary>
-        /// Attempts to get the local position of this <see cref="BoneNode"/>.
-        /// </summary>
-        /// <param name="localPosition">Local position if found.</param>
-        /// <returns>True if found, otherwise false.</returns>
-        public bool TryGetLocalPosition(out Vector3 localPosition)
-        {
-            if (Properties.TryGetValue("lp", out var prop) && prop is CastArrayProperty<Vector3> arrayProp && arrayProp.ValueCount > 0)
-            {
-                localPosition = arrayProp.Values[0];
-                return true;
-            }
-
-            localPosition = Vector3.Zero;
-            return false;
-        }
-
-        /// <summary>
-        /// Attempts to get the local rotation of this <see cref="BoneNode"/>.
-        /// </summary>
-        /// <param name="localRotation">Local rotation if found.</param>
-        /// <returns>True if found, otherwise false.</returns>
-        public bool TryGetLocalRotation(out Quaternion localRotation)
-        {
-            if (Properties.TryGetValue("lr", out var prop) && prop is CastArrayProperty<Vector4> arrayProp && arrayProp.ValueCount > 0)
-            {
-                localRotation = CastHelpers.CreateQuaternionFromVector4(arrayProp.Values[0]);
-                return true;
-            }
-
-            localRotation = Quaternion.Identity;
-            return false;
-        }
-
-        /// <summary>
-        /// Attempts to get the world position of this <see cref="BoneNode"/>.
-        /// </summary>
-        /// <param name="worldPosition">world position if found.</param>
-        /// <returns>True if found, otherwise false.</returns>
-        public bool TryGetWorldPosition(out Vector3 worldPosition)
-        {
-            if (Properties.TryGetValue("wp", out var prop) && prop is CastArrayProperty<Vector3> arrayProp && arrayProp.ValueCount > 0)
-            {
-                worldPosition = arrayProp.Values[0];
-                return true;
-            }
-
-            worldPosition = Vector3.Zero;
-            return false;
-        }
-
-        /// <summary>
-        /// Attempts to get the world rotation of this <see cref="BoneNode"/>.
-        /// </summary>
-        /// <param name="worldRotation">World rotation if found.</param>
-        /// <returns>True if found, otherwise false.</returns>
-        public bool TryGetWorldRotation(out Quaternion worldRotation)
-        {
-            if (Properties.TryGetValue("wr", out var prop) && prop is CastArrayProperty<Vector4> arrayProp && arrayProp.ValueCount > 0)
-            {
-                worldRotation = CastHelpers.CreateQuaternionFromVector4(arrayProp.Values[0]);
-                return true;
-            }
-
-            worldRotation = Quaternion.Identity;
-            return false;
-        }
-
-        /// <inheritdoc/>
-        public override string ToString() => Name;
     }
 }

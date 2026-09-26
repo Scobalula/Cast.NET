@@ -1,6 +1,6 @@
-﻿// ------------------------------------------------------------------------
+// ------------------------------------------------------------------------
 // Cast.NET - A .NET Library for reading and writing Cast files.
-// Copyright(c) 2025 Philip/Scobalula
+// Copyright(c) 2026 Philip/Scobalula
 // ------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,140 +20,147 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 // ------------------------------------------------------------------------
-using System.Numerics;
+using System.Buffers.Binary;
 using System.Runtime.InteropServices;
 using System.Text;
+using CastNet.Nodes;
 
-namespace Cast.NET
+namespace CastNet;
+
+/// <summary>
+/// Saves cast files.
+/// </summary>
+public static class CastWriter
 {
     /// <summary>
-    /// A static class that provides methods for writing <see cref="Cast"/> instances to binary streams and files.
+    /// Saves the cast to the given path.
     /// </summary>
-    public static class CastWriter
+    /// <param name="path">The path of the file.</param>
+    /// <param name="cast">The cast to save.</param>
+    public static void Save(string path, Cast cast)
     {
-        /// <summary>
-        /// Saves the property to the <see cref="BinaryWriter"/>.
-        /// </summary>
-        /// <param name="writer">The writer that the cast instance is being written to.</param>
-        /// <param name="name">Name of the property being written.</param>
-        /// <param name="prop">The property being written.</param>
-        /// <exception cref="NotSupportedException">Thrown if the property provided is of an unsupported type.</exception>
-        public static void SaveProperty(BinaryWriter writer, string name, CastProperty prop)
-        {
-            writer.Write((ushort)prop.Identifier);
-            writer.Write((ushort)name.Length);
-            writer.Write(prop.ValueCount);
-            writer.Write(name.AsSpan());
+        using var stream = new FileStream(path, FileMode.Create, FileAccess.Write, FileShare.None, 1 << 16);
+        Save(stream, cast);
+    }
 
-            switch(prop.Identifier)
+    /// <summary>
+    /// Saves the cast to the given stream.
+    /// </summary>
+    /// <param name="stream">The stream to write to.</param>
+    /// <param name="cast">The cast to save.</param>
+    public static void Save(Stream stream, Cast cast) => Save(stream, CollectionsMarshal.AsSpan(cast.Roots));
+
+    /// <summary>
+    /// Saves the root node as a cast file to the given path.
+    /// </summary>
+    /// <param name="path">The path of the file.</param>
+    /// <param name="root">The root node to save.</param>
+    public static void Save(string path, RootNode root)
+    {
+        using var stream = new FileStream(path, FileMode.Create, FileAccess.Write, FileShare.None, 1 << 16);
+        Save(stream, root);
+    }
+
+    /// <summary>
+    /// Saves the root node as a cast file to the given stream.
+    /// </summary>
+    /// <param name="stream">The stream to write to.</param>
+    /// <param name="root">The root node to save.</param>
+    public static void Save(Stream stream, RootNode root) => Save(stream, new ReadOnlySpan<RootNode>(in root));
+
+    private static void Save(Stream stream, ReadOnlySpan<RootNode> roots)
+    {
+        var nodeSizes = new List<uint>();
+        var nodeIndex = 0;
+        var text = new byte[256];
+
+        foreach (var root in roots)
+            Measure(root, nodeSizes);
+
+        Span<byte> header = stackalloc byte[16];
+        BinaryPrimitives.WriteUInt32LittleEndian(header, Cast.Magic);
+        BinaryPrimitives.WriteUInt32LittleEndian(header[4..], Cast.Version);
+        BinaryPrimitives.WriteInt32LittleEndian(header[8..], roots.Length);
+        BinaryPrimitives.WriteUInt32LittleEndian(header[12..], 0);
+        stream.Write(header);
+
+        foreach (var root in roots)
+            WriteNode(stream, root, nodeSizes, ref nodeIndex, ref text);
+    }
+
+    private static uint Measure(CastNode node, List<uint> nodeSizes)
+    {
+        var slot = nodeSizes.Count;
+        var size = 24u;
+
+        nodeSizes.Add(0);
+
+        foreach (var (name, property) in node.Properties)
+        {
+            var dataSize = property switch
             {
-                case CastPropertyIdentifier.Byte     : writer.Write(MemoryMarshal.Cast<byte, byte>(CollectionsMarshal.AsSpan(((CastArrayProperty<byte>)prop).Values))); break;
-                case CastPropertyIdentifier.Short    : writer.Write(MemoryMarshal.Cast<ushort, byte>(CollectionsMarshal.AsSpan(((CastArrayProperty<ushort>)prop).Values))); break;
-                case CastPropertyIdentifier.Integer32: writer.Write(MemoryMarshal.Cast<uint, byte>(CollectionsMarshal.AsSpan(((CastArrayProperty<uint>)prop).Values))); break;
-                case CastPropertyIdentifier.Integer64: writer.Write(MemoryMarshal.Cast<ulong, byte>(CollectionsMarshal.AsSpan(((CastArrayProperty<ulong>)prop).Values))); break;
-                case CastPropertyIdentifier.Float    : writer.Write(MemoryMarshal.Cast<float, byte>(CollectionsMarshal.AsSpan(((CastArrayProperty<float>)prop).Values))); break;
-                case CastPropertyIdentifier.Double   : writer.Write(MemoryMarshal.Cast<double, byte>(CollectionsMarshal.AsSpan(((CastArrayProperty<double>)prop).Values))); break;
-                case CastPropertyIdentifier.Vector2  : writer.Write(MemoryMarshal.Cast<Vector2, byte>(CollectionsMarshal.AsSpan(((CastArrayProperty<Vector2>)prop).Values))); break;
-                case CastPropertyIdentifier.Vector3  : writer.Write(MemoryMarshal.Cast<Vector3, byte>(CollectionsMarshal.AsSpan(((CastArrayProperty<Vector3>)prop).Values))); break;
-                case CastPropertyIdentifier.Vector4  : writer.Write(MemoryMarshal.Cast<Vector4, byte>(CollectionsMarshal.AsSpan(((CastArrayProperty<Vector4>)prop).Values))); break;
-                case CastPropertyIdentifier.String   : writer.Write(((CastStringProperty)prop).Value.AsSpan()); writer.Write((byte)0); break;
-                default                              : throw new NotSupportedException();
+                CastStringProperty text => Encoding.UTF8.GetByteCount(text.Value) + 1,
+                CastArrayProperty array => array.AsBytes().Length,
+                _ => throw new NotSupportedException($"Property type {property.GetType().Name} is not supported."),
             };
+
+            size += (uint)(8 + Encoding.UTF8.GetByteCount(name) + dataSize);
         }
 
-        /// <summary>
-        /// Saves the <see cref="CastNode"/> to the <see cref="BinaryWriter"/>.
-        /// </summary>
-        /// <param name="writer">The writer that the cast instance is being written to.</param>
-        /// <param name="node">The node being written.</param>
-        public static void SaveNode(BinaryWriter writer, CastNode node)
+        for (var i = 0; i < node.Children.Count; i++)
+            size += Measure(node.Children[i], nodeSizes);
+
+        nodeSizes[slot] = size;
+        return size;
+    }
+
+    private static void WriteNode(Stream stream, CastNode node, List<uint> nodeSizes, ref int nodeIndex, ref byte[] text)
+    {
+        Span<byte> header = stackalloc byte[24];
+        BinaryPrimitives.WriteUInt32LittleEndian(header, (uint)node.Identifier);
+        BinaryPrimitives.WriteUInt32LittleEndian(header[4..], nodeSizes[nodeIndex++]);
+        BinaryPrimitives.WriteUInt64LittleEndian(header[8..], node.Hash);
+        BinaryPrimitives.WriteInt32LittleEndian(header[16..], node.Properties.Count);
+        BinaryPrimitives.WriteInt32LittleEndian(header[20..], node.Children.Count);
+        stream.Write(header);
+
+        Span<byte> propertyHeader = stackalloc byte[8];
+
+        foreach (var (name, property) in node.Properties)
         {
-            writer.Write((uint)node.Identifier);
-            writer.Write(node.DataSize);
-            writer.Write(node.Hash);
-            writer.Write(node.Properties.Count);
-            writer.Write(node.Children.Count);
+            var nameSize = EncodeText(name, ref text);
 
-            foreach (var prop in node.Properties)
-                SaveProperty(writer, prop.Key, prop.Value);
-            foreach (var child in node.Children)
-                SaveNode(writer, child);
-        }
+            if (nameSize > ushort.MaxValue)
+                throw new InvalidDataException($"Property name {name} exceeds {ushort.MaxValue} bytes.");
 
-        /// <summary>
-        /// Saves the <see cref="Cast"/> instance to the provided file path.
-        /// </summary>
-        /// <param name="filePath">The file to save the cast instance to.</param>
-        /// <param name="cast">The cast instance being written.</param>
-        public static void Save(string filePath, Cast cast)
-        {
-            using var stream = File.Create(filePath);
-            Save(stream, cast);
-        }
+            BinaryPrimitives.WriteUInt16LittleEndian(propertyHeader, (ushort)property.Type);
+            BinaryPrimitives.WriteUInt16LittleEndian(propertyHeader[2..], (ushort)nameSize);
+            BinaryPrimitives.WriteInt32LittleEndian(propertyHeader[4..], property.Count);
+            stream.Write(propertyHeader);
+            stream.Write(text, 0, nameSize);
 
-        /// <summary>
-        /// Saves the <see cref="Cast"/> instance to the provided <see cref="Stream"/>.
-        /// </summary>
-        /// <param name="stream">The stream the cast instance is being written to.</param>
-        /// <param name="cast">The cast instance being written.</param>
-        public static void Save(Stream stream, Cast cast)
-        {
-            using var writer = new BinaryWriter(stream, Encoding.Default, true);
-            Save(writer, cast);
-        }
-
-        /// <summary>
-        /// Saves the <see cref="Cast"/> instance to the provided <see cref="BinaryWriter"/>.
-        /// </summary>
-        /// <param name="writer">The writer that the cast instance is being written to.</param>
-        /// <param name="cast">The cast instance being written.</param>
-        public static void Save(BinaryWriter writer, Cast cast)
-        {
-            writer.Write(0x74736163);
-            writer.Write(0x1);
-            writer.Write(cast.RootNodes.Count);
-            writer.Write(0);
-
-            foreach (var node in cast.RootNodes)
+            if (property is CastStringProperty value)
             {
-                SaveNode(writer, node);
+                stream.Write(text, 0, EncodeText(value.Value, ref text));
+                stream.WriteByte(0);
+            }
+            else
+            {
+                stream.Write(((CastArrayProperty)property).AsBytes());
             }
         }
 
-        /// <summary>
-        /// Saves the <see cref="Cast"/> instance to the provided file path.
-        /// </summary>
-        /// <param name="filePath">The file to save the cast instance to.</param>
-        /// <param name="root">The root node of the cast instance being written.</param>
-        public static void Save(string filePath, CastNode root)
-        {
-            using var stream = File.Create(filePath);
-            Save(stream, root);
-        }
+        for (var i = 0; i < node.Children.Count; i++)
+            WriteNode(stream, node.Children[i], nodeSizes, ref nodeIndex, ref text);
+    }
 
-        /// <summary>
-        /// Saves the <see cref="Cast"/> instance to the provided <see cref="Stream"/>.
-        /// </summary>
-        /// <param name="stream">The stream the cast instance is being written to.</param>
-        /// <param name="root">The root node of the cast instance being written.</param>
-        public static void Save(Stream stream, CastNode root)
-        {
-            using var writer = new BinaryWriter(stream, Encoding.Default, true);
-            Save(writer, root);
-        }
+    private static int EncodeText(string value, ref byte[] text)
+    {
+        var maximumSize = Encoding.UTF8.GetMaxByteCount(value.Length);
 
-        /// <summary>
-        /// Saves the <see cref="Cast"/> instance to the provided <see cref="BinaryWriter"/>.
-        /// </summary>
-        /// <param name="writer">The writer that the cast instance is being written to.</param>
-        /// <param name="root">The root node of the cast instance being written.</param>
-        public static void Save(BinaryWriter writer, CastNode root)
-        {
-            writer.Write(0x74736163);
-            writer.Write(0x1);
-            writer.Write(0x1);
-            writer.Write(0);
-            SaveNode(writer, root);
-        }
+        if (text.Length < maximumSize)
+            text = new byte[maximumSize];
+
+        return Encoding.UTF8.GetBytes(value, text);
     }
 }

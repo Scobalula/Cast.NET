@@ -1,0 +1,52 @@
+name: Release
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - name: Version
+        id: version
+        run: |
+          date=$(date -u +'%Y.%-m.%-d')
+          build=$(( $(git tag -l "v$date.*" | wc -l) + 1 ))
+          echo "build=$build" >> "$GITHUB_OUTPUT"
+          echo "value=$date.$build" >> "$GITHUB_OUTPUT"
+
+      - name: Build
+        run: dotnet build src/Cast.NET.slnx -c Release -p:BuildNumber=${{ steps.version.outputs.build }}
+
+      - name: Test
+        run: dotnet test --solution src/Cast.NET.slnx -c Release --no-build
+
+      - name: Pack
+        run: dotnet pack src/Cast.NET/Cast.NET.csproj -c Release --no-build -p:BuildNumber=${{ steps.version.outputs.build }} -o artifacts
+
+      - name: NuGet login
+        id: login
+        uses: NuGet/login@v1
+        with:
+          user: ${{ secrets.NUGET_USER }}
+
+      - name: Publish to NuGet
+        run: dotnet nuget push "artifacts/*.nupkg" --api-key ${{ steps.login.outputs.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create v${{ steps.version.outputs.value }} artifacts/* --title "v${{ steps.version.outputs.value }}" --notes "See [CHANGELOG.md](https://github.com/Scobalula/Cast.NET/blob/main/CHANGELOG.md)."

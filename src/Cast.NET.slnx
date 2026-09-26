@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/Examples/">
+    <Project Path="Cast.NET.Examples.DumpInfo/Cast.NET.Examples.DumpInfo.csproj" />
+    <Project Path="Cast.NET.Examples.GltfToCast/Cast.NET.Examples.GltfToCast.csproj" />
+    <Project Path="Cast.NET.Examples.SEToCast/Cast.NET.Examples.SEToCast.csproj" />
+  </Folder>
+  <Project Path="Cast.NET/Cast.NET.csproj" />
+  <Project Path="Cast.NET.Tests/Cast.NET.Tests.csproj" />
+</Solution>

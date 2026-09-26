@@ -1,6 +1,6 @@
-﻿// ------------------------------------------------------------------------
+// ------------------------------------------------------------------------
 // Cast.NET - A .NET Library for reading and writing Cast files.
-// Copyright(c) 2025 Philip/Scobalula
+// Copyright(c) 2026 Philip/Scobalula
 // ------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,157 +20,84 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 // ------------------------------------------------------------------------
-
 using System.Numerics;
 
-namespace Cast.NET.Nodes
+namespace CastNet.Nodes;
+
+/// <summary>
+/// A constraint between two bones.
+/// </summary>
+/// <param name="hash">The node hash.</param>
+public sealed class ConstraintNode(ulong hash) : CastNode(CastNodeIdentifier.Constraint, hash)
 {
     /// <summary>
-    /// A class to hold a <see cref="CastNode"/> that contains an constraint.
+    /// Gets or sets the name of the constraint.
     /// </summary>
-    public class ConstraintNode : CastNode
+    public string? Name { get => GetString("n"); set => SetString("n", value); }
+
+    /// <summary>
+    /// Gets or sets the constraint type: <c>pt</c> (point), <c>or</c> (orient) or <c>sc</c> (scale).
+    /// </summary>
+    public string ConstraintType { get => GetString("ct") ?? string.Empty; set => SetString("ct", value); }
+
+    /// <summary>
+    /// Gets or sets the constrained bone, resolved from the parent skeleton.
+    /// </summary>
+    public BoneNode? ConstraintBone { get => FindSibling<BoneNode>("cb"); set => SetValue("cb", value?.Hash); }
+
+    /// <summary>
+    /// Gets or sets the target bone, resolved from the parent skeleton.
+    /// </summary>
+    public BoneNode? TargetBone { get => FindSibling<BoneNode>("tb"); set => SetValue("tb", value?.Hash); }
+
+    /// <summary>
+    /// Gets or sets whether the initial offset between the bones is maintained.
+    /// </summary>
+    public bool MaintainOffset { get => GetBoolean("mo", false); set => SetBoolean("mo", value); }
+
+    /// <summary>
+    /// Gets or sets the custom offset: a quaternion for orient constraints, XYZ for point and scale constraints. <see cref="ConstraintType"/> must be set first.
+    /// </summary>
+    public Vector4 CustomOffset
     {
-        /// <summary>
-        /// Gets or Sets the name of this constraint.
-        /// </summary>
-        public string Name => GetStringValue("n", string.Empty);
-
-        /// <summary>
-        /// Gets or Sets the constraint type.
-        /// </summary>
-        public string ConstraintType { get => GetStringValue("ct"); set => AddString("ct", value); }
-
-        /// <summary>
-        /// Gets or Sets the hash of the constraint <see cref="BoneNode"/>.
-        /// </summary>
-        public ulong ConstraintBoneHash { get => GetFirstValue<ulong>("cb"); set => AddValue("cb", value); }
-
-        /// <summary>
-        /// Gets or Sets the hash of the target <see cref="BoneNode"/>.
-        /// </summary>
-        public ulong TargetBoneHash { get => GetFirstValue<ulong>("tb"); set => AddValue("tb", value); }
-
-        /// <summary>
-        /// Gets or Sets if to enable maintain offset.
-        /// </summary>
-        public bool MaintainOffset { get => GetFirstValue("mo", (byte)0) == 1; set => AddValue("mo", (byte)(value ? 1 : 0)); }
-
-        /// <summary>
-        /// Gets or Sets the custom offset.
-        /// When getting the value, if no value is set, this returns a default value which is based off the <see cref="ConstraintType"/> per the cast specification.
-        /// When setting a value, this is narrowed/expanded to the type based off the <see cref="ConstraintType"/> per the cast specification.
-        /// </summary>
-        public Vector4 CustomOffset
+        get => GetArray("co") switch
         {
-            get
-            {
-                var defaultValue = ConstraintType switch
-                {
-                    "pt" => Vector4.Zero,
-                    "or" => Vector4.UnitW,
-                    "sc" => Vector4.One,
-                    _ => throw new NotImplementedException()
-                };
-                return GetFirstValue("co", defaultValue);
-            }
-            set
-            {
-                switch(ConstraintType)
-                {
-                    case "pt":
-                        AddValue("co", new Vector3(value.X, value.Y, value.Z)); break;
-                    case "or":
-                        AddValue("co", value); break;
-                    case "sc":
-                        AddValue("co", new Vector3(value.X, value.Y, value.Z)); break;
-                    default:
-                        throw new NotImplementedException(ConstraintType);
-                }
-            }
-        }
+            { Type: CastPropertyType.Vector3, Count: > 0 } offset => new Vector4(offset.Get<Vector3>(0), 0.0f),
+            { Type: CastPropertyType.Vector4, Count: > 0 } offset => offset.Get<Vector4>(0),
+            _ => ConstraintType switch { "or" => Vector4.UnitW, "sc" => new Vector4(Vector3.One, 0.0f), _ => Vector4.Zero },
+        };
+        set => SetArray("co", ConstraintType switch
+        {
+            "or" => CastArrayProperty.Create(value),
+            "pt" or "sc" => CastArrayProperty.Create(value.AsVector3()),
+            _ => throw new InvalidOperationException("Set ConstraintType before CustomOffset."),
+        });
+    }
 
-        /// <summary>
-        /// Gets or Sets the weight of this constraint.
-        /// </summary>
-        public float Weight { get => GetFirstValue<float>("wt"); set => AddValue("wt", value); }
+    /// <summary>
+    /// Gets or sets the weight of the constraint.
+    /// </summary>
+    public float Weight { get => GetScalar("wt", 1.0f); set => SetValue("wt", value); }
 
-        /// <summary>
-        /// Gets or Sets if X is skipped.
-        /// </summary>
-        public bool SkipX { get => GetFirstValue("sx", (byte)0) == 1; set => AddValue("sx", (byte)(value ? 1 : 0)); }
+    /// <summary>
+    /// Gets or sets whether the X axis is skipped.
+    /// </summary>
+    public bool SkipX { get => GetBoolean("sx", false); set => SetBoolean("sx", value); }
 
-        /// <summary>
-        /// Gets or Sets if Y is skipped.
-        /// </summary>
-        public bool SkipY { get => GetFirstValue("sx", (byte)0) == 1; set => AddValue("sx", (byte)(value ? 1 : 0)); }
+    /// <summary>
+    /// Gets or sets whether the Y axis is skipped.
+    /// </summary>
+    public bool SkipY { get => GetBoolean("sy", false); set => SetBoolean("sy", value); }
 
-        /// <summary>
-        /// Gets or Sets if Z is skipped.
-        /// </summary>
-        public bool SkipZ { get => GetFirstValue("sx", (byte)0) == 1; set => AddValue("sx", (byte)(value ? 1 : 0)); }
+    /// <summary>
+    /// Gets or sets whether the Z axis is skipped.
+    /// </summary>
+    public bool SkipZ { get => GetBoolean("sz", false); set => SetBoolean("sz", value); }
 
-        /// <summary>
-        /// Gets or Sets the start <see cref="BoneNode"/>.
-        /// </summary>
-        public BoneNode ConstraintBone { get => Parent?.TryGetChild<BoneNode>(ConstraintBoneHash, out var node) == true ? node : throw new KeyNotFoundException(nameof(ConstraintBoneHash)); set => ConstraintBoneHash = value.Hash; }
-
-        /// <summary>
-        /// Gets or Sets the target <see cref="BoneNode"/>.
-        /// </summary>
-        public BoneNode TargetBone { get => Parent?.TryGetChild<BoneNode>(TargetBoneHash, out var node) == true ? node : throw new KeyNotFoundException(nameof(TargetBoneHash)); set => TargetBoneHash = value.Hash; }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ConstraintNode"/> class.
-        /// </summary>
-        public ConstraintNode() : base(CastNodeIdentifier.Constraint) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ConstraintNode"/> class.
-        /// </summary>
-        /// <param name="identifier">Node identifier.</param>
-        public ConstraintNode(CastNodeIdentifier identifier) : base(identifier) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ConstraintNode"/> class.
-        /// </summary>
-        /// <param name="identifier">Node identifier.</param>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        public ConstraintNode(CastNodeIdentifier identifier, ulong hash) : base(identifier, hash) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ConstraintNode"/> class.
-        /// </summary>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        public ConstraintNode(ulong hash) : base(CastNodeIdentifier.Constraint, hash) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ConstraintNode"/> class.
-        /// </summary>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        /// <param name="properties">Properties to assign to this node..</param>
-        /// <param name="children">Children to assign to this node..</param>
-        public ConstraintNode(ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(CastNodeIdentifier.Constraint, hash, properties, children)
-        { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CastNode"/> class.
-        /// </summary>
-        /// <param name="identifier">Node identifier.</param>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        /// <param name="properties">Properties to assign to this node..</param>
-        /// <param name="children">Children to assign to this node..</param>
-        public ConstraintNode(CastNodeIdentifier identifier, ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(identifier, hash, properties, children)
-        { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ConstraintNode"/> class.
-        /// </summary>
-        /// <param name="source">Node to copy from. A shallow copy is performed and references to the source are stored.</param>
-        public ConstraintNode(CastNode source) : base(source) { }
-
-        /// <inheritdoc/>
-        public override string ToString() => Name;
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ConstraintNode"/> class with a unique hash.
+    /// </summary>
+    public ConstraintNode() : this(CastHash.Next())
+    {
     }
 }

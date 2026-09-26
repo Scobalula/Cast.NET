@@ -1,6 +1,6 @@
-﻿// ------------------------------------------------------------------------
+// ------------------------------------------------------------------------
 // Cast.NET - A .NET Library for reading and writing Cast files.
-// Copyright(c) 2025 Philip/Scobalula
+// Copyright(c) 2026 Philip/Scobalula
 // ------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,92 +20,28 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 // ------------------------------------------------------------------------
+namespace CastNet.Nodes;
 
-namespace Cast.NET.Nodes
+/// <summary>
+/// A named notification and the frames it fires on.
+/// </summary>
+/// <param name="hash">The node hash.</param>
+public sealed class NotificationTrackNode(ulong hash) : CastNode(CastNodeIdentifier.NotificationTrack, hash)
 {
     /// <summary>
-    /// A class to hold a <see cref="CastNode"/> that contains a Notification Track.
+    /// Gets or sets the name of the notification.
     /// </summary>
-    public class NotificationTrackNode : CastNode
+    public string Name { get => GetString("n") ?? string.Empty; set => SetString("n", value); }
+
+    /// <summary>
+    /// Gets or sets the frames the notification fires on, stored as any integer type.
+    /// </summary>
+    public CastArrayProperty? KeyFrames { get => GetArray("kb"); set => SetArray("kb", value); }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="NotificationTrackNode"/> class with a unique hash.
+    /// </summary>
+    public NotificationTrackNode() : this(CastHash.Next())
     {
-        /// <summary>
-        /// Gets the name of the notification.
-        /// </summary>
-        public string Name { get => GetStringValue("n"); set => AddString("n", value); }
-
-        /// <summary>
-        /// Gets the raw key frame buffer stored within this notification track.
-        /// </summary>
-        public CastProperty KeyFrameBuffer { get => GetProperty("kb"); set => Properties["kb"] = value; }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationTrackNode"/> class.
-        /// </summary>
-        public NotificationTrackNode() : base(CastNodeIdentifier.NotificationTrack) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationTrackNode"/> class.
-        /// </summary>
-        /// <param name="identifier">Node identifier.</param>
-        public NotificationTrackNode(CastNodeIdentifier identifier) : base(identifier) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationTrackNode"/> class.
-        /// </summary>
-        /// <param name="identifier">Node identifier.</param>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        public NotificationTrackNode(CastNodeIdentifier identifier, ulong hash) : base(identifier, hash) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationTrackNode"/> class.
-        /// </summary>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        public NotificationTrackNode(ulong hash) : base(CastNodeIdentifier.NotificationTrack, hash) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationTrackNode"/> class.
-        /// </summary>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        /// <param name="properties">Properties to assign to this node..</param>
-        /// <param name="children">Children to assign to this node..</param>
-        public NotificationTrackNode(ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(CastNodeIdentifier.NotificationTrack, hash, properties, children)
-        { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CastNode"/> class.
-        /// </summary>
-        /// <param name="identifier">Node identifier.</param>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        /// <param name="properties">Properties to assign to this node..</param>
-        /// <param name="children">Children to assign to this node..</param>
-        public NotificationTrackNode(CastNodeIdentifier identifier, ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(identifier, hash, properties, children)
-        { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationTrackNode"/> class.
-        /// </summary>
-        /// <param name="source">Node to copy from. A shallow copy is performed and references to the source are stored.</param>
-        public NotificationTrackNode(CastNode source) : base(source) { }
-
-        /// <summary>
-        /// Enumerates through key frames.
-        /// </summary>
-        /// <returns>An enumerable collection of the key frames.</returns>
-        /// <exception cref="NotSupportedException">Thrown if the underlying <see cref="CastProperty"/> type is not supported.</exception>
-        public IEnumerable<double> EnumerateKeyFrames()
-        {
-            return KeyFrameBuffer switch
-            {
-                CastArrayProperty<byte> { Values: var v } => v.Select(x => (double)x),
-                CastArrayProperty<ushort> { Values: var v } => v.Select(x => (double)x),
-                CastArrayProperty<uint> { Values: var v } => v.Select(x => (double)x),
-                _ => throw new NotSupportedException($"Unimplemented buffer type {KeyFrameBuffer.GetType()}")
-            };
-        }
-
-        /// <inheritdoc/>
-        public override string ToString() => Name;
     }
 }

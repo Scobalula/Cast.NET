@@ -1,6 +1,6 @@
-﻿// ------------------------------------------------------------------------
+// ------------------------------------------------------------------------
 // Cast.NET - A .NET Library for reading and writing Cast files.
-// Copyright(c) 2025 Philip/Scobalula
+// Copyright(c) 2026 Philip/Scobalula
 // ------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -21,253 +21,157 @@
 // SOFTWARE.
 // ------------------------------------------------------------------------
 using System.Numerics;
-using System.Reflection.Emit;
-using System.Runtime.InteropServices;
 
-namespace Cast.NET.Nodes
+namespace CastNet.Nodes;
+
+/// <summary>
+/// A triangle mesh.
+/// </summary>
+/// <param name="hash">The node hash.</param>
+public sealed class MeshNode(ulong hash) : CastNode(CastNodeIdentifier.Mesh, hash)
 {
     /// <summary>
-    /// A class to hold a <see cref="CastNode"/> that contains a Mesh.
+    /// Gets or sets the name of the mesh.
     /// </summary>
-    public class MeshNode : CastNode
+    public string? Name { get => GetString("n"); set => SetString("n", value); }
+
+    /// <summary>
+    /// Gets or sets the vertex positions.
+    /// </summary>
+    public CastArrayProperty? Positions { get => GetArray("vp"); set => SetArray("vp", value); }
+
+    /// <summary>
+    /// Gets or sets the vertex normals.
+    /// </summary>
+    public CastArrayProperty? Normals { get => GetArray("vn"); set => SetArray("vn", value); }
+
+    /// <summary>
+    /// Gets or sets the vertex tangents.
+    /// </summary>
+    public CastArrayProperty? Tangents { get => GetArray("vt"); set => SetArray("vt", value); }
+
+    /// <summary>
+    /// Gets or sets the counter-clockwise face indices, stored as any integer type.
+    /// </summary>
+    public CastArrayProperty? Faces { get => GetArray("f"); set => SetArray("f", value); }
+
+    /// <summary>
+    /// Gets or sets the weight bone indices, <see cref="MaximumWeightInfluence"/> per vertex, stored as any integer type.
+    /// </summary>
+    public CastArrayProperty? WeightBones { get => GetArray("wb"); set => SetArray("wb", value); }
+
+    /// <summary>
+    /// Gets or sets the weight values, <see cref="MaximumWeightInfluence"/> per vertex.
+    /// </summary>
+    public CastArrayProperty? WeightValues { get => GetArray("wv"); set => SetArray("wv", value); }
+
+    /// <summary>
+    /// Gets the number of vertices.
+    /// </summary>
+    public int VertexCount => Positions?.Count ?? 0;
+
+    /// <summary>
+    /// Gets the number of faces.
+    /// </summary>
+    public int FaceCount => (Faces?.Count ?? 0) / 3;
+
+    /// <summary>
+    /// Gets or sets the number of uv layers.
+    /// </summary>
+    public int UVLayerCount { get => GetScalar("ul", 0); set => SetArray("ul", CastArrayProperty.CreateIndices([value])); }
+
+    /// <summary>
+    /// Gets or sets the number of color layers.
+    /// </summary>
+    public int ColorLayerCount { get => GetScalar<int>("cl") ?? (Properties.ContainsKey("vc") ? 1 : 0); set => SetArray("cl", CastArrayProperty.CreateIndices([value])); }
+
+    /// <summary>
+    /// Gets or sets the maximum number of weights per vertex.
+    /// </summary>
+    public int MaximumWeightInfluence { get => GetScalar("mi", 0); set => SetArray("mi", CastArrayProperty.CreateIndices([value])); }
+
+    /// <summary>
+    /// Gets or sets the skinning method, either <c>linear</c> or <c>quaternion</c>.
+    /// </summary>
+    public string SkinningMethod { get => GetString("sm") ?? "linear"; set => SetString("sm", value); }
+
+    /// <summary>
+    /// Gets or sets the material assigned to this mesh, resolved from the parent model.
+    /// </summary>
+    public MaterialNode? Material { get => FindSibling<MaterialNode>("m"); set => SetValue("m", value?.Hash); }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="MeshNode"/> class with a unique hash.
+    /// </summary>
+    public MeshNode() : this(CastHash.Next())
     {
-        /// <summary>
-        /// Gets or Sets the name of the mesh.
-        /// </summary>
-        public string Name { get => GetStringValue("n", string.Empty); set => AddString("n", value); }
+    }
 
-        /// <summary>
-        /// Gets or Sets the hash of the <see cref="MaterialNode"/> assigned to this mesh.
-        /// </summary>
-        public ulong MaterialHash { get => GetFirstValue<ulong>("m", 0); set => AddValue("m", value); }
+    /// <summary>
+    /// Gets the uv layer with the given index.
+    /// </summary>
+    /// <param name="index">The index of the layer.</param>
+    /// <returns>The layer, or <see langword="null"/> if it does not exist.</returns>
+    public CastArrayProperty? GetUVLayer(int index) => GetArray($"u{index}");
 
-        /// <summary>
-        /// Gets or Sets the <see cref="MaterialNode"/> assigned to this mesh.
-        /// </summary>
-        public MaterialNode? Material { get => Parent?.TryGetChild<MaterialNode>(MaterialHash, out var node) == true ? node : null; set { if (value is not null) MaterialHash = value.Hash; } }
+    /// <summary>
+    /// Sets the uv layer with the given index, removing it if <paramref name="layer"/> is <see langword="null"/>. <see cref="UVLayerCount"/> is updated to match.
+    /// </summary>
+    /// <param name="index">The index of the layer.</param>
+    /// <param name="layer">The layer.</param>
+    public void SetUVLayer(int index, CastArrayProperty? layer)
+    {
+        SetArray($"u{index}", layer);
 
-        /// <summary>
-        /// Gets or Sets the raw vertex positions buffer stored within this mesh.
-        /// </summary>
-        public CastArrayProperty<Vector3> VertexPositionBuffer { get => GetArrayProperty<Vector3>("vp"); set => Properties["vp"] = value; }
+        if (layer is not null && index >= UVLayerCount)
+            UVLayerCount = index + 1;
+        else if (layer is null && index == UVLayerCount - 1)
+            UVLayerCount = index;
+    }
 
-        /// <summary>
-        /// Gets the raw vertex normal buffer stored within this mesh.
-        /// </summary>
-        public CastArrayProperty<Vector3>? VertexNormalBuffer { get => TryGetArrayProperty<Vector3>("vn", out var array) ? array : null; set { if (value is not null) Properties["vn"] = value; } }
+    /// <summary>
+    /// Gets the color layer with the given index, stored as packed RGBA8 integers or <see cref="CastPropertyType.Vector4"/>.
+    /// </summary>
+    /// <param name="index">The index of the layer.</param>
+    /// <returns>The layer, or <see langword="null"/> if it does not exist.</returns>
+    public CastArrayProperty? GetColorLayer(int index) => index == 0 && !Properties.ContainsKey("cl") ? GetArray("vc") ?? GetArray("c0") : GetArray($"c{index}");
 
-        /// <summary>
-        /// Gets or Sets the raw vertex tangent buffer stored within this mesh.
-        /// </summary>
-        public CastArrayProperty<Vector3>? VertexTangentBuffer { get => TryGetArrayProperty<Vector3>("vt", out var array) ? array : null; set { if (value is not null) Properties["vt"] = value; } }
+    /// <summary>
+    /// Gets the colors of the layer with the given index, unpacking RGBA8 layers.
+    /// </summary>
+    /// <param name="index">The index of the layer.</param>
+    /// <returns>The colors, or <see langword="null"/> if the layer does not exist.</returns>
+    public Vector4[]? GetColors(int index)
+    {
+        if (GetColorLayer(index) is not CastArrayProperty layer)
+            return null;
 
-        /// <summary>
-        /// Gets or Sets the raw vertex color buffer stored within this mesh for legacy files.
-        /// </summary>
-        public CastProperty? VertexColorBuffer { get => GetPropertyOrNull("vc"); set { if (value is not null) Properties["vc"] = value; } }
+        if (layer.Type == CastPropertyType.Vector4)
+            return layer.AsSpan<Vector4>().ToArray();
 
-        /// <summary>
-        /// Gets or Sets the raw vertex weight bone buffer.
-        /// </summary>
-        public CastProperty? VertexWeightBoneBuffer { get => GetPropertyOrNull("wb"); set { if (value is not null) Properties["wb"] = value; } }
+        var packed = layer.AsSpan<uint>();
+        var colors = new Vector4[packed.Length];
 
-        /// <summary>
-        /// Gets or Sets the raw vertex weight value buffer.
-        /// </summary>
-        public CastArrayProperty<float>? VertexWeightValueBuffer { get => TryGetArrayProperty<float>("wv", out var array) ? array : null; set { if (value is not null) Properties["wv"] = value; } }
+        for (var i = 0; i < packed.Length; i++)
+            colors[i] = new Vector4((byte)packed[i], (byte)(packed[i] >> 8), (byte)(packed[i] >> 16), (byte)(packed[i] >> 24)) / byte.MaxValue;
 
-        /// <summary>
-        /// Gets or Sets the raw face value buffer.
-        /// </summary>
-        public CastProperty FaceBuffer { get => GetProperty("f"); set { if (value is not null) Properties["f"] = value; } }
+        return colors;
+    }
 
-        /// <summary>
-        /// Gets or Sets the number of uv layers within this mesh.
-        /// </summary>
-        public int UVLayerCount { get => (int)GetFirstInteger("ul", 0, 32); set => AddValue("ul", (uint)value); }
+    /// <summary>
+    /// Sets the color layer with the given index, removing it if <paramref name="layer"/> is <see langword="null"/>. <see cref="ColorLayerCount"/> is updated to match.
+    /// </summary>
+    /// <param name="index">The index of the layer.</param>
+    /// <param name="layer">The layer.</param>
+    public void SetColorLayer(int index, CastArrayProperty? layer)
+    {
+        var count = GetScalar<int>("cl") ?? 0;
 
-        /// <summary>
-        /// Gets or Sets the number of color layers within this mesh.
-        /// </summary>
-        public int ColorLayerCount { get => (int)GetFirstInteger("cl", 0, 32); set => AddValue("cl", (uint)value); }
+        SetArray($"c{index}", layer);
 
-        /// <summary>
-        /// Gets or Sets the max number of weight influences within this mesh.
-        /// </summary>
-        public int MaximumWeightInfluence { get => (int)GetFirstInteger("mi", 0, 32); set => AddValue("mi", (uint)value); }
-
-        /// <summary>
-        /// Gets or Sets the skinning type the mesh uses.
-        /// </summary>
-        public string SkinningMethod { get => GetStringValue("sm", "linear"); set => AddString("sm", value); }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MeshNode"/> class.
-        /// </summary>
-        public MeshNode() : base(CastNodeIdentifier.Mesh) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MeshNode"/> class.
-        /// </summary>
-        /// <param name="identifier">Node identifier.</param>
-        public MeshNode(CastNodeIdentifier identifier) : base(identifier) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MeshNode"/> class.
-        /// </summary>
-        /// <param name="identifier">Node identifier.</param>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        public MeshNode(CastNodeIdentifier identifier, ulong hash) : base(identifier, hash) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MeshNode"/> class.
-        /// </summary>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        public MeshNode(ulong hash) : base(CastNodeIdentifier.Mesh, hash) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MeshNode"/> class.
-        /// </summary>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        /// <param name="properties">Properties to assign to this node..</param>
-        /// <param name="children">Children to assign to this node..</param>
-        public MeshNode(ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(CastNodeIdentifier.Mesh, hash, properties, children)
-        { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CastNode"/> class.
-        /// </summary>
-        /// <param name="identifier">Node identifier.</param>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        /// <param name="properties">Properties to assign to this node..</param>
-        /// <param name="children">Children to assign to this node..</param>
-        public MeshNode(CastNodeIdentifier identifier, ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(identifier, hash, properties, children)
-        { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MeshNode"/> class.
-        /// </summary>
-        /// <param name="source">Node to copy from. A shallow copy is performed and references to the source are stored.</param>
-        public MeshNode(CastNode source) : base(source) { }
-
-        /// <summary>
-        /// Gets the layer with the given index.
-        /// </summary>
-        /// <param name="index">The index of the layer to obtain.</param>
-        /// <returns>The layer if found, otherwise null.</returns>
-        public CastArrayProperty<Vector2>? GetUVLayer(int index) => GetUVLayer($"u{index}");
-
-        /// <summary>
-        /// Gets the layer with the given key.
-        /// </summary>
-        /// <param name="key">The key of the layer to obtain.</param>
-        /// <returns>The layer if found, otherwise null.</returns>
-        public CastArrayProperty<Vector2>? GetUVLayer(string key) => GetPropertyOrNull(key) as CastArrayProperty<Vector2>;
-
-        /// <summary>
-        /// Gets the layer with the given index.
-        /// </summary>
-        /// <param name="index">The index of the layer to obtain.</param>
-        /// <returns>The layer if found, otherwise null.</returns>
-        public CastProperty? GetColorLayer(int index) => GetColorLayer($"c{index}");
-
-        /// <summary>
-        /// Gets the layer with the given key.
-        /// </summary>
-        /// <param name="key">The key of the layer to obtain.</param>
-        /// <returns>The layer if found, otherwise null.</returns>
-        public CastProperty? GetColorLayer(string key) => GetPropertyOrNull(key);
-
-        /// <summary>
-        /// Enumerates all weight bones and values.
-        /// </summary>
-        /// <returns>An <see cref="IEnumerable{T}"/> with the bone and weight value.</returns>
-        public IEnumerable<(int, float)> EnumerateBoneWeights()
-        {
-            if (VertexWeightValueBuffer is not null)
-            {
-                if (VertexWeightBoneBuffer is CastArrayProperty<byte> byteArray)
-                {
-                    for (int i = 0; i < VertexWeightBoneBuffer.ValueCount; i++)
-                    {
-                        yield return (byteArray.Values[i], VertexWeightValueBuffer.Values[i]);
-                    }
-                }
-                else if (VertexWeightBoneBuffer is CastArrayProperty<ushort> shortArray)
-                {
-                    for (int i = 0; i < VertexWeightBoneBuffer.ValueCount; i++)
-                    {
-                        yield return (shortArray.Values[i], VertexWeightValueBuffer.Values[i]);
-                    }
-                }
-                else if (VertexWeightBoneBuffer is CastArrayProperty<uint> intArray)
-                {
-                    for (int i = 0; i < VertexWeightBoneBuffer.ValueCount; i++)
-                    {
-                        yield return ((int)intArray.Values[i], VertexWeightValueBuffer.Values[i]);
-                    }
-                }
-            }
-        }
-
-        public IEnumerable<(int, int, int)> EnumerateFaceIndices()
-        {
-            var faceCount = FaceBuffer.ValueCount / 3;
-
-            if (FaceBuffer is CastArrayProperty<byte> byteArray)
-            {
-                for(int i = 0; i < faceCount && i < byteArray.Values.Count; i++)
-                {
-                    yield return (byteArray.Values[i * 3 + 0], byteArray.Values[i * 3 + 1], byteArray.Values[i * 3 + 2]);
-                }
-            }
-            else if (FaceBuffer is CastArrayProperty<ushort> ushortArray)
-            {
-                for (int i = 0; i < faceCount && i < ushortArray.Values.Count; i++)
-                {
-                    yield return (ushortArray.Values[i * 3 + 0], ushortArray.Values[i * 3 + 1], ushortArray.Values[i * 3 + 2]);
-                }
-            }
-            else if (FaceBuffer is CastArrayProperty<uint> intArray)
-            {
-                for (int i = 0; i < faceCount && i < intArray.Values.Count; i++)
-                {
-                    yield return ((int)intArray.Values[i * 3 + 0], (int)intArray.Values[i * 3 + 1], (int)intArray.Values[i * 3 + 2]);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Adds a new uv layer to the mesh.
-        /// </summary>
-        /// <param name="uvLayer">The index of the uv layer, if a layer with the provided index already exists, this is overriden.</param>
-        /// <returns>Resulting uv layer.</returns>
-        public CastArrayProperty<Vector2> AddUVLayer(int uvLayer) => AddArray<Vector2>($"u{uvLayer}");
-
-        /// <summary>
-        /// Adds a new uv layer to the mesh.
-        /// </summary>
-        /// <param name="uvLayer">The index of the uv layer, if a layer with the provided index already exists, this is overriden.</param>
-        /// <param name="property">Property to add.</param>
-        public void AddUVLayer(int uvLayer, CastArrayProperty<Vector2> property) => Properties[$"u{uvLayer}"] = property;
-
-        /// <summary>
-        /// Adds a new color layer to the mesh.
-        /// </summary>
-        /// <param name="colorLayer">The index of the color layer, if a layer with the provided index already exists, this is overriden.</param>
-        /// <returns>Resulting color layer.</returns>
-        public CastArrayProperty<Vector4> AddColorLayer(int colorLayer) => AddArray<Vector4>($"c{colorLayer}");
-
-        /// <summary>
-        /// Adds a new color layer to the mesh.
-        /// </summary>
-        /// <param name="colorLayer">The index of the color layer, if a layer with the provided index already exists, this is overriden.</param>
-        /// <param name="property">Property to add.</param>
-        public void AddColorLayer(int colorLayer, CastArrayProperty<Vector4> property) => Properties[$"c{colorLayer}"] = property;
-
-        /// <inheritdoc/>
-        public override string ToString() => Name;
+        if (layer is not null && index >= count)
+            ColorLayerCount = index + 1;
+        else if (layer is null && index == count - 1)
+            ColorLayerCount = index;
     }
 }

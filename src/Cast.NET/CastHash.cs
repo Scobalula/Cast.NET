@@ -1,6 +1,6 @@
-﻿// ------------------------------------------------------------------------
+// ------------------------------------------------------------------------
 // Cast.NET - A .NET Library for reading and writing Cast files.
-// Copyright(c) 2025 Philip/Scobalula
+// Copyright(c) 2026 Philip/Scobalula
 // ------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,62 +20,18 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 // ------------------------------------------------------------------------
+namespace CastNet;
 
-namespace Cast.NET
+/// <summary>
+/// Generates unique node hashes.
+/// </summary>
+public static class CastHash
 {
+    private static ulong _current = (ulong)Random.Shared.NextInt64();
+
     /// <summary>
-    /// Specifies the supported <see cref="CastProperty"/> identifiers.
+    /// Gets the next unique hash.
     /// </summary>
-    public enum CastPropertyIdentifier : ushort
-    {
-        /// <summary>
-        /// 8-Bit Integer (uint8_t/byte)
-        /// </summary>
-        Byte = 'b',
-
-        /// <summary>
-        /// 16-Bit Integer (uint16_t/ushort)
-        /// </summary>
-        Short = 'h',
-
-        /// <summary>
-        /// 32-Bit Integer (uint32_t/uint)
-        /// </summary>
-        Integer32 = 'i',
-
-        /// <summary>
-        /// 64-Bit Integer (uint64_t/ulong)
-        /// </summary>
-        Integer64 = 'l',
-
-        /// <summary>
-        /// Single Precision Value (float)
-        /// </summary>
-        Float = 'f',
-
-        /// <summary>
-        /// Double Precision Value (double)
-        /// </summary>
-        Double = 'd',
-
-        /// <summary>
-        /// Null terminated UTF-8 string
-        /// </summary>
-        String = 's',
-
-        /// <summary>
-        /// Float precision vector XYZ
-        /// </summary>
-        Vector2 = 0x7632,
-
-        /// <summary>
-        /// Float precision vector XYZ
-        /// </summary>
-        Vector3 = 0x7633,
-
-        /// <summary>
-        /// Float precision vector XYZW
-        /// </summary>
-        Vector4 = 0x7634
-    }
+    /// <returns>A unique hash.</returns>
+    public static ulong Next() => Interlocked.Increment(ref _current);
 }

@@ -1,6 +1,6 @@
-﻿// ------------------------------------------------------------------------
+// ------------------------------------------------------------------------
 // Cast.NET - A .NET Library for reading and writing Cast files.
-// Copyright(c) 2025 Philip/Scobalula
+// Copyright(c) 2026 Philip/Scobalula
 // ------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,160 +20,48 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 // ------------------------------------------------------------------------
-using System.Numerics;
-using System.Runtime.InteropServices;
+namespace CastNet.Nodes;
 
-namespace Cast.NET.Nodes
+/// <summary>
+/// An animation curve for a single node property.
+/// </summary>
+/// <param name="hash">The node hash.</param>
+public sealed class CurveNode(ulong hash) : CastNode(CastNodeIdentifier.Curve, hash)
 {
     /// <summary>
-    /// A class to hold a <see cref="CastNode"/> that contains a Curve.
+    /// Gets or sets the name of the node this curve animates.
     /// </summary>
-    public class CurveNode : CastNode
+    public string NodeName { get => GetString("nn") ?? string.Empty; set => SetString("nn", value); }
+
+    /// <summary>
+    /// Gets or sets the property this curve animates: <c>rq</c>, <c>tx</c>, <c>ty</c>, <c>tz</c>, <c>sx</c>, <c>sy</c>, <c>sz</c>, <c>bs</c> or <c>vb</c>.
+    /// </summary>
+    public string KeyPropertyName { get => GetString("kp") ?? string.Empty; set => SetString("kp", value); }
+
+    /// <summary>
+    /// Gets or sets the key frames, stored as any integer type.
+    /// </summary>
+    public CastArrayProperty? KeyFrames { get => GetArray("kb"); set => SetArray("kb", value); }
+
+    /// <summary>
+    /// Gets or sets the key values: quaternions for rotations, floats for translations, scales and blend shapes, any integer type for visibility.
+    /// </summary>
+    public CastArrayProperty? KeyValues { get => GetArray("kv"); set => SetArray("kv", value); }
+
+    /// <summary>
+    /// Gets or sets the curve mode: <c>additive</c>, <c>absolute</c> or <c>relative</c>.
+    /// </summary>
+    public string Mode { get => GetString("m") ?? "relative"; set => SetString("m", value); }
+
+    /// <summary>
+    /// Gets or sets the blend weight applied to additive curves.
+    /// </summary>
+    public float AdditiveBlendWeight { get => GetScalar("ab", 1.0f); set => SetValue("ab", value); }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CurveNode"/> class with a unique hash.
+    /// </summary>
+    public CurveNode() : this(CastHash.Next())
     {
-        /// <summary>
-        /// Gets or Sets the name of the node this curve targets.
-        /// </summary>
-        public string NodeName { get => GetStringValue("nn"); set => AddString("nn", value); }
-
-        /// <summary>
-        /// Gets or Sets the key this curve targets.
-        /// </summary>
-        public string KeyPropertyName { get => GetStringValue("kp"); set => AddString("kp", value); }
-
-        /// <summary>
-        /// Gets or Sets the raw key frame buffer stored within this curve.
-        /// </summary>
-        public CastProperty KeyFrameBuffer { get => GetProperty("kb"); set => Properties["kb"] = value; }
-
-        /// <summary>
-        /// Gets or Sets the raw key value buffer stored within this curve.
-        /// </summary>
-        public CastProperty KeyValueBuffer { get => GetProperty("kv"); set => Properties["kv"] = value; }
-
-        /// <summary>
-        /// Gets or Sets the curve's mode.
-        /// </summary>
-        public string Mode { get => GetStringValue("m", "relative"); set => AddString("m", value); }
-
-        /// <summary>
-        /// Gets or Sets the additive blend weight.
-        /// </summary>
-        public float AdditiveBlendWeight { get => GetFirstValue("ab", 0.0f); set => AddValue("ab", value); }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CurveNode"/> class.
-        /// </summary>
-        public CurveNode() : base(CastNodeIdentifier.Curve) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CurveNode"/> class.
-        /// </summary>
-        /// <param name="identifier">Node identifier.</param>
-        public CurveNode(CastNodeIdentifier identifier) : base(identifier) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CurveNode"/> class.
-        /// </summary>
-        /// <param name="identifier">Node identifier.</param>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        public CurveNode(CastNodeIdentifier identifier, ulong hash) : base(identifier, hash) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CurveNode"/> class.
-        /// </summary>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        public CurveNode(ulong hash) : base(CastNodeIdentifier.Curve, hash) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CurveNode"/> class.
-        /// </summary>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        /// <param name="properties">Properties to assign to this node..</param>
-        /// <param name="children">Children to assign to this node..</param>
-        public CurveNode(ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(CastNodeIdentifier.Curve, hash, properties, children)
-        { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CastNode"/> class.
-        /// </summary>
-        /// <param name="identifier">Node identifier.</param>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        /// <param name="properties">Properties to assign to this node..</param>
-        /// <param name="children">Children to assign to this node..</param>
-        public CurveNode(CastNodeIdentifier identifier, ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(identifier, hash, properties, children)
-        { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CurveNode"/> class.
-        /// </summary>
-        /// <param name="source">Node to copy from. A shallow copy is performed and references to the source are stored.</param>
-        public CurveNode(CastNode source) : base(source) { }
-
-        /// <summary>
-        /// Enumerates through key frames.
-        /// </summary>
-        /// <returns>An enumerable collection of the key frames.</returns>
-        /// <exception cref="NotSupportedException">Thrown if the underlying <see cref="CastProperty"/> type is not supported.</exception>
-        public IEnumerable<double> EnumerateKeyFrames()
-        {
-            return KeyFrameBuffer switch
-            {
-                CastArrayProperty<byte> { Values: var v }   => v.Select(x => (double)x),
-                CastArrayProperty<ushort> { Values: var v } => v.Select(x => (double)x),
-                CastArrayProperty<uint> { Values: var v }   => v.Select(x => (double)x),
-                _ => throw new NotSupportedException($"Unimplemented buffer type {KeyFrameBuffer.GetType()}")
-            };
-        }
-
-        /// <summary>
-        /// Enumerates through frames and their corresponding values.
-        /// </summary>
-        /// <returns>An enumerable collection of frames and their corresponding values.</returns>
-        /// <typeparam name="T">The type to request.</typeparam>
-        /// <exception cref="DataMisalignedException">Thrown if underlying buffers have different counts.</exception>
-        /// <exception cref="NotSupportedException">Thrown if the underlying <see cref="CastProperty"/> type is not supported.</exception>
-        public IEnumerable<(double, T)> EnumerateKeys<T>() where T : unmanaged
-        {
-            var keyFrameBuffer = KeyFrameBuffer;
-            var keyValueBuffer = KeyValueBuffer;
-
-            if (KeyValueBuffer.ValueCount != KeyFrameBuffer.ValueCount)
-                throw new DataMisalignedException($"KeyValueBuffer and KeyFrameBuffer for node: {NodeName} have different lengths.");
-
-            if (keyValueBuffer is not CastArrayProperty<T> keyValueBufferAsType)
-                throw new NotSupportedException($"Requested key value buffer of type: {typeof(T)} but underlying type is {keyValueBuffer.GetType()} for node: {NodeName}");
-
-            return KeyFrameBuffer switch
-            {
-                CastArrayProperty<byte> { Values: var v } => v.Select(x => (double)x).Zip(keyValueBufferAsType.Values),
-                CastArrayProperty<ushort> { Values: var v } => v.Select(x => (double)x).Zip(keyValueBufferAsType.Values),
-                CastArrayProperty<uint> { Values: var v } => v.Select(x => (double)x).Zip(keyValueBufferAsType.Values),
-                _ => throw new NotSupportedException($"Unimplemented buffer type {KeyFrameBuffer.GetType()}")
-            };
-        }
-
-        /// <summary>
-        /// Enumerates through key values.
-        /// </summary>
-        /// <returns>An enumerable collection of key values.</returns>
-        /// <typeparam name="T">The type to request.</typeparam>
-        /// <returns>An enumerable collection of key values.</returns>
-        /// <exception cref="NotSupportedException">Thrown if the underlying <see cref="CastProperty"/> type is not supported.</exception>
-        public IEnumerable<T> EnumerateKeyValues<T>() where T : unmanaged
-        {
-            if (KeyValueBuffer is CastArrayProperty<T> array)
-            {
-                return array.Values;
-            }
-            else
-            {
-                throw new NotSupportedException($"Requested key value buffer of type: {typeof(T)} but underlying type is {KeyValueBuffer.GetType()} for node: {NodeName}");
-            }
-        }
-
-        /// <inheritdoc/>
-        public override string ToString() => NodeName;
     }
 }

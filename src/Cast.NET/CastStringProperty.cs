@@ -1,6 +1,6 @@
-﻿// ------------------------------------------------------------------------
+// ------------------------------------------------------------------------
 // Cast.NET - A .NET Library for reading and writing Cast files.
-// Copyright(c) 2025 Philip/Scobalula
+// Copyright(c) 2026 Philip/Scobalula
 // ------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,69 +20,25 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 // ------------------------------------------------------------------------
-using System.Text;
+namespace CastNet;
 
-namespace Cast.NET
+/// <summary>
+/// A property holding a string.
+/// </summary>
+/// <param name="value">The string value.</param>
+public sealed class CastStringProperty(string value) : CastProperty
 {
     /// <summary>
-    /// A class to hold a <see cref="CastProperty"/> value that contains a <see cref="string"/>.
+    /// Gets or sets the string value.
     /// </summary>
-    public class CastStringProperty : CastProperty
-    {
-        /// <inheritdoc/>
-        public override CastPropertyIdentifier Identifier { get; protected set; }
+    public string Value { get; set; } = value;
 
-        /// <summary>
-        /// Gets or Sets the value assigned to this property.
-        /// </summary>
-        public string Value { get; set; }
+    /// <inheritdoc/>
+    public override CastPropertyType Type => CastPropertyType.String;
 
-        /// <summary>
-        /// Gets the total number of values in this property.
-        /// </summary>
-        public override int ValueCount => 1;
+    /// <inheritdoc/>
+    public override int Count => 1;
 
-        /// <summary>
-        /// Gets the total raw size of the data within the property
-        /// </summary>
-        internal override int DataSize => Value.Length + 1;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CastStringProperty"/> class.
-        /// </summary>
-        /// <param name="name">Name of the property.</param>
-        public CastStringProperty()
-        {
-            Identifier = CastPropertyIdentifier.String;
-            Value = string.Empty;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CastStringProperty"/> class with the provided value.
-        /// </summary>
-        /// <param name="name">Name of the property.</param>
-        /// <param name="value">Value to assign to this property.</param>
-        public CastStringProperty(string value)
-        {
-            Identifier = CastPropertyIdentifier.String;
-            Value = value;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CastStringProperty"/> class with the provided value.
-        /// </summary>
-        /// <param name="name">Name of the property.</param>
-        /// <param name="value">Value to assign to this property.</param>
-        public CastStringProperty(StringBuilder value)
-        {
-            Identifier = CastPropertyIdentifier.String;
-            Value = value.ToString();
-        }
-
-        /// <inheritdoc/>
-        public override string ToString()
-        {
-            return Value;
-        }
-    }
+    /// <inheritdoc/>
+    public override string ToString() => Value;
 }

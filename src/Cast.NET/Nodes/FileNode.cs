@@ -1,6 +1,6 @@
-﻿// ------------------------------------------------------------------------
+// ------------------------------------------------------------------------
 // Cast.NET - A .NET Library for reading and writing Cast files.
-// Copyright(c) 2025 Philip/Scobalula
+// Copyright(c) 2026 Philip/Scobalula
 // ------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,71 +20,23 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 // ------------------------------------------------------------------------
+namespace CastNet.Nodes;
 
-namespace Cast.NET.Nodes
+/// <summary>
+/// A reference to an external file.
+/// </summary>
+/// <param name="hash">The node hash.</param>
+public sealed class FileNode(ulong hash) : CastNode(CastNodeIdentifier.File, hash)
 {
     /// <summary>
-    /// A class to hold a <see cref="CastNode"/> that contains a File.
+    /// Gets or sets the path of the file.
     /// </summary>
-    public class FileNode : CastNode
+    public string Path { get => GetString("p") ?? string.Empty; set => SetString("p", value); }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="FileNode"/> class with a unique hash.
+    /// </summary>
+    public FileNode() : this(CastHash.Next())
     {
-        /// <summary>
-        /// Gets or Sets the path of this file.
-        /// </summary>
-        public string Path { get => GetStringValue("p"); set => AddString("p", value); }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FileNode"/> class.
-        /// </summary>
-        public FileNode() : base(CastNodeIdentifier.File) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FileNode"/> class.
-        /// </summary>
-        /// <param name="identifier">Node identifier.</param>
-        public FileNode(CastNodeIdentifier identifier) : base(identifier) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FileNode"/> class.
-        /// </summary>
-        /// <param name="identifier">Node identifier.</param>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        public FileNode(CastNodeIdentifier identifier, ulong hash) : base(identifier, hash) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FileNode"/> class.
-        /// </summary>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        public FileNode(ulong hash) : base(CastNodeIdentifier.File, hash) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FileNode"/> class.
-        /// </summary>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        /// <param name="properties">Properties to assign to this node..</param>
-        /// <param name="children">Children to assign to this node..</param>
-        public FileNode(ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(CastNodeIdentifier.File, hash, properties, children)
-        { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CastNode"/> class.
-        /// </summary>
-        /// <param name="identifier">Node identifier.</param>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        /// <param name="properties">Properties to assign to this node..</param>
-        /// <param name="children">Children to assign to this node..</param>
-        public FileNode(CastNodeIdentifier identifier, ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(identifier, hash, properties, children)
-        { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FileNode"/> class.
-        /// </summary>
-        /// <param name="source">Node to copy from. A shallow copy is performed and references to the source are stored.</param>
-        public FileNode(CastNode source) : base(source) { }
-
-        /// <inheritdoc/>
-        public override string ToString() => Path;
     }
 }

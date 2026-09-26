@@ -1,6 +1,6 @@
-﻿// ------------------------------------------------------------------------
+// ------------------------------------------------------------------------
 // Cast.NET - A .NET Library for reading and writing Cast files.
-// Copyright(c) 2025 Philip/Scobalula
+// Copyright(c) 2026 Philip/Scobalula
 // ------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,83 +20,35 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 // ------------------------------------------------------------------------
-
 using System.Numerics;
 
-namespace Cast.NET.Nodes
+namespace CastNet.Nodes;
+
+/// <summary>
+/// A color used by a material slot.
+/// </summary>
+/// <param name="hash">The node hash.</param>
+public sealed class ColorNode(ulong hash) : CastNode(CastNodeIdentifier.Color, hash)
 {
     /// <summary>
-    /// A class to hold a <see cref="CastNode"/> that contains Color information.
+    /// Gets or sets the name of the color.
     /// </summary>
-    public class ColorNode : CastNode
+    public string? Name { get => GetString("n"); set => SetString("n", value); }
+
+    /// <summary>
+    /// Gets or sets the color space: <c>srgb</c> or <c>linear</c>.
+    /// </summary>
+    public string ColorSpace { get => GetString("cs") ?? "srgb"; set => SetString("cs", value); }
+
+    /// <summary>
+    /// Gets or sets the color.
+    /// </summary>
+    public Vector4 Rgba { get => GetValue("rgba", Vector4.One); set => SetValue("rgba", value); }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ColorNode"/> class with a unique hash.
+    /// </summary>
+    public ColorNode() : this(CastHash.Next())
     {
-        /// <summary>
-        /// Gets or Sets the name.
-        /// </summary>
-        public string Name { get => GetStringValue("n", string.Empty); set => AddString("n", value); }
-
-        /// <summary>
-        /// Gets or Sets the author.
-        /// </summary>
-        public string ColorSpace { get => GetStringValue("cs", "srgb"); set => AddString("cs", value); }
-
-        /// <summary>
-        /// Gets or Sets the software.
-        /// </summary>
-        public Vector4 RgbaColor { get => GetFirstValue<Vector4>("rgba"); set => AddValue("rgba", value); }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ColorNode"/> class.
-        /// </summary>
-        public ColorNode() : base(CastNodeIdentifier.Color) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ColorNode"/> class.
-        /// </summary>
-        /// <param name="identifier">Node identifier.</param>
-        public ColorNode(CastNodeIdentifier identifier) : base(identifier) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ColorNode"/> class.
-        /// </summary>
-        /// <param name="identifier">Node identifier.</param>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        public ColorNode(CastNodeIdentifier identifier, ulong hash) : base(identifier, hash) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ColorNode"/> class.
-        /// </summary>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        public ColorNode(ulong hash) : base(CastNodeIdentifier.Color, hash) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ColorNode"/> class.
-        /// </summary>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        /// <param name="properties">Properties to assign to this node..</param>
-        /// <param name="children">Children to assign to this node..</param>
-        public ColorNode(ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(CastNodeIdentifier.Color, hash, properties, children)
-        { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CastNode"/> class.
-        /// </summary>
-        /// <param name="identifier">Node identifier.</param>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        /// <param name="properties">Properties to assign to this node..</param>
-        /// <param name="children">Children to assign to this node..</param>
-        public ColorNode(CastNodeIdentifier identifier, ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(identifier, hash, properties, children)
-        { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ColorNode"/> class.
-        /// </summary>
-        /// <param name="source">Node to copy from. A shallow copy is performed and references to the source are stored.</param>
-        public ColorNode(CastNode source) : base(source) { }
-
-        /// <inheritdoc/>
-        public override string ToString() => RgbaColor.ToString();
     }
 }

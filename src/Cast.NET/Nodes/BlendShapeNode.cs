@@ -1,6 +1,6 @@
-﻿// ------------------------------------------------------------------------
+// ------------------------------------------------------------------------
 // Cast.NET - A .NET Library for reading and writing Cast files.
-// Copyright(c) 2025 Philip/Scobalula
+// Copyright(c) 2026 Philip/Scobalula
 // ------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,137 +20,43 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 // ------------------------------------------------------------------------
+namespace CastNet.Nodes;
 
-using System.Numerics;
-
-namespace Cast.NET.Nodes
+/// <summary>
+/// A blend shape target for a mesh.
+/// </summary>
+/// <param name="hash">The node hash.</param>
+public sealed class BlendShapeNode(ulong hash) : CastNode(CastNodeIdentifier.BlendShape, hash)
 {
     /// <summary>
-    /// A class to hold a <see cref="CastNode"/> that contains a Blend Shape.
+    /// Gets or sets the name of the blend shape.
     /// </summary>
-    public class BlendShapeNode : CastNode
+    public string Name { get => GetString("n") ?? string.Empty; set => SetString("n", value); }
+
+    /// <summary>
+    /// Gets or sets the base mesh this shape deforms, resolved from the parent model.
+    /// </summary>
+    public MeshNode? BaseShape { get => FindSibling<MeshNode>("b"); set => SetValue("b", value?.Hash); }
+
+    /// <summary>
+    /// Gets or sets the deformed vertex indices, stored as any integer type.
+    /// </summary>
+    public CastArrayProperty? VertexIndices { get => GetArray("vi"); set => SetArray("vi", value); }
+
+    /// <summary>
+    /// Gets or sets the deformed vertex positions, one per entry in <see cref="VertexIndices"/>.
+    /// </summary>
+    public CastArrayProperty? VertexPositions { get => GetArray("vp"); set => SetArray("vp", value); }
+
+    /// <summary>
+    /// Gets or sets the maximum weight the shape deforms to.
+    /// </summary>
+    public float TargetWeightScale { get => GetScalar("ts", 1.0f); set => SetValue("ts", value); }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="BlendShapeNode"/> class with a unique hash.
+    /// </summary>
+    public BlendShapeNode() : this(CastHash.Next())
     {
-        /// <summary>
-        /// Gets or Sets the name of this blend shape.
-        /// </summary>
-        public string Name { get => GetStringValue("n", string.Empty); set => AddString("n", value); }
-
-        /// <summary>
-        /// Gets the hash of the base shape.
-        /// </summary>
-        public ulong BaseShapeHash { get => GetFirstValue<ulong>("b"); set => AddValue("b", value); }
-
-        /// <summary>
-        /// Gets or Sets the base <see cref="MeshNode"/>.
-        /// </summary>
-        public MeshNode BaseShape { get => Parent?.TryGetChild<MeshNode>(BaseShapeHash, out var node) == true ? node : throw new KeyNotFoundException(); set { BaseShapeHash = value.Hash; } }
-
-        /// <summary>
-        /// Gets or Sets the raw vertex index buffer.
-        /// </summary>
-        public CastProperty TargetShapeVertexIndices { get => GetProperty("vi"); set => Properties["vi"] = value; }
-
-        /// <summary>
-        /// Gets or Sets the raw vertex positions buffer stored within this blend shape.
-        /// </summary>
-        public CastArrayProperty<Vector3> TargetShapeVertexPositions { get => GetArrayProperty<Vector3>("vp"); set => Properties["vp"] = value; }
-
-        /// <summary>
-        /// Gets or Sets the weight of this constraint.
-        /// </summary>
-        public float Weight { get => GetFirstValue("ts", 1.0f); set => AddValue("ts", value); }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BlendShapeNode"/> class.
-        /// </summary>
-        public BlendShapeNode() : base(CastNodeIdentifier.BlendShape) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BlendShapeNode"/> class.
-        /// </summary>
-        /// <param name="identifier">Node identifier.</param>
-        public BlendShapeNode(CastNodeIdentifier identifier) : base(identifier) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BlendShapeNode"/> class.
-        /// </summary>
-        /// <param name="identifier">Node identifier.</param>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        public BlendShapeNode(CastNodeIdentifier identifier, ulong hash) : base(identifier, hash) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BlendShapeNode"/> class.
-        /// </summary>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        public BlendShapeNode(ulong hash) : base(CastNodeIdentifier.BlendShape, hash) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BlendShapeNode"/> class.
-        /// </summary>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        /// <param name="properties">Properties to assign to this node..</param>
-        /// <param name="children">Children to assign to this node..</param>
-        public BlendShapeNode(ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(CastNodeIdentifier.BlendShape, hash, properties, children)
-        { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CastNode"/> class.
-        /// </summary>
-        /// <param name="identifier">Node identifier.</param>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        /// <param name="properties">Properties to assign to this node..</param>
-        /// <param name="children">Children to assign to this node..</param>
-        public BlendShapeNode(CastNodeIdentifier identifier, ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(identifier, hash, properties, children)
-        { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BlendShapeNode"/> class.
-        /// </summary>
-        /// <param name="source">Node to copy from. A shallow copy is performed and references to the source are stored.</param>
-        public BlendShapeNode(CastNode source) : base(source) { }
-
-        /// <summary>
-        /// Enumerates through vertex indices.
-        /// </summary>
-        /// <returns>An enumerable collection of vertex indices.</returns>
-        /// <exception cref="NotImplementedException">Thrown if the underlying index buffer not supported.</exception>
-        public IEnumerable<int> EnumerateVertexIndices()
-        {
-            return TargetShapeVertexIndices switch
-            {
-                CastArrayProperty<byte> { Values: var v } => v.Select(x => (int)x),
-                CastArrayProperty<ushort> { Values: var v } => v.Select(x => (int)x),
-                CastArrayProperty<uint> { Values: var v } => v.Select(x => (int)x),
-                _ => throw new NotImplementedException($"Unsupported buffer type {TargetShapeVertexIndices.GetType()}")
-            };
-        }
-
-        /// <summary>
-        /// Enumerates through vertex indices and their corrosponding positions.
-        /// </summary>
-        /// <returns>An enumerable collection of vertex indices and their corrosponding positions.</returns>
-        /// <exception cref="DataMisalignedException">Thrown if the index and position buffer have different value counts.</exception>
-        /// <exception cref="NotImplementedException">Thrown if the underlying index buffer not supported.</exception>
-        public IEnumerable<(int, Vector3)> EnumerateVertices()
-        {
-            var targetShapeVertexIndices = TargetShapeVertexIndices;
-            var targetShapeVertexPositions = TargetShapeVertexPositions;
-
-            if (targetShapeVertexIndices.ValueCount != targetShapeVertexPositions.ValueCount)
-                throw new DataMisalignedException($"TargetShapeVertexIndices and TargetShapeVertexPositions have different value counts.");
-
-            return targetShapeVertexIndices switch
-            {
-                CastArrayProperty<byte> { Values: var v } => v.Select(x => (int)x).Zip(targetShapeVertexPositions.Values),
-                CastArrayProperty<ushort> { Values: var v } => v.Select(x => (int)x).Zip(targetShapeVertexPositions.Values),
-                CastArrayProperty<uint> { Values: var v } => v.Select(x => (int)x).Zip(targetShapeVertexPositions.Values),
-                _ => throw new NotImplementedException($"Unsupported buffer type {TargetShapeVertexIndices.GetType()}")
-            };
-        }
-
-        /// <inheritdoc/>
-        public override string ToString() => Name;
     }
 }

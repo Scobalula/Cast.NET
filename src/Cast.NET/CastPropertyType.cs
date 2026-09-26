@@ -1,6 +1,6 @@
 ﻿// ------------------------------------------------------------------------
 // Cast.NET - A .NET Library for reading and writing Cast files.
-// Copyright(c) 2025 Philip/Scobalula
+// Copyright(c) 2026 Philip/Scobalula
 // ------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,30 +20,60 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 // ------------------------------------------------------------------------
+namespace CastNet;
 
-namespace Cast.NET
+/// <summary>
+/// Specifies the data type stored within a <see cref="CastProperty"/>.
+/// </summary>
+public enum CastPropertyType : ushort
 {
     /// <summary>
-    /// A static class that provides methods for computing hash values.
+    /// 8-bit unsigned integer.
     /// </summary>
-    public static class CastHasher
-    {
-        /// <summary>
-        /// Calculates a 64Bit FNV-1a Hash for the provided input.
-        /// </summary>
-        /// <param name="data">The data to compute the hash for.</param>
-        /// <returns>The hash of the provided data.</returns>
-        public static ulong Compute(string data)
-        {
-            ulong hash = 0xCBD29CE484222325;
+    Byte = 'b',
 
-            for (int i = 0; i < data.Length; i++)
-            {
-                hash ^= (byte)data[i];
-                hash *= 0x100000001B3;
-            }
+    /// <summary>
+    /// 16-bit unsigned integer.
+    /// </summary>
+    Short = 'h',
 
-            return hash;
-        }
-    }
+    /// <summary>
+    /// 32-bit unsigned integer.
+    /// </summary>
+    Integer32 = 'i',
+
+    /// <summary>
+    /// 64-bit unsigned integer.
+    /// </summary>
+    Integer64 = 'l',
+
+    /// <summary>
+    /// Single precision floating point value.
+    /// </summary>
+    Float = 'f',
+
+    /// <summary>
+    /// Double precision floating point value.
+    /// </summary>
+    Double = 'd',
+
+    /// <summary>
+    /// Null terminated UTF-8 string.
+    /// </summary>
+    String = 's',
+
+    /// <summary>
+    /// Single precision vector with 2 components.
+    /// </summary>
+    Vector2 = 0x7632,
+
+    /// <summary>
+    /// Single precision vector with 3 components.
+    /// </summary>
+    Vector3 = 0x7633,
+
+    /// <summary>
+    /// Single precision vector with 4 components.
+    /// </summary>
+    Vector4 = 0x7634,
 }

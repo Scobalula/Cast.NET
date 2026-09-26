@@ -1,6 +1,6 @@
-﻿// ------------------------------------------------------------------------
+// ------------------------------------------------------------------------
 // Cast.NET - A .NET Library for reading and writing Cast files.
-// Copyright(c) 2025 Philip/Scobalula
+// Copyright(c) 2026 Philip/Scobalula
 // ------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,144 +20,71 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 // ------------------------------------------------------------------------
+namespace CastNet.Nodes;
 
-namespace Cast.NET.Nodes
+/// <summary>
+/// An animation.
+/// </summary>
+/// <param name="hash">The node hash.</param>
+public sealed class AnimationNode(ulong hash) : CastNode(CastNodeIdentifier.Animation, hash)
 {
     /// <summary>
-    /// A class to hold a <see cref="CastNode"/> that contains an Animation.
+    /// Gets or sets the name of the animation.
     /// </summary>
-    public class AnimationNode : CastNode
+    public string? Name { get => GetString("n"); set => SetString("n", value); }
+
+    /// <summary>
+    /// Gets or sets the framerate of the animation.
+    /// </summary>
+    public float Framerate { get => GetScalar("fr", 30.0f); set => SetValue("fr", value); }
+
+    /// <summary>
+    /// Gets or sets whether the animation loops.
+    /// </summary>
+    public bool Looping { get => GetBoolean("lo", false); set => SetBoolean("lo", value); }
+
+    /// <summary>
+    /// Gets the skeleton of the animation, or <see langword="null"/> if the animation has no skeleton.
+    /// </summary>
+    public SkeletonNode? Skeleton => GetChild<SkeletonNode>();
+
+    /// <summary>
+    /// Gets or sets the curves. Setting this replaces all existing curves.
+    /// </summary>
+    public CurveNode[] Curves { get => [.. EnumerateChildren<CurveNode>()]; set => ReplaceChildren(value); }
+
+    /// <summary>
+    /// Gets or sets the curve mode overrides. Setting this replaces all existing overrides.
+    /// </summary>
+    public CurveModeOverrideNode[] CurveModeOverrides { get => [.. EnumerateChildren<CurveModeOverrideNode>()]; set => ReplaceChildren(value); }
+
+    /// <summary>
+    /// Gets or sets the notification tracks. Setting this replaces all existing tracks.
+    /// </summary>
+    public NotificationTrackNode[] NotificationTracks { get => [.. EnumerateChildren<NotificationTrackNode>()]; set => ReplaceChildren(value); }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="AnimationNode"/> class with a unique hash.
+    /// </summary>
+    public AnimationNode() : this(CastHash.Next())
     {
-        /// <summary>
-        /// Gets the skeleton assigned to this animation, if none is assigned, null is returned.
-        /// </summary>
-        public SkeletonNode? Skeleton
-        {
-            get => TryGetFirstChild<SkeletonNode>(out var node) ? node : null;
-            set
-            {
-                Children.RemoveAll(x => x is SkeletonNode);
-                if (value is not null)
-                    AddNode(value);
-            }
-        }
-
-        /// <summary>
-        /// Gets all the curves stored within this animation. Setting this will remove all existing from the children.
-        /// </summary>
-        public CurveNode[] Curves
-        {
-            get => GetChildrenOfType<CurveNode>();
-            set
-            {
-                Children.RemoveAll(x => x is CurveNode);
-                Children.AddRange(value);
-            }
-        }
-
-        /// <summary>
-        /// Gets all the curve mode overrides stored within this animation. Setting this will remove all existing from the children.
-        /// </summary>
-        public CurveModeOverrideNode[] CurveModeOverrides
-        {
-            get => GetChildrenOfType<CurveModeOverrideNode>();
-            set
-            {
-                Children.RemoveAll(x => x is CurveModeOverrideNode);
-                Children.AddRange(value);
-            }
-        }
-
-        /// <summary>
-        /// Gets all the notification tracks stored within this animation. Setting this will remove all existing from the children.
-        /// </summary>
-        public NotificationTrackNode[] NotificationTracks
-        {
-            get => GetChildrenOfType<NotificationTrackNode>();
-            set
-            {
-                Children.RemoveAll(x => x is NotificationTrackNode);
-                Children.AddRange(value);
-            }
-        }
-
-        /// <summary>
-        /// Gets or Sets the framerate of this animation.
-        /// </summary>
-        public float Framerate { get => GetFirstValue("fr", 30.0f); set => AddValue("fr", value); }
-
-        /// <summary>
-        /// Gets or Sets if looping is enabled for this animation.
-        /// </summary>
-        public bool Looping { get => GetFirstValue("lo", (byte)0) == 1; set => AddValue("lo", (byte)(value ? 1 : 0)); }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AnimationNode"/> class.
-        /// </summary>
-        public AnimationNode() : base(CastNodeIdentifier.Animation) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AnimationNode"/> class.
-        /// </summary>
-        /// <param name="identifier">Node identifier.</param>
-        public AnimationNode(CastNodeIdentifier identifier) : base(identifier) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AnimationNode"/> class.
-        /// </summary>
-        /// <param name="identifier">Node identifier.</param>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        public AnimationNode(CastNodeIdentifier identifier, ulong hash) : base(identifier, hash) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AnimationNode"/> class.
-        /// </summary>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        public AnimationNode(ulong hash) : base(CastNodeIdentifier.Animation, hash) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AnimationNode"/> class.
-        /// </summary>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        /// <param name="properties">Properties to assign to this node..</param>
-        /// <param name="children">Children to assign to this node..</param>
-        public AnimationNode(ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(CastNodeIdentifier.Animation, hash, properties, children)
-        { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CastNode"/> class.
-        /// </summary>
-        /// <param name="identifier">Node identifier.</param>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        /// <param name="properties">Properties to assign to this node..</param>
-        /// <param name="children">Children to assign to this node..</param>
-        public AnimationNode(CastNodeIdentifier identifier, ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(identifier, hash, properties, children)
-        { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AnimationNode"/> class.
-        /// </summary>
-        /// <param name="source">Node to copy from. A shallow copy is performed and references to the source are stored.</param>
-        public AnimationNode(CastNode source) : base(source) { }
-
-        /// <summary>
-        /// Enumerates through all curves within this animation.
-        /// </summary>
-        /// <returns>An enumerable collection of curves within this animation.</returns>
-        public IEnumerable<CurveNode> EnumerateCurves() => EnumerateChildrenOfType<CurveNode>();
-
-        /// <summary>
-        /// Enumerates through all curve move overrides within this animation.
-        /// </summary>
-        /// <returns>An enumerable collection of curve move overrides within this animation.</returns>
-        public IEnumerable<CurveModeOverrideNode> EnumerateCurveModeOverrides() => EnumerateChildrenOfType<CurveModeOverrideNode>();
-
-        /// <summary>
-        /// Enumerates through all notification tracks within this animation.
-        /// </summary>
-        /// <returns>An enumerable collection of notification tracks within this animation.</returns>
-        public IEnumerable<NotificationTrackNode> EnumerateNotificationTracks() => EnumerateChildrenOfType<NotificationTrackNode>();
     }
+
+    /// <summary>
+    /// Enumerates the curves.
+    /// </summary>
+    /// <returns>The curves.</returns>
+    public IEnumerable<CurveNode> EnumerateCurves() => EnumerateChildren<CurveNode>();
+
+    /// <summary>
+    /// Enumerates the curve mode overrides.
+    /// </summary>
+    /// <returns>The curve mode overrides.</returns>
+    public IEnumerable<CurveModeOverrideNode> EnumerateCurveModeOverrides() => EnumerateChildren<CurveModeOverrideNode>();
+
+    /// <summary>
+    /// Enumerates the notification tracks.
+    /// </summary>
+    /// <returns>The notification tracks.</returns>
+    public IEnumerable<NotificationTrackNode> EnumerateNotificationTracks() => EnumerateChildren<NotificationTrackNode>();
 }

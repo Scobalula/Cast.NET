@@ -1,6 +1,6 @@
-﻿// ------------------------------------------------------------------------
+// ------------------------------------------------------------------------
 // Cast.NET - A .NET Library for reading and writing Cast files.
-// Copyright(c) 2025 Philip/Scobalula
+// Copyright(c) 2026 Philip/Scobalula
 // ------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,29 +20,24 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 // ------------------------------------------------------------------------
-using System.Diagnostics;
+namespace CastNet;
 
-namespace Cast.NET
+/// <summary>
+/// A property of a <see cref="CastNode"/>.
+/// </summary>
+public abstract class CastProperty
 {
     /// <summary>
-    /// A class to hold a <see cref="CastProperty"/> that holds various data types.
+    /// Gets the data type.
     /// </summary>
-    [DebuggerDisplay("Identifier = {Identifier}")]
-    public abstract class CastProperty
+    public abstract CastPropertyType Type { get; }
+
+    /// <summary>
+    /// Gets the number of values.
+    /// </summary>
+    public abstract int Count { get; }
+
+    private protected CastProperty()
     {
-        /// <summary>
-        /// Gets the property identifier that describes the data held in this property.
-        /// </summary>
-        public abstract CastPropertyIdentifier Identifier { get; protected set; }
-
-        /// <summary>
-        /// Gets the total number of values in this property.
-        /// </summary>
-        public abstract int ValueCount { get; }
-
-        /// <summary>
-        /// Gets the total raw size of the data in this property.
-        /// </summary>
-        internal abstract int DataSize { get; }
     }
 }

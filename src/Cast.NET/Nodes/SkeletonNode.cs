@@ -1,6 +1,6 @@
-﻿// ------------------------------------------------------------------------
+// ------------------------------------------------------------------------
 // Cast.NET - A .NET Library for reading and writing Cast files.
-// Copyright(c) 2025 Philip/Scobalula
+// Copyright(c) 2026 Philip/Scobalula
 // ------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,185 +20,126 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 // ------------------------------------------------------------------------
-using System.Data;
 using System.Numerics;
-using System.Reflection.Metadata;
 
-namespace Cast.NET.Nodes
+namespace CastNet.Nodes;
+
+/// <summary>
+/// A skeleton.
+/// </summary>
+/// <param name="hash">The node hash.</param>
+public sealed class SkeletonNode(ulong hash) : CastNode(CastNodeIdentifier.Skeleton, hash)
 {
     /// <summary>
-    /// A class to hold a <see cref="CastNode"/> that contains a skeleton.
+    /// Gets or sets the bones in index order. Setting this replaces all existing bones.
     /// </summary>
-    public class SkeletonNode : CastNode
+    public BoneNode[] Bones { get => [.. EnumerateChildren<BoneNode>()]; set => ReplaceChildren(value); }
+
+    /// <summary>
+    /// Gets or sets the IK handles. Setting this replaces all existing IK handles.
+    /// </summary>
+    public IKHandleNode[] IKHandles { get => [.. EnumerateChildren<IKHandleNode>()]; set => ReplaceChildren(value); }
+
+    /// <summary>
+    /// Gets or sets the constraints. Setting this replaces all existing constraints.
+    /// </summary>
+    public ConstraintNode[] Constraints { get => [.. EnumerateChildren<ConstraintNode>()]; set => ReplaceChildren(value); }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="SkeletonNode"/> class with a unique hash.
+    /// </summary>
+    public SkeletonNode() : this(CastHash.Next())
     {
-        /// <summary>
-        /// Gets or Sets all the bones stored within this skeleton. Setting this will remove all existing from the children and you will need to update each bone's parent index.
-        /// </summary>
-        public BoneNode[] Bones
+    }
+
+    /// <summary>
+    /// Enumerates the bones.
+    /// </summary>
+    /// <returns>The bones.</returns>
+    public IEnumerable<BoneNode> EnumerateBones() => EnumerateChildren<BoneNode>();
+
+    /// <summary>
+    /// Enumerates the IK handles.
+    /// </summary>
+    /// <returns>The IK handles.</returns>
+    public IEnumerable<IKHandleNode> EnumerateIKHandles() => EnumerateChildren<IKHandleNode>();
+
+    /// <summary>
+    /// Enumerates the constraints.
+    /// </summary>
+    /// <returns>The constraints.</returns>
+    public IEnumerable<ConstraintNode> EnumerateConstraints() => EnumerateChildren<ConstraintNode>();
+
+    /// <summary>
+    /// Finds the bone with the given name.
+    /// </summary>
+    /// <param name="name">The name of the bone.</param>
+    /// <returns>The bone, or <see langword="null"/> if not found.</returns>
+    public BoneNode? FindBone(string name) => EnumerateBones().FirstOrDefault(bone => bone.Name == name);
+
+    /// <summary>
+    /// Calculates the local transforms of all bones from their world transforms.
+    /// </summary>
+    public void CalculateLocalTransforms()
+    {
+        var bones = Bones;
+
+        foreach (var bone in bones)
         {
-            get => GetChildrenOfType<BoneNode>();
-            set
+            var worldPosition = bone.WorldPosition ?? Vector3.Zero;
+            var worldRotation = bone.WorldRotation ?? Quaternion.Identity;
+
+            if ((uint)bone.ParentIndex >= bones.Length)
             {
-                Children.RemoveAll(x => x is BoneNode);
-                Children.AddRange(value);
+                bone.LocalPosition = worldPosition;
+                bone.LocalRotation = worldRotation;
+                continue;
             }
-        }
 
-        /// <summary>
-        /// Gets or Sets all the IK handles stored within this skeleton. Setting this will remove all existing from the children.
-        /// </summary>
-        public IKHandleNode[] IKHandles
+            var parent = bones[bone.ParentIndex];
+            var inverseParentRotation = Quaternion.Inverse(parent.WorldRotation ?? Quaternion.Identity);
+
+            bone.LocalPosition = Vector3.Transform(worldPosition - (parent.WorldPosition ?? Vector3.Zero), inverseParentRotation);
+            bone.LocalRotation = inverseParentRotation * worldRotation;
+        }
+    }
+
+    /// <summary>
+    /// Calculates the world transforms of all bones from their local transforms.
+    /// </summary>
+    /// <exception cref="InvalidDataException">Thrown if the bone hierarchy contains a cycle.</exception>
+    public void CalculateWorldTransforms()
+    {
+        var bones = Bones;
+        var calculated = new bool[bones.Length];
+        var remaining = bones.Length;
+
+        while (remaining > 0)
         {
-            get => GetChildrenOfType<IKHandleNode>();
-            set
+            var progressed = false;
+
+            for (var i = 0; i < bones.Length; i++)
             {
-                Children.RemoveAll(x => x is IKHandleNode);
-                Children.AddRange(value);
+                var parentIndex = bones[i].ParentIndex;
+                var isRoot = (uint)parentIndex >= bones.Length;
+
+                if (calculated[i] || (!isRoot && !calculated[parentIndex]))
+                    continue;
+
+                var localPosition = bones[i].LocalPosition ?? Vector3.Zero;
+                var localRotation = bones[i].LocalRotation ?? Quaternion.Identity;
+                var parentPosition = isRoot ? Vector3.Zero : bones[parentIndex].WorldPosition ?? Vector3.Zero;
+                var parentRotation = isRoot ? Quaternion.Identity : bones[parentIndex].WorldRotation ?? Quaternion.Identity;
+
+                bones[i].WorldPosition = Vector3.Transform(localPosition, parentRotation) + parentPosition;
+                bones[i].WorldRotation = parentRotation * localRotation;
+                calculated[i] = true;
+                progressed = true;
+                remaining--;
             }
-        }
 
-        /// <summary>
-        /// Gets or Sets all the constraints stored within this skeleton. Setting this will remove all existing from the children.
-        /// </summary>
-        public ConstraintNode[] Constraints
-        {
-            get => GetChildrenOfType<ConstraintNode>();
-            set
-            {
-                Children.RemoveAll(x => x is ConstraintNode);
-                Children.AddRange(value);
-            }
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SkeletonNode"/> class.
-        /// </summary>
-        public SkeletonNode() : base(CastNodeIdentifier.Skeleton) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SkeletonNode"/> class.
-        /// </summary>
-        /// <param name="identifier">Node identifier.</param>
-        public SkeletonNode(CastNodeIdentifier identifier) : base(identifier) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SkeletonNode"/> class.
-        /// </summary>
-        /// <param name="identifier">Node identifier.</param>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        public SkeletonNode(CastNodeIdentifier identifier, ulong hash) : base(identifier, hash) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SkeletonNode"/> class.
-        /// </summary>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        public SkeletonNode(ulong hash) : base(CastNodeIdentifier.Skeleton, hash) { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SkeletonNode"/> class.
-        /// </summary>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        /// <param name="properties">Properties to assign to this node..</param>
-        /// <param name="children">Children to assign to this node..</param>
-        public SkeletonNode(ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(CastNodeIdentifier.Skeleton, hash, properties, children)
-        { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CastNode"/> class.
-        /// </summary>
-        /// <param name="identifier">Node identifier.</param>
-        /// <param name="hash">Optional hash value for lookups.</param>
-        /// <param name="properties">Properties to assign to this node..</param>
-        /// <param name="children">Children to assign to this node..</param>
-        public SkeletonNode(CastNodeIdentifier identifier, ulong hash, Dictionary<string, CastProperty>? properties, List<CastNode>? children) :
-            base(identifier, hash, properties, children)
-        { }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SkeletonNode"/> class.
-        /// </summary>
-        /// <param name="source">Node to copy from. A shallow copy is performed and references to the source are stored.</param>
-        public SkeletonNode(CastNode source) : base(source) { }
-
-        /// <summary>
-        /// Enumerates through all bones within this skeleton.
-        /// </summary>
-        /// <returns>An enumerable collection of bones within this skeleton.</returns>
-        public IEnumerable<BoneNode> EnumerateBones() => EnumerateChildrenOfType<BoneNode>();
-
-        /// <summary>
-        /// Enumerates through all IK handles within this skeleton.
-        /// </summary>
-        /// <returns>An enumerable collection of IK handles within this skeleton.</returns>
-        public IEnumerable<IKHandleNode> EnumerateIKHandles() => EnumerateChildrenOfType<IKHandleNode>();
-
-        /// <summary>
-        /// Enumerates through all constraints within this skeleton.
-        /// </summary>
-        /// <returns>An enumerable collection of constraints within this skeleton.</returns>
-        public IEnumerable<ConstraintNode> EnumerateConstraints() => EnumerateChildrenOfType<ConstraintNode>();
-
-        /// <summary>
-        /// Gets the bone at the provided index.
-        /// </summary>
-        /// <param name="index">The index of the bone within the list of child odes.</param>
-        /// <returns>Resulting bone node.</returns>
-        /// <exception cref="NotSupportedException">Thrown if the object at the index is not a <see cref="BoneNode"/>.</exception>
-        public BoneNode GetBone(int index)
-        {
-            if (Children[index] is BoneNode bone)
-                return bone;
-
-            throw new NotSupportedException($"Node at index {index} is of type: {Children[index].GetType()}");
-        }
-
-        /// <summary>
-        /// Calculates the local positions of all bones within this skeleton.
-        /// </summary>
-        public void CalculateLocalTransforms()
-        {
-            foreach (var bone in EnumerateBones())
-            {
-                var parentIndex = bone.ParentIndex;
-
-                if (parentIndex == -1)
-                {
-                    bone.AddValue("lp", bone.WorldPosition);
-                    bone.AddValue("lr", CastHelpers.CreateVector4FromQuaternion(bone.WorldRotation));
-                }
-                else
-                {
-                    var parent = GetChild<BoneNode>(parentIndex);
-
-                    bone.AddValue("lr", CastHelpers.CreateVector4FromQuaternion(Quaternion.Conjugate(parent.WorldRotation) * bone.WorldRotation));
-                    bone.AddValue("lp", Vector3.Transform(bone.WorldPosition - parent.WorldPosition, Quaternion.Conjugate(parent.WorldRotation)));
-                }
-            }
-        }
-
-        /// <summary>
-        /// Calculates the world positions of all bones within this skeleton.
-        /// </summary>
-        public void CalculateWorldTransforms()
-        {
-            foreach (var bone in EnumerateBones())
-            {
-                var parentIndex = bone.ParentIndex;
-
-                if (parentIndex == -1)
-                {
-                    bone.AddValue("wp", bone.LocalPosition);
-                    bone.AddValue("wr", CastHelpers.CreateVector4FromQuaternion(bone.LocalRotation));
-                }
-                else
-                {
-                    var parent = GetChild<BoneNode>(parentIndex);
-
-                    bone.AddValue("wr", CastHelpers.CreateVector4FromQuaternion(parent.WorldRotation * bone.LocalRotation));
-                    bone.AddValue("wp", Vector3.Transform(bone.WorldPosition, parent.WorldRotation) + parent.WorldPosition);
-                }
-            }
+            if (!progressed)
+                throw new InvalidDataException("The bone hierarchy contains a cycle.");
         }
     }
 }

@@ -23,40 +23,53 @@
 namespace CastNet.Nodes;
 
 /// <summary>
-/// Overrides the curve mode of a node and its descendants.
+/// The root node of a cast file.
 /// </summary>
 /// <param name="hash">The node hash.</param>
-public sealed class CurveModeOverrideNode(ulong hash) : CastNode(CastNodeIdentifier.CurveModeOverride, hash)
+public sealed class RootNode(ulong hash) : CastNode(CastNodeIdentifier.Root, hash)
 {
     /// <summary>
-    /// Gets or sets the name of the node the override starts at.
+    /// Gets or sets the models. Setting this replaces all existing models.
     /// </summary>
-    public string NodeName { get => GetString("nn") ?? string.Empty; set => SetString("nn", value); }
+    public ModelNode[] Models { get => [.. EnumerateChildren<ModelNode>()]; set => ReplaceChildren(value); }
 
     /// <summary>
-    /// Gets or sets the curve mode: <c>additive</c>, <c>absolute</c> or <c>relative</c>.
+    /// Gets or sets the animations. Setting this replaces all existing animations.
     /// </summary>
-    public string Mode { get => GetString("m") ?? string.Empty; set => SetString("m", value); }
+    public AnimationNode[] Animations { get => [.. EnumerateChildren<AnimationNode>()]; set => ReplaceChildren(value); }
 
     /// <summary>
-    /// Gets or sets whether translation curves are overridden.
+    /// Gets or sets the instances. Setting this replaces all existing instances.
     /// </summary>
-    public bool OverrideTranslationCurves { get => GetBoolean("ot", false); set => SetBoolean("ot", value); }
+    public InstanceNode[] Instances { get => [.. EnumerateChildren<InstanceNode>()]; set => ReplaceChildren(value); }
 
     /// <summary>
-    /// Gets or sets whether rotation curves are overridden.
+    /// Gets the metadata of the scene, or <see langword="null"/> if the scene has no metadata.
     /// </summary>
-    public bool OverrideRotationCurves { get => GetBoolean("or", false); set => SetBoolean("or", value); }
+    public MetadataNode? Metadata => GetChild<MetadataNode>();
 
     /// <summary>
-    /// Gets or sets whether scale curves are overridden.
+    /// Initializes a new instance of the <see cref="RootNode"/> class with a unique hash.
     /// </summary>
-    public bool OverrideScaleCurves { get => GetBoolean("os", false); set => SetBoolean("os", value); }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="CurveModeOverrideNode"/> class with a unique hash.
-    /// </summary>
-    public CurveModeOverrideNode() : this(CastHash.Next())
+    public RootNode() : this(CastHash.Next())
     {
     }
+
+    /// <summary>
+    /// Enumerates the models.
+    /// </summary>
+    /// <returns>The models.</returns>
+    public IEnumerable<ModelNode> EnumerateModels() => EnumerateChildren<ModelNode>();
+
+    /// <summary>
+    /// Enumerates the animations.
+    /// </summary>
+    /// <returns>The animations.</returns>
+    public IEnumerable<AnimationNode> EnumerateAnimations() => EnumerateChildren<AnimationNode>();
+
+    /// <summary>
+    /// Enumerates the instances.
+    /// </summary>
+    /// <returns>The instances.</returns>
+    public IEnumerable<InstanceNode> EnumerateInstances() => EnumerateChildren<InstanceNode>();
 }

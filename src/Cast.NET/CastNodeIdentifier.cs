@@ -1,6 +1,6 @@
-﻿// ------------------------------------------------------------------------
+// ------------------------------------------------------------------------
 // Cast.NET - A .NET Library for reading and writing Cast files.
-// Copyright(c) 2025 Philip/Scobalula
+// Copyright(c) 2026 Philip/Scobalula
 // ------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,103 +20,102 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 // ------------------------------------------------------------------------
-using Cast.NET.Nodes;
+using CastNet.Nodes;
 
-namespace Cast.NET
+namespace CastNet;
+
+/// <summary>
+/// Identifies the type of a <see cref="CastNode"/>.
+/// </summary>
+public enum CastNodeIdentifier : uint
 {
     /// <summary>
-    /// Specifies the supported <see cref="CastNode"/> identifiers. Unsupported types will resolve to <see cref="CastNode"/>.
+    /// A <see cref="RootNode"/>.
     /// </summary>
-    public enum CastNodeIdentifier : uint
-    {
-        /// <summary>
-        /// A node that contains a root <see cref="CastNode"/>.
-        /// </summary>
-        Root = 0x746F6F72,
+    Root = 0x746F6F72,
 
-        /// <summary>
-        /// A node that contains a <see cref="ModelNode"/>.
-        /// </summary>
-        Model = 0x6C646F6D,
+    /// <summary>
+    /// A <see cref="ModelNode"/>.
+    /// </summary>
+    Model = 0x6C646F6D,
 
-        /// <summary>
-        /// A node that contains a <see cref="MeshNode"/>.
-        /// </summary>
-        Mesh = 0x6873656D,
+    /// <summary>
+    /// A <see cref="MeshNode"/>.
+    /// </summary>
+    Mesh = 0x6873656D,
 
-        /// <summary>
-        /// A node that contains a <see cref="HairNode"/>.
-        /// </summary>
-        Hair = 0x72696168,
+    /// <summary>
+    /// A <see cref="HairNode"/>.
+    /// </summary>
+    Hair = 0x72696168,
 
-        /// <summary>
-        /// A node that contains a <see cref="BlendShapeNode"/>.
-        /// </summary>
-        BlendShape = 0x68736C62,
+    /// <summary>
+    /// A <see cref="BlendShapeNode"/>.
+    /// </summary>
+    BlendShape = 0x68736C62,
 
-        /// <summary>
-        /// A node that contains a <see cref="SkeletonNode"/>.
-        /// </summary>
-        Skeleton = 0x6C656B73,
+    /// <summary>
+    /// A <see cref="SkeletonNode"/>.
+    /// </summary>
+    Skeleton = 0x6C656B73,
 
-        /// <summary>
-        /// A node that contains a <see cref="BoneNode"/>.
-        /// </summary>
-        Bone = 0x656E6F62,
+    /// <summary>
+    /// A <see cref="BoneNode"/>.
+    /// </summary>
+    Bone = 0x656E6F62,
 
-        /// <summary>
-        /// A node that contains a <see cref="IKHandleNode"/>.
-        /// </summary>
-        IKHandle = 0x64686B69,
+    /// <summary>
+    /// A <see cref="IKHandleNode"/>.
+    /// </summary>
+    IKHandle = 0x64686B69,
 
-        /// <summary>
-        /// A node that contains a <see cref="ConstraintNode"/>.
-        /// </summary>
-        Constraint = 0x74736E63,
+    /// <summary>
+    /// A <see cref="ConstraintNode"/>.
+    /// </summary>
+    Constraint = 0x74736E63,
 
-        /// <summary>
-        /// A node that contains a <see cref="AnimationNode"/>.
-        /// </summary>
-        Animation = 0x6D696E61,
+    /// <summary>
+    /// A <see cref="AnimationNode"/>.
+    /// </summary>
+    Animation = 0x6D696E61,
 
-        /// <summary>
-        /// A node that contains a <see cref="CurveNode"/>.
-        /// </summary>
-        Curve = 0x76727563,
+    /// <summary>
+    /// A <see cref="CurveNode"/>.
+    /// </summary>
+    Curve = 0x76727563,
 
-        /// <summary>
-        /// A node that contains a <see cref="CurveModeOverrideNode"/>.
-        /// </summary>
-        CurveModeOverride = 0x564F4D43,
+    /// <summary>
+    /// A <see cref="CurveModeOverrideNode"/>.
+    /// </summary>
+    CurveModeOverride = 0x564F4D43,
 
-        /// <summary>
-        /// A node that contains a <see cref="NotificationTrackNode"/>.
-        /// </summary>
-        NotificationTrack = 0x6669746E,
+    /// <summary>
+    /// A <see cref="NotificationTrackNode"/>.
+    /// </summary>
+    NotificationTrack = 0x6669746E,
 
-        /// <summary>
-        /// A node that contains a <see cref="MaterialNode"/>.
-        /// </summary>
-        Material = 0x6C74616D,
+    /// <summary>
+    /// A <see cref="MaterialNode"/>.
+    /// </summary>
+    Material = 0x6C74616D,
 
-        /// <summary>
-        /// A node that contains a <see cref="FileNode"/>.
-        /// </summary>
-        File = 0x656C6966,
+    /// <summary>
+    /// A <see cref="FileNode"/>.
+    /// </summary>
+    File = 0x656C6966,
 
-        /// <summary>
-        /// A node that contains a <see cref="InstanceNode"/>.
-        /// </summary>
-        Color = 0x726C6F63,
+    /// <summary>
+    /// A <see cref="ColorNode"/>.
+    /// </summary>
+    Color = 0x726C6F63,
 
-        /// <summary>
-        /// A node that contains a <see cref="ColorNode"/>.
-        /// </summary>
-        Instance = 0x74736E69,
+    /// <summary>
+    /// A <see cref="InstanceNode"/>.
+    /// </summary>
+    Instance = 0x74736E69,
 
-        /// <summary>
-        /// A node that contains a <see cref="MetadataNode"/>.
-        /// </summary>
-        Metadata = 0x6174656D,
-    };
+    /// <summary>
+    /// A <see cref="MetadataNode"/>.
+    /// </summary>
+    Metadata = 0x6174656D,
 }

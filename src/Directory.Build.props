@@ -1,0 +1,18 @@
+<Project>
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <RootNamespace>$(MSBuildProjectName.Replace('Cast.NET', 'CastNet'))</RootNamespace>
+    <BuildNumber Condition="'$(BuildNumber)' == ''">0</BuildNumber>
+    <Version>$([System.DateTime]::UtcNow.ToString("yyyy.M.d")).$(BuildNumber)</Version>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+    <Company>Scobalula</Company>
+    <Authors>Scobalula</Authors>
+    <Copyright>Copyright © $([System.DateTime]::UtcNow.ToString("yyyy")) Scobalula</Copyright>
+  </PropertyGroup>
+
+</Project>

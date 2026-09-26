@@ -1,19 +1,29 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <AppDesignerFolder>PropertyTypes</AppDesignerFolder>
+    <Product>Cast.NET</Product>
     <PackageId>Cast.NET</PackageId>
-    <PackageVersion>1.0.0-alpha</PackageVersion>
-    <PackageReleaseNotes>Initial alpha release.</PackageReleaseNotes>
-    <Authors>Scobalula</Authors>
-    <Description>A .NET Library for reading and writing Cast files.</Description>
-    <Copyright>README.md</Copyright>
+    <Description>A .NET library for reading and writing Cast files.</Description>
+    <PackageTags>cast;3d;model;animation;gamedev;file-format</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>logo.png</PackageIcon>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <RepositoryUrl>https://github.com/Scobalula/Cast.NET</RepositoryUrl>
     <PackageProjectUrl>https://github.com/Scobalula/Cast.NET</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Scobalula/Cast.NET</RepositoryUrl>
+    <PackageReleaseNotes>https://github.com/Scobalula/Cast.NET/blob/main/CHANGELOG.md</PackageReleaseNotes>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <IsAotCompatible>true</IsAotCompatible>
   </PropertyGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Cast.NET.Tests" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\img\logo.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
 </Project>
