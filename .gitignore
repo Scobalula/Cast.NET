@@ -431,3 +431,6 @@ PROMPT.md
 
 # Tests
 [Tt]estfiles/
+
+# Reference Cast library downloaded by CI
+.github/cast.py
