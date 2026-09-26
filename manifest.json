@@ -1,0 +1,509 @@
+{
+  "docfx_version": "2.81.0+ba844df625370a6bd7c1ecab0d0ec4d1d9128ac4",
+  "source_base_path": "/home/runner/work/Cast.NET/Cast.NET/docfx",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CastNet.Cast.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CastNet.Cast.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CastNet.Cast",
+      "Summary": "<p sourcefile=\"api/CastNet.Cast.yml\" sourcestartlinenumber=\"1\">An in-memory cast file.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CastNet.CastArrayProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CastNet.CastArrayProperty.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CastNet.CastArrayProperty",
+      "Summary": "<p sourcefile=\"api/CastNet.CastArrayProperty.yml\" sourcestartlinenumber=\"1\">A property holding an array of numbers or vectors.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CastNet.CastHash.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CastNet.CastHash.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CastNet.CastHash",
+      "Summary": "<p sourcefile=\"api/CastNet.CastHash.yml\" sourcestartlinenumber=\"1\">Generates unique node hashes.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CastNet.CastNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CastNet.CastNode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CastNet.CastNode",
+      "Summary": "<p sourcefile=\"api/CastNet.CastNode.yml\" sourcestartlinenumber=\"1\">A node holding properties and child nodes.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CastNet.CastNodeIdentifier.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CastNet.CastNodeIdentifier.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CastNet.CastNodeIdentifier",
+      "Summary": "<p sourcefile=\"api/CastNet.CastNodeIdentifier.yml\" sourcestartlinenumber=\"1\">Identifies the type of a <xref href=\"CastNet.CastNode\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CastNet.CastProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CastNet.CastProperty.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CastNet.CastProperty",
+      "Summary": "<p sourcefile=\"api/CastNet.CastProperty.yml\" sourcestartlinenumber=\"1\">A property of a <xref href=\"CastNet.CastNode\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CastNet.CastPropertyType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CastNet.CastPropertyType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CastNet.CastPropertyType",
+      "Summary": "<p sourcefile=\"api/CastNet.CastPropertyType.yml\" sourcestartlinenumber=\"1\">Specifies the data type stored within a <xref href=\"CastNet.CastProperty\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CastNet.CastReader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CastNet.CastReader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CastNet.CastReader",
+      "Summary": "<p sourcefile=\"api/CastNet.CastReader.yml\" sourcestartlinenumber=\"1\">Loads cast files.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CastNet.CastStringProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CastNet.CastStringProperty.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CastNet.CastStringProperty",
+      "Summary": "<p sourcefile=\"api/CastNet.CastStringProperty.yml\" sourcestartlinenumber=\"1\">A property holding a string.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CastNet.CastWriter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CastNet.CastWriter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CastNet.CastWriter",
+      "Summary": "<p sourcefile=\"api/CastNet.CastWriter.yml\" sourcestartlinenumber=\"1\">Saves cast files.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CastNet.Nodes.AnimationNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CastNet.Nodes.AnimationNode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CastNet.Nodes.AnimationNode",
+      "Summary": "<p sourcefile=\"api/CastNet.Nodes.AnimationNode.yml\" sourcestartlinenumber=\"1\">An animation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CastNet.Nodes.BlendShapeNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CastNet.Nodes.BlendShapeNode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CastNet.Nodes.BlendShapeNode",
+      "Summary": "<p sourcefile=\"api/CastNet.Nodes.BlendShapeNode.yml\" sourcestartlinenumber=\"1\">A blend shape target for a mesh.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CastNet.Nodes.BoneNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CastNet.Nodes.BoneNode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CastNet.Nodes.BoneNode",
+      "Summary": "<p sourcefile=\"api/CastNet.Nodes.BoneNode.yml\" sourcestartlinenumber=\"1\">A skeleton bone.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CastNet.Nodes.ColorNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CastNet.Nodes.ColorNode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CastNet.Nodes.ColorNode",
+      "Summary": "<p sourcefile=\"api/CastNet.Nodes.ColorNode.yml\" sourcestartlinenumber=\"1\">A color used by a material slot.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CastNet.Nodes.ConstraintNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CastNet.Nodes.ConstraintNode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CastNet.Nodes.ConstraintNode",
+      "Summary": "<p sourcefile=\"api/CastNet.Nodes.ConstraintNode.yml\" sourcestartlinenumber=\"1\">A constraint between two bones.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CastNet.Nodes.CurveModeOverrideNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CastNet.Nodes.CurveModeOverrideNode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CastNet.Nodes.CurveModeOverrideNode",
+      "Summary": "<p sourcefile=\"api/CastNet.Nodes.CurveModeOverrideNode.yml\" sourcestartlinenumber=\"1\">Overrides the curve mode of a node and its descendants.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CastNet.Nodes.CurveNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CastNet.Nodes.CurveNode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CastNet.Nodes.CurveNode",
+      "Summary": "<p sourcefile=\"api/CastNet.Nodes.CurveNode.yml\" sourcestartlinenumber=\"1\">An animation curve for a single node property.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CastNet.Nodes.FileNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CastNet.Nodes.FileNode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CastNet.Nodes.FileNode",
+      "Summary": "<p sourcefile=\"api/CastNet.Nodes.FileNode.yml\" sourcestartlinenumber=\"1\">A reference to an external file.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CastNet.Nodes.HairNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CastNet.Nodes.HairNode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CastNet.Nodes.HairNode",
+      "Summary": "<p sourcefile=\"api/CastNet.Nodes.HairNode.yml\" sourcestartlinenumber=\"1\">Hair strands made of particles.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CastNet.Nodes.IKHandleNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CastNet.Nodes.IKHandleNode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CastNet.Nodes.IKHandleNode",
+      "Summary": "<p sourcefile=\"api/CastNet.Nodes.IKHandleNode.yml\" sourcestartlinenumber=\"1\">An IK chain between bones.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CastNet.Nodes.InstanceNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CastNet.Nodes.InstanceNode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CastNet.Nodes.InstanceNode",
+      "Summary": "<p sourcefile=\"api/CastNet.Nodes.InstanceNode.yml\" sourcestartlinenumber=\"1\">A placed instance of another cast file.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CastNet.Nodes.MaterialNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CastNet.Nodes.MaterialNode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CastNet.Nodes.MaterialNode",
+      "Summary": "<p sourcefile=\"api/CastNet.Nodes.MaterialNode.yml\" sourcestartlinenumber=\"1\">A material. Properties other than the name and type are slots, such as <code>albedo</code>, referencing a child <xref href=\"CastNet.Nodes.FileNode\" data-throw-if-not-resolved=\"false\"></xref> or <xref href=\"CastNet.Nodes.ColorNode\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CastNet.Nodes.MeshNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CastNet.Nodes.MeshNode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CastNet.Nodes.MeshNode",
+      "Summary": "<p sourcefile=\"api/CastNet.Nodes.MeshNode.yml\" sourcestartlinenumber=\"1\">A triangle mesh.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CastNet.Nodes.MetadataNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CastNet.Nodes.MetadataNode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CastNet.Nodes.MetadataNode",
+      "Summary": "<p sourcefile=\"api/CastNet.Nodes.MetadataNode.yml\" sourcestartlinenumber=\"1\">Scene metadata. The first metadata node takes priority.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CastNet.Nodes.ModelNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CastNet.Nodes.ModelNode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CastNet.Nodes.ModelNode",
+      "Summary": "<p sourcefile=\"api/CastNet.Nodes.ModelNode.yml\" sourcestartlinenumber=\"1\">A model.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CastNet.Nodes.NotificationTrackNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CastNet.Nodes.NotificationTrackNode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CastNet.Nodes.NotificationTrackNode",
+      "Summary": "<p sourcefile=\"api/CastNet.Nodes.NotificationTrackNode.yml\" sourcestartlinenumber=\"1\">A named notification and the frames it fires on.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CastNet.Nodes.RootNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CastNet.Nodes.RootNode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CastNet.Nodes.RootNode",
+      "Summary": "<p sourcefile=\"api/CastNet.Nodes.RootNode.yml\" sourcestartlinenumber=\"1\">The root node of a cast file.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CastNet.Nodes.SkeletonNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CastNet.Nodes.SkeletonNode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CastNet.Nodes.SkeletonNode",
+      "Summary": "<p sourcefile=\"api/CastNet.Nodes.SkeletonNode.yml\" sourcestartlinenumber=\"1\">A skeleton.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CastNet.Nodes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CastNet.Nodes.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CastNet.Nodes",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CastNet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CastNet.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CastNet",
+      "Summary": null
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/quickstart.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/quickstart.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html"
+        },
+        ".json": {
+          "relative_path": "articles/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
